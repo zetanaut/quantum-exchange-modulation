@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quantum-exchange-modulation"
+version = "0.1.0"
+description = "A PyTorch and PennyLane research prototype for conditional quantum-state modulation"
+requires-python = ">=3.12"
+dependencies = ["numpy>=2.0", "scipy>=1.13", "matplotlib>=3.8", "torch>=2.5", "pennylane==0.45.1"]
+
+[tool.setuptools.packages.find]
+include = ["qem*"]

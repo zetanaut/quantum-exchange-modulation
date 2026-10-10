@@ -1,0 +1,19 @@
+{
+  "frameworks": {
+    "torch": "2.14.1+cpu",
+    "pennylane": "0.45.1"
+  },
+  "device": "default.mixed, public APIs, unbatched QNodes composed into a batch",
+  "state_map_max_abs_error": 1.6725640037724557e-16,
+  "trace_max_abs_error": 4.443790123170277e-16,
+  "minimum_eigenvalue": 0.04884227824325808,
+  "two_layer_gradient_norms": [
+    0.23613736231486315,
+    0.5191863230736317
+  ],
+  "directional_gradient_abs_error": 4.4394864173735726e-10,
+  "streaming_depth": 2,
+  "source_copies_per_execution": 3,
+  "status": "PASS",
+  "meaning": "Physical state map and differentiable composition; no trained deep-network advantage claimed."
+}

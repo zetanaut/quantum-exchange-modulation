@@ -1,0 +1,9 @@
+{
+  "exchange_matched_qnn": {
+    "loss": 0.006849258628002896,
+    "max_absolute_error": 1.1089543562950444e-11,
+    "relative_l2_error": 1.6987627673453595e-10,
+    "parameters_checked": 28,
+    "passed": true
+  }
+}

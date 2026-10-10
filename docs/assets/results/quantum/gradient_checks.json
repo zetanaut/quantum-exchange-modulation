@@ -1,0 +1,23 @@
+{
+  "joint_exchange": {
+    "loss": 0.027529350105475813,
+    "max_absolute_error": 1.9914320192881974e-11,
+    "relative_l2_error": 1.5147893431456593e-10,
+    "parameters_checked": 25,
+    "passed": true
+  },
+  "no_commutator": {
+    "loss": 0.015733244772423553,
+    "max_absolute_error": 1.322145171123168e-11,
+    "relative_l2_error": 1.1094111863834464e-10,
+    "parameters_checked": 25,
+    "passed": true
+  },
+  "two_copy_qnn": {
+    "loss": 0.004489789175255926,
+    "max_absolute_error": 1.1124184906563528e-11,
+    "relative_l2_error": 2.515603418008433e-10,
+    "parameters_checked": 31,
+    "passed": true
+  }
+}

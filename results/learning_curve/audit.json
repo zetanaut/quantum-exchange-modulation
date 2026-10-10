@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "run_count": 96,
+  "fresh_runs": 72,
+  "reused_runs": 24,
+  "failures": 0,
+  "saved_prediction_metric_cells_checked": 576,
+  "maximum_mse_recomputation_discrepancy": 0.0,
+  "maximum_selected_checkpoint_validation_discrepancy": 2.7755575615628914e-17,
+  "full_size_saved_prediction_discrepancy": 4.551914400963142e-15,
+  "state_nesting_and_split_disjointness": "passed",
+  "all_seed_and_validation_configuration_checks": "passed",
+  "unique_training_contexts_by_source_states": {
+    "8": 17,
+    "16": 18,
+    "32": 18,
+    "64": 18
+  },
+  "validation_pairs_additional_at_every_size": 96,
+  "training_configuration_changed_after_test_inspection": false,
+  "figure_postprocessing_only_changes": "caption adds shared validation budget and respects full-size provenance",
+  "scientific_plot_visual_inspection": "passed; labels, all seed points, exact Gram floor, provenance visible",
+  "executed_script_snapshot": "executed_learning_curve.py.txt",
+  "executed_script_sha256": "d8883947ac993aa5c4530ac952042d2abf7d4085768dde575e925c6382f931be",
+  "current_script_sha256": "f1ae5459923082dcd0054e094758d200710e82c5e8978d0e1eccb4ee7cc52839",
+  "runtime_scope": "186.54 seconds for training, evaluation, and checkpoints; figure rendering followed"
+}

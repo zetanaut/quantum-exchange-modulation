@@ -1,0 +1,584 @@
+#!/usr/bin/env python3
+"""Predeclared, state-level data-efficiency diagnostic for quantum modulation.
+
+Run from any directory: python scripts/learning_curve.py
+Resume an interrupted study: python scripts/learning_curve.py --resume
+Rebuild figures and tables without training: python scripts/learning_curve.py --plot-only
+
+This is an exact-expectation simulation, not a finite-shot sample-complexity
+experiment. All optimizer seeds are retained. Source states, rather than rows,
+are the unit of subsampling; every selected state contributes all five pairs.
+"""
+from __future__ import annotations
+
+import os
+os.environ["OPENBLAS_NUM_THREADS"] = "1"
+os.environ["OMP_NUM_THREADS"] = "1"
+import argparse
+import copy
+import csv
+from datetime import datetime, timezone
+import hashlib
+import json
+from pathlib import Path
+import sys
+import time
+import traceback
+
+import numpy as np
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "scripts"))
+SIZES = (8, 16, 32, 64)
+SEEDS = (17, 31, 73)
+QUANTUM_NAMES = ("joint_exchange", "exchange_matched_qnn")
+WIDTHS = (12, 24)
+L2S = (1e-5, .001, .01)
+SPLITS = ("train", "validation", "test_state", "test_context", "test_joint", "bell")
+ORDER_SEED = 20261010
+PLOT_FLOOR = 1e-14
+
+# These exact files were inspected before the smaller-size experiment began.
+# Reuse is refused if the dataset, implementation, or recorded artifacts differ.
+# A changed installation can instead run all sizes with --fresh-full-size.
+FULL_SIZE_SHA256 = {
+    "data/benchmark.npz": "75237b0540b49a2c4a4f179aad2eb64cfdd7ccb1de22e6310cdb1f7aaa2407b1",
+    "scripts/train_torch.py": "073f2a193f11320c9b5c9f11647443b8d3615c6bfd1e7cbaf1169d87491e903c",
+    "scripts/train_torch_classical.py": "0a299767ec8dfe411267e2f170f0d4b88b9cf26530c052f88c4087235d30f8a7",
+    "qem/torch_classical.py": "d842cc8b85a55d4fa8cb117549f847b605d5b1b3fda0a8f10621f8497764cec1",
+    "qem/pennylane_models.py": "947d29ba71c2afa82a6c1a23a0f2b2b531594c1ae486fb965f17ed72d0ac17fc",
+    "qem/quantum_models.py": "6d58d5fd40ec1d80af801f519f7b525fac3a4340426e52700201d7dff5185306",
+    "results/torch_quantum/metrics.json": "131f56c7504a534c50add32549f150451fb10e62de46cb78727125f3319e1960",
+    "results/torch_quantum/weights.npz": "f886138047c47d26d4f39a26d048ed0e5e78a65989f8b9137633190c1a1283f1",
+    "results/torch_quantum/predictions.npz": "61800ae5ae6ece763a796d2da1b9ed8d220b39033b58bc6ca0e96fc55906a2b9",
+    "results/torch_classical/metrics.json": "66c20637159b0f081f18efeded742db581e302fd2f543c7564f050bee9cb1d04",
+    "results/torch_classical/weights.npz": "270ac57550023d7948e40521786b4663a8f6baa070fe4e226ed5879c2d4e90b3",
+    "results/torch_classical/predictions.npz": "988202d29794a0c1a3eb4e5069674a7b9fb6e2e0bdc705acf020bf789659844d",
+    "results/torch_classical/histories.json": "2cfb60275e4b026adfe4bc1d8f2d1c44dd6fc2e5340b0bf4b0967dc1b80e13ad",
+}
+
+
+def sha256(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def utc_now():
+    return datetime.now(timezone.utc).isoformat()
+
+
+def atomic_json(path, value):
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    temporary.write_text(json.dumps(value, indent=2, allow_nan=False) + "\n")
+    temporary.replace(path)
+
+
+def atomic_npz(path, values):
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    with temporary.open("wb") as handle:
+        np.savez_compressed(handle, **values)
+    temporary.replace(path)
+
+
+def load_npz(path):
+    with np.load(path) as archive:
+        return {key: archive[key].copy() for key in archive.files}
+
+
+def error_metrics(y, prediction):
+    residual = np.asarray(prediction) - np.asarray(y)
+    if not np.all(np.isfinite(residual)):
+        raise FloatingPointError("Nonfinite predictions")
+    mse = float(np.mean(residual ** 2))
+    variance = float(np.var(y))
+    return {"n": len(y), "mse": mse, "rmse": float(np.sqrt(mse)),
+            "mae": float(np.mean(np.abs(residual))),
+            "max_abs_error": float(np.max(np.abs(residual))),
+            "r2": 1 - mse / variance if variance else None}
+
+
+def make_indices(data):
+    state_ids = data["train_state_id"]
+    families = data["train_family"]
+    unique_ids = np.unique(state_ids)
+    if len(unique_ids) != 64:
+        raise ValueError("This fixed protocol requires the recorded 64-state training pool")
+    by_family = {}
+    rng = np.random.default_rng(ORDER_SEED)
+    for family in sorted(np.unique(families).tolist()):
+        group = np.unique(state_ids[families == family])
+        rng.shuffle(group)
+        by_family[family] = group.tolist()
+    ordered = []
+    for offset in range(max(map(len, by_family.values()))):
+        for group in by_family.values():
+            if offset < len(group):
+                ordered.append(int(group[offset]))
+    result = {"ordering_seed": ORDER_SEED,
+              "ordering_rule": "shuffle within alphabetically ordered source families; round-robin families",
+              "nested_state_order": ordered, "subsets": {}}
+    previous = set()
+    for n in SIZES:
+        selected_ids = ordered[:n]
+        rows = np.flatnonzero(np.isin(state_ids, selected_ids))
+        assert len(rows) == n * 5 and previous <= set(selected_ids)
+        assert all(np.sum(state_ids[rows] == s) == 5 for s in selected_ids)
+        previous = set(selected_ids)
+        family_counts = {f: int(len(np.unique(state_ids[rows][families[rows] == f])))
+                         for f in by_family}
+        context_seen = np.isin(data["test_context_state_id"], selected_ids)
+        result["subsets"][str(n)] = {
+            "source_states": n, "training_pairs": len(rows),
+            "state_ids_in_inclusion_order": selected_ids,
+            "training_row_indices": rows.tolist(),
+            "row_order": "original dataset order; no sample reordering before optimization",
+            "source_family_state_counts": family_counts,
+            "row_indices_sha256": hashlib.sha256(rows.astype(np.int64).tobytes()).hexdigest(),
+            "original_test_context_seen_state_pairs": int(context_seen.sum()),
+            "original_test_context_unseen_state_pairs": int((~context_seen).sum()),
+        }
+    assert result["subsets"]["64"]["training_row_indices"] == list(range(320))
+    return result
+
+
+def make_protocol(data_path, indices, fresh_full_size):
+    return {
+        "schema_version": 1, "created_utc": utc_now(),
+        "study": "Nested complete-state learning curve, exact expectations",
+        "predeclaration": "Design fixed before running any smaller-size training or inspecting their test errors",
+        "dataset": "data/benchmark.npz", "dataset_sha256": sha256(data_path),
+        "source_states": list(SIZES), "training_pairs": [n * 5 for n in SIZES],
+        "optimizer_seeds": list(SEEDS), "subsampling_seed": ORDER_SEED,
+        "source_families": list(indices["subsets"]["64"]["source_family_state_counts"]),
+        "nested_subsets": "One family-balanced state ordering, shared by every model and optimizer seed",
+        "validation": "All 96 recorded validation pairs, unchanged at every training size",
+        "quantum": {"models": list(QUANTUM_NAMES), "maxiter": 120, "batch_size": 320,
+                    "val_every": 5, "adam_steps": 0, "initialization": "fresh seeded random parameters",
+                    "optimizer": "unchanged scripts/train_torch.py:fit_one",
+                    "selection": "minimum validation MSE among initial and every-fifth-iteration checkpoints"},
+        "film": {"widths": list(WIDTHS), "l2": list(L2S), "steps": 180,
+                 "optimizer": {"name": "torch.optim.LBFGS", "lr": 1., "max_iter": 1,
+                               "max_eval": 20, "history_size": 50, "tolerance_grad": 1e-9,
+                               "tolerance_change": 1e-12, "line_search_fn": "strong_wolfe"},
+                 "checkpoint_selection": "minimum validation MSE, checked at initialization and every iteration",
+                 "configuration_selection": "minimum mean validation MSE across all three seeds, independently at each size",
+                 "input": "15 exact nonidentity two-qubit Pauli expectations and context vector"},
+        "calibration": "Exact untrained classical Gram formula; no fitted coefficients or labeled pairs required",
+        "heldout_results": ["test_joint", "test_state", "test_context"],
+        "primary_endpoint": "test_joint MSE: fixed new states and held-out context cap",
+        "test_context_caveat": "At smaller sizes some original test_context states are absent from training; overlap counts are in indices.json",
+        "reported_uncertainty": "All three optimizer seeds, arithmetic mean and range; no dataset-resampling confidence interval",
+        "reuse_full_size": not fresh_full_size,
+        "reuse_policy": "Only pinned identical source/data/results and matching training configurations; saved checkpoint predictions are reevaluated",
+        "finite_shot_training": False,
+        "resource_scope": "Counts are labeled source-state/context pairs, not physical quantum copies or measurement shots",
+        "runtime_scope": "Per-run training times and new invocation wall time; reused training times remain historical",
+        "claims": ["No practical superiority is inferred from errors near numerical precision",
+                   "A matched two-copy quantum model is a strong comparator",
+                   "The known classical Gram formula is exact with exact Pauli features",
+                   "One nested state sequence and three optimizer seeds are a diagnostic, not a general sample-complexity theorem"],
+        "plot_floor_mse": PLOT_FLOOR,
+        "implementation_sha256": sha256(Path(__file__)),
+    }
+
+
+def fit_film(train, validation, width, l2, seed):
+    import torch
+    from qem.torch_classical import TorchFiLM
+    start = time.perf_counter()
+    model = TorchFiLM(width=width, seed=seed)
+    initial = model.weights.detach().cpu().numpy().copy()
+    optimizer = torch.optim.LBFGS(model.parameters(), lr=1., max_iter=1,
+        max_eval=20, history_size=50, tolerance_grad=1e-9,
+        tolerance_change=1e-12, line_search_fn="strong_wolfe")
+    best = [float("inf"), None, 0]
+    history, evaluations = [], [0]
+
+    def evaluate(step):
+        with torch.no_grad():
+            tr = ((model(train["features"], train["context"]) - train["y"]) ** 2).mean().item()
+            va = ((model(validation["features"], validation["context"]) - validation["y"]) ** 2).mean().item()
+            if not np.isfinite(tr + va):
+                raise FloatingPointError("Nonfinite FiLM training or validation MSE")
+            history.append({"step": step, "train_mse": tr, "validation_mse": va,
+                            "closure_evaluations": evaluations[0]})
+            if va < best[0]:
+                best[:] = [va, model.weights.detach().clone(), step]
+
+    def closure():
+        optimizer.zero_grad(set_to_none=True)
+        loss = ((model(train["features"], train["context"]) - train["y"]) ** 2).mean()
+        loss = loss + l2 * (model.weights ** 2).sum()
+        if not torch.isfinite(loss):
+            raise FloatingPointError("Nonfinite FiLM objective")
+        loss.backward()
+        if not torch.all(torch.isfinite(model.weights.grad)):
+            raise FloatingPointError("Nonfinite FiLM gradient")
+        evaluations[0] += 1
+        return loss
+
+    evaluate(0)
+    for step in range(1, 181):
+        optimizer.step(closure)
+        evaluate(step)
+    with torch.no_grad():
+        model.weights.copy_(best[1])
+    fit = {"seed": seed, "width": width, "l2": l2, "parameters": model.n_params,
+           "optimizer": "torch.optim.LBFGS / strong_wolfe", "steps": 180,
+           "selected_step": best[2], "closure_evaluations": evaluations[0],
+           "validation_mse": best[0], "elapsed_seconds": time.perf_counter() - start,
+           "initial_parameters": initial.tolist(), "random_initialization": True,
+           "stop_reason": "maximum LBFGS iterations reached", "trajectory": history}
+    return model, model.weights.detach().cpu().numpy().copy(), fit
+
+
+def choose_and_summarize(report):
+    selected, summary = {}, []
+    for n in SIZES:
+        n_runs = [r for r in report["runs"] if r["source_states"] == n]
+        configs = []
+        for width in WIDTHS:
+            for l2 in L2S:
+                candidates = [r for r in n_runs if r["model"] == "torch_film"
+                              and r["width"] == width and r["l2"] == l2]
+                good = [r for r in candidates if r["status"] == "completed"]
+                valid = len(good) == len(SEEDS) and {r["seed"] for r in good} == set(SEEDS)
+                configs.append({"width": width, "l2": l2, "completed_seeds": len(good),
+                                "eligible": valid,
+                                "mean_validation_mse": float(np.mean([r["metrics"]["validation"]["mse"] for r in good])) if valid else None})
+        eligible = [c for c in configs if c["eligible"]]
+        choice = min(eligible, key=lambda c: c["mean_validation_mse"]) if eligible else None
+        selected[str(n)] = {"film_configuration_scores": configs, "film_selected_config": choice}
+        for name in (*QUANTUM_NAMES, "torch_film"):
+            runs = [r for r in n_runs if r["model"] == name and r["status"] == "completed"]
+            if name == "torch_film":
+                runs = [r for r in runs if choice and r["width"] == choice["width"] and r["l2"] == choice["l2"]]
+            if not runs:
+                continue
+            by_validation = min(runs, key=lambda r: r["metrics"]["validation"]["mse"])
+            selected[str(n)][name] = {"run_keys": [r["key"] for r in runs],
+                                      "validation_selected_seed": by_validation["seed"],
+                                      "validation_selected_key": by_validation["key"]}
+            for split in SPLITS:
+                values = [r["metrics"][split]["mse"] for r in runs]
+                summary.append({"source_states": n, "training_pairs": 5 * n, "model": name,
+                                "split": split, "seed_count": len(runs),
+                                "mse_mean": float(np.mean(values)), "mse_median": float(np.median(values)),
+                                "mse_min": min(values), "mse_max": max(values),
+                                "mse_std": float(np.std(values, ddof=1)) if len(values) > 1 else 0.,
+                                "mse_all_seeds": {str(r["seed"]): r["metrics"][split]["mse"] for r in runs},
+                                "selected_config": {"width": choice["width"], "l2": choice["l2"]} if name == "torch_film" else None})
+    report["selected"] = selected
+    report["summary"] = summary
+    report["failure_count"] = sum(r["status"] != "completed" for r in report["runs"])
+    report["completed_run_count"] = sum(r["status"] == "completed" for r in report["runs"])
+
+
+def write_tables_and_plot(report, output):
+    choose_and_summarize(report)
+    rows = []
+    for run in report["runs"]:
+        keys = report["selected"].get(str(run["source_states"]), {}).get(run["model"], {}).get("run_keys", [])
+        for split in SPLITS:
+            metric = run.get("metrics", {}).get(split, {})
+            rows.append({"key": run["key"], "source_states": run["source_states"],
+                         "training_pairs": run["training_pairs"], "model": run["model"], "seed": run["seed"],
+                         "width": run.get("width"), "l2": run.get("l2"), "status": run["status"],
+                         "selected_configuration": run["key"] in keys, "origin": run["origin"],
+                         "split": split, "mse": metric.get("mse"), "rmse": metric.get("rmse"),
+                         "mae": metric.get("mae"), "max_abs_error": metric.get("max_abs_error"),
+                         "training_seconds": run.get("fit", {}).get("elapsed_seconds"),
+                         "error": run.get("error", "")})
+    if rows:
+        with (output / "runs.csv").open("w", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
+            writer.writeheader(); writer.writerows(rows)
+    summary_rows = [{k: v for k, v in row.items() if k not in ("mse_all_seeds", "selected_config")}
+                    for row in report["summary"]]
+    for n in SIZES:
+        for split in SPLITS:
+            value = report["calibration"]["metrics"][split]["mse"]
+            summary_rows.append({"source_states": n, "training_pairs": n * 5, "model": "exact_gram",
+                                 "split": split, "seed_count": 0, "mse_mean": value, "mse_median": value,
+                                 "mse_min": value, "mse_max": value, "mse_std": 0.})
+    with (output / "summary.csv").open("w", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(summary_rows[0]))
+        writer.writeheader(); writer.writerows(summary_rows)
+
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 10,
+                         "axes.spines.top": False, "axes.spines.right": False,
+                         "svg.fonttype": "none", "pdf.fonttype": 42})
+    fig, axes = plt.subplots(1, 2, figsize=(11.4, 5.7), sharey=True)
+    labels = {"joint_exchange": "Joint exchange (25 parameters)",
+              "exchange_matched_qnn": "Matched two-copy QNN (28 parameters)",
+              "torch_film": "FiLM (width + L2 validation sweep)"}
+    colors = {"joint_exchange": "#006E90", "exchange_matched_qnn": "#AF5C19", "torch_film": "#8A3F8F"}
+    markers = {"joint_exchange": "o", "exchange_matched_qnn": "s", "torch_film": "^"}
+    for ax, split, title in zip(axes, ("test_joint", "test_state"),
+                                ("New states + new contexts", "New states; validation context pool")):
+        for name in labels:
+            values = sorted([r for r in report["summary"] if r["split"] == split and r["model"] == name],
+                            key=lambda r: r["source_states"])
+            if not values:
+                continue
+            x = np.array([r["source_states"] for r in values])
+            mean = np.maximum([r["mse_mean"] for r in values], PLOT_FLOOR)
+            lower = np.maximum([r["mse_min"] for r in values], PLOT_FLOOR)
+            upper = np.maximum([r["mse_max"] for r in values], PLOT_FLOOR)
+            ax.fill_between(x, lower, upper, color=colors[name], alpha=.09, linewidth=0)
+            ax.plot(x, mean, marker=markers[name], color=colors[name], lw=1.9, markersize=6,
+                    label=labels[name], zorder=4)
+            for row in values:
+                for j, seed in enumerate(SEEDS):
+                    actual = row["mse_all_seeds"].get(str(seed))
+                    if actual is None:
+                        continue
+                    ax.scatter(row["source_states"] * (1 + (j - 1) * .032), max(actual, PLOT_FLOOR),
+                               color=colors[name], marker="v" if actual < PLOT_FLOOR else ".",
+                               s=22, alpha=.62, zorder=5)
+        ax.axhline(PLOT_FLOOR, color="#486545", linestyle="--", linewidth=1.5,
+                   label="Exact Gram formula (drawn at floor)")
+        ax.set(xscale="log", yscale="log", title=title, xlabel="Distinct source states in training",
+               xlim=(7, 73), ylim=(PLOT_FLOOR / 2.2, .4))
+        ax.set_xticks(SIZES, [f"{n}\n({5*n} pairs)" for n in SIZES])
+        ax.grid(axis="y", which="major", alpha=.18)
+        ax.axvline(64, color="#777777", linewidth=.7, linestyle=":", alpha=.65)
+    axes[0].set_ylabel("Held-out mean squared error (log scale)")
+    handles, labels_ = axes[0].get_legend_handles_labels()
+    fig.legend(handles, labels_, loc="lower center", bbox_to_anchor=(.5, .125), ncol=2, frameon=False,
+               columnspacing=1.8, handlelength=2.3)
+    fig.suptitle("A seeded data-efficiency diagnostic for quantum feature modulation", x=.055, ha="left", y=.98,
+                 fontsize=14, fontweight="bold")
+    fig.text(.055, .922, "Lines: three-seed arithmetic means. Dots: every optimizer seed. Bands: seed range.", fontsize=10)
+    grams = [report["calibration"]["metrics"][split]["mse"] for split in ("test_joint", "test_state")]
+    fig.text(.055, .056,
+             f"Exact Gram MSE: {grams[0]:.2e} / {grams[1]:.2e}; clipped at {PLOT_FLOOR:.0e} for readability. "
+             "64-state points reuse verified recorded runs.\n"
+             "One nested state sequence; exact expectations; no finite-shot or general quantum-superiority claim.",
+             fontsize=9, color="#333333", linespacing=1.45)
+    fig.subplots_adjust(left=.075, right=.985, top=.845, bottom=.335, wspace=.13)
+    for extension in ("png", "pdf", "svg"):
+        fig.savefig(output / f"learning_curve.{extension}", dpi=200, facecolor="white")
+    plt.close(fig)
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--data", type=Path, default=ROOT / "data" / "benchmark.npz")
+    parser.add_argument("--output", type=Path, default=ROOT / "results" / "learning_curve")
+    parser.add_argument("--resume", action="store_true")
+    parser.add_argument("--plot-only", action="store_true")
+    parser.add_argument("--fresh-full-size", action="store_true",
+                        help="Train the 64-state points again instead of importing verified historical results")
+    args = parser.parse_args()
+    output = args.output
+    output.mkdir(parents=True, exist_ok=True)
+    if args.plot_only:
+        report = json.loads((output / "metrics.json").read_text())
+        write_tables_and_plot(report, output)
+        atomic_json(output / "metrics.json", report)
+        return
+
+    import torch
+    import pennylane as qml
+    from train_torch import fit_one, predict_raw
+    from qem.data import pauli_features, gram_features
+    from qem.pennylane_models import TorchQuantumModel
+    from qem.torch_classical import TorchFiLM
+    torch.set_num_threads(1)
+    torch.set_default_dtype(torch.float64)
+    start = time.perf_counter()
+    data = load_npz(args.data)
+    indices = make_indices(data)
+    protocol = make_protocol(args.data, indices, args.fresh_full_size)
+    framework = {"torch": torch.__version__, "pennylane": qml.__version__, "numpy": np.__version__,
+                 "dtype": "float64 / complex128", "threads": 1, "device": "CPU"}
+    protocol["framework"] = framework
+    if (output / "metrics.json").exists() and not args.resume:
+        raise FileExistsError("Results already exist; use --resume, --plot-only, or a new --output directory")
+    weights, predictions = {}, {}
+    if args.resume and (output / "metrics.json").exists():
+        old_protocol = json.loads((output / "protocol.json").read_text())
+        for key in protocol:
+            if key not in ("created_utc", "implementation_sha256") and old_protocol.get(key) != protocol[key]:
+                raise ValueError(f"Resume protocol mismatch: {key}")
+        if json.loads((output / "indices.json").read_text()) != indices:
+            raise ValueError("Resume subset mismatch")
+        protocol = old_protocol
+        report = json.loads((output / "metrics.json").read_text())
+        weights = load_npz(output / "weights.npz")
+        predictions = load_npz(output / "predictions.npz")
+    else:
+        atomic_json(output / "protocol.json", protocol)
+        atomic_json(output / "indices.json", indices)
+        report = {"schema_version": 1, "protocol": protocol, "runs": [], "invocations": [],
+                  "status": "running", "full_size_reuse": {"requested": not args.fresh_full_size}}
+    q_batches, c_batches = {}, {}
+    for split in SPLITS:
+        y = torch.as_tensor(data[f"{split}_y"], dtype=torch.float64)
+        q_batches[split] = {"rho": torch.as_tensor(data[f"{split}_rho"], dtype=torch.complex128),
+                            "angles": torch.as_tensor(data[f"{split}_angles"], dtype=torch.float64),
+                            "y": y, "y_numpy": data[f"{split}_y"]}
+        c_batches[split] = {"features": torch.as_tensor(pauli_features(data[f"{split}_rho"])[:, 1:], dtype=torch.float64),
+                            "context": torch.as_tensor(data[f"{split}_context"], dtype=torch.float64), "y": y}
+        predictions[f"{split}__y"] = data[f"{split}_y"]
+    report["calibration"] = {"name": "exact_gram", "trained": False, "labeled_pairs_required": 0,
+                              "formula": "0.5 (Tr G - n^T G n), G_ij=sum_b r_ib r_jb",
+                              "access": "exact Pauli expectation features", "metrics": {}}
+    for split in SPLITS:
+        prediction = gram_features(data[f"{split}_rho"], data[f"{split}_context"]).sum(axis=1)
+        predictions[f"exact_gram__{split}__prediction"] = prediction
+        report["calibration"]["metrics"][split] = error_metrics(data[f"{split}_y"], prediction)
+
+    invocation = {"started_utc": utc_now(), "framework": framework, "fresh_completed_runs": 0,
+                  "reused_completed_runs": 0, "elapsed_seconds": 0.}
+    report["invocations"].append(invocation)
+
+    def save():
+        invocation["elapsed_seconds"] = time.perf_counter() - start
+        choose_and_summarize(report)
+        atomic_npz(output / "weights.npz", weights)
+        atomic_npz(output / "predictions.npz", predictions)
+        atomic_json(output / "metrics.json", report)
+
+    full_reports = {}
+    if not args.fresh_full_size:
+        checks = {path: sha256(ROOT / path) == expected for path, expected in FULL_SIZE_SHA256.items()}
+        if sha256(args.data) != FULL_SIZE_SHA256["data/benchmark.npz"] or not all(checks.values()):
+            raise ValueError("Pinned full-size data/source/artifact hashes changed; inspect changes and use --fresh-full-size")
+        for family in ("torch_quantum", "torch_classical"):
+            directory = ROOT / "results" / family
+            full_reports[family] = {"report": json.loads((directory / "metrics.json").read_text()),
+                                    "weights": load_npz(directory / "weights.npz"),
+                                    "predictions": load_npz(directory / "predictions.npz")}
+        qr = full_reports["torch_quantum"]["report"]
+        cr = full_reports["torch_classical"]["report"]
+        for library in ("torch", "pennylane"):
+            if qr["framework"][library] != framework[library]:
+                raise ValueError(f"Recorded {library} version differs; use --fresh-full-size")
+        assert qr["seeds"] == list(SEEDS) and qr["torch_threads"] == 1
+        for name in QUANTUM_NAMES:
+            for run in qr["models"][name]["runs"]:
+                assert run["LBFGS_max_iterations"] == 120 and run["batch_size"] == 320
+                assert run["validation_every_iterations"] == 5 and run["Adam_steps"] == 0
+                assert run["random_initialization"] and not run["NumPy_fitted_weights_loaded"]
+        assert len(cr["runs"]) == len(WIDTHS) * len(L2S) * len(SEEDS)
+        assert {(r["width"], r["l2"], r["seed"]) for r in cr["runs"]} == {
+            (w, l2, seed) for w in WIDTHS for l2 in L2S for seed in SEEDS}
+        assert all(r["steps"] == 180 for r in cr["runs"])
+        original_data = Path(qr["dataset"])
+        original_data_evidence = {"recorded_path": str(original_data), "currently_available": original_data.exists()}
+        if original_data.exists():
+            original_data_evidence["sha256"] = sha256(original_data)
+            assert sha256(original_data) == sha256(args.data)
+        report["full_size_reuse"] = {
+            "requested": True, "hash_checks_passed": checks, "sha256_manifest": FULL_SIZE_SHA256,
+            "configuration_checks_passed": True, "original_dataset_evidence": original_data_evidence,
+            "historical_framework": qr["framework"],
+            "policy": "Historical training retained; every imported checkpoint is evaluated again on all splits",
+            "maximum_checkpoint_prediction_discrepancy": 0., "training_reexecuted": False}
+    save()
+
+    completed_keys = {r["key"] for r in report["runs"]}
+    for n in SIZES:
+        row_indices = indices["subsets"][str(n)]["training_row_indices"]
+        q_train = {key: value[row_indices] for key, value in q_batches["train"].items()}
+        c_train = {key: value[row_indices] for key, value in c_batches["train"].items()}
+        specs = [(name, seed, None, None) for name in QUANTUM_NAMES for seed in SEEDS]
+        specs += [("torch_film", seed, width, l2) for width in WIDTHS for l2 in L2S for seed in SEEDS]
+        for name, seed, width, l2 in specs:
+            local_key = f"film_w{width}_l2{l2:g}_seed{seed}" if name == "torch_film" else f"{name}__seed{seed}"
+            key = f"n{n}__{local_key}"
+            if key in completed_keys:
+                continue
+            reused = n == 64 and not args.fresh_full_size
+            row = {"key": key, "source_states": n, "training_pairs": len(row_indices),
+                   "model": name, "seed": seed, "origin": "reused_recorded_full_size" if reused else "fresh_training",
+                   "status": "started", "started_utc": utc_now()}
+            if name == "torch_film":
+                row.update(width=width, l2=l2)
+            run_start = time.perf_counter()
+            try:
+                previous_predictions = None
+                if reused:
+                    family = "torch_classical" if name == "torch_film" else "torch_quantum"
+                    old = full_reports[family]
+                    candidates = old["report"]["runs"] if name == "torch_film" else old["report"]["models"][name]["runs"]
+                    old_run = next(r for r in candidates if r["seed"] == seed and
+                                   (name != "torch_film" or (r["width"] == width and r["l2"] == l2)))
+                    fit = copy.deepcopy(old_run)
+                    fit.pop("metrics", None)
+                    if name == "torch_film":
+                        histories_path = ROOT / "results" / "torch_classical" / "histories.json"
+                        fit["trajectory"] = json.loads(histories_path.read_text())[local_key]
+                    parameters = old["weights"][local_key].copy()
+                    model = TorchFiLM(width=width, seed=seed) if name == "torch_film" else TorchQuantumModel(name, initial_parameters=parameters)
+                    if name == "torch_film":
+                        with torch.no_grad():
+                            model.weights.copy_(torch.as_tensor(parameters, dtype=torch.float64))
+                    previous_predictions = old["predictions"]
+                    row["provenance"] = {"report": f"results/{family}/metrics.json", "source_run_key": local_key,
+                                         "weights": f"results/{family}/weights.npz", "configuration_identical": True}
+                elif name == "torch_film":
+                    model, parameters, fit = fit_film(c_train, c_batches["validation"], width, l2, seed)
+                else:
+                    model, parameters, fit = fit_one(name, q_train, q_batches["validation"], seed,
+                                                     maxiter=120, batch_size=320, val_every=5, adam_steps=0)
+                row["fit"] = fit
+                row["metrics"] = {}
+                maximum_discrepancy = 0.
+                for split in SPLITS:
+                    if name == "torch_film":
+                        batch = c_train if split == "train" else c_batches[split]
+                        with torch.no_grad():
+                            raw = {"prediction": model(batch["features"], batch["context"]).cpu().numpy()}
+                    else:
+                        batch = q_train if split == "train" else q_batches[split]
+                        raw = predict_raw(model, batch, 320)
+                    y = data[f"{split}_y"][row_indices] if split == "train" else data[f"{split}_y"]
+                    row["metrics"][split] = error_metrics(y, raw["prediction"])
+                    for field, value in raw.items():
+                        predictions[f"{key}__{split}__{field}"] = value
+                        if reused:
+                            old_key = f"{local_key}__{split}" if name == "torch_film" else f"{local_key}__{split}__{field}"
+                            discrepancy = float(np.max(np.abs(value - previous_predictions[old_key])))
+                            maximum_discrepancy = max(maximum_discrepancy, discrepancy)
+                    if name != "torch_film":
+                        probabilities = np.stack([(1 + u * raw["heads"][:, 0] + v * raw["heads"][:, 1]
+                                                   + u * v * raw["correlation"]) / 4
+                                                  for u, v in ((-1, -1), (-1, 1), (1, -1), (1, 1))], axis=1)
+                        assert np.min(probabilities) >= -2e-8 and np.max(probabilities) <= 1 + 2e-8
+                if reused:
+                    if maximum_discrepancy > 1e-10:
+                        raise AssertionError(f"Reused checkpoint prediction discrepancy {maximum_discrepancy:g}")
+                    row["provenance"]["maximum_prediction_discrepancy"] = maximum_discrepancy
+                    report["full_size_reuse"]["maximum_checkpoint_prediction_discrepancy"] = max(
+                        maximum_discrepancy, report["full_size_reuse"]["maximum_checkpoint_prediction_discrepancy"])
+                weights[key] = parameters
+                row.update(status="completed", invocation_work_seconds=time.perf_counter() - run_start)
+                invocation["reused_completed_runs" if reused else "fresh_completed_runs"] += 1
+                print(f"Completed {key} ({row['origin']}): validation={row['metrics']['validation']['mse']:.6g}; "
+                      f"work={row['invocation_work_seconds']:.1f}s", flush=True)
+            except Exception as error:
+                row.update(status="failed", error=f"{type(error).__name__}: {error}",
+                           traceback=traceback.format_exc(), invocation_work_seconds=time.perf_counter() - run_start)
+                print(f"FAILED {key}: {row['error']}", flush=True)
+            report["runs"].append(row)
+            completed_keys.add(key)
+            save()
+        print(f"Completed all declared configurations at {n} source states", flush=True)
+    report["status"] = "completed_with_failures" if any(r["status"] != "completed" for r in report["runs"]) else "completed"
+    invocation["finished_utc"] = utc_now()
+    save()
+    write_tables_and_plot(report, output)
+    atomic_json(output / "metrics.json", report)
+    print(json.dumps({"status": report["status"], "output": str(output),
+                      "completed_runs": report["completed_run_count"], "failures": report["failure_count"],
+                      "invocation_seconds": invocation["elapsed_seconds"]}), flush=True)
+
+
+if __name__ == "__main__":
+    main()

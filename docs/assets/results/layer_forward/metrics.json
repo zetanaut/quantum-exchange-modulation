@@ -1,0 +1,21 @@
+{
+  "seed": 101,
+  "qubits_per_register": 2,
+  "batch": 4,
+  "input_shape": [
+    4,
+    4,
+    4
+  ],
+  "output_shape": [
+    4,
+    4,
+    4
+  ],
+  "source_copies_per_execution": 2,
+  "parameters": 217,
+  "max_trace_error": 2.222577183833127e-16,
+  "min_eigenvalue": 0.009659811363270017,
+  "max_physical_region_violation": -0.11853080263164562,
+  "purpose": "Forward execution and physical-state checks; no fitted advantage claim"
+}

@@ -1,0 +1,14 @@
+.venv/
+venv/
+site/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.DS_Store
+*.log
+.env
+.env.*
+*.pem
+*.key
+deployment-local.json

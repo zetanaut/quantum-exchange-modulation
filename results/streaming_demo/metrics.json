@@ -1,0 +1,39 @@
+{
+  "purpose": "Synthetic teacher fixture: supervised software integration, not an independent advantage study",
+  "seed": 42,
+  "config": {
+    "n_qubits": 1,
+    "context_dim": 3,
+    "hidden": 8,
+    "depth": 2,
+    "observables": [
+      "X",
+      "Y",
+      "Z"
+    ],
+    "output_dim": 1
+  },
+  "steps": 40,
+  "learning_rate": 0.02,
+  "selected_step": 40,
+  "selection": "lowest validation MSE; test evaluated after selection",
+  "parameters": 158,
+  "source_copies_per_execution": 3,
+  "measurement_settings_note": "The script evaluates 3 exact Pauli expectations. Group compatible observables for hardware and repeat the full preparation cost for each setting.",
+  "example_counts": {
+    "train": 16,
+    "validation": 8,
+    "test": 8
+  },
+  "initial_train_mse": 0.27881139698495666,
+  "metrics": {
+    "train": 0.0008634090999022665,
+    "validation": 0.005812066826099239,
+    "test": 0.009313898967912388
+  },
+  "checkpoint_reload_max_error": 0.0,
+  "seconds": 4.938969219998398,
+  "framework": {
+    "torch": "2.14.1+cpu"
+  }
+}

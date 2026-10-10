@@ -1,0 +1,55 @@
+{
+  "seed": 20261009,
+  "context_holdout": "entire spherical cap n_x > 0.55",
+  "target": "Tr(rho^2)-Tr(rho P rho P)",
+  "context": "n=(sin(theta)cos(phi),sin(theta)sin(phi),cos(theta))",
+  "source_families": [
+    "coupled_spin_gibbs",
+    "driven_product_mixture",
+    "low_rank_noisy_preparation"
+  ],
+  "density_matrices": "simulator states; preparation parameters excluded from learners",
+  "splits": {
+    "train": {
+      "examples": 320,
+      "states": 64,
+      "context_pool": 18,
+      "y_min": 0.012390228271249526,
+      "y_max": 0.9700691633986573,
+      "y_mean": 0.3765421755884276
+    },
+    "validation": {
+      "examples": 96,
+      "states": 16,
+      "context_pool": 6,
+      "y_min": 0.025610164614086217,
+      "y_max": 0.9972232691138263,
+      "y_mean": 0.4179172942262835
+    },
+    "test_state": {
+      "examples": 192,
+      "states": 32,
+      "context_pool": 6,
+      "y_min": 0.00631546856313886,
+      "y_max": 0.9800594962932297,
+      "y_mean": 0.38091697318796996
+    },
+    "test_context": {
+      "examples": 128,
+      "states": 32,
+      "context_pool": 12,
+      "y_min": 0.05191703125603209,
+      "y_max": 0.9808330696427189,
+      "y_mean": 0.3696202972119051
+    },
+    "test_joint": {
+      "examples": 128,
+      "states": 32,
+      "context_pool": 12,
+      "y_min": 0.005437315239280316,
+      "y_max": 0.9516149330444938,
+      "y_mean": 0.37335390582844963
+    }
+  },
+  "gram_identity_max_error": 4.440892098500626e-16
+}

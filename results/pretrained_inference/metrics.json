@@ -1,0 +1,9 @@
+{
+  "examples": 128,
+  "source": "test_joint",
+  "model": "joint_exchange",
+  "source_copies_per_joint_shot": 2,
+  "mode": "Exact simulator expectations with a frozen validation-selected checkpoint",
+  "mse": 3.867353945504882e-12,
+  "max_abs_error": 6.7079810360803904e-06
+}

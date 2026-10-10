@@ -1,0 +1,24 @@
+{
+  "qubits_per_register": 2,
+  "depth": 2,
+  "shots_per_setting": 1000,
+  "settings": 3,
+  "source_copies_per_execution": 3,
+  "inference_source_copies": 9000,
+  "concurrent_data_qubits": 4,
+  "data_plus_clean_exchange_ancilla": 5,
+  "fredkin_gates_per_execution": 8,
+  "exchange_cnot_upper_construction": 64,
+  "source_zz_cnot_upper_construction": 4,
+  "dense_joint_state_bytes": 4096,
+  "excludes": [
+    "state preparation",
+    "routing",
+    "local rotations",
+    "readout compilation",
+    "training and gradient executions",
+    "labels",
+    "error correction"
+  ],
+  "interpretation": "Logical accounting, not a measured runtime or a hardware advantage"
+}

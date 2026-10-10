@@ -1,0 +1,523 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "seed": 20261009,
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "torch": "2.14.1+cpu",
+    "pennylane": "0.45.1",
+    "torch_threads": 1,
+    "device": "default.qubit"
+  },
+  "summary": {
+    "checks": 7,
+    "passed": 7,
+    "failed": 0,
+    "cases": 150,
+    "elapsed_seconds": 3.1448667039985594
+  },
+  "checks": [
+    {
+      "name": "exact_input_purification",
+      "status": "PASS",
+      "cases": 15,
+      "metrics": {
+        "maximum_reduced_density_matrix_error": {
+          "value": 7.216449660063518e-16,
+          "tolerance": 2e-11,
+          "passed": true
+        },
+        "maximum_state_norm_error": {
+          "value": 3.1086244689504383e-15,
+          "tolerance": 2e-11,
+          "passed": true
+        }
+      },
+      "details": {
+        "data_wires": 4,
+        "simulator_environment_wires": 4,
+        "environment_touched_by_learned_gates": false,
+        "additional_physical_input_copies": 0
+      }
+    },
+    {
+      "name": "independent_NumPy_value_and_gradient_parity",
+      "status": "PASS",
+      "cases": 27,
+      "metrics": {
+        "maximum_heads_error": {
+          "value": 2.1094237467877974e-15,
+          "tolerance": 2e-11,
+          "passed": true
+        },
+        "maximum_correlation_error": {
+          "value": 1.0547118733938987e-15,
+          "tolerance": 2e-11,
+          "passed": true
+        },
+        "maximum_prediction_error": {
+          "value": 1.887379141862766e-15,
+          "tolerance": 2e-11,
+          "passed": true
+        },
+        "maximum_loss_error": {
+          "value": 8.326672684688674e-17,
+          "tolerance": 2e-11,
+          "passed": true
+        },
+        "maximum_all_parameter_gradient_error": {
+          "value": 8.384037991041472e-16,
+          "tolerance": 2e-09,
+          "passed": true
+        },
+        "maximum_gradient_relative_L2_error": {
+          "value": 5.722166513751524e-10,
+          "tolerance": 2e-07,
+          "passed": true
+        }
+      },
+      "details": {
+        "loaded_weight_files": [
+          "results/quantum/weights.npz",
+          "results/torch_quantum/weights.npz"
+        ],
+        "fixtures": [
+          {
+            "model": "joint_exchange",
+            "fixture": "initial_seed19",
+            "maximum_value_error": 1.7208456881689926e-15,
+            "maximum_gradient_error": 6.938893903907228e-17
+          },
+          {
+            "model": "no_commutator",
+            "fixture": "initial_seed19",
+            "maximum_value_error": 1.5543122344752192e-15,
+            "maximum_gradient_error": 1.1796119636642288e-16
+          },
+          {
+            "model": "exchange_matched_qnn",
+            "fixture": "initial_seed19",
+            "maximum_value_error": 1.4988010832439613e-15,
+            "maximum_gradient_error": 2.498001805406602e-16
+          },
+          {
+            "model": "joint_exchange",
+            "fixture": "quantum/joint_exchange__seed17",
+            "maximum_value_error": 1.887379141862766e-15,
+            "maximum_gradient_error": 6.63382651762412e-16
+          },
+          {
+            "model": "joint_exchange",
+            "fixture": "quantum/joint_exchange__seed31",
+            "maximum_value_error": 2.0539125955565396e-15,
+            "maximum_gradient_error": 7.855743541838964e-16
+          },
+          {
+            "model": "joint_exchange",
+            "fixture": "quantum/joint_exchange__seed73",
+            "maximum_value_error": 1.887379141862766e-15,
+            "maximum_gradient_error": 8.384037991041472e-16
+          },
+          {
+            "model": "joint_exchange",
+            "fixture": "quantum/joint_exchange__selected",
+            "maximum_value_error": 2.0539125955565396e-15,
+            "maximum_gradient_error": 7.855743541838964e-16
+          },
+          {
+            "model": "no_commutator",
+            "fixture": "quantum/no_commutator__seed17",
+            "maximum_value_error": 9.71445146547012e-16,
+            "maximum_gradient_error": 1.5265566588595902e-16
+          },
+          {
+            "model": "no_commutator",
+            "fixture": "quantum/no_commutator__seed31",
+            "maximum_value_error": 1.1657341758564144e-15,
+            "maximum_gradient_error": 1.2836953722228372e-16
+          },
+          {
+            "model": "no_commutator",
+            "fixture": "quantum/no_commutator__seed73",
+            "maximum_value_error": 7.771561172376096e-16,
+            "maximum_gradient_error": 6.678685382510707e-17
+          },
+          {
+            "model": "no_commutator",
+            "fixture": "quantum/no_commutator__selected",
+            "maximum_value_error": 1.1657341758564144e-15,
+            "maximum_gradient_error": 1.2836953722228372e-16
+          },
+          {
+            "model": "exchange_matched_qnn",
+            "fixture": "quantum/exchange_matched_qnn__seed17",
+            "maximum_value_error": 1.6653345369377348e-15,
+            "maximum_gradient_error": 7.850436880424416e-16
+          },
+          {
+            "model": "exchange_matched_qnn",
+            "fixture": "quantum/exchange_matched_qnn__seed31",
+            "maximum_value_error": 2.0539125955565396e-15,
+            "maximum_gradient_error": 5.844933911869354e-16
+          },
+          {
+            "model": "exchange_matched_qnn",
+            "fixture": "quantum/exchange_matched_qnn__seed73",
+            "maximum_value_error": 1.9984014443252818e-15,
+            "maximum_gradient_error": 6.723332489160481e-16
+          },
+          {
+            "model": "exchange_matched_qnn",
+            "fixture": "quantum/exchange_matched_qnn__selected",
+            "maximum_value_error": 1.9984014443252818e-15,
+            "maximum_gradient_error": 6.723332489160481e-16
+          },
+          {
+            "model": "joint_exchange",
+            "fixture": "torch_quantum/joint_exchange__seed17",
+            "maximum_value_error": 1.6653345369377348e-15,
+            "maximum_gradient_error": 4.706250580216453e-16
+          },
+          {
+            "model": "joint_exchange",
+            "fixture": "torch_quantum/joint_exchange__seed31",
+            "maximum_value_error": 1.8318679906315083e-15,
+            "maximum_gradient_error": 4.813014848053122e-16
+          },
+          {
+            "model": "joint_exchange",
+            "fixture": "torch_quantum/joint_exchange__seed73",
+            "maximum_value_error": 1.8318679906315083e-15,
+            "maximum_gradient_error": 2.824533006573135e-16
+          },
+          {
+            "model": "joint_exchange",
+            "fixture": "torch_quantum/joint_exchange__selected",
+            "maximum_value_error": 1.8318679906315083e-15,
+            "maximum_gradient_error": 4.813014848053122e-16
+          },
+          {
+            "model": "no_commutator",
+            "fixture": "torch_quantum/no_commutator__seed17",
+            "maximum_value_error": 1.0547118733938987e-15,
+            "maximum_gradient_error": 1.3183898417423734e-16
+          },
+          {
+            "model": "no_commutator",
+            "fixture": "torch_quantum/no_commutator__seed31",
+            "maximum_value_error": 1.0269562977782698e-15,
+            "maximum_gradient_error": 1.734723475976807e-16
+          },
+          {
+            "model": "no_commutator",
+            "fixture": "torch_quantum/no_commutator__seed73",
+            "maximum_value_error": 8.326672684688674e-16,
+            "maximum_gradient_error": 2.7755575615628914e-17
+          },
+          {
+            "model": "no_commutator",
+            "fixture": "torch_quantum/no_commutator__selected",
+            "maximum_value_error": 1.0269562977782698e-15,
+            "maximum_gradient_error": 1.734723475976807e-16
+          },
+          {
+            "model": "exchange_matched_qnn",
+            "fixture": "torch_quantum/exchange_matched_qnn__seed17",
+            "maximum_value_error": 1.9984014443252818e-15,
+            "maximum_gradient_error": 5.9957735391164e-16
+          },
+          {
+            "model": "exchange_matched_qnn",
+            "fixture": "torch_quantum/exchange_matched_qnn__seed31",
+            "maximum_value_error": 2.1094237467877974e-15,
+            "maximum_gradient_error": 5.98588019429247e-16
+          },
+          {
+            "model": "exchange_matched_qnn",
+            "fixture": "torch_quantum/exchange_matched_qnn__seed73",
+            "maximum_value_error": 1.7208456881689926e-15,
+            "maximum_gradient_error": 3.2271489422267853e-16
+          },
+          {
+            "model": "exchange_matched_qnn",
+            "fixture": "torch_quantum/exchange_matched_qnn__selected",
+            "maximum_value_error": 1.7208456881689926e-15,
+            "maximum_gradient_error": 3.2271489422267853e-16
+          }
+        ],
+        "examples_per_fixture": 15,
+        "gradient_reference": "Independent hand-derived NumPy circuit adjoint"
+      }
+    },
+    {
+      "name": "PennyLane_all_parameter_central_finite_differences",
+      "status": "PASS",
+      "cases": 78,
+      "metrics": {
+        "maximum_gradient_absolute_error": {
+          "value": 3.420212984356352e-11,
+          "tolerance": 2e-06,
+          "passed": true
+        },
+        "maximum_gradient_relative_L2_error": {
+          "value": 5.088041753739608e-10,
+          "tolerance": 2e-05,
+          "passed": true
+        }
+      },
+      "details": {
+        "step": 1e-06,
+        "models": [
+          {
+            "model": "joint_exchange",
+            "parameters_checked": 25,
+            "maximum_error": 2.0036873202289307e-11
+          },
+          {
+            "model": "no_commutator",
+            "parameters_checked": 25,
+            "maximum_error": 1.6750462128456434e-11
+          },
+          {
+            "model": "exchange_matched_qnn",
+            "parameters_checked": 28,
+            "maximum_error": 3.420212984356352e-11
+          }
+        ]
+      }
+    },
+    {
+      "name": "native_batching_and_actual_gate_tapes",
+      "status": "PASS",
+      "cases": 15,
+      "metrics": {
+        "maximum_batched_vs_individual_value_error": {
+          "value": 0.0,
+          "tolerance": 2e-11,
+          "passed": true
+        },
+        "maximum_batched_vs_individual_gradient_error": {
+          "value": 5.551115123125783e-17,
+          "tolerance": 2e-09,
+          "passed": true
+        },
+        "missing_gate_or_environment_access_violation": {
+          "value": 0.0,
+          "tolerance": 0.0,
+          "passed": true
+        }
+      },
+      "details": {
+        "tapes": [
+          {
+            "model": "joint_exchange",
+            "operation_count_per_branch": 26,
+            "operation_names": [
+              "StatePrep",
+              "RZ",
+              "RY",
+              "RY",
+              "RZ",
+              "RY",
+              "RZ",
+              "IsingXX",
+              "IsingZZ",
+              "RX",
+              "RX",
+              "RY",
+              "RZ",
+              "RY",
+              "RZ",
+              "IsingXX",
+              "IsingZZ",
+              "RX",
+              "RX",
+              "RY",
+              "RZ",
+              "QubitUnitary",
+              "RZ",
+              "RY",
+              "RZ",
+              "RY"
+            ],
+            "interface": "torch",
+            "differentiation": "backprop",
+            "environment_wires": [
+              4,
+              5,
+              6,
+              7
+            ],
+            "environment_gates_after_StatePrep": []
+          },
+          {
+            "model": "no_commutator",
+            "operation_count_per_branch": 26,
+            "operation_names": [
+              "StatePrep",
+              "RZ",
+              "RY",
+              "RY",
+              "RZ",
+              "RY",
+              "RZ",
+              "IsingXX",
+              "IsingZZ",
+              "RX",
+              "RX",
+              "RY",
+              "RZ",
+              "RY",
+              "RZ",
+              "IsingXX",
+              "IsingZZ",
+              "RX",
+              "RX",
+              "RY",
+              "RZ",
+              "QubitUnitary",
+              "RZ",
+              "RY",
+              "RZ",
+              "RY"
+            ],
+            "interface": "torch",
+            "differentiation": "backprop",
+            "environment_wires": [
+              4,
+              5,
+              6,
+              7
+            ],
+            "environment_gates_after_StatePrep": []
+          },
+          {
+            "model": "exchange_matched_qnn",
+            "operation_count_per_branch": 34,
+            "operation_names": [
+              "StatePrep",
+              "RZ",
+              "RY",
+              "RZ",
+              "RY",
+              "RY",
+              "RZ",
+              "RY",
+              "RZ",
+              "RY",
+              "RZ",
+              "RY",
+              "RZ",
+              "IsingXX",
+              "IsingXX",
+              "QubitUnitary",
+              "RY",
+              "RZ",
+              "RY",
+              "RZ",
+              "RY",
+              "RZ",
+              "RY",
+              "RZ",
+              "IsingZZ",
+              "IsingZZ",
+              "RY",
+              "RZ",
+              "RY",
+              "RZ",
+              "RZ",
+              "RY",
+              "RZ",
+              "RY"
+            ],
+            "interface": "torch",
+            "differentiation": "backprop",
+            "environment_wires": [
+              4,
+              5,
+              6,
+              7
+            ],
+            "environment_gates_after_StatePrep": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "signed_exchange_boundary_gradients",
+      "status": "PASS",
+      "cases": 10,
+      "metrics": {
+        "maximum_prediction_error": {
+          "value": 5.828670879282072e-16,
+          "tolerance": 2e-11,
+          "passed": true
+        },
+        "maximum_gradient_error": {
+          "value": 6.661338147750939e-16,
+          "tolerance": 2e-09,
+          "passed": true
+        },
+        "maximum_no_commutator_chi_gradient": {
+          "value": 0.0,
+          "tolerance": 1e-14,
+          "passed": true
+        }
+      },
+      "details": {
+        "reason": "Cosine/sine mixture probabilities avoid square-root derivative singularities at zero branch probability"
+      }
+    },
+    {
+      "name": "actual_PennyLane_Fredkin_exchange_implementation",
+      "status": "PASS",
+      "cases": 3,
+      "metrics": {
+        "maximum_matrix_vs_Fredkin_value_error": {
+          "value": 3.3306690738754696e-16,
+          "tolerance": 2e-11,
+          "passed": true
+        },
+        "maximum_matrix_vs_Fredkin_gradient_error": {
+          "value": 1.1102230246251565e-16,
+          "tolerance": 2e-09,
+          "passed": true
+        },
+        "maximum_control_ancilla_reset_error": {
+          "value": 6.661338147750939e-16,
+          "tolerance": 2e-11,
+          "passed": true
+        },
+        "CSWAP_count_error": {
+          "value": 0.0,
+          "tolerance": 0.0,
+          "passed": true
+        }
+      },
+      "details": {
+        "physical_phase_control_ancillas": 1,
+        "Fredkins_per_branch": 4,
+        "simulator_environment_wires": 4,
+        "hardware_optimality_claim": false
+      }
+    },
+    {
+      "name": "analytic_solution_containment_without_training",
+      "status": "PASS",
+      "cases": 2,
+      "metrics": {
+        "maximum_exact_dephasing_target_error": {
+          "value": 1.3322676295501878e-15,
+          "tolerance": 2e-11,
+          "passed": true
+        }
+      },
+      "details": {
+        "analytic_parameters_used_for_random_training_initialization": false,
+        "purpose": "Expressivity and convention check only"
+      }
+    }
+  ],
+  "scope": "Actual PennyLane circuit values, batching, Torch gradients, and gate implementation verified against independent NumPy and finite-difference references. No learning advantage is inferred from these checks."
+}

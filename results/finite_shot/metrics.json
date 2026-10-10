@@ -1,0 +1,449 @@
+{
+  "split": "test_joint",
+  "examples": 128,
+  "seed": 91402,
+  "rows": [
+    {
+      "model": "joint_exchange",
+      "copies_per_example": 240,
+      "method": "exact variance",
+      "expected_mse": 0.014546684102037914,
+      "squared_bias": 3.8673539456280285e-12,
+      "measurement_variance": 0.01454668409817056,
+      "shots_per_joint_setting": 120
+    },
+    {
+      "model": "no_commutator",
+      "copies_per_example": 240,
+      "method": "exact variance",
+      "expected_mse": 0.0642177214302589,
+      "squared_bias": 0.06265697411194679,
+      "measurement_variance": 0.001560747318312116,
+      "shots_per_joint_setting": 120
+    },
+    {
+      "model": "exchange_matched_qnn",
+      "copies_per_example": 240,
+      "method": "exact variance",
+      "expected_mse": 0.013036392879312074,
+      "squared_bias": 1.8459679948730756e-10,
+      "measurement_variance": 0.013036392694715274,
+      "shots_per_joint_setting": 120
+    },
+    {
+      "model": "analytic_exchange_direct_K",
+      "copies_per_example": 240,
+      "method": "exact variance",
+      "expected_mse": 0.012589092751689852,
+      "squared_bias": 1.6596099442649384e-33,
+      "measurement_variance": 0.012589092751689852,
+      "shots_per_joint_setting": 120
+    },
+    {
+      "model": "separate_branch_exchange",
+      "copies_per_example": 240,
+      "method": "exact variance",
+      "expected_mse": 0.02681351378753778,
+      "squared_bias": 0.0,
+      "measurement_variance": 0.02681351378753778,
+      "shots_per_branch": 60
+    },
+    {
+      "model": "physics_pauli_unbiased",
+      "copies_per_example": 240,
+      "method": "exact variance of independent U-statistics",
+      "expected_mse": 0.021678362309996486,
+      "squared_bias": 0.0,
+      "measurement_variance": 0.021678362309996486,
+      "shots_per_setting": 30,
+      "independent_settings": 8
+    },
+    {
+      "model": "torch_film",
+      "copies_per_example": 240,
+      "method": "binomial Monte Carlo after exact-expectation training",
+      "expected_mse": 0.07424704298221865,
+      "monte_carlo_standard_error": 0.00028225043408400084,
+      "replicates": 512,
+      "shots_per_setting": 16,
+      "independent_settings": 15
+    },
+    {
+      "model": "joint_exchange",
+      "copies_per_example": 960,
+      "method": "exact variance",
+      "expected_mse": 0.0036366710284099937,
+      "squared_bias": 3.8673539456280285e-12,
+      "measurement_variance": 0.00363667102454264,
+      "shots_per_joint_setting": 480
+    },
+    {
+      "model": "no_commutator",
+      "copies_per_example": 960,
+      "method": "exact variance",
+      "expected_mse": 0.06304716094152482,
+      "squared_bias": 0.06265697411194679,
+      "measurement_variance": 0.000390186829578029,
+      "shots_per_joint_setting": 480
+    },
+    {
+      "model": "exchange_matched_qnn",
+      "copies_per_example": 960,
+      "method": "exact variance",
+      "expected_mse": 0.003259098358275618,
+      "squared_bias": 1.8459679948730756e-10,
+      "measurement_variance": 0.0032590981736788185,
+      "shots_per_joint_setting": 480
+    },
+    {
+      "model": "analytic_exchange_direct_K",
+      "copies_per_example": 960,
+      "method": "exact variance",
+      "expected_mse": 0.003147273187922463,
+      "squared_bias": 1.6596099442649384e-33,
+      "measurement_variance": 0.003147273187922463,
+      "shots_per_joint_setting": 480
+    },
+    {
+      "model": "separate_branch_exchange",
+      "copies_per_example": 960,
+      "method": "exact variance",
+      "expected_mse": 0.006703378446884445,
+      "squared_bias": 0.0,
+      "measurement_variance": 0.006703378446884445,
+      "shots_per_branch": 240
+    },
+    {
+      "model": "physics_pauli_unbiased",
+      "copies_per_example": 960,
+      "method": "exact variance of independent U-statistics",
+      "expected_mse": 0.004689499763805711,
+      "squared_bias": 0.0,
+      "measurement_variance": 0.004689499763805711,
+      "shots_per_setting": 120,
+      "independent_settings": 8
+    },
+    {
+      "model": "torch_film",
+      "copies_per_example": 960,
+      "method": "binomial Monte Carlo after exact-expectation training",
+      "expected_mse": 0.054813399285831704,
+      "monte_carlo_standard_error": 0.00013605599721231522,
+      "replicates": 512,
+      "shots_per_setting": 64,
+      "independent_settings": 15
+    },
+    {
+      "model": "joint_exchange",
+      "copies_per_example": 3840,
+      "method": "exact variance",
+      "expected_mse": 0.0009091677600030139,
+      "squared_bias": 3.8673539456280285e-12,
+      "measurement_variance": 0.00090916775613566,
+      "shots_per_joint_setting": 1920
+    },
+    {
+      "model": "no_commutator",
+      "copies_per_example": 3840,
+      "method": "exact variance",
+      "expected_mse": 0.0627545208193413,
+      "squared_bias": 0.06265697411194679,
+      "measurement_variance": 9.754670739450725e-05,
+      "shots_per_joint_setting": 1920
+    },
+    {
+      "model": "exchange_matched_qnn",
+      "copies_per_example": 3840,
+      "method": "exact variance",
+      "expected_mse": 0.0008147747280165041,
+      "squared_bias": 1.8459679948730756e-10,
+      "measurement_variance": 0.0008147745434197046,
+      "shots_per_joint_setting": 1920
+    },
+    {
+      "model": "analytic_exchange_direct_K",
+      "copies_per_example": 3840,
+      "method": "exact variance",
+      "expected_mse": 0.0007868182969806158,
+      "squared_bias": 1.6596099442649384e-33,
+      "measurement_variance": 0.0007868182969806158,
+      "shots_per_joint_setting": 1920
+    },
+    {
+      "model": "separate_branch_exchange",
+      "copies_per_example": 3840,
+      "method": "exact variance",
+      "expected_mse": 0.0016758446117211112,
+      "squared_bias": 0.0,
+      "measurement_variance": 0.0016758446117211112,
+      "shots_per_branch": 960
+    },
+    {
+      "model": "physics_pauli_unbiased",
+      "copies_per_example": 3840,
+      "method": "exact variance of independent U-statistics",
+      "expected_mse": 0.001128173200665188,
+      "squared_bias": 0.0,
+      "measurement_variance": 0.001128173200665188,
+      "shots_per_setting": 480,
+      "independent_settings": 8
+    },
+    {
+      "model": "torch_film",
+      "copies_per_example": 3840,
+      "method": "binomial Monte Carlo after exact-expectation training",
+      "expected_mse": 0.05086374066350702,
+      "monte_carlo_standard_error": 6.782294731148327e-05,
+      "replicates": 512,
+      "shots_per_setting": 256,
+      "independent_settings": 15
+    },
+    {
+      "model": "joint_exchange",
+      "copies_per_example": 15360,
+      "method": "exact variance",
+      "expected_mse": 0.00022729194290126893,
+      "squared_bias": 3.8673539456280285e-12,
+      "measurement_variance": 0.000227291939033915,
+      "shots_per_joint_setting": 7680
+    },
+    {
+      "model": "no_commutator",
+      "copies_per_example": 15360,
+      "method": "exact variance",
+      "expected_mse": 0.06268136078879541,
+      "squared_bias": 0.06265697411194679,
+      "measurement_variance": 2.438667684862681e-05,
+      "shots_per_joint_setting": 7680
+    },
+    {
+      "model": "exchange_matched_qnn",
+      "copies_per_example": 15360,
+      "method": "exact variance",
+      "expected_mse": 0.00020369382045172564,
+      "squared_bias": 1.8459679948730756e-10,
+      "measurement_variance": 0.00020369363585492616,
+      "shots_per_joint_setting": 7680
+    },
+    {
+      "model": "analytic_exchange_direct_K",
+      "copies_per_example": 15360,
+      "method": "exact variance",
+      "expected_mse": 0.00019670457424515394,
+      "squared_bias": 1.6596099442649384e-33,
+      "measurement_variance": 0.00019670457424515394,
+      "shots_per_joint_setting": 7680
+    },
+    {
+      "model": "separate_branch_exchange",
+      "copies_per_example": 15360,
+      "method": "exact variance",
+      "expected_mse": 0.0004189611529302778,
+      "squared_bias": 0.0,
+      "measurement_variance": 0.0004189611529302778,
+      "shots_per_branch": 3840
+    },
+    {
+      "model": "physics_pauli_unbiased",
+      "copies_per_example": 15360,
+      "method": "exact variance of independent U-statistics",
+      "expected_mse": 0.0002793022855263478,
+      "squared_bias": 0.0,
+      "measurement_variance": 0.0002793022855263478,
+      "shots_per_setting": 1920,
+      "independent_settings": 8
+    },
+    {
+      "model": "torch_film",
+      "copies_per_example": 15360,
+      "method": "binomial Monte Carlo after exact-expectation training",
+      "expected_mse": 0.05010760473635434,
+      "monte_carlo_standard_error": 3.730987674889984e-05,
+      "replicates": 512,
+      "shots_per_setting": 1024,
+      "independent_settings": 15
+    }
+  ],
+  "readout_noise_rows": [
+    {
+      "model": "joint_exchange",
+      "readout_bit_flip_probability": 0.0,
+      "copies_per_example": 3840,
+      "expected_mse": 0.0009091677600030139,
+      "squared_bias": 3.8673539456280285e-12,
+      "error_mitigation": false
+    },
+    {
+      "model": "no_commutator",
+      "readout_bit_flip_probability": 0.0,
+      "copies_per_example": 3840,
+      "expected_mse": 0.0627545208193413,
+      "squared_bias": 0.06265697411194679,
+      "error_mitigation": false
+    },
+    {
+      "model": "exchange_matched_qnn",
+      "readout_bit_flip_probability": 0.0,
+      "copies_per_example": 3840,
+      "expected_mse": 0.0008147747280165041,
+      "squared_bias": 1.8459679948730756e-10,
+      "error_mitigation": false
+    },
+    {
+      "model": "analytic_exchange_direct_K",
+      "readout_bit_flip_probability": 0.0,
+      "copies_per_example": 3840,
+      "expected_mse": 0.0007868182969806158,
+      "squared_bias": 1.6596099442649384e-33,
+      "error_mitigation": false
+    },
+    {
+      "model": "joint_exchange",
+      "readout_bit_flip_probability": 0.005,
+      "copies_per_example": 3840,
+      "expected_mse": 0.0009342791746746663,
+      "squared_bias": 1.9621899283397607e-05,
+      "error_mitigation": false
+    },
+    {
+      "model": "no_commutator",
+      "readout_bit_flip_probability": 0.005,
+      "copies_per_example": 3840,
+      "expected_mse": 0.06266364014496933,
+      "squared_bias": 0.06256611986880693,
+      "error_mitigation": false
+    },
+    {
+      "model": "exchange_matched_qnn",
+      "readout_bit_flip_probability": 0.005,
+      "copies_per_example": 3840,
+      "expected_mse": 0.0008395669485094701,
+      "squared_bias": 1.9625632765013437e-05,
+      "error_mitigation": false
+    },
+    {
+      "model": "analytic_exchange_direct_K",
+      "readout_bit_flip_probability": 0.005,
+      "copies_per_example": 3840,
+      "expected_mse": 0.0008115137189472654,
+      "squared_bias": 1.9623939409896923e-05,
+      "error_mitigation": false
+    },
+    {
+      "model": "joint_exchange",
+      "readout_bit_flip_probability": 0.01,
+      "copies_per_example": 3840,
+      "expected_mse": 0.000998583392506709,
+      "squared_bias": 7.849176890762642e-05,
+      "error_mitigation": false
+    },
+    {
+      "model": "no_commutator",
+      "readout_bit_flip_probability": 0.01,
+      "copies_per_example": 3840,
+      "expected_mse": 0.06257342228470772,
+      "squared_bias": 0.062475928174136906,
+      "error_mitigation": false
+    },
+    {
+      "model": "exchange_matched_qnn",
+      "readout_bit_flip_probability": 0.01,
+      "copies_per_example": 3840,
+      "expected_mse": 0.000903554354008472,
+      "squared_bias": 7.849819329931094e-05,
+      "error_mitigation": false
+    },
+    {
+      "model": "analytic_exchange_direct_K",
+      "readout_bit_flip_probability": 0.01,
+      "copies_per_example": 3840,
+      "expected_mse": 0.000875406050059771,
+      "squared_bias": 7.849575763958762e-05,
+      "error_mitigation": false
+    },
+    {
+      "model": "joint_exchange",
+      "readout_bit_flip_probability": 0.02,
+      "copies_per_example": 3840,
+      "expected_mse": 0.0012447702376519648,
+      "squared_bias": 0.00031397543078063965,
+      "error_mitigation": false
+    },
+    {
+      "model": "no_commutator",
+      "readout_bit_flip_probability": 0.02,
+      "copies_per_example": 3840,
+      "expected_mse": 0.06239497500651555,
+      "squared_bias": 0.06229753243020633,
+      "error_mitigation": false
+    },
+    {
+      "model": "exchange_matched_qnn",
+      "readout_bit_flip_probability": 0.02,
+      "copies_per_example": 3840,
+      "expected_mse": 0.001149114720024583,
+      "squared_bias": 0.00031398465146615653,
+      "error_mitigation": false
+    },
+    {
+      "model": "analytic_exchange_direct_K",
+      "readout_bit_flip_probability": 0.02,
+      "copies_per_example": 3840,
+      "expected_mse": 0.0011207814397223524,
+      "squared_bias": 0.0003139830305583502,
+      "error_mitigation": false
+    },
+    {
+      "model": "joint_exchange",
+      "readout_bit_flip_probability": 0.05,
+      "copies_per_example": 3840,
+      "expected_mse": 0.002923958048937092,
+      "squared_bias": 0.0019623777973961213,
+      "error_mitigation": false
+    },
+    {
+      "model": "no_commutator",
+      "readout_bit_flip_probability": 0.05,
+      "copies_per_example": 3840,
+      "expected_mse": 0.06187554071058754,
+      "squared_bias": 0.06177824636169055,
+      "error_mitigation": false
+    },
+    {
+      "model": "exchange_matched_qnn",
+      "readout_bit_flip_probability": 0.05,
+      "copies_per_example": 3840,
+      "expected_mse": 0.0028264802582177694,
+      "squared_bias": 0.001962374722752693,
+      "error_mitigation": false
+    },
+    {
+      "model": "analytic_exchange_direct_K",
+      "readout_bit_flip_probability": 0.05,
+      "copies_per_example": 3840,
+      "expected_mse": 0.00279763342821065,
+      "squared_bias": 0.0019623939409896844,
+      "error_mitigation": false
+    }
+  ],
+  "training": "All models were trained on exact expectations. This file evaluates finite-shot inference only.",
+  "copy_accounting": "Two copies per jointly measured quantum execution; one copy per independently sampled Pauli setting.",
+  "pauli_comparator": "Known target structure with an unbiased squared-mean estimator, eight independent rotated Pauli settings. No optimality claim; grouping can change its cost.",
+  "classical_film_comparator": "Fifteen independent nonidentity Pauli settings; no grouping or shot-aware retraining.",
+  "direct_K": "Analytic exchange and direct K are the same observable and outcome distribution; displayed once.",
+  "readout_noise_interpretation": "Independent flips act on the two terminal port detectors. The direct-K row uses this exchange realization; another physical implementation of K can have different noise.",
+  "joint_variance_monte_carlo_audit": {
+    "shots": 480,
+    "replicates": 50000,
+    "expected_variance": 0.0031963056318951495,
+    "empirical_variance": 0.0032221876686908736,
+    "relative_error": 0.008097484964345592,
+    "passed": true
+  },
+  "limits": [
+    "No device execution",
+    "No finite-shot training",
+    "No quantum gate noise",
+    "No optimal measurement-allocation claim"
+  ]
+}

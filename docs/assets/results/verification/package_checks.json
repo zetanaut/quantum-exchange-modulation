@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "scope": "Public GitHub handoff implementation and recorded evidence; website and archive checks are recorded separately in the handoff validation report.",
+  "independent_matrix_groups_passed": 13,
+  "actual_pennylane_groups_passed": 7,
+  "state_valued_layers": "Physical state map, two-layer backpropagation, and finite-difference agreement passed.",
+  "learning_curve": "96 complete records; 576 independently recomputed MSE entries; protocol, checkpoint and split audit passed.",
+  "physics_example_checks_passed": 21,
+  "pretrained_inference": "128 frozen-checkpoint predictions reproduced with MSE 3.8673539455e-12.",
+  "streaming_example": "40 updates, disjoint states, validation-selected checkpoint, exact reload agreement.",
+  "publication_or_remote_deployment": false
+}

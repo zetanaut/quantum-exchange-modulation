@@ -1,0 +1,7 @@
+{
+  "all_passed": true,
+  "execution": "Node VM with a minimal DOM stub; arithmetic and input-event behavior, not a visual browser test",
+  "gain_initial_and_endpoints": true,
+  "commutator_zero_at_equal_mixture": true,
+  "resource_defaults_and_updates": true
+}

@@ -1,0 +1,22 @@
+{
+  "quantum-exchange-modulation": {
+    "site_url": "https://qem-validation.github.io/quantum-exchange-modulation/",
+    "checks": {
+      "pages": 12,
+      "local_links_checked": 768,
+      "assets_hashed": 131,
+      "passed": true,
+      "problems": []
+    }
+  },
+  "qem-validation.github.io": {
+    "site_url": "https://qem-validation.github.io/",
+    "checks": {
+      "pages": 12,
+      "local_links_checked": 768,
+      "assets_hashed": 131,
+      "passed": true,
+      "problems": []
+    }
+  }
+}

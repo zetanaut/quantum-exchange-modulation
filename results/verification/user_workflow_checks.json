@@ -1,0 +1,7 @@
+{
+  "target_column_matches_flat": true,
+  "mse": 3.867353945504882e-12,
+  "malformed_target_rejected": true,
+  "custom_depth_observables_and_plot_caption": true,
+  "all_passed": true
+}

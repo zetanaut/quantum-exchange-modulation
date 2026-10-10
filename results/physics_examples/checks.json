@@ -1,0 +1,153 @@
+{
+  "all_passed": true,
+  "checks": [
+    {
+      "name": "bell_ghz_exchange_vs_matrices_and_exact_polynomial",
+      "passed": true,
+      "max_error": 6.661338147750939e-16,
+      "tolerance": 2e-10,
+      "comparisons": 574
+    },
+    {
+      "name": "bell_ghz_constant_local_marginals",
+      "passed": true,
+      "max_error": 1.1102230246251565e-16,
+      "tolerance": 2e-10,
+      "comparisons": 82
+    },
+    {
+      "name": "bell_ghz_known_global_pauli_comparator",
+      "passed": true,
+      "max_error": 1.5543122344752192e-15,
+      "tolerance": 2e-10,
+      "comparisons": 164
+    },
+    {
+      "name": "correlation_exact_estimator_variances",
+      "passed": true,
+      "max_error": 2.6645352591003757e-15,
+      "tolerance": 2e-10,
+      "comparisons": 82
+    },
+    {
+      "name": "correlation_monte_carlo_mean_standard_errors",
+      "passed": true,
+      "max_error": 1.8310999892616018,
+      "tolerance": 6.0,
+      "comparisons": 8
+    },
+    {
+      "name": "correlation_monte_carlo_variance_standard_errors",
+      "passed": true,
+      "max_error": 1.4869277053891816,
+      "tolerance": 6.0,
+      "comparisons": 8,
+      "note": "Normal approximation for sample-variance standard errors; deterministic diagnostic, not a hardware experiment"
+    },
+    {
+      "name": "frozen_predictor_pennylane_vs_independent_numpy",
+      "passed": true,
+      "max_error": 1.9984014443252818e-15,
+      "tolerance": 2e-10,
+      "comparisons": 128
+    },
+    {
+      "name": "finite_dephasing_purity_loss_identity",
+      "passed": true,
+      "max_error": 4.371503159461554e-16,
+      "tolerance": 2e-10,
+      "comparisons": 8064
+    },
+    {
+      "name": "finite_dephasing_kraus_vs_liouvillian_expm",
+      "passed": true,
+      "max_error": 8.882022459859248e-16,
+      "tolerance": 2e-10,
+      "comparisons": 1008
+    },
+    {
+      "name": "finite_dephasing_pennylane_vs_liouvillian_expm",
+      "passed": true,
+      "max_error": 8.882166371564945e-16,
+      "tolerance": 2e-10,
+      "comparisons": 192
+    },
+    {
+      "name": "finite_dephasing_output_physicality",
+      "passed": true,
+      "max_error": 3.3308497693360055e-16,
+      "tolerance": 2e-10,
+      "comparisons": 384
+    },
+    {
+      "name": "qfi_exchange_qnodes_vs_D",
+      "passed": true,
+      "max_error": 1.3322676295501878e-15,
+      "tolerance": 2e-10,
+      "comparisons": 220
+    },
+    {
+      "name": "qfi_lower_bound_violations",
+      "passed": true,
+      "max_error": 1.4432899320127035e-15,
+      "tolerance": 2e-10,
+      "comparisons": 220
+    },
+    {
+      "name": "qfi_pure_state_equality_and_generator_normalization",
+      "passed": true,
+      "max_error": 1.4432899320127035e-15,
+      "tolerance": 2e-10,
+      "comparisons": 120
+    },
+    {
+      "name": "qfi_arbitrary_single_qubit_equality",
+      "passed": true,
+      "max_error": 6.661338147750939e-16,
+      "tolerance": 2e-10,
+      "comparisons": 60
+    },
+    {
+      "name": "qfi_spectral_vs_independent_sld_sylvester",
+      "passed": true,
+      "max_error": 1.942890293094024e-15,
+      "tolerance": 2e-10,
+      "comparisons": 320
+    },
+    {
+      "name": "qfi_depolarized_bell_closed_forms",
+      "passed": true,
+      "max_error": 8.881784197001252e-16,
+      "tolerance": 2e-10,
+      "comparisons": 123
+    },
+    {
+      "name": "three_spin_global_exchange_vs_independent_matrices",
+      "passed": true,
+      "max_error": 7.771561172376096e-16,
+      "tolerance": 2e-10,
+      "comparisons": 684
+    },
+    {
+      "name": "three_spin_six_fredkin_phase_kickback_vs_full_global_gate",
+      "passed": true,
+      "max_error": 2.7755575615628914e-16,
+      "tolerance": 2e-10,
+      "comparisons": 12
+    },
+    {
+      "name": "three_spin_pairwise_exchange_matches_local_marginal_only",
+      "passed": true,
+      "max_error": 2.220446049250313e-16,
+      "tolerance": 2e-10,
+      "comparisons": 19
+    },
+    {
+      "name": "three_spin_gibbs_states_physicality",
+      "passed": true,
+      "max_error": 1.3322676295501878e-15,
+      "tolerance": 2e-10,
+      "comparisons": 342
+    }
+  ]
+}

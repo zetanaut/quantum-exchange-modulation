@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "seed": 20261009,
+  "name": "common_gate_resource_upper_construction",
+  "status": "PASS",
+  "cases": 24,
+  "metrics": {
+    "maximum_literal_Toffoli_matrix_error": {
+      "value": 3.1401849173675503e-16,
+      "comparison": "<=",
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    "maximum_literal_Fredkin_matrix_error": {
+      "value": 3.1401849173675503e-16,
+      "comparison": "<=",
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    "maximum_controlled_global_SWAP_matrix_error": {
+      "value": 6.684427777288335e-16,
+      "comparison": "<=",
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    "maximum_full_exchange_matrix_error": {
+      "value": 1.3194187691671687e-15,
+      "comparison": "<=",
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    "maximum_control_ancilla_leakage": {
+      "value": 5.472066600334051e-16,
+      "comparison": "<=",
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    "maximum_two_CNOT_Pauli_rotation_error": {
+      "value": 5.554491812608914e-16,
+      "comparison": "<=",
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    "Toffoli_CNOT_count_error": {
+      "value": 0.0,
+      "comparison": "<=",
+      "tolerance": 0.0,
+      "passed": true
+    },
+    "Fredkin_CNOT_count_error": {
+      "value": 0.0,
+      "comparison": "<=",
+      "tolerance": 0.0,
+      "passed": true
+    },
+    "global_exchange_CNOT_count_error": {
+      "value": 0.0,
+      "comparison": "<=",
+      "tolerance": 0.0,
+      "passed": true
+    }
+  },
+  "explanation": "Exact matrix verification includes phases, not only classical truth tables. Fredkin(c,a,b) is chronological CX(b,a), CCX(c,a,b), CX(b,a). A six-CNOT ancilla-free Toffoli gives eight CNOTs per Fredkin. Two controlled global SWAPs on two-qubit registers use four Fredkins, hence 32 CNOTs; four extra weight-two Pauli rotations add eight. This is a constructive upper bound, not an optimal compiled count.",
+  "resource_counts": {
+    "logical_data_qubits_per_copy": 2,
+    "copies": 2,
+    "exchange_control_ancillas": 1,
+    "Toffoli_CNOTs": 6,
+    "Fredkin_CNOTs": 8,
+    "Fredkins_per_global_exchange": 4,
+    "global_exchange_CNOTs": 32,
+    "additional_weight_two_Pauli_rotations": 4,
+    "CNOTs_per_weight_two_Pauli_rotation": 2,
+    "module_CNOT_upper_construction": 40,
+    "assumptions": "All-to-all logical CNOT availability; arbitrary required single-qubit rotations; no routing, error correction, state preparation, readout, cancellation optimization, or additional unlisted layers are counted. Four Pauli rotations are an explicit module assumption.",
+    "not_claimed": "An optimal count, a lower bound, equality with a generic QNN gate budget, or a hardware-level runtime comparison."
+  }
+}

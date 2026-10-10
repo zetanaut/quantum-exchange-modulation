@@ -1,0 +1,468 @@
+{
+  "package": "quantum_exchange_modulation independent mathematical verification",
+  "schema_version": 1,
+  "status": "PASS",
+  "seed": 20261009,
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0"
+  },
+  "summary": {
+    "checks": 13,
+    "passed": 13,
+    "failed": 0,
+    "matrix_cases": 932
+  },
+  "checks": [
+    {
+      "name": "global_partial_swap_identity_16_by_16",
+      "status": "PASS",
+      "cases": 96,
+      "metrics": {
+        "maximum_matrix_entry_error": {
+          "value": 2.7756795316273483e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        }
+      },
+      "explanation": "A literal 16-by-16 matrix exponential acts on two 2-qubit registers; the retained register is compared with a rho + (1-a) tau + i b [rho,tau]."
+    },
+    {
+      "name": "bounded_gain_mixture_and_ancilla_implementations",
+      "status": "PASS",
+      "cases": 40,
+      "metrics": {
+        "maximum_randomized_mixture_error": {
+          "value": 2.223111636754704e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_control_ancilla_error": {
+          "value": 3.3306692221671297e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_phase_kickback_unitary_error": {
+          "value": 5.978733960281817e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_phase_kickback_ancilla_leakage": {
+          "value": 4.470784918164142e-17,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        }
+      },
+      "explanation": "The signed-exchange mixture and a coherent control ancilla followed by tracing give the same bounded gain. Two controlled global SWAPs also implement exp(-i eta SWAP) with an ancilla returned to zero."
+    },
+    {
+      "name": "hermiticity_trace_and_positivity",
+      "status": "PASS",
+      "cases": 160,
+      "metrics": {
+        "maximum_hermiticity_error": {
+          "value": 6.206335383118183e-17,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_trace_error": {
+          "value": 2.221488143305538e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_negative_eigenvalue_magnitude": {
+          "value": 0.0,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_independent_circuit_error": {
+          "value": 3.3306998515547187e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        }
+      },
+      "explanation": "Valid gains include endpoints, pure inputs, mixed inputs, and maximally mixed inputs. Positivity is checked by the smallest matrix eigenvalue."
+    },
+    {
+      "name": "sharp_gain_domain_counterexamples",
+      "status": "PASS",
+      "cases": 12,
+      "metrics": {
+        "minimum_counterexample_negative_eigenvalue_magnitude": {
+          "value": 0.00019460520537358797,
+          "comparison": ">=",
+          "tolerance": 1e-06,
+          "passed": true
+        },
+        "maximum_analytic_eigenvalue_error": {
+          "value": 7.632783294297951e-17,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        }
+      },
+      "explanation": "Orthogonal pure states exclude a outside [0,1]. Nearly aligned pure states explicitly exclude b^2 > a(1-a); the proof in theory.md treats arbitrarily small violations and establishes necessity and sufficiency."
+    },
+    {
+      "name": "simultaneous_unitary_and_conditioned_covariance",
+      "status": "PASS",
+      "cases": 64,
+      "metrics": {
+        "maximum_channel_covariance_error": {
+          "value": 5.561233308406745e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_swap_commutation_error": {
+          "value": 1.1102230246251565e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_conditioned_rotation_covariance_error": {
+          "value": 1.554355208118673e-15,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        }
+      },
+      "explanation": "Both copies and the context rotation transform together. This is covariance, not a claim that every individual register charge is conserved."
+    },
+    {
+      "name": "nonlinear_dephasing_D_and_Bell_mixtures",
+      "status": "PASS",
+      "cases": 113,
+      "metrics": {
+        "maximum_branch_difference_D_error": {
+          "value": 4.440892098500626e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_individual_branch_error": {
+          "value": 4.440892098500626e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_commutator_norm_identity_error": {
+          "value": 3.3306690738754696e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_purity_derivative_identity_error": {
+          "value": 8.881784197001252e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_Bell_mixture_polynomial_error": {
+          "value": 5.551115123125783e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_D_nonnegativity_violation": {
+          "value": 0.0,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        }
+      },
+      "explanation": "Official normalization: D=Tr(rho^2)-Tr(rho P rho P)=||[P,rho]||_F^2/2. Quarter rotations V_+/- and a half exchange give z_+=m-D/2, z_-=m+D/2. For rho_t=(1+t)Phi+/2+(1-t)Phi-/2 and P=Z1, D=t^2."
+    },
+    {
+      "name": "joint_port_D_readout_and_exact_shot_variance",
+      "status": "PASS",
+      "cases": 78,
+      "metrics": {
+        "maximum_direct_K_operator_identity_error": {
+          "value": 1.6369944904252282e-15,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_port_mean_error": {
+          "value": 5.551115123125783e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_port_correlation_error": {
+          "value": 3.3306690738754696e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_shot_variance_identity_error": {
+          "value": 3.1086244689504383e-15,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_joint_outcome_probability_error": {
+          "value": 2.220446049250313e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_Monte_Carlo_mean_standard_errors": {
+          "value": 1.5636097045354855,
+          "comparison": "<=",
+          "tolerance": 6.0,
+          "passed": true
+        },
+        "maximum_Monte_Carlo_variance_standard_errors": {
+          "value": 2.1362213858906767,
+          "comparison": "<=",
+          "tolerance": 6.0,
+          "passed": true
+        }
+      },
+      "explanation": "Keep both output ports of one quarter-rotation, half-exchange circuit. The commuting P_A,P_B measurements give D from B-A using two copies per joint shot. Exactly Wdagger(P_B-P_A)W=K=(I-P tensor P)SWAP, and Var(Dhat)=[2(1-m^2)-D^2]/N. Thus the direct K measurement has identical variance. Monte Carlo uses 6 cases, 8000 batches per case, and 512 joint shots per batch; six-standard-error checks validate empirical means and variances without asserting a learning advantage."
+    },
+    {
+      "name": "qubit_quadratic_feature_span",
+      "status": "PASS",
+      "cases": 160,
+      "metrics": {
+        "maximum_cross_product_Bloch_identity_error": {
+          "value": 2.7755575615628914e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_reconstructed_monomial_error": {
+          "value": 4.440892098500626e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_arbitrary_quadratic_readout_error": {
+          "value": 1.3322676295501878e-15,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        }
+      },
+      "explanation": "Five specified rotated-copy exchange settings, Pauli measurements, linear input features, and a constant span the ten scalar monomials through degree two. Each block is evaluated as an actual 4-by-4 circuit."
+    },
+    {
+      "name": "self_rotated_copy_purity_contraction",
+      "status": "PASS",
+      "cases": 100,
+      "metrics": {
+        "maximum_purity_increase": {
+          "value": 0.0,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_exact_purity_delta_error": {
+          "value": 1.609823385706477e-15,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_spectral_commutator_bound_violation": {
+          "value": 0.0,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_maximally_mixed_fixed_point_error": {
+          "value": 4.44107572070542e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        }
+      },
+      "explanation": "Only isospectral inputs tau=V rho Vdagger are used. The bound proves that this self-rotated module cannot purify its input."
+    },
+    {
+      "name": "exchange_parameter_shift_conventions",
+      "status": "PASS",
+      "cases": 72,
+      "metrics": {
+        "maximum_eta_shift_error": {
+          "value": 2.220446049250313e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_theta_half_generator_shift_error": {
+          "value": 1.1102230246251565e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_operator_derivative_error": {
+          "value": 3.3306690738754696e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        }
+      },
+      "explanation": "For U_eta=exp(-i eta S), df/deta=f(eta+pi/4)-f(eta-pi/4), with no factor 1/2. For exp(-i theta S/2), shifts are +/-pi/2 and prefactor 1/2. Other gates and inputs are held fixed during each gate derivative."
+    },
+    {
+      "name": "global_partial_swap_is_not_pairwise_partial_swaps",
+      "status": "PASS",
+      "cases": 1,
+      "metrics": {
+        "maximum_global_swap_product_identity_error": {
+          "value": 0.0,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_global_expected_state_error": {
+          "value": 1.1102230246251565e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_pairwise_expected_state_error": {
+          "value": 1.1102230246251565e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "trace_norm_separation_error_from_one": {
+          "value": 0.0,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "observed_trace_norm_separation": {
+          "value": 1.0,
+          "comparison": ">=",
+          "tolerance": 0.9,
+          "passed": true
+        }
+      },
+      "explanation": "At eta=pi/4, |00> and |11> yield diag(1/2,0,0,1/2) under a global partial SWAP, but I/4 under independent pairwise partial SWAPs. Their trace norm distance is 1 (trace distance is 1/2)."
+    },
+    {
+      "name": "fixed_copy_polynomial_degree",
+      "status": "PASS",
+      "cases": 12,
+      "metrics": {
+        "maximum_order_k_plus_one_finite_difference": {
+          "value": 5.828670879282072e-16,
+          "comparison": "<=",
+          "tolerance": 5e-11,
+          "passed": true
+        },
+        "maximum_exact_degree_finite_difference_error": {
+          "value": 1.1102230246251565e-16,
+          "comparison": "<=",
+          "tolerance": 5e-11,
+          "passed": true
+        },
+        "maximum_parity_circuit_monomial_error": {
+          "value": 1.1102230246251565e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "minimum_nonzero_order_k_difference": {
+          "value": 0.384,
+          "comparison": ">=",
+          "tolerance": 0.01,
+          "passed": true
+        }
+      },
+      "explanation": "One, two, and three fixed input copies are tested at circuit depths 1,4,9 with an independent ancilla. Finite differences above degree k vanish; CNOT parity circuits independently attain exactly z^k. No postselection normalization or nonlinear classical output head is used."
+    },
+    {
+      "name": "common_gate_resource_upper_construction",
+      "status": "PASS",
+      "cases": 24,
+      "metrics": {
+        "maximum_literal_Toffoli_matrix_error": {
+          "value": 3.1401849173675503e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_literal_Fredkin_matrix_error": {
+          "value": 3.1401849173675503e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_controlled_global_SWAP_matrix_error": {
+          "value": 6.684427777288335e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_full_exchange_matrix_error": {
+          "value": 1.3194187691671687e-15,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_control_ancilla_leakage": {
+          "value": 5.472066600334051e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "maximum_two_CNOT_Pauli_rotation_error": {
+          "value": 5.554491812608914e-16,
+          "comparison": "<=",
+          "tolerance": 5e-12,
+          "passed": true
+        },
+        "Toffoli_CNOT_count_error": {
+          "value": 0.0,
+          "comparison": "<=",
+          "tolerance": 0.0,
+          "passed": true
+        },
+        "Fredkin_CNOT_count_error": {
+          "value": 0.0,
+          "comparison": "<=",
+          "tolerance": 0.0,
+          "passed": true
+        },
+        "global_exchange_CNOT_count_error": {
+          "value": 0.0,
+          "comparison": "<=",
+          "tolerance": 0.0,
+          "passed": true
+        }
+      },
+      "explanation": "Exact matrix verification includes phases, not only classical truth tables. Fredkin(c,a,b) is chronological CX(b,a), CCX(c,a,b), CX(b,a). A six-CNOT ancilla-free Toffoli gives eight CNOTs per Fredkin. Two controlled global SWAPs on two-qubit registers use four Fredkins, hence 32 CNOTs; four extra weight-two Pauli rotations add eight. This is a constructive upper bound, not an optimal compiled count.",
+      "resource_counts": {
+        "logical_data_qubits_per_copy": 2,
+        "copies": 2,
+        "exchange_control_ancillas": 1,
+        "Toffoli_CNOTs": 6,
+        "Fredkin_CNOTs": 8,
+        "Fredkins_per_global_exchange": 4,
+        "global_exchange_CNOTs": 32,
+        "additional_weight_two_Pauli_rotations": 4,
+        "CNOTs_per_weight_two_Pauli_rotation": 2,
+        "module_CNOT_upper_construction": 40,
+        "assumptions": "All-to-all logical CNOT availability; arbitrary required single-qubit rotations; no routing, error correction, state preparation, readout, cancellation optimization, or additional unlisted layers are counted. Four Pauli rotations are an explicit module assumption.",
+        "not_claimed": "An optimal count, a lower bound, equality with a generic QNN gate budget, or a hardware-level runtime comparison."
+      }
+    }
+  ],
+  "scope": "Numerical validation of exact mathematical identities and counterexamples; not a statistical learning benchmark or a proof of quantum advantage."
+}

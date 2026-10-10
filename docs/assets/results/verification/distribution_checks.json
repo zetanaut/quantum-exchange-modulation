@@ -1,0 +1,10 @@
+{
+  "all_passed": true,
+  "python_sources": 28,
+  "markdown_python_blocks": 8,
+  "json_files": 29,
+  "npz_files": 27,
+  "png_figures": 11,
+  "pdf_figures": 11,
+  "scope": "Source syntax, fenced Python examples, numerical archives, and figure file integrity; no browser rendering claim."
+}

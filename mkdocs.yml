@@ -1,0 +1,63 @@
+site_name: Context-controlled exchange modulation
+site_description: Reproducible Torch and PennyLane networks for conditional quantum-state
+  features, physics examples, and measured comparisons.
+docs_dir: docs
+site_dir: site
+use_directory_urls: false
+theme:
+  name: material
+  language: en
+  font: false
+  palette:
+    primary: indigo
+    accent: teal
+  features:
+  - navigation.sections
+  - navigation.top
+  - search.highlight
+  - content.code.copy
+nav:
+- Overview: index.md
+- Build and use:
+  - Installation: install.md
+  - Quickstart: quickstart.md
+  - Architecture: architecture.md
+  - Control explorer: control_explorer.md
+- Physics and learning:
+  - Physics examples: physics.md
+  - Training: training.md
+  - Results and comparisons: evidence.md
+- Reproduce and deploy:
+  - Reproduction guide: reproduction.md
+  - Deployment: deploy.md
+  - References: references.md
+markdown_extensions:
+- admonition
+- attr_list
+- md_in_html
+- tables
+- toc:
+    permalink: true
+- pymdownx.details
+- pymdownx.highlight:
+    anchor_linenums: true
+- pymdownx.superfences
+- pymdownx.arithmatex:
+    generic: true
+extra_css:
+- stylesheets/extra.css
+extra_javascript:
+- javascripts/mathjax.js
+- https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js
+- javascripts/explorers.js
+plugins:
+- search
+validation:
+  links:
+    not_found: warn
+    anchors: warn
+    unrecognized_links: warn
+site_url: https://zetanaut.github.io/quantum-exchange-modulation/
+repo_url: https://github.com/zetanaut/quantum-exchange-modulation
+repo_name: zetanaut/quantum-exchange-modulation
+edit_uri: edit/main/docs/

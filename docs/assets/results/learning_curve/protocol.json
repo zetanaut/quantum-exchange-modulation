@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-09T21:51:43.922567+00:00",
+  "study": "Nested complete-state learning curve, exact expectations",
+  "predeclaration": "Design fixed before running any smaller-size training or inspecting their test errors",
+  "dataset": "data/benchmark.npz",
+  "dataset_sha256": "75237b0540b49a2c4a4f179aad2eb64cfdd7ccb1de22e6310cdb1f7aaa2407b1",
+  "source_states": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "training_pairs": [
+    40,
+    80,
+    160,
+    320
+  ],
+  "optimizer_seeds": [
+    17,
+    31,
+    73
+  ],
+  "subsampling_seed": 20261010,
+  "source_families": [
+    "coupled_spin_gibbs",
+    "driven_product_mixture",
+    "low_rank_noisy_preparation"
+  ],
+  "nested_subsets": "One family-balanced state ordering, shared by every model and optimizer seed",
+  "validation": "All 96 recorded validation pairs, unchanged at every training size",
+  "quantum": {
+    "models": [
+      "joint_exchange",
+      "exchange_matched_qnn"
+    ],
+    "maxiter": 120,
+    "batch_size": 320,
+    "val_every": 5,
+    "adam_steps": 0,
+    "initialization": "fresh seeded random parameters",
+    "optimizer": "unchanged scripts/train_torch.py:fit_one",
+    "selection": "minimum validation MSE among initial and every-fifth-iteration checkpoints"
+  },
+  "film": {
+    "widths": [
+      12,
+      24
+    ],
+    "l2": [
+      1e-05,
+      0.001,
+      0.01
+    ],
+    "steps": 180,
+    "optimizer": {
+      "name": "torch.optim.LBFGS",
+      "lr": 1.0,
+      "max_iter": 1,
+      "max_eval": 20,
+      "history_size": 50,
+      "tolerance_grad": 1e-09,
+      "tolerance_change": 1e-12,
+      "line_search_fn": "strong_wolfe"
+    },
+    "checkpoint_selection": "minimum validation MSE, checked at initialization and every iteration",
+    "configuration_selection": "minimum mean validation MSE across all three seeds, independently at each size",
+    "input": "15 exact nonidentity two-qubit Pauli expectations and context vector"
+  },
+  "calibration": "Exact untrained classical Gram formula; no fitted coefficients or labeled pairs required",
+  "heldout_results": [
+    "test_joint",
+    "test_state",
+    "test_context"
+  ],
+  "primary_endpoint": "test_joint MSE: fixed new states and held-out context cap",
+  "test_context_caveat": "At smaller sizes some original test_context states are absent from training; overlap counts are in indices.json",
+  "reported_uncertainty": "All three optimizer seeds, arithmetic mean and range; no dataset-resampling confidence interval",
+  "reuse_full_size": true,
+  "reuse_policy": "Only pinned identical source/data/results and matching training configurations; saved checkpoint predictions are reevaluated",
+  "finite_shot_training": false,
+  "resource_scope": "Counts are labeled source-state/context pairs, not physical quantum copies or measurement shots",
+  "runtime_scope": "Per-run training times and new invocation wall time; reused training times remain historical",
+  "claims": [
+    "No practical superiority is inferred from errors near numerical precision",
+    "A matched two-copy quantum model is a strong comparator",
+    "The known classical Gram formula is exact with exact Pauli features",
+    "One nested state sequence and three optimizer seeds are a diagnostic, not a general sample-complexity theorem"
+  ],
+  "plot_floor_mse": 1e-14,
+  "implementation_sha256": "d8883947ac993aa5c4530ac952042d2abf7d4085768dde575e925c6382f931be",
+  "framework": {
+    "torch": "2.14.1+cpu",
+    "pennylane": "0.45.1",
+    "numpy": "2.3.5",
+    "dtype": "float64 / complex128",
+    "threads": 1,
+    "device": "CPU"
+  }
+}

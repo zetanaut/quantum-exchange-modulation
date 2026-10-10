@@ -1,0 +1,4210 @@
+{
+  "schema_version": 1,
+  "dataset": "/workspace/scratch/d2875724e455/quantum_exchange_modulation/data/benchmark.npz",
+  "seeds": [
+    17,
+    31,
+    73
+  ],
+  "framework": {
+    "torch": "2.14.1+cpu",
+    "pennylane": "0.45.1",
+    "numpy": "2.3.5"
+  },
+  "training_regime": "actual PennyLane quantum circuits with Torch interface and exact backpropagation",
+  "device": "CPU; PennyLane default.qubit with exact purification of mixed inputs",
+  "simulation_representation": "4 data wires plus 4 untouched environment wires; all trainable gates and readouts act only on data wires",
+  "environment_wire_scope": "simulator representation only, not an extra input-copy or processing resource",
+  "torch_threads": 1,
+  "finite_shot_training_performed": false,
+  "initialization_policy": "fresh independent seeded random starts; no fitted NumPy weights",
+  "NumPy_role": "independent verification and architecture metadata; not training forward or backward",
+  "models": {
+    "joint_exchange": {
+      "runs": [
+        {
+          "seed": 17,
+          "optimizer": "torch.optim.LBFGS",
+          "random_initialization": true,
+          "NumPy_fitted_weights_loaded": false,
+          "initial_parameters": [
+            1.1321514944207016,
+            0.060917629796311996,
+            0.9352034181695796,
+            -0.2268435342334379,
+            -0.8525795714276649,
+            0.008387230942478527,
+            -0.3647551947802213,
+            -0.39247018197053096,
+            -0.09988627818775098,
+            -0.02333071265940797,
+            -1.0245522670991238,
+            0.41631596575939195,
+            -0.9120805226595117,
+            0.836830848849456,
+            0.26575565021993813,
+            -0.21233003315999135,
+            0.6043484418213483,
+            0.009353907862849361,
+            0.31091443543047786,
+            0.04825218575124228,
+            0.7195663276270913,
+            0.43350180811364625,
+            -0.5907334141393066,
+            0.43875082215563843,
+            0.3765421755884276
+          ],
+          "Adam_steps": 0,
+          "LBFGS_max_iterations": 120,
+          "LBFGS_completed_iterations": 120,
+          "stop_reason": "maximum LBFGS iterations reached",
+          "batch_size": 320,
+          "batching": "full-dataset exact objective; chunk gradients accumulated before each optimizer update",
+          "validation_every_iterations": 5,
+          "best_validation_mse": 2.4970668158643414e-08,
+          "best_validation_iteration": 120,
+          "best_validation_phase": "lbfgs",
+          "selection_rule": "minimum validation MSE among checkpoints; no test-based selection",
+          "parameter_domain": "real angles and affine-head parameters; physical eta/chi coefficients use trigonometric parametrization",
+          "elapsed_seconds": 60.96165498099981,
+          "counters": {
+            "objective_evaluations": 279,
+            "gradient_evaluations": 279,
+            "training_forward_batches": 279,
+            "validation_forward_batches": 25
+          },
+          "trajectory": [
+            {
+              "phase": "initial",
+              "iteration": 0,
+              "validation_mse": 0.07862624021051437,
+              "train_mse": null,
+              "gradient_max_abs": null,
+              "objective_evaluations": 0,
+              "seconds": 0.034524314000009326
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 5,
+              "validation_mse": 0.036265973216821894,
+              "train_mse": 0.03362614083211332,
+              "gradient_max_abs": 0.0474971284934355,
+              "objective_evaluations": 11,
+              "seconds": 3.6129331270003604
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 10,
+              "validation_mse": 0.009034814411348386,
+              "train_mse": 0.005677880856637225,
+              "gradient_max_abs": 0.015322828519846789,
+              "objective_evaluations": 22,
+              "seconds": 5.775253779000195
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 15,
+              "validation_mse": 0.0010145494303300262,
+              "train_mse": 0.0007855326400706139,
+              "gradient_max_abs": 0.004266075320441063,
+              "objective_evaluations": 32,
+              "seconds": 7.749998035998942
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 20,
+              "validation_mse": 0.00032237480750742876,
+              "train_mse": 0.00026102549257038163,
+              "gradient_max_abs": 0.002309128931875793,
+              "objective_evaluations": 42,
+              "seconds": 9.709680718000527
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 25,
+              "validation_mse": 0.00026608703960659744,
+              "train_mse": 0.00012108488925092621,
+              "gradient_max_abs": 0.001297046972281109,
+              "objective_evaluations": 53,
+              "seconds": 11.850818216000334
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 30,
+              "validation_mse": 4.839613569321344e-05,
+              "train_mse": 3.66334974336603e-05,
+              "gradient_max_abs": 0.0008796675990055129,
+              "objective_evaluations": 63,
+              "seconds": 14.000727229000404
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 35,
+              "validation_mse": 2.326521169506588e-05,
+              "train_mse": 1.4571104422850153e-05,
+              "gradient_max_abs": 0.0008001418770739004,
+              "objective_evaluations": 74,
+              "seconds": 16.437487035998856
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 40,
+              "validation_mse": 1.8374110386152253e-05,
+              "train_mse": 1.023806592708842e-05,
+              "gradient_max_abs": 7.603849505199575e-05,
+              "objective_evaluations": 85,
+              "seconds": 18.793055021000328
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 45,
+              "validation_mse": 1.2668592730014005e-05,
+              "train_mse": 6.729361237340305e-06,
+              "gradient_max_abs": 0.0003078392638800218,
+              "objective_evaluations": 95,
+              "seconds": 20.94089175299996
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 50,
+              "validation_mse": 3.4399571081489126e-06,
+              "train_mse": 1.7192195073713798e-06,
+              "gradient_max_abs": 6.421171270992664e-05,
+              "objective_evaluations": 105,
+              "seconds": 23.162635185999534
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 55,
+              "validation_mse": 2.367904582056619e-06,
+              "train_mse": 9.997270318428137e-07,
+              "gradient_max_abs": 5.3490033409449406e-05,
+              "objective_evaluations": 115,
+              "seconds": 25.23532629699912
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 60,
+              "validation_mse": 9.92076750981795e-07,
+              "train_mse": 4.6546255977434577e-07,
+              "gradient_max_abs": 0.00013898894994409283,
+              "objective_evaluations": 126,
+              "seconds": 27.70626532300048
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 65,
+              "validation_mse": 2.2080536222681267e-07,
+              "train_mse": 1.592447044627142e-07,
+              "gradient_max_abs": 5.476857447723903e-05,
+              "objective_evaluations": 136,
+              "seconds": 29.858614093998767
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 70,
+              "validation_mse": 9.814732995392111e-08,
+              "train_mse": 5.936388563528789e-08,
+              "gradient_max_abs": 2.1381496936550534e-05,
+              "objective_evaluations": 147,
+              "seconds": 32.271277255000314
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 75,
+              "validation_mse": 4.4774939209710554e-08,
+              "train_mse": 3.5954554120954495e-08,
+              "gradient_max_abs": 4.2942640643066425e-05,
+              "objective_evaluations": 157,
+              "seconds": 34.40491353499965
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 80,
+              "validation_mse": 2.937688863807555e-08,
+              "train_mse": 1.7301152702708124e-08,
+              "gradient_max_abs": 5.009479454305755e-06,
+              "objective_evaluations": 167,
+              "seconds": 36.679893247999644
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 85,
+              "validation_mse": 2.585531717339007e-08,
+              "train_mse": 1.6400412901118946e-08,
+              "gradient_max_abs": 2.43609537836419e-06,
+              "objective_evaluations": 178,
+              "seconds": 38.99748359699879
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 90,
+              "validation_mse": 2.6881536262199118e-08,
+              "train_mse": 1.5788493967578978e-08,
+              "gradient_max_abs": 3.4119284175966157e-06,
+              "objective_evaluations": 189,
+              "seconds": 41.330166837000434
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 95,
+              "validation_mse": 2.641274050616008e-08,
+              "train_mse": 1.559788290301003e-08,
+              "gradient_max_abs": 1.309244963630306e-06,
+              "objective_evaluations": 204,
+              "seconds": 44.459688904998984
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 100,
+              "validation_mse": 2.626458913516431e-08,
+              "train_mse": 1.5423353550776684e-08,
+              "gradient_max_abs": 1.486139403818067e-06,
+              "objective_evaluations": 219,
+              "seconds": 47.7301694910002
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 105,
+              "validation_mse": 2.5737448223962375e-08,
+              "train_mse": 1.5254731273090275e-08,
+              "gradient_max_abs": 1.3510096885746386e-06,
+              "objective_evaluations": 234,
+              "seconds": 50.898025294000036
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 110,
+              "validation_mse": 2.559942307636966e-08,
+              "train_mse": 1.509077236511264e-08,
+              "gradient_max_abs": 1.346711186684974e-06,
+              "objective_evaluations": 249,
+              "seconds": 54.29349065899987
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 115,
+              "validation_mse": 2.510051771611841e-08,
+              "train_mse": 1.4930773116586853e-08,
+              "gradient_max_abs": 1.378512607524928e-06,
+              "objective_evaluations": 264,
+              "seconds": 57.51936584000032
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 120,
+              "validation_mse": 2.4970668158643414e-08,
+              "train_mse": 1.4774295105075521e-08,
+              "gradient_max_abs": 1.2650657051273478e-06,
+              "objective_evaluations": 279,
+              "seconds": 60.961495290999665
+            }
+          ],
+          "architecture": {
+            "name": "joint_exchange",
+            "trainable_parameters": 25,
+            "inactive_parameters": [],
+            "active_parameters": 25,
+            "input_qubits": 2,
+            "simultaneous_input_copies": 2,
+            "output_heads": "P(c) on both output registers; same execution",
+            "conditioner": "shared learned Euler frame, 4 scale/offset parameters",
+            "input_preprocessing": "no exact query alignment; learned frame is part of V(c)",
+            "inner_circuit": [
+              "learned_frame_Z_0",
+              "learned_frame_Y_0",
+              "RYI",
+              "RZI",
+              "RIY",
+              "RIZ",
+              "RXX",
+              "RZZ",
+              "RXI",
+              "RIX",
+              "RYI",
+              "RZI",
+              "RIY",
+              "RIZ",
+              "RXX",
+              "RZZ",
+              "RXI",
+              "RIX",
+              "learned_frame_Y_0",
+              "learned_frame_Z_0"
+            ],
+            "readout": "learned affine combination of both port means",
+            "physical_coefficients": "a=cos(eta)^2; b=sin(2eta)cos(chi)/2",
+            "chi_realization": "classical random choice of exchange sign, no postselection",
+            "primitive_gates_per_pair": {
+              "one_qubit_parameterized_rotations_before_readout": 16,
+              "two_qubit_Pauli_rotations_before_readout": 4,
+              "global_two_register_partial_swap": 1,
+              "one_qubit_rotations_for_both_P_readouts": 4
+            },
+            "global_partial_swap_exact_ancilla_construction": {
+              "extra_clean_ancillas": 1,
+              "controlled_full_register_swaps": 2,
+              "controlled_pair_swaps_Fredkin": 4,
+              "ancilla_H": 4,
+              "ancilla_Rz": 1
+            },
+            "compiled_two_qubit_gate_budget_matched": false,
+            "resource_note": "Global register partial-SWAP is not a product of pair partial-SWAPs. Fredkin decomposition is not compiled or costed as a CNOT here.",
+            "training": "actual PennyLane QNodes, Torch backpropagation, torch.optim.LBFGS (optional Adam warmup)",
+            "identifiability": "a,b and affine-head scale are not separately physical estimates",
+            "fitted_summary": {
+              "eta": 0.8028345829067691,
+              "chi": 0.25949150756837613,
+              "a": 0.4825671143907225,
+              "b": 0.4829664681128617,
+              "head_weights": [
+                -1.036038074823207,
+                1.036073413146979
+              ],
+              "head_bias": -6.5840270234938146e-06,
+              "frame_parameters": [
+                0.999938156580832,
+                0.4235133798330338,
+                0.9999900061524294,
+                0.0005817039463161289
+              ]
+            },
+            "backend": {
+              "device": "default.qubit",
+              "interface": "torch",
+              "differentiation": "backpropagation through actual parameterized PennyLane gates",
+              "physical_data_wires": 4,
+              "raw_state_copies_per_quantum_execution": 2,
+              "simulator_environment_wires": 4,
+              "environment_accessible_to_learner": false,
+              "simulator_exchange_control_wires": 0,
+              "simulator_total_wires": 8,
+              "mixed_state_representation": "Exact positive-square-root purification; eigenvectors are input preparation only and never used as learned features",
+              "batching": "Native PennyLane StatePrep and gate-parameter broadcasting",
+              "signed_mixture": "Two actual QNode branches, averaged with cos(chi/2)^2 and sin(chi/2)^2",
+              "exchange_implementation": "matrix",
+              "physical_resource_note": "Purification environments are simulator bookkeeping and do not change raw-copy or physical data-gate counts. On hardware the sign mixture randomly selects one exchange sign for each prepared pair.",
+              "compatibility_note": "Public-API purification avoids the batched QubitDensityMatrix initialization bug observed in default.mixed in PennyLane 0.45.1"
+            }
+          },
+          "metrics": {
+            "train": {
+              "mse": 1.4774295105075523e-08,
+              "rmse": 0.00012154955822657491,
+              "mae": 8.288330652509662e-05,
+              "max_abs_error": 0.0006538437652863216,
+              "r2": 0.9999997286894318,
+              "prediction_min": 0.012374835464745276,
+              "prediction_max": 0.9699881915882349,
+              "n": 320
+            },
+            "validation": {
+              "mse": 2.4970668158643414e-08,
+              "rmse": 0.00015802110035891857,
+              "mae": 0.00010747943032825674,
+              "max_abs_error": 0.0006425471270311567,
+              "r2": 0.9999995932428359,
+              "prediction_min": 0.025604865276022435,
+              "prediction_max": 0.997427345306154,
+              "n": 96
+            },
+            "test_state": {
+              "mse": 1.8251672278136392e-08,
+              "rmse": 0.0001350987500983499,
+              "mae": 9.860758960760609e-05,
+              "max_abs_error": 0.0007386712375957449,
+              "r2": 0.999999680089699,
+              "prediction_min": 0.006323359724595,
+              "prediction_max": 0.9800066689785983,
+              "n": 192
+            },
+            "test_context": {
+              "mse": 2.4711980658536078e-08,
+              "rmse": 0.00015720044738656464,
+              "mae": 0.00010317104189655089,
+              "max_abs_error": 0.0006648461305953646,
+              "r2": 0.9999995690191158,
+              "prediction_min": 0.051897474464618856,
+              "prediction_max": 0.9814979157733142,
+              "n": 128
+            },
+            "test_joint": {
+              "mse": 1.7920348745218663e-08,
+              "rmse": 0.0001338669068336856,
+              "mae": 9.466599329003463e-05,
+              "max_abs_error": 0.0005267054987151409,
+              "r2": 0.9999996847576201,
+              "prediction_min": 0.00543626879160961,
+              "prediction_max": 0.9518192128498142,
+              "n": 128
+            },
+            "bell": {
+              "mse": 4.731190518783417e-08,
+              "rmse": 0.00021751300004329435,
+              "mae": 0.00016492087824237483,
+              "max_abs_error": 0.0004784233780767977,
+              "r2": 0.9999995073282288,
+              "prediction_min": -6.581124084786961e-06,
+              "prediction_max": 0.9995517625482279,
+              "n": 51
+            }
+          }
+        },
+        {
+          "seed": 31,
+          "optimizer": "torch.optim.LBFGS",
+          "random_initialization": true,
+          "NumPy_fitted_weights_loaded": false,
+          "initial_parameters": [
+            0.9525638453696116,
+            0.047504679302831324,
+            1.0728553922554682,
+            -0.17498876395089644,
+            0.34544891391295146,
+            0.11477615479845281,
+            0.3523409417835406,
+            0.12258820533256544,
+            0.5229036564887555,
+            -0.42199037044509236,
+            0.7992448802179845,
+            0.5410754298608793,
+            -0.2699810318056507,
+            0.2970748408771603,
+            0.2001453230193974,
+            -0.7855936045277627,
+            0.26784731053154853,
+            -0.26342960440737984,
+            -0.11250609011331046,
+            -0.27107389759996636,
+            1.0675248524086802,
+            0.40880096885954853,
+            -0.4903280875943801,
+            0.344084815860772,
+            0.3765421755884276
+          ],
+          "Adam_steps": 0,
+          "LBFGS_max_iterations": 120,
+          "LBFGS_completed_iterations": 78,
+          "stop_reason": "parameter step tolerance reached",
+          "batch_size": 320,
+          "batching": "full-dataset exact objective; chunk gradients accumulated before each optimizer update",
+          "validation_every_iterations": 5,
+          "best_validation_mse": 7.610663969543369e-12,
+          "best_validation_iteration": 78,
+          "best_validation_phase": "lbfgs",
+          "selection_rule": "minimum validation MSE among checkpoints; no test-based selection",
+          "parameter_domain": "real angles and affine-head parameters; physical eta/chi coefficients use trigonometric parametrization",
+          "elapsed_seconds": 39.98164251699927,
+          "counters": {
+            "objective_evaluations": 168,
+            "gradient_evaluations": 168,
+            "training_forward_batches": 168,
+            "validation_forward_batches": 17
+          },
+          "trajectory": [
+            {
+              "phase": "initial",
+              "iteration": 0,
+              "validation_mse": 0.05760401444457366,
+              "train_mse": null,
+              "gradient_max_abs": null,
+              "objective_evaluations": 0,
+              "seconds": 0.027615248998699826
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 5,
+              "validation_mse": 0.029040082571858906,
+              "train_mse": 0.02649301552012735,
+              "gradient_max_abs": 0.05757490164979467,
+              "objective_evaluations": 10,
+              "seconds": 2.6045072999986587
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 10,
+              "validation_mse": 0.0013279405926585484,
+              "train_mse": 0.0013916728309663012,
+              "gradient_max_abs": 0.008285853542414897,
+              "objective_evaluations": 20,
+              "seconds": 4.910048859999733
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 15,
+              "validation_mse": 0.00021866585185990788,
+              "train_mse": 0.0002313555745045669,
+              "gradient_max_abs": 0.0016512134609039948,
+              "objective_evaluations": 30,
+              "seconds": 7.387133550999351
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 20,
+              "validation_mse": 3.394384132789115e-05,
+              "train_mse": 5.185015244597783e-05,
+              "gradient_max_abs": 0.0008906386692860704,
+              "objective_evaluations": 40,
+              "seconds": 9.377686319998247
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 25,
+              "validation_mse": 2.5987108379116358e-05,
+              "train_mse": 2.3133408314881377e-05,
+              "gradient_max_abs": 0.0004860792410249722,
+              "objective_evaluations": 50,
+              "seconds": 11.915314240999578
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 30,
+              "validation_mse": 1.2003167431809077e-05,
+              "train_mse": 8.162666282606593e-06,
+              "gradient_max_abs": 0.00045568135886470286,
+              "objective_evaluations": 61,
+              "seconds": 14.447385698998914
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 35,
+              "validation_mse": 3.074078670842181e-06,
+              "train_mse": 3.100526957432478e-06,
+              "gradient_max_abs": 0.00030918919869982886,
+              "objective_evaluations": 71,
+              "seconds": 16.491155182999137
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 40,
+              "validation_mse": 1.7055088677493572e-06,
+              "train_mse": 1.041642027812008e-06,
+              "gradient_max_abs": 0.0007611785236013789,
+              "objective_evaluations": 81,
+              "seconds": 18.48171171099966
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 45,
+              "validation_mse": 1.9816837559207088e-07,
+              "train_mse": 1.4203037504613068e-07,
+              "gradient_max_abs": 8.887442744272991e-05,
+              "objective_evaluations": 91,
+              "seconds": 21.17040393699972
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 50,
+              "validation_mse": 1.0239008793228353e-08,
+              "train_mse": 6.374241267859542e-09,
+              "gradient_max_abs": 1.4273457602549796e-05,
+              "objective_evaluations": 102,
+              "seconds": 24.005523658999664
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 55,
+              "validation_mse": 5.836245334534775e-10,
+              "train_mse": 3.2383940868550526e-10,
+              "gradient_max_abs": 5.0328335135046345e-06,
+              "objective_evaluations": 113,
+              "seconds": 26.13804577799965
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 60,
+              "validation_mse": 2.1123975345797813e-10,
+              "train_mse": 9.799777303875124e-11,
+              "gradient_max_abs": 2.1318687320505403e-06,
+              "objective_evaluations": 124,
+              "seconds": 28.45260875099848
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 65,
+              "validation_mse": 7.317052322120614e-11,
+              "train_mse": 2.945435869019856e-11,
+              "gradient_max_abs": 4.388697903357497e-07,
+              "objective_evaluations": 137,
+              "seconds": 31.33336317499925
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 70,
+              "validation_mse": 2.5152805291704156e-11,
+              "train_mse": 1.022033910052738e-11,
+              "gradient_max_abs": 6.803915648272369e-07,
+              "objective_evaluations": 149,
+              "seconds": 34.21167329599848
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 75,
+              "validation_mse": 1.0762932611845945e-11,
+              "train_mse": 3.9544181302951565e-12,
+              "gradient_max_abs": 1.522128223527139e-07,
+              "objective_evaluations": 162,
+              "seconds": 37.717066867999165
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 78,
+              "validation_mse": 7.610663969543369e-12,
+              "train_mse": 2.7935306079034814e-12,
+              "gradient_max_abs": 1.2665031276857642e-07,
+              "objective_evaluations": 168,
+              "seconds": 39.97793942399949
+            }
+          ],
+          "architecture": {
+            "name": "joint_exchange",
+            "trainable_parameters": 25,
+            "inactive_parameters": [],
+            "active_parameters": 25,
+            "input_qubits": 2,
+            "simultaneous_input_copies": 2,
+            "output_heads": "P(c) on both output registers; same execution",
+            "conditioner": "shared learned Euler frame, 4 scale/offset parameters",
+            "input_preprocessing": "no exact query alignment; learned frame is part of V(c)",
+            "inner_circuit": [
+              "learned_frame_Z_0",
+              "learned_frame_Y_0",
+              "RYI",
+              "RZI",
+              "RIY",
+              "RIZ",
+              "RXX",
+              "RZZ",
+              "RXI",
+              "RIX",
+              "RYI",
+              "RZI",
+              "RIY",
+              "RIZ",
+              "RXX",
+              "RZZ",
+              "RXI",
+              "RIX",
+              "learned_frame_Y_0",
+              "learned_frame_Z_0"
+            ],
+            "readout": "learned affine combination of both port means",
+            "physical_coefficients": "a=cos(eta)^2; b=sin(2eta)cos(chi)/2",
+            "chi_realization": "classical random choice of exchange sign, no postselection",
+            "primitive_gates_per_pair": {
+              "one_qubit_parameterized_rotations_before_readout": 16,
+              "two_qubit_Pauli_rotations_before_readout": 4,
+              "global_two_register_partial_swap": 1,
+              "one_qubit_rotations_for_both_P_readouts": 4
+            },
+            "global_partial_swap_exact_ancilla_construction": {
+              "extra_clean_ancillas": 1,
+              "controlled_full_register_swaps": 2,
+              "controlled_pair_swaps_Fredkin": 4,
+              "ancilla_H": 4,
+              "ancilla_Rz": 1
+            },
+            "compiled_two_qubit_gate_budget_matched": false,
+            "resource_note": "Global register partial-SWAP is not a product of pair partial-SWAPs. Fredkin decomposition is not compiled or costed as a CNOT here.",
+            "training": "actual PennyLane QNodes, Torch backpropagation, torch.optim.LBFGS (optional Adam warmup)",
+            "identifiability": "a,b and affine-head scale are not separately physical estimates",
+            "fitted_summary": {
+              "eta": 0.7786248647233351,
+              "chi": 0.10519084550316071,
+              "a": 0.5067730915143356,
+              "b": 0.49719064803963214,
+              "head_weights": [
+                -1.0665933440132602,
+                1.0665940132588863
+              ],
+              "head_bias": -3.5861000367647055e-07,
+              "frame_parameters": [
+                1.000001543721181,
+                -0.2988972504973746,
+                0.9999994327917795,
+                4.538248023107501e-06
+              ]
+            },
+            "backend": {
+              "device": "default.qubit",
+              "interface": "torch",
+              "differentiation": "backpropagation through actual parameterized PennyLane gates",
+              "physical_data_wires": 4,
+              "raw_state_copies_per_quantum_execution": 2,
+              "simulator_environment_wires": 4,
+              "environment_accessible_to_learner": false,
+              "simulator_exchange_control_wires": 0,
+              "simulator_total_wires": 8,
+              "mixed_state_representation": "Exact positive-square-root purification; eigenvectors are input preparation only and never used as learned features",
+              "batching": "Native PennyLane StatePrep and gate-parameter broadcasting",
+              "signed_mixture": "Two actual QNode branches, averaged with cos(chi/2)^2 and sin(chi/2)^2",
+              "exchange_implementation": "matrix",
+              "physical_resource_note": "Purification environments are simulator bookkeeping and do not change raw-copy or physical data-gate counts. On hardware the sign mixture randomly selects one exchange sign for each prepared pair.",
+              "compatibility_note": "Public-API purification avoids the batched QubitDensityMatrix initialization bug observed in default.mixed in PennyLane 0.45.1"
+            }
+          },
+          "metrics": {
+            "train": {
+              "mse": 2.7935306079034814e-12,
+              "rmse": 1.6713858345407506e-06,
+              "mae": 1.2217921053803669e-06,
+              "max_abs_error": 6.3706428419241234e-06,
+              "r2": 0.9999999999487005,
+              "prediction_min": 0.012389948142150236,
+              "prediction_max": 0.9700725237257624,
+              "n": 320
+            },
+            "validation": {
+              "mse": 7.610663969543369e-12,
+              "rmse": 2.758743186587575e-06,
+              "mae": 1.956663678339686e-06,
+              "max_abs_error": 9.976231233110866e-06,
+              "r2": 0.9999999998760268,
+              "prediction_min": 0.025609881682596747,
+              "prediction_max": 0.9972267159282746,
+              "n": 96
+            },
+            "test_state": {
+              "mse": 5.4483280529775075e-12,
+              "rmse": 2.334165386809064e-06,
+              "mae": 1.601477588550829e-06,
+              "max_abs_error": 7.805765983026625e-06,
+              "r2": 0.9999999999045032,
+              "prediction_min": 0.006315341433807591,
+              "prediction_max": 0.9800586883691679,
+              "n": 192
+            },
+            "test_context": {
+              "mse": 4.033881533417694e-12,
+              "rmse": 2.0084525220720785e-06,
+              "mae": 1.499809003623607e-06,
+              "max_abs_error": 6.6162163838701105e-06,
+              "r2": 0.9999999999296485,
+              "prediction_min": 0.051916738541666396,
+              "prediction_max": 0.9808351992807347,
+              "n": 128
+            },
+            "test_joint": {
+              "mse": 3.86735394564781e-12,
+              "rmse": 1.966558909783231e-06,
+              "mae": 1.4707875719209123e-06,
+              "max_abs_error": 6.707981035414257e-06,
+              "r2": 0.9999999999319682,
+              "prediction_min": 0.005436962281723317,
+              "prediction_max": 0.9516128204099901,
+              "n": 128
+            },
+            "bell": {
+              "mse": 1.9208922390143435e-12,
+              "rmse": 1.385962567681517e-06,
+              "mae": 1.0081094562628774e-06,
+              "max_abs_error": 3.254066709867942e-06,
+              "r2": 0.9999999999799972,
+              "prediction_min": -3.5860964735525266e-07,
+              "prediction_max": 1.0000032540667099,
+              "n": 51
+            }
+          }
+        },
+        {
+          "seed": 73,
+          "optimizer": "torch.optim.LBFGS",
+          "random_initialization": true,
+          "NumPy_fitted_weights_loaded": false,
+          "initial_parameters": [
+            0.8688032913372842,
+            0.14005580978873244,
+            0.9542067633374165,
+            0.053256797332806895,
+            0.15139900647960222,
+            -0.8760539939255841,
+            0.22561901322645483,
+            -0.4347828831766776,
+            -0.5598765804245948,
+            0.5022581332180622,
+            -0.7257712001720349,
+            -0.7149825294721138,
+            -0.37862253140993507,
+            0.6327030495051825,
+            0.4159936309053831,
+            -0.07497926683338355,
+            0.8131630948336863,
+            -0.3419895382646976,
+            -0.8078887466262927,
+            0.30135278614985567,
+            0.36239626217545273,
+            0.22534480266089904,
+            -0.6095357521675102,
+            0.5564096665663958,
+            0.3765421755884276
+          ],
+          "Adam_steps": 0,
+          "LBFGS_max_iterations": 120,
+          "LBFGS_completed_iterations": 120,
+          "stop_reason": "maximum LBFGS iterations reached",
+          "batch_size": 320,
+          "batching": "full-dataset exact objective; chunk gradients accumulated before each optimizer update",
+          "validation_every_iterations": 5,
+          "best_validation_mse": 4.015711552957619e-10,
+          "best_validation_iteration": 120,
+          "best_validation_phase": "lbfgs",
+          "selection_rule": "minimum validation MSE among checkpoints; no test-based selection",
+          "parameter_domain": "real angles and affine-head parameters; physical eta/chi coefficients use trigonometric parametrization",
+          "elapsed_seconds": 61.631303166999714,
+          "counters": {
+            "objective_evaluations": 260,
+            "gradient_evaluations": 260,
+            "training_forward_batches": 260,
+            "validation_forward_batches": 25
+          },
+          "trajectory": [
+            {
+              "phase": "initial",
+              "iteration": 0,
+              "validation_mse": 0.08745220551393296,
+              "train_mse": null,
+              "gradient_max_abs": null,
+              "objective_evaluations": 0,
+              "seconds": 0.03186649800045416
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 5,
+              "validation_mse": 0.037291744324946204,
+              "train_mse": 0.03283631637985608,
+              "gradient_max_abs": 0.024624319059637672,
+              "objective_evaluations": 10,
+              "seconds": 3.387633295998967
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 10,
+              "validation_mse": 0.006699790574030892,
+              "train_mse": 0.0065029622178997505,
+              "gradient_max_abs": 0.01718430740483613,
+              "objective_evaluations": 20,
+              "seconds": 6.378572064999389
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 15,
+              "validation_mse": 0.0009697547410824323,
+              "train_mse": 0.0005772909972193369,
+              "gradient_max_abs": 0.002097104721511968,
+              "objective_evaluations": 30,
+              "seconds": 9.185428234999563
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 20,
+              "validation_mse": 0.00029917403541524146,
+              "train_mse": 0.00016584229126411095,
+              "gradient_max_abs": 0.0026724263385320204,
+              "objective_evaluations": 40,
+              "seconds": 11.869051001998741
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 25,
+              "validation_mse": 0.00010775037554143339,
+              "train_mse": 6.140094283615424e-05,
+              "gradient_max_abs": 0.004840390254934989,
+              "objective_evaluations": 50,
+              "seconds": 14.019523868999386
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 30,
+              "validation_mse": 1.3738414723562893e-05,
+              "train_mse": 1.2951373704073592e-05,
+              "gradient_max_abs": 0.0004417959804431258,
+              "objective_evaluations": 60,
+              "seconds": 16.408155290999275
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 35,
+              "validation_mse": 9.562971847544347e-06,
+              "train_mse": 4.709684565798193e-06,
+              "gradient_max_abs": 0.000539918350058122,
+              "objective_evaluations": 70,
+              "seconds": 18.415413945000182
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 40,
+              "validation_mse": 2.196327527009296e-06,
+              "train_mse": 2.0459125023160204e-06,
+              "gradient_max_abs": 9.386678817470646e-05,
+              "objective_evaluations": 80,
+              "seconds": 20.396019694999268
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 45,
+              "validation_mse": 5.393184823084637e-07,
+              "train_mse": 4.097520737013276e-07,
+              "gradient_max_abs": 0.000642215839137582,
+              "objective_evaluations": 91,
+              "seconds": 22.629465549000088
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 50,
+              "validation_mse": 4.719902578509614e-08,
+              "train_mse": 2.5353190682617456e-08,
+              "gradient_max_abs": 5.128747589497573e-06,
+              "objective_evaluations": 102,
+              "seconds": 24.833308585999475
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 55,
+              "validation_mse": 4.491465307641424e-08,
+              "train_mse": 2.328484330902559e-08,
+              "gradient_max_abs": 5.899460789664311e-06,
+              "objective_evaluations": 112,
+              "seconds": 27.262861961000453
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 60,
+              "validation_mse": 2.9156727777691343e-08,
+              "train_mse": 1.7872783877441706e-08,
+              "gradient_max_abs": 1.4575194203274447e-05,
+              "objective_evaluations": 123,
+              "seconds": 29.63463242999933
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 65,
+              "validation_mse": 1.0325606479426846e-08,
+              "train_mse": 4.896451065048116e-09,
+              "gradient_max_abs": 4.944586678091294e-06,
+              "objective_evaluations": 133,
+              "seconds": 31.99809868400007
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 70,
+              "validation_mse": 9.751974810604313e-10,
+              "train_mse": 6.78729441767931e-10,
+              "gradient_max_abs": 1.6283364187242908e-06,
+              "objective_evaluations": 144,
+              "seconds": 34.668233243999566
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 75,
+              "validation_mse": 7.874483698780269e-10,
+              "train_mse": 5.468804753207677e-10,
+              "gradient_max_abs": 1.13570252400917e-06,
+              "objective_evaluations": 154,
+              "seconds": 36.90264201900027
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 80,
+              "validation_mse": 6.658406658928143e-10,
+              "train_mse": 4.437794982323525e-10,
+              "gradient_max_abs": 5.037611941334568e-07,
+              "objective_evaluations": 167,
+              "seconds": 40.27379571799975
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 85,
+              "validation_mse": 6.257035575349896e-10,
+              "train_mse": 4.020511787229006e-10,
+              "gradient_max_abs": 3.837679653687152e-07,
+              "objective_evaluations": 179,
+              "seconds": 42.78863675699904
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 90,
+              "validation_mse": 6.051054474922175e-10,
+              "train_mse": 3.7877271656427337e-10,
+              "gradient_max_abs": 3.695428406877419e-07,
+              "objective_evaluations": 190,
+              "seconds": 45.09544657399965
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 95,
+              "validation_mse": 5.612089381299209e-10,
+              "train_mse": 3.4845365409660324e-10,
+              "gradient_max_abs": 3.5351616494075827e-07,
+              "objective_evaluations": 202,
+              "seconds": 47.96043357599956
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 100,
+              "validation_mse": 5.179342410076944e-10,
+              "train_mse": 3.2223764597977116e-10,
+              "gradient_max_abs": 3.763718769519388e-07,
+              "objective_evaluations": 214,
+              "seconds": 51.17452412499915
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 105,
+              "validation_mse": 5.009553499244364e-10,
+              "train_mse": 3.048233187319701e-10,
+              "gradient_max_abs": 3.307938683906211e-07,
+              "objective_evaluations": 225,
+              "seconds": 53.63088400599918
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 110,
+              "validation_mse": 4.675747052436561e-10,
+              "train_mse": 2.817338139961707e-10,
+              "gradient_max_abs": 3.1726159855147583e-07,
+              "objective_evaluations": 237,
+              "seconds": 56.68046297199908
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 115,
+              "validation_mse": 4.368208494234425e-10,
+              "train_mse": 2.670882361100572e-10,
+              "gradient_max_abs": 3.095866143205933e-07,
+              "objective_evaluations": 248,
+              "seconds": 58.86100135400011
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 120,
+              "validation_mse": 4.015711552957619e-10,
+              "train_mse": 2.4665599718777996e-10,
+              "gradient_max_abs": 2.9743745485662456e-07,
+              "objective_evaluations": 260,
+              "seconds": 61.63114125799984
+            }
+          ],
+          "architecture": {
+            "name": "joint_exchange",
+            "trainable_parameters": 25,
+            "inactive_parameters": [],
+            "active_parameters": 25,
+            "input_qubits": 2,
+            "simultaneous_input_copies": 2,
+            "output_heads": "P(c) on both output registers; same execution",
+            "conditioner": "shared learned Euler frame, 4 scale/offset parameters",
+            "input_preprocessing": "no exact query alignment; learned frame is part of V(c)",
+            "inner_circuit": [
+              "learned_frame_Z_0",
+              "learned_frame_Y_0",
+              "RYI",
+              "RZI",
+              "RIY",
+              "RIZ",
+              "RXX",
+              "RZZ",
+              "RXI",
+              "RIX",
+              "RYI",
+              "RZI",
+              "RIY",
+              "RIZ",
+              "RXX",
+              "RZZ",
+              "RXI",
+              "RIX",
+              "learned_frame_Y_0",
+              "learned_frame_Z_0"
+            ],
+            "readout": "learned affine combination of both port means",
+            "physical_coefficients": "a=cos(eta)^2; b=sin(2eta)cos(chi)/2",
+            "chi_realization": "classical random choice of exchange sign, no postselection",
+            "primitive_gates_per_pair": {
+              "one_qubit_parameterized_rotations_before_readout": 16,
+              "two_qubit_Pauli_rotations_before_readout": 4,
+              "global_two_register_partial_swap": 1,
+              "one_qubit_rotations_for_both_P_readouts": 4
+            },
+            "global_partial_swap_exact_ancilla_construction": {
+              "extra_clean_ancillas": 1,
+              "controlled_full_register_swaps": 2,
+              "controlled_pair_swaps_Fredkin": 4,
+              "ancilla_H": 4,
+              "ancilla_Rz": 1
+            },
+            "compiled_two_qubit_gate_budget_matched": false,
+            "resource_note": "Global register partial-SWAP is not a product of pair partial-SWAPs. Fredkin decomposition is not compiled or costed as a CNOT here.",
+            "training": "actual PennyLane QNodes, Torch backpropagation, torch.optim.LBFGS (optional Adam warmup)",
+            "identifiability": "a,b and affine-head scale are not separately physical estimates",
+            "fitted_summary": {
+              "eta": 0.8216748389236885,
+              "chi": 0.038418835988498705,
+              "a": 0.46375514276668484,
+              "b": 0.4983165943050023,
+              "head_weights": [
+                -1.0060507090114443,
+                1.0060495155940723
+              ],
+              "head_bias": -1.7424104432253994e-06,
+              "frame_parameters": [
+                1.00000627879309,
+                0.7438454171004868,
+                1.0000037372467785,
+                -7.632006245404683e-06
+              ]
+            },
+            "backend": {
+              "device": "default.qubit",
+              "interface": "torch",
+              "differentiation": "backpropagation through actual parameterized PennyLane gates",
+              "physical_data_wires": 4,
+              "raw_state_copies_per_quantum_execution": 2,
+              "simulator_environment_wires": 4,
+              "environment_accessible_to_learner": false,
+              "simulator_exchange_control_wires": 0,
+              "simulator_total_wires": 8,
+              "mixed_state_representation": "Exact positive-square-root purification; eigenvectors are input preparation only and never used as learned features",
+              "batching": "Native PennyLane StatePrep and gate-parameter broadcasting",
+              "signed_mixture": "Two actual QNode branches, averaged with cos(chi/2)^2 and sin(chi/2)^2",
+              "exchange_implementation": "matrix",
+              "physical_resource_note": "Purification environments are simulator bookkeeping and do not change raw-copy or physical data-gate counts. On hardware the sign mixture randomly selects one exchange sign for each prepared pair.",
+              "compatibility_note": "Public-API purification avoids the batched QubitDensityMatrix initialization bug observed in default.mixed in PennyLane 0.45.1"
+            }
+          },
+          "metrics": {
+            "train": {
+              "mse": 2.4665599718778e-10,
+              "rmse": 1.5705285644896116e-05,
+              "mae": 1.0449729508401859e-05,
+              "max_abs_error": 6.748378609944261e-05,
+              "r2": 0.9999999954704859,
+              "prediction_min": 0.01238707986381222,
+              "prediction_max": 0.9700575658236077,
+              "n": 320
+            },
+            "validation": {
+              "mse": 4.015711552957619e-10,
+              "rmse": 2.0039240387194368e-05,
+              "mae": 1.414759840891409e-05,
+              "max_abs_error": 6.566802369645242e-05,
+              "r2": 0.9999999934586474,
+              "prediction_min": 0.02560781968097365,
+              "prediction_max": 0.9972610825363778,
+              "n": 96
+            },
+            "test_state": {
+              "mse": 2.3638858688927494e-10,
+              "rmse": 1.5374933719833557e-05,
+              "mae": 9.879457292187173e-06,
+              "max_abs_error": 7.004231843099618e-05,
+              "r2": 0.9999999958566458,
+              "prediction_min": 0.006313514524590594,
+              "prediction_max": 0.9800733999764779,
+              "n": 192
+            },
+            "test_context": {
+              "mse": 1.9549221800046877e-10,
+              "rmse": 1.39818531676051e-05,
+              "mae": 9.88771188073376e-06,
+              "max_abs_error": 5.383875651587822e-05,
+              "r2": 0.9999999965905846,
+              "prediction_min": 0.051915986896745585,
+              "prediction_max": 0.9808496467066499,
+              "n": 128
+            },
+            "test_joint": {
+              "mse": 2.397215491119739e-10,
+              "rmse": 1.5482943812853353e-05,
+              "mae": 1.0385935010990619e-05,
+              "max_abs_error": 5.542253899881722e-05,
+              "r2": 0.9999999957829844,
+              "prediction_min": 0.005435871338055823,
+              "prediction_max": 0.9516422710533263,
+              "n": 128
+            },
+            "bell": {
+              "mse": 4.4604526477187545e-10,
+              "rmse": 2.1119783729287464e-05,
+              "mae": 1.5379574218714444e-05,
+              "max_abs_error": 4.699979819622335e-05,
+              "r2": 0.999999995355209,
+              "prediction_min": -1.7424435993020942e-06,
+              "prediction_max": 1.0000469997981962,
+              "n": 51
+            }
+          }
+        }
+      ],
+      "selected_seed": 31,
+      "seed_summary": {
+        "train": {
+          "mse_mean_over_seeds": 5.007914877623735e-09,
+          "mse_std_over_seeds": 8.458812226667674e-09,
+          "selected_seed_mse": 2.7935306079034814e-12
+        },
+        "validation": {
+          "mse_mean_over_seeds": 8.45994999263624e-09,
+          "mse_std_over_seeds": 1.4300058111251538e-08,
+          "selected_seed_mse": 7.610663969543369e-12
+        },
+        "test_state": {
+          "mse_mean_over_seeds": 6.164503064359548e-09,
+          "mse_std_over_seeds": 1.0468432454414744e-08,
+          "selected_seed_mse": 5.4483280529775075e-12
+        },
+        "test_context": {
+          "mse_mean_over_seeds": 8.303835586023323e-09,
+          "mse_std_over_seeds": 1.4210192912628568e-08,
+          "selected_seed_mse": 4.033881533417694e-12
+        },
+        "test_joint": {
+          "mse_mean_over_seeds": 6.054645882758762e-09,
+          "mse_std_over_seeds": 1.0276676754451617e-08,
+          "selected_seed_mse": 3.86735394564781e-12
+        },
+        "bell": {
+          "mse_mean_over_seeds": 1.5919957114948352e-08,
+          "mse_std_over_seeds": 2.7187131413090255e-08,
+          "selected_seed_mse": 1.9208922390143435e-12
+        }
+      },
+      "architecture": {
+        "name": "joint_exchange",
+        "trainable_parameters": 25,
+        "inactive_parameters": [],
+        "active_parameters": 25,
+        "input_qubits": 2,
+        "simultaneous_input_copies": 2,
+        "output_heads": "P(c) on both output registers; same execution",
+        "conditioner": "shared learned Euler frame, 4 scale/offset parameters",
+        "input_preprocessing": "no exact query alignment; learned frame is part of V(c)",
+        "inner_circuit": [
+          "learned_frame_Z_0",
+          "learned_frame_Y_0",
+          "RYI",
+          "RZI",
+          "RIY",
+          "RIZ",
+          "RXX",
+          "RZZ",
+          "RXI",
+          "RIX",
+          "RYI",
+          "RZI",
+          "RIY",
+          "RIZ",
+          "RXX",
+          "RZZ",
+          "RXI",
+          "RIX",
+          "learned_frame_Y_0",
+          "learned_frame_Z_0"
+        ],
+        "readout": "learned affine combination of both port means",
+        "physical_coefficients": "a=cos(eta)^2; b=sin(2eta)cos(chi)/2",
+        "chi_realization": "classical random choice of exchange sign, no postselection",
+        "primitive_gates_per_pair": {
+          "one_qubit_parameterized_rotations_before_readout": 16,
+          "two_qubit_Pauli_rotations_before_readout": 4,
+          "global_two_register_partial_swap": 1,
+          "one_qubit_rotations_for_both_P_readouts": 4
+        },
+        "global_partial_swap_exact_ancilla_construction": {
+          "extra_clean_ancillas": 1,
+          "controlled_full_register_swaps": 2,
+          "controlled_pair_swaps_Fredkin": 4,
+          "ancilla_H": 4,
+          "ancilla_Rz": 1
+        },
+        "compiled_two_qubit_gate_budget_matched": false,
+        "resource_note": "Global register partial-SWAP is not a product of pair partial-SWAPs. Fredkin decomposition is not compiled or costed as a CNOT here.",
+        "training": "actual PennyLane QNodes, Torch backpropagation, torch.optim.LBFGS (optional Adam warmup)",
+        "identifiability": "a,b and affine-head scale are not separately physical estimates",
+        "fitted_summary": {
+          "eta": 0.7786248647233351,
+          "chi": 0.10519084550316071,
+          "a": 0.5067730915143356,
+          "b": 0.49719064803963214,
+          "head_weights": [
+            -1.0665933440132602,
+            1.0665940132588863
+          ],
+          "head_bias": -3.5861000367647055e-07,
+          "frame_parameters": [
+            1.000001543721181,
+            -0.2988972504973746,
+            0.9999994327917795,
+            4.538248023107501e-06
+          ]
+        },
+        "backend": {
+          "device": "default.qubit",
+          "interface": "torch",
+          "differentiation": "backpropagation through actual parameterized PennyLane gates",
+          "physical_data_wires": 4,
+          "raw_state_copies_per_quantum_execution": 2,
+          "simulator_environment_wires": 4,
+          "environment_accessible_to_learner": false,
+          "simulator_exchange_control_wires": 0,
+          "simulator_total_wires": 8,
+          "mixed_state_representation": "Exact positive-square-root purification; eigenvectors are input preparation only and never used as learned features",
+          "batching": "Native PennyLane StatePrep and gate-parameter broadcasting",
+          "signed_mixture": "Two actual QNode branches, averaged with cos(chi/2)^2 and sin(chi/2)^2",
+          "exchange_implementation": "matrix",
+          "physical_resource_note": "Purification environments are simulator bookkeeping and do not change raw-copy or physical data-gate counts. On hardware the sign mixture randomly selects one exchange sign for each prepared pair.",
+          "compatibility_note": "Public-API purification avoids the batched QubitDensityMatrix initialization bug observed in default.mixed in PennyLane 0.45.1"
+        }
+      }
+    },
+    "no_commutator": {
+      "runs": [
+        {
+          "seed": 17,
+          "optimizer": "torch.optim.LBFGS",
+          "random_initialization": true,
+          "NumPy_fitted_weights_loaded": false,
+          "initial_parameters": [
+            1.1321514944207016,
+            0.060917629796311996,
+            0.9352034181695796,
+            -0.2268435342334379,
+            -0.8525795714276649,
+            0.008387230942478527,
+            -0.3647551947802213,
+            -0.39247018197053096,
+            -0.09988627818775098,
+            -0.02333071265940797,
+            -1.0245522670991238,
+            0.41631596575939195,
+            -0.9120805226595117,
+            0.836830848849456,
+            0.26575565021993813,
+            -0.21233003315999135,
+            0.6043484418213483,
+            0.009353907862849361,
+            0.31091443543047786,
+            0.04825218575124228,
+            0.7195663276270913,
+            0.43350180811364625,
+            -0.5907334141393066,
+            0.43875082215563843,
+            0.3765421755884276
+          ],
+          "Adam_steps": 0,
+          "LBFGS_max_iterations": 120,
+          "LBFGS_completed_iterations": 120,
+          "stop_reason": "maximum LBFGS iterations reached",
+          "batch_size": 320,
+          "batching": "full-dataset exact objective; chunk gradients accumulated before each optimizer update",
+          "validation_every_iterations": 5,
+          "best_validation_mse": 0.06080172347398444,
+          "best_validation_iteration": 10,
+          "best_validation_phase": "lbfgs",
+          "selection_rule": "minimum validation MSE among checkpoints; no test-based selection",
+          "parameter_domain": "real angles and affine-head parameters; physical eta/chi coefficients use trigonometric parametrization",
+          "elapsed_seconds": 56.5128945790002,
+          "counters": {
+            "objective_evaluations": 253,
+            "gradient_evaluations": 253,
+            "training_forward_batches": 253,
+            "validation_forward_batches": 25
+          },
+          "trajectory": [
+            {
+              "phase": "initial",
+              "iteration": 0,
+              "validation_mse": 0.06421465451670703,
+              "train_mse": null,
+              "gradient_max_abs": null,
+              "objective_evaluations": 0,
+              "seconds": 0.05862933000025805
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 5,
+              "validation_mse": 0.062294881196451345,
+              "train_mse": 0.054182973799846976,
+              "gradient_max_abs": 0.0016251289165085496,
+              "objective_evaluations": 11,
+              "seconds": 2.3876465049997933
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 10,
+              "validation_mse": 0.06080172347398444,
+              "train_mse": 0.05397992873559658,
+              "gradient_max_abs": 0.007882943175237255,
+              "objective_evaluations": 21,
+              "seconds": 4.614572266000323
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 15,
+              "validation_mse": 0.06124129361824462,
+              "train_mse": 0.05349907628798043,
+              "gradient_max_abs": 0.007914403317287513,
+              "objective_evaluations": 31,
+              "seconds": 7.569434003000424
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 20,
+              "validation_mse": 0.06261046856436443,
+              "train_mse": 0.05321873046825715,
+              "gradient_max_abs": 0.0017662223906052049,
+              "objective_evaluations": 42,
+              "seconds": 10.00337326800036
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 25,
+              "validation_mse": 0.07304572063039172,
+              "train_mse": 0.051730983562084186,
+              "gradient_max_abs": 0.002919253202459748,
+              "objective_evaluations": 52,
+              "seconds": 12.128446767999776
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 30,
+              "validation_mse": 0.07586532755419452,
+              "train_mse": 0.04991254474694762,
+              "gradient_max_abs": 0.023797288363386,
+              "objective_evaluations": 62,
+              "seconds": 14.143328238998947
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 35,
+              "validation_mse": 0.06490971140397898,
+              "train_mse": 0.047701293649019684,
+              "gradient_max_abs": 0.008902139176066071,
+              "objective_evaluations": 74,
+              "seconds": 16.533254379999562
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 40,
+              "validation_mse": 0.07394012590158063,
+              "train_mse": 0.04535671604274322,
+              "gradient_max_abs": 0.002122621819643947,
+              "objective_evaluations": 85,
+              "seconds": 18.745944247999432
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 45,
+              "validation_mse": 0.07224341139736118,
+              "train_mse": 0.04512411866303258,
+              "gradient_max_abs": 0.0005034717151876147,
+              "objective_evaluations": 95,
+              "seconds": 20.81610464699952
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 50,
+              "validation_mse": 0.07286081841720037,
+              "train_mse": 0.04499492299597654,
+              "gradient_max_abs": 0.0009183262351573633,
+              "objective_evaluations": 105,
+              "seconds": 22.754384451000078
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 55,
+              "validation_mse": 0.07344713704826714,
+              "train_mse": 0.044914119804428825,
+              "gradient_max_abs": 0.0011772586327732388,
+              "objective_evaluations": 115,
+              "seconds": 24.804661775000568
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 60,
+              "validation_mse": 0.07287923789302167,
+              "train_mse": 0.044855390627851696,
+              "gradient_max_abs": 0.0005453420182895241,
+              "objective_evaluations": 126,
+              "seconds": 27.034925108000607
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 65,
+              "validation_mse": 0.07345172968885676,
+              "train_mse": 0.04484526993663762,
+              "gradient_max_abs": 0.0003891673937436908,
+              "objective_evaluations": 136,
+              "seconds": 28.9886603369996
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 70,
+              "validation_mse": 0.07351540966909877,
+              "train_mse": 0.04482608979890958,
+              "gradient_max_abs": 0.0026311851875157367,
+              "objective_evaluations": 146,
+              "seconds": 31.10191773599945
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 75,
+              "validation_mse": 0.07363262622836483,
+              "train_mse": 0.044815054143841127,
+              "gradient_max_abs": 0.0009750899860752789,
+              "objective_evaluations": 157,
+              "seconds": 33.24986311599969
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 80,
+              "validation_mse": 0.0731810237700336,
+              "train_mse": 0.04477932966954004,
+              "gradient_max_abs": 0.002612218395041361,
+              "objective_evaluations": 167,
+              "seconds": 35.45925605899902
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 85,
+              "validation_mse": 0.07289357025526884,
+              "train_mse": 0.04476568500373775,
+              "gradient_max_abs": 0.0003799165135371183,
+              "objective_evaluations": 178,
+              "seconds": 37.864383435999116
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 90,
+              "validation_mse": 0.07311639357761647,
+              "train_mse": 0.04476101868539069,
+              "gradient_max_abs": 0.00011659891818162696,
+              "objective_evaluations": 189,
+              "seconds": 40.584252620999905
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 95,
+              "validation_mse": 0.07313751307285418,
+              "train_mse": 0.04475944332959389,
+              "gradient_max_abs": 0.0001518586924964642,
+              "objective_evaluations": 201,
+              "seconds": 43.99791135600026
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 100,
+              "validation_mse": 0.07301298554665392,
+              "train_mse": 0.04475866593170998,
+              "gradient_max_abs": 5.0641247530250344e-05,
+              "objective_evaluations": 211,
+              "seconds": 46.36998770900027
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 105,
+              "validation_mse": 0.0732034626692411,
+              "train_mse": 0.044758142531472735,
+              "gradient_max_abs": 3.981025106620351e-05,
+              "objective_evaluations": 222,
+              "seconds": 49.19877922200067
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 110,
+              "validation_mse": 0.07316738526034301,
+              "train_mse": 0.04475754454158033,
+              "gradient_max_abs": 7.30343472610459e-05,
+              "objective_evaluations": 232,
+              "seconds": 51.58243217299969
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 115,
+              "validation_mse": 0.07320229505226153,
+              "train_mse": 0.044756931510305874,
+              "gradient_max_abs": 5.965577397179511e-05,
+              "objective_evaluations": 243,
+              "seconds": 54.102280576998965
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 120,
+              "validation_mse": 0.07324415511556359,
+              "train_mse": 0.04475396295388041,
+              "gradient_max_abs": 0.0004741557967141829,
+              "objective_evaluations": 253,
+              "seconds": 56.51269237700035
+            }
+          ],
+          "architecture": {
+            "name": "no_commutator",
+            "trainable_parameters": 25,
+            "inactive_parameters": [
+              21
+            ],
+            "active_parameters": 24,
+            "input_qubits": 2,
+            "simultaneous_input_copies": 2,
+            "output_heads": "P(c) on both output registers; same execution",
+            "conditioner": "shared learned Euler frame, 4 scale/offset parameters",
+            "input_preprocessing": "no exact query alignment; learned frame is part of V(c)",
+            "inner_circuit": [
+              "learned_frame_Z_0",
+              "learned_frame_Y_0",
+              "RYI",
+              "RZI",
+              "RIY",
+              "RIZ",
+              "RXX",
+              "RZZ",
+              "RXI",
+              "RIX",
+              "RYI",
+              "RZI",
+              "RIY",
+              "RIZ",
+              "RXX",
+              "RZZ",
+              "RXI",
+              "RIX",
+              "learned_frame_Y_0",
+              "learned_frame_Z_0"
+            ],
+            "readout": "learned affine combination of both port means",
+            "physical_coefficients": "a=cos(eta)^2; b=0 (equal mixture of opposite exchange signs)",
+            "chi_realization": "classical random choice of exchange sign, no postselection",
+            "primitive_gates_per_pair": {
+              "one_qubit_parameterized_rotations_before_readout": 16,
+              "two_qubit_Pauli_rotations_before_readout": 4,
+              "global_two_register_partial_swap": 1,
+              "one_qubit_rotations_for_both_P_readouts": 4
+            },
+            "global_partial_swap_exact_ancilla_construction": {
+              "extra_clean_ancillas": 1,
+              "controlled_full_register_swaps": 2,
+              "controlled_pair_swaps_Fredkin": 4,
+              "ancilla_H": 4,
+              "ancilla_Rz": 1
+            },
+            "compiled_two_qubit_gate_budget_matched": false,
+            "resource_note": "Global register partial-SWAP is not a product of pair partial-SWAPs. Fredkin decomposition is not compiled or costed as a CNOT here.",
+            "training": "actual PennyLane QNodes, Torch backpropagation, torch.optim.LBFGS (optional Adam warmup)",
+            "identifiability": "a,b and affine-head scale are not separately physical estimates",
+            "fitted_summary": {
+              "eta": 0.7377829976060938,
+              "chi": 0.43350180811364625,
+              "a": 0.5475432295546097,
+              "b": 0.0,
+              "head_weights": [
+                -0.4717323536880979,
+                0.5475733121814381
+              ],
+              "head_bias": 0.37777330378687246,
+              "frame_parameters": [
+                1.0999451216268807,
+                0.04725336632657586,
+                1.115732905773828,
+                -0.23079695280573592
+              ]
+            },
+            "backend": {
+              "device": "default.qubit",
+              "interface": "torch",
+              "differentiation": "backpropagation through actual parameterized PennyLane gates",
+              "physical_data_wires": 4,
+              "raw_state_copies_per_quantum_execution": 2,
+              "simulator_environment_wires": 4,
+              "environment_accessible_to_learner": false,
+              "simulator_exchange_control_wires": 0,
+              "simulator_total_wires": 8,
+              "mixed_state_representation": "Exact positive-square-root purification; eigenvectors are input preparation only and never used as learned features",
+              "batching": "Native PennyLane StatePrep and gate-parameter broadcasting",
+              "signed_mixture": "Two actual QNode branches, averaged with cos(chi/2)^2 and sin(chi/2)^2",
+              "exchange_implementation": "matrix",
+              "physical_resource_note": "Purification environments are simulator bookkeeping and do not change raw-copy or physical data-gate counts. On hardware the sign mixture randomly selects one exchange sign for each prepared pair.",
+              "compatibility_note": "Public-API purification avoids the batched QubitDensityMatrix initialization bug observed in default.mixed in PennyLane 0.45.1"
+            }
+          },
+          "metrics": {
+            "train": {
+              "mse": 0.05397992873559658,
+              "rmse": 0.23233581027382882,
+              "mae": 0.1932880678815312,
+              "max_abs_error": 0.6554174510348466,
+              "r2": 0.008729348387028324,
+              "prediction_min": 0.3033342830936538,
+              "prediction_max": 0.4516424800459708,
+              "n": 320
+            },
+            "validation": {
+              "mse": 0.06080172347398444,
+              "rmse": 0.2465800548989809,
+              "mae": 0.21654566523133334,
+              "max_abs_error": 0.5713283146623936,
+              "r2": 0.009576497766887071,
+              "prediction_min": 0.32948299721663354,
+              "prediction_max": 0.442833229876311,
+              "n": 96
+            },
+            "test_state": {
+              "mse": 0.061769742928505476,
+              "rmse": 0.24853519454698056,
+              "mae": 0.20298510100473868,
+              "max_abs_error": 0.6307547748611759,
+              "r2": -0.0826830962580214,
+              "prediction_min": 0.30595219711158095,
+              "prediction_max": 0.44376799431937725,
+              "n": 192
+            },
+            "test_context": {
+              "mse": 0.059330463963850784,
+              "rmse": 0.24357845545912057,
+              "mae": 0.20279391797346746,
+              "max_abs_error": 0.6500417245933229,
+              "r2": -0.03473275468161541,
+              "prediction_min": 0.3082965237817755,
+              "prediction_max": 0.44472533986243545,
+              "n": 128
+            },
+            "test_joint": {
+              "mse": 0.06194036933884041,
+              "rmse": 0.2488782219054942,
+              "mae": 0.20476934875762978,
+              "max_abs_error": 0.598949875240977,
+              "r2": -0.08961213413487457,
+              "prediction_min": 0.31098813433518246,
+              "prediction_max": 0.4393283061813373,
+              "n": 128
+            },
+            "bell": {
+              "mse": 0.09706697098502838,
+              "rmse": 0.3115557269334467,
+              "mae": 0.2726217464790699,
+              "max_abs_error": 0.6331290204789991,
+              "r2": -0.010784840109120841,
+              "prediction_min": 0.3668709795210009,
+              "prediction_max": 0.38943976055764756,
+              "n": 51
+            }
+          }
+        },
+        {
+          "seed": 31,
+          "optimizer": "torch.optim.LBFGS",
+          "random_initialization": true,
+          "NumPy_fitted_weights_loaded": false,
+          "initial_parameters": [
+            0.9525638453696116,
+            0.047504679302831324,
+            1.0728553922554682,
+            -0.17498876395089644,
+            0.34544891391295146,
+            0.11477615479845281,
+            0.3523409417835406,
+            0.12258820533256544,
+            0.5229036564887555,
+            -0.42199037044509236,
+            0.7992448802179845,
+            0.5410754298608793,
+            -0.2699810318056507,
+            0.2970748408771603,
+            0.2001453230193974,
+            -0.7855936045277627,
+            0.26784731053154853,
+            -0.26342960440737984,
+            -0.11250609011331046,
+            -0.27107389759996636,
+            1.0675248524086802,
+            0.40880096885954853,
+            -0.4903280875943801,
+            0.344084815860772,
+            0.3765421755884276
+          ],
+          "Adam_steps": 0,
+          "LBFGS_max_iterations": 120,
+          "LBFGS_completed_iterations": 120,
+          "stop_reason": "maximum LBFGS iterations reached",
+          "batch_size": 320,
+          "batching": "full-dataset exact objective; chunk gradients accumulated before each optimizer update",
+          "validation_every_iterations": 5,
+          "best_validation_mse": 0.05956276825868245,
+          "best_validation_iteration": 15,
+          "best_validation_phase": "lbfgs",
+          "selection_rule": "minimum validation MSE among checkpoints; no test-based selection",
+          "parameter_domain": "real angles and affine-head parameters; physical eta/chi coefficients use trigonometric parametrization",
+          "elapsed_seconds": 55.57872499699988,
+          "counters": {
+            "objective_evaluations": 256,
+            "gradient_evaluations": 256,
+            "training_forward_batches": 256,
+            "validation_forward_batches": 25
+          },
+          "trajectory": [
+            {
+              "phase": "initial",
+              "iteration": 0,
+              "validation_mse": 0.06934121849809441,
+              "train_mse": null,
+              "gradient_max_abs": null,
+              "objective_evaluations": 0,
+              "seconds": 0.03547941400029231
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 5,
+              "validation_mse": 0.0638244426889747,
+              "train_mse": 0.05355545950159363,
+              "gradient_max_abs": 0.001509226363379506,
+              "objective_evaluations": 11,
+              "seconds": 3.6905697740003234
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 10,
+              "validation_mse": 0.06577598007081414,
+              "train_mse": 0.05213059369210622,
+              "gradient_max_abs": 0.0018502103910076981,
+              "objective_evaluations": 21,
+              "seconds": 5.936363336000795
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 15,
+              "validation_mse": 0.05956276825868245,
+              "train_mse": 0.049633903515044896,
+              "gradient_max_abs": 0.011260496170080188,
+              "objective_evaluations": 32,
+              "seconds": 8.76938911200159
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 20,
+              "validation_mse": 0.06441479619085848,
+              "train_mse": 0.04672622944716442,
+              "gradient_max_abs": 0.009857402687306081,
+              "objective_evaluations": 43,
+              "seconds": 11.918333348001397
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 25,
+              "validation_mse": 0.07682249218253166,
+              "train_mse": 0.04519274002955892,
+              "gradient_max_abs": 0.0015361598434339857,
+              "objective_evaluations": 53,
+              "seconds": 14.050934282000526
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 30,
+              "validation_mse": 0.07268951385210091,
+              "train_mse": 0.04417807335551701,
+              "gradient_max_abs": 0.0016255113228852529,
+              "objective_evaluations": 64,
+              "seconds": 16.271466563001013
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 35,
+              "validation_mse": 0.07152570016056024,
+              "train_mse": 0.04407497513148655,
+              "gradient_max_abs": 0.0010955922593217024,
+              "objective_evaluations": 74,
+              "seconds": 18.615954087001228
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 40,
+              "validation_mse": 0.07276079168565859,
+              "train_mse": 0.044015048218865156,
+              "gradient_max_abs": 0.0002332834821408107,
+              "objective_evaluations": 84,
+              "seconds": 20.67234260800069
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 45,
+              "validation_mse": 0.07334191402091578,
+              "train_mse": 0.044002442937242016,
+              "gradient_max_abs": 0.0003253609345209383,
+              "objective_evaluations": 95,
+              "seconds": 22.813921679000487
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 50,
+              "validation_mse": 0.0721301049468037,
+              "train_mse": 0.04398613448895132,
+              "gradient_max_abs": 0.00023265358241024816,
+              "objective_evaluations": 106,
+              "seconds": 25.012452452001526
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 55,
+              "validation_mse": 0.07284778662449908,
+              "train_mse": 0.043901393814041414,
+              "gradient_max_abs": 0.009206791004075617,
+              "objective_evaluations": 118,
+              "seconds": 27.26296400300089
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 60,
+              "validation_mse": 0.07381241934335712,
+              "train_mse": 0.043773518236020256,
+              "gradient_max_abs": 0.0007866052713325377,
+              "objective_evaluations": 128,
+              "seconds": 29.226080667000133
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 65,
+              "validation_mse": 0.0744464762270008,
+              "train_mse": 0.043728172982825685,
+              "gradient_max_abs": 0.0010620378286666007,
+              "objective_evaluations": 139,
+              "seconds": 31.637308205001318
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 70,
+              "validation_mse": 0.07505041429398064,
+              "train_mse": 0.04363416171134712,
+              "gradient_max_abs": 0.003735648246184456,
+              "objective_evaluations": 150,
+              "seconds": 34.53028250500029
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 75,
+              "validation_mse": 0.07472866465347415,
+              "train_mse": 0.043559406174919754,
+              "gradient_max_abs": 0.001125282491653376,
+              "objective_evaluations": 160,
+              "seconds": 36.552115598000455
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 80,
+              "validation_mse": 0.07449048762341466,
+              "train_mse": 0.0435431651087525,
+              "gradient_max_abs": 0.00031114999962707625,
+              "objective_evaluations": 171,
+              "seconds": 39.1594734650007
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 85,
+              "validation_mse": 0.07440977029652014,
+              "train_mse": 0.043538506865898705,
+              "gradient_max_abs": 0.0004711517478674654,
+              "objective_evaluations": 181,
+              "seconds": 41.231607609001
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 90,
+              "validation_mse": 0.07442045772341277,
+              "train_mse": 0.043534228363309856,
+              "gradient_max_abs": 0.000663595119912503,
+              "objective_evaluations": 193,
+              "seconds": 43.53479834800055
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 95,
+              "validation_mse": 0.0744022462158347,
+              "train_mse": 0.04353215737061783,
+              "gradient_max_abs": 0.00019718978940191229,
+              "objective_evaluations": 203,
+              "seconds": 45.48072832900107
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 100,
+              "validation_mse": 0.07462748227800525,
+              "train_mse": 0.04352975027662476,
+              "gradient_max_abs": 9.588873742659941e-05,
+              "objective_evaluations": 213,
+              "seconds": 47.37293322300138
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 105,
+              "validation_mse": 0.0746732900217066,
+              "train_mse": 0.04352877119353601,
+              "gradient_max_abs": 0.00016039849382670605,
+              "objective_evaluations": 224,
+              "seconds": 49.39785472800031
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 110,
+              "validation_mse": 0.07470613745873667,
+              "train_mse": 0.043528177836640716,
+              "gradient_max_abs": 0.00010931563053485222,
+              "objective_evaluations": 235,
+              "seconds": 51.5396144510014
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 115,
+              "validation_mse": 0.07463843330099504,
+              "train_mse": 0.04352794641913073,
+              "gradient_max_abs": 3.0891913497983975e-05,
+              "objective_evaluations": 245,
+              "seconds": 53.443524485001035
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 120,
+              "validation_mse": 0.07465147231106593,
+              "train_mse": 0.04352789583361326,
+              "gradient_max_abs": 1.0241182724370495e-05,
+              "objective_evaluations": 256,
+              "seconds": 55.57860490300118
+            }
+          ],
+          "architecture": {
+            "name": "no_commutator",
+            "trainable_parameters": 25,
+            "inactive_parameters": [
+              21
+            ],
+            "active_parameters": 24,
+            "input_qubits": 2,
+            "simultaneous_input_copies": 2,
+            "output_heads": "P(c) on both output registers; same execution",
+            "conditioner": "shared learned Euler frame, 4 scale/offset parameters",
+            "input_preprocessing": "no exact query alignment; learned frame is part of V(c)",
+            "inner_circuit": [
+              "learned_frame_Z_0",
+              "learned_frame_Y_0",
+              "RYI",
+              "RZI",
+              "RIY",
+              "RIZ",
+              "RXX",
+              "RZZ",
+              "RXI",
+              "RIX",
+              "RYI",
+              "RZI",
+              "RIY",
+              "RIZ",
+              "RXX",
+              "RZZ",
+              "RXI",
+              "RIX",
+              "learned_frame_Y_0",
+              "learned_frame_Z_0"
+            ],
+            "readout": "learned affine combination of both port means",
+            "physical_coefficients": "a=cos(eta)^2; b=0 (equal mixture of opposite exchange signs)",
+            "chi_realization": "classical random choice of exchange sign, no postselection",
+            "primitive_gates_per_pair": {
+              "one_qubit_parameterized_rotations_before_readout": 16,
+              "two_qubit_Pauli_rotations_before_readout": 4,
+              "global_two_register_partial_swap": 1,
+              "one_qubit_rotations_for_both_P_readouts": 4
+            },
+            "global_partial_swap_exact_ancilla_construction": {
+              "extra_clean_ancillas": 1,
+              "controlled_full_register_swaps": 2,
+              "controlled_pair_swaps_Fredkin": 4,
+              "ancilla_H": 4,
+              "ancilla_Rz": 1
+            },
+            "compiled_two_qubit_gate_budget_matched": false,
+            "resource_note": "Global register partial-SWAP is not a product of pair partial-SWAPs. Fredkin decomposition is not compiled or costed as a CNOT here.",
+            "training": "actual PennyLane QNodes, Torch backpropagation, torch.optim.LBFGS (optional Adam warmup)",
+            "identifiability": "a,b and affine-head scale are not separately physical estimates",
+            "fitted_summary": {
+              "eta": 0.8691817699246295,
+              "chi": 0.40880096885954853,
+              "a": 0.4166079334856092,
+              "b": 0.0,
+              "head_weights": [
+                -0.41809799534543535,
+                0.09966742425715602
+              ],
+              "head_bias": 0.37113813914214266,
+              "frame_parameters": [
+                0.9607377752751306,
+                0.23678903107495122,
+                0.9111809653093443,
+                -0.3245465194718843
+              ]
+            },
+            "backend": {
+              "device": "default.qubit",
+              "interface": "torch",
+              "differentiation": "backpropagation through actual parameterized PennyLane gates",
+              "physical_data_wires": 4,
+              "raw_state_copies_per_quantum_execution": 2,
+              "simulator_environment_wires": 4,
+              "environment_accessible_to_learner": false,
+              "simulator_exchange_control_wires": 0,
+              "simulator_total_wires": 8,
+              "mixed_state_representation": "Exact positive-square-root purification; eigenvectors are input preparation only and never used as learned features",
+              "batching": "Native PennyLane StatePrep and gate-parameter broadcasting",
+              "signed_mixture": "Two actual QNode branches, averaged with cos(chi/2)^2 and sin(chi/2)^2",
+              "exchange_implementation": "matrix",
+              "physical_resource_note": "Purification environments are simulator bookkeeping and do not change raw-copy or physical data-gate counts. On hardware the sign mixture randomly selects one exchange sign for each prepared pair.",
+              "compatibility_note": "Public-API purification avoids the batched QubitDensityMatrix initialization bug observed in default.mixed in PennyLane 0.45.1"
+            }
+          },
+          "metrics": {
+            "train": {
+              "mse": 0.0496339035150449,
+              "rmse": 0.2227866771488926,
+              "mae": 0.18343812537586818,
+              "max_abs_error": 0.6255859949977336,
+              "r2": 0.08853840618338926,
+              "prediction_min": 0.19199727023646146,
+              "prediction_max": 0.5885142530095726,
+              "n": 320
+            },
+            "validation": {
+              "mse": 0.05956276825868245,
+              "rmse": 0.24405484682481202,
+              "mae": 0.20771053458205269,
+              "max_abs_error": 0.7509698126744266,
+              "r2": 0.02975833297381858,
+              "prediction_min": 0.18344224493428432,
+              "prediction_max": 0.5437429285515172,
+              "n": 96
+            },
+            "test_state": {
+              "mse": 0.06351239025095805,
+              "rmse": 0.252016646773498,
+              "mae": 0.20540801697669217,
+              "max_abs_error": 0.5924484735518238,
+              "r2": -0.1132277401129016,
+              "prediction_min": 0.19502708205488764,
+              "prediction_max": 0.5655342568481458,
+              "n": 192
+            },
+            "test_context": {
+              "mse": 0.050049197751189135,
+              "rmse": 0.22371678021817928,
+              "mae": 0.1872371030969659,
+              "max_abs_error": 0.6007781494615978,
+              "r2": 0.12713400842025657,
+              "prediction_min": 0.20519619279264922,
+              "prediction_max": 0.5668291574806139,
+              "n": 128
+            },
+            "test_joint": {
+              "mse": 0.06265697411194679,
+              "rmse": 0.25031375134408174,
+              "mae": 0.20764500823404985,
+              "max_abs_error": 0.5750992186725683,
+              "r2": -0.10221814963801523,
+              "prediction_min": 0.23271516501003126,
+              "prediction_max": 0.5477522653833395,
+              "n": 128
+            },
+            "bell": {
+              "mse": 0.10144947708415014,
+              "rmse": 0.318511345298955,
+              "mae": 0.28253940495441643,
+              "max_abs_error": 0.5822092331182193,
+              "r2": -0.0564210712774067,
+              "prediction_min": 0.41779076688178074,
+              "prediction_max": 0.42273052014158424,
+              "n": 51
+            }
+          }
+        },
+        {
+          "seed": 73,
+          "optimizer": "torch.optim.LBFGS",
+          "random_initialization": true,
+          "NumPy_fitted_weights_loaded": false,
+          "initial_parameters": [
+            0.8688032913372842,
+            0.14005580978873244,
+            0.9542067633374165,
+            0.053256797332806895,
+            0.15139900647960222,
+            -0.8760539939255841,
+            0.22561901322645483,
+            -0.4347828831766776,
+            -0.5598765804245948,
+            0.5022581332180622,
+            -0.7257712001720349,
+            -0.7149825294721138,
+            -0.37862253140993507,
+            0.6327030495051825,
+            0.4159936309053831,
+            -0.07497926683338355,
+            0.8131630948336863,
+            -0.3419895382646976,
+            -0.8078887466262927,
+            0.30135278614985567,
+            0.36239626217545273,
+            0.22534480266089904,
+            -0.6095357521675102,
+            0.5564096665663958,
+            0.3765421755884276
+          ],
+          "Adam_steps": 0,
+          "LBFGS_max_iterations": 120,
+          "LBFGS_completed_iterations": 120,
+          "stop_reason": "maximum LBFGS iterations reached",
+          "batch_size": 320,
+          "batching": "full-dataset exact objective; chunk gradients accumulated before each optimizer update",
+          "validation_every_iterations": 5,
+          "best_validation_mse": 0.06176166856125659,
+          "best_validation_iteration": 5,
+          "best_validation_phase": "lbfgs",
+          "selection_rule": "minimum validation MSE among checkpoints; no test-based selection",
+          "parameter_domain": "real angles and affine-head parameters; physical eta/chi coefficients use trigonometric parametrization",
+          "elapsed_seconds": 58.10687757499909,
+          "counters": {
+            "objective_evaluations": 256,
+            "gradient_evaluations": 256,
+            "training_forward_batches": 256,
+            "validation_forward_batches": 25
+          },
+          "trajectory": [
+            {
+              "phase": "initial",
+              "iteration": 0,
+              "validation_mse": 0.07880851630508251,
+              "train_mse": null,
+              "gradient_max_abs": null,
+              "objective_evaluations": 0,
+              "seconds": 0.028390014998876723
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 5,
+              "validation_mse": 0.06176166856125659,
+              "train_mse": 0.05410765601972145,
+              "gradient_max_abs": 0.0012990524578383863,
+              "objective_evaluations": 10,
+              "seconds": 1.9525502920005238
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 10,
+              "validation_mse": 0.06653527683477937,
+              "train_mse": 0.050354664055776356,
+              "gradient_max_abs": 0.009243708735811582,
+              "objective_evaluations": 21,
+              "seconds": 4.053267395998773
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 15,
+              "validation_mse": 0.07195381370752073,
+              "train_mse": 0.04722967737336716,
+              "gradient_max_abs": 0.0066672462878081,
+              "objective_evaluations": 31,
+              "seconds": 6.028685459999906
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 20,
+              "validation_mse": 0.07336955787116058,
+              "train_mse": 0.04611033563962561,
+              "gradient_max_abs": 0.0045730489902429524,
+              "objective_evaluations": 41,
+              "seconds": 8.176979331999974
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 25,
+              "validation_mse": 0.07048891222662726,
+              "train_mse": 0.04591210319326362,
+              "gradient_max_abs": 0.0007026693907915251,
+              "objective_evaluations": 52,
+              "seconds": 10.520725546999529
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 30,
+              "validation_mse": 0.07422396385306733,
+              "train_mse": 0.045634501572607,
+              "gradient_max_abs": 0.010571651836221323,
+              "objective_evaluations": 62,
+              "seconds": 12.662382178999906
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 35,
+              "validation_mse": 0.07331031344188875,
+              "train_mse": 0.045101041171737265,
+              "gradient_max_abs": 0.0019502881683584224,
+              "objective_evaluations": 73,
+              "seconds": 14.977081638000527
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 40,
+              "validation_mse": 0.07244353629916961,
+              "train_mse": 0.044904942560037214,
+              "gradient_max_abs": 0.0023905730078534436,
+              "objective_evaluations": 83,
+              "seconds": 17.142935575999218
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 45,
+              "validation_mse": 0.07215331708565884,
+              "train_mse": 0.04447695481964078,
+              "gradient_max_abs": 0.0011651586506081103,
+              "objective_evaluations": 94,
+              "seconds": 19.499268569999913
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 50,
+              "validation_mse": 0.07277616595433167,
+              "train_mse": 0.04441491811794162,
+              "gradient_max_abs": 0.0003052955547384923,
+              "objective_evaluations": 106,
+              "seconds": 22.36913012900004
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 55,
+              "validation_mse": 0.07278692461732927,
+              "train_mse": 0.04437753048380678,
+              "gradient_max_abs": 0.0012942875590826741,
+              "objective_evaluations": 116,
+              "seconds": 24.355756286000542
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 60,
+              "validation_mse": 0.07365488809594439,
+              "train_mse": 0.04434487630881125,
+              "gradient_max_abs": 0.0008085302584445054,
+              "objective_evaluations": 126,
+              "seconds": 26.5469006179992
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 65,
+              "validation_mse": 0.07361071984868302,
+              "train_mse": 0.04433924396883924,
+              "gradient_max_abs": 0.0007258958094884058,
+              "objective_evaluations": 136,
+              "seconds": 29.14867800399952
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 70,
+              "validation_mse": 0.07357384205725985,
+              "train_mse": 0.04431147724660731,
+              "gradient_max_abs": 0.00025162496580315706,
+              "objective_evaluations": 146,
+              "seconds": 31.730423249000523
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 75,
+              "validation_mse": 0.07438075261240921,
+              "train_mse": 0.04427537827764705,
+              "gradient_max_abs": 0.0004967831500474246,
+              "objective_evaluations": 157,
+              "seconds": 34.39679210699978
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 80,
+              "validation_mse": 0.07361215334769494,
+              "train_mse": 0.04421834183145741,
+              "gradient_max_abs": 0.0007023885442768961,
+              "objective_evaluations": 168,
+              "seconds": 37.11079092299951
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 85,
+              "validation_mse": 0.07337566827985115,
+              "train_mse": 0.04420524519409787,
+              "gradient_max_abs": 0.0005224042441761122,
+              "objective_evaluations": 179,
+              "seconds": 39.756105591999585
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 90,
+              "validation_mse": 0.07348896437322698,
+              "train_mse": 0.044194595298993236,
+              "gradient_max_abs": 0.00039885434413759746,
+              "objective_evaluations": 190,
+              "seconds": 42.30529419999948
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 95,
+              "validation_mse": 0.07302352297306584,
+              "train_mse": 0.04417215248922142,
+              "gradient_max_abs": 0.002334743960032212,
+              "objective_evaluations": 201,
+              "seconds": 44.806632255000295
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 100,
+              "validation_mse": 0.07289376806581482,
+              "train_mse": 0.04411071919765988,
+              "gradient_max_abs": 0.0008257856607143911,
+              "objective_evaluations": 212,
+              "seconds": 47.349003854998955
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 105,
+              "validation_mse": 0.0712770273874592,
+              "train_mse": 0.04402595344875375,
+              "gradient_max_abs": 0.0017663622656515787,
+              "objective_evaluations": 224,
+              "seconds": 50.41519917599908
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 110,
+              "validation_mse": 0.07175589424406896,
+              "train_mse": 0.043765660900926616,
+              "gradient_max_abs": 0.0009941929187687027,
+              "objective_evaluations": 234,
+              "seconds": 52.78680092200011
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 115,
+              "validation_mse": 0.07453949726080632,
+              "train_mse": 0.04349293512469088,
+              "gradient_max_abs": 0.0006836617395420362,
+              "objective_evaluations": 245,
+              "seconds": 55.57798600499882
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 120,
+              "validation_mse": 0.0744995993282509,
+              "train_mse": 0.0434020079752087,
+              "gradient_max_abs": 0.000430443131486266,
+              "objective_evaluations": 256,
+              "seconds": 58.10675760999948
+            }
+          ],
+          "architecture": {
+            "name": "no_commutator",
+            "trainable_parameters": 25,
+            "inactive_parameters": [
+              21
+            ],
+            "active_parameters": 24,
+            "input_qubits": 2,
+            "simultaneous_input_copies": 2,
+            "output_heads": "P(c) on both output registers; same execution",
+            "conditioner": "shared learned Euler frame, 4 scale/offset parameters",
+            "input_preprocessing": "no exact query alignment; learned frame is part of V(c)",
+            "inner_circuit": [
+              "learned_frame_Z_0",
+              "learned_frame_Y_0",
+              "RYI",
+              "RZI",
+              "RIY",
+              "RIZ",
+              "RXX",
+              "RZZ",
+              "RXI",
+              "RIX",
+              "RYI",
+              "RZI",
+              "RIY",
+              "RIZ",
+              "RXX",
+              "RZZ",
+              "RXI",
+              "RIX",
+              "learned_frame_Y_0",
+              "learned_frame_Z_0"
+            ],
+            "readout": "learned affine combination of both port means",
+            "physical_coefficients": "a=cos(eta)^2; b=0 (equal mixture of opposite exchange signs)",
+            "chi_realization": "classical random choice of exchange sign, no postselection",
+            "primitive_gates_per_pair": {
+              "one_qubit_parameterized_rotations_before_readout": 16,
+              "two_qubit_Pauli_rotations_before_readout": 4,
+              "global_two_register_partial_swap": 1,
+              "one_qubit_rotations_for_both_P_readouts": 4
+            },
+            "global_partial_swap_exact_ancilla_construction": {
+              "extra_clean_ancillas": 1,
+              "controlled_full_register_swaps": 2,
+              "controlled_pair_swaps_Fredkin": 4,
+              "ancilla_H": 4,
+              "ancilla_Rz": 1
+            },
+            "compiled_two_qubit_gate_budget_matched": false,
+            "resource_note": "Global register partial-SWAP is not a product of pair partial-SWAPs. Fredkin decomposition is not compiled or costed as a CNOT here.",
+            "training": "actual PennyLane QNodes, Torch backpropagation, torch.optim.LBFGS (optional Adam warmup)",
+            "identifiability": "a,b and affine-head scale are not separately physical estimates",
+            "fitted_summary": {
+              "eta": 0.7291361597381578,
+              "chi": 0.22534480266089904,
+              "a": 0.5561433504808525,
+              "b": 0.0,
+              "head_weights": [
+                -0.44089727312974974,
+                0.45337843992067894
+              ],
+              "head_bias": 0.3771029095358543,
+              "frame_parameters": [
+                0.8376132769865284,
+                0.12552049304606153,
+                0.9720464020177811,
+                0.04109087997647164
+              ]
+            },
+            "backend": {
+              "device": "default.qubit",
+              "interface": "torch",
+              "differentiation": "backpropagation through actual parameterized PennyLane gates",
+              "physical_data_wires": 4,
+              "raw_state_copies_per_quantum_execution": 2,
+              "simulator_environment_wires": 4,
+              "environment_accessible_to_learner": false,
+              "simulator_exchange_control_wires": 0,
+              "simulator_total_wires": 8,
+              "mixed_state_representation": "Exact positive-square-root purification; eigenvectors are input preparation only and never used as learned features",
+              "batching": "Native PennyLane StatePrep and gate-parameter broadcasting",
+              "signed_mixture": "Two actual QNode branches, averaged with cos(chi/2)^2 and sin(chi/2)^2",
+              "exchange_implementation": "matrix",
+              "physical_resource_note": "Purification environments are simulator bookkeeping and do not change raw-copy or physical data-gate counts. On hardware the sign mixture randomly selects one exchange sign for each prepared pair.",
+              "compatibility_note": "Public-API purification avoids the batched QubitDensityMatrix initialization bug observed in default.mixed in PennyLane 0.45.1"
+            }
+          },
+          "metrics": {
+            "train": {
+              "mse": 0.05410765601972145,
+              "rmse": 0.232610524309889,
+              "mae": 0.19470158953436495,
+              "max_abs_error": 0.6269841515068376,
+              "r2": 0.006383804198124676,
+              "prediction_min": 0.3351928273732175,
+              "prediction_max": 0.41725527797459827,
+              "n": 320
+            },
+            "validation": {
+              "mse": 0.06176166856125659,
+              "rmse": 0.2485189501049298,
+              "mae": 0.21873353027207768,
+              "max_abs_error": 0.6110275838940555,
+              "r2": -0.006060430283258755,
+              "prediction_min": 0.3472871389612008,
+              "prediction_max": 0.41474063866698696,
+              "n": 96
+            },
+            "test_state": {
+              "mse": 0.05864316883274525,
+              "rmse": 0.24216351672525993,
+              "mae": 0.1971490801850244,
+              "max_abs_error": 0.6130403115587402,
+              "r2": -0.027881363853277108,
+              "prediction_min": 0.3279894605326078,
+              "prediction_max": 0.41941932704353535,
+              "n": 192
+            },
+            "test_context": {
+              "mse": 0.05878101304657923,
+              "rmse": 0.24244795946053913,
+              "mae": 0.20223713020904066,
+              "max_abs_error": 0.6165756521260006,
+              "r2": -0.02515024304750546,
+              "prediction_min": 0.3355285669831329,
+              "prediction_max": 0.4224285341226326,
+              "n": 128
+            },
+            "test_joint": {
+              "mse": 0.05863574939666916,
+              "rmse": 0.24214819717823455,
+              "mae": 0.2007591439118999,
+              "max_abs_error": 0.5700125706710577,
+              "r2": -0.03147954587089097,
+              "prediction_min": 0.3386043907170619,
+              "prediction_max": 0.4095270457851254,
+              "n": 128
+            },
+            "bell": {
+              "mse": 0.09744121275852483,
+              "rmse": 0.3121557508016228,
+              "mae": 0.2737377364693173,
+              "max_abs_error": 0.6304433903925267,
+              "r2": -0.014681921756431349,
+              "prediction_min": 0.3695566096074733,
+              "prediction_max": 0.3971024012898326,
+              "n": 51
+            }
+          }
+        }
+      ],
+      "selected_seed": 31,
+      "seed_summary": {
+        "train": {
+          "mse_mean_over_seeds": 0.05257382942345431,
+          "mse_std_over_seeds": 0.0025468513551010676,
+          "selected_seed_mse": 0.0496339035150449
+        },
+        "validation": {
+          "mse_mean_over_seeds": 0.06070872009797449,
+          "mse_std_over_seeds": 0.0011023964151461543,
+          "selected_seed_mse": 0.05956276825868245
+        },
+        "test_state": {
+          "mse_mean_over_seeds": 0.061308434004069594,
+          "mse_std_over_seeds": 0.002467171203568716,
+          "selected_seed_mse": 0.06351239025095805
+        },
+        "test_context": {
+          "mse_mean_over_seeds": 0.056053558253873044,
+          "mse_std_over_seeds": 0.005207180893944977,
+          "selected_seed_mse": 0.050049197751189135
+        },
+        "test_joint": {
+          "mse_mean_over_seeds": 0.06107769761581879,
+          "mse_std_over_seeds": 0.0021449274880437665,
+          "selected_seed_mse": 0.06265697411194679
+        },
+        "bell": {
+          "mse_mean_over_seeds": 0.09865255360923446,
+          "mse_std_over_seeds": 0.0024294237834635384,
+          "selected_seed_mse": 0.10144947708415014
+        }
+      },
+      "architecture": {
+        "name": "no_commutator",
+        "trainable_parameters": 25,
+        "inactive_parameters": [
+          21
+        ],
+        "active_parameters": 24,
+        "input_qubits": 2,
+        "simultaneous_input_copies": 2,
+        "output_heads": "P(c) on both output registers; same execution",
+        "conditioner": "shared learned Euler frame, 4 scale/offset parameters",
+        "input_preprocessing": "no exact query alignment; learned frame is part of V(c)",
+        "inner_circuit": [
+          "learned_frame_Z_0",
+          "learned_frame_Y_0",
+          "RYI",
+          "RZI",
+          "RIY",
+          "RIZ",
+          "RXX",
+          "RZZ",
+          "RXI",
+          "RIX",
+          "RYI",
+          "RZI",
+          "RIY",
+          "RIZ",
+          "RXX",
+          "RZZ",
+          "RXI",
+          "RIX",
+          "learned_frame_Y_0",
+          "learned_frame_Z_0"
+        ],
+        "readout": "learned affine combination of both port means",
+        "physical_coefficients": "a=cos(eta)^2; b=0 (equal mixture of opposite exchange signs)",
+        "chi_realization": "classical random choice of exchange sign, no postselection",
+        "primitive_gates_per_pair": {
+          "one_qubit_parameterized_rotations_before_readout": 16,
+          "two_qubit_Pauli_rotations_before_readout": 4,
+          "global_two_register_partial_swap": 1,
+          "one_qubit_rotations_for_both_P_readouts": 4
+        },
+        "global_partial_swap_exact_ancilla_construction": {
+          "extra_clean_ancillas": 1,
+          "controlled_full_register_swaps": 2,
+          "controlled_pair_swaps_Fredkin": 4,
+          "ancilla_H": 4,
+          "ancilla_Rz": 1
+        },
+        "compiled_two_qubit_gate_budget_matched": false,
+        "resource_note": "Global register partial-SWAP is not a product of pair partial-SWAPs. Fredkin decomposition is not compiled or costed as a CNOT here.",
+        "training": "actual PennyLane QNodes, Torch backpropagation, torch.optim.LBFGS (optional Adam warmup)",
+        "identifiability": "a,b and affine-head scale are not separately physical estimates",
+        "fitted_summary": {
+          "eta": 0.8691817699246295,
+          "chi": 0.40880096885954853,
+          "a": 0.4166079334856092,
+          "b": 0.0,
+          "head_weights": [
+            -0.41809799534543535,
+            0.09966742425715602
+          ],
+          "head_bias": 0.37113813914214266,
+          "frame_parameters": [
+            0.9607377752751306,
+            0.23678903107495122,
+            0.9111809653093443,
+            -0.3245465194718843
+          ]
+        },
+        "backend": {
+          "device": "default.qubit",
+          "interface": "torch",
+          "differentiation": "backpropagation through actual parameterized PennyLane gates",
+          "physical_data_wires": 4,
+          "raw_state_copies_per_quantum_execution": 2,
+          "simulator_environment_wires": 4,
+          "environment_accessible_to_learner": false,
+          "simulator_exchange_control_wires": 0,
+          "simulator_total_wires": 8,
+          "mixed_state_representation": "Exact positive-square-root purification; eigenvectors are input preparation only and never used as learned features",
+          "batching": "Native PennyLane StatePrep and gate-parameter broadcasting",
+          "signed_mixture": "Two actual QNode branches, averaged with cos(chi/2)^2 and sin(chi/2)^2",
+          "exchange_implementation": "matrix",
+          "physical_resource_note": "Purification environments are simulator bookkeeping and do not change raw-copy or physical data-gate counts. On hardware the sign mixture randomly selects one exchange sign for each prepared pair.",
+          "compatibility_note": "Public-API purification avoids the batched QubitDensityMatrix initialization bug observed in default.mixed in PennyLane 0.45.1"
+        }
+      }
+    },
+    "exchange_matched_qnn": {
+      "runs": [
+        {
+          "seed": 17,
+          "optimizer": "torch.optim.LBFGS",
+          "random_initialization": true,
+          "NumPy_fitted_weights_loaded": false,
+          "initial_parameters": [
+            1.1321514944207016,
+            0.060917629796311996,
+            0.9352034181695796,
+            -0.2268435342334379,
+            -0.8525795714276649,
+            0.008387230942478527,
+            -0.3647551947802213,
+            -0.39247018197053096,
+            -0.09988627818775098,
+            -0.02333071265940797,
+            -1.0245522670991238,
+            0.41631596575939195,
+            -0.9120805226595117,
+            0.836830848849456,
+            0.6709328435999532,
+            -0.21233003315999135,
+            0.6043484418213483,
+            0.009353907862849361,
+            0.31091443543047786,
+            0.04825218575124228,
+            0.49343912105862375,
+            0.4776401044691233,
+            -0.40830036362687955,
+            -0.2756213002996271,
+            0.15445217345059417,
+            -0.7284914216554451,
+            0.7026117534921776,
+            0.3765421755884276
+          ],
+          "Adam_steps": 0,
+          "LBFGS_max_iterations": 120,
+          "LBFGS_completed_iterations": 120,
+          "stop_reason": "maximum LBFGS iterations reached",
+          "batch_size": 320,
+          "batching": "full-dataset exact objective; chunk gradients accumulated before each optimizer update",
+          "validation_every_iterations": 5,
+          "best_validation_mse": 1.9401159341359294e-08,
+          "best_validation_iteration": 105,
+          "best_validation_phase": "lbfgs",
+          "selection_rule": "minimum validation MSE among checkpoints; no test-based selection",
+          "parameter_domain": "real angles and affine-head parameters; physical eta/chi coefficients use trigonometric parametrization",
+          "elapsed_seconds": 39.07331687400074,
+          "counters": {
+            "objective_evaluations": 251,
+            "gradient_evaluations": 251,
+            "training_forward_batches": 251,
+            "validation_forward_batches": 25
+          },
+          "trajectory": [
+            {
+              "phase": "initial",
+              "iteration": 0,
+              "validation_mse": 0.12216678601089513,
+              "train_mse": null,
+              "gradient_max_abs": null,
+              "objective_evaluations": 0,
+              "seconds": 0.01924789300028351
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 5,
+              "validation_mse": 0.04755531920839973,
+              "train_mse": 0.03932612461533516,
+              "gradient_max_abs": 0.01701663669765689,
+              "objective_evaluations": 11,
+              "seconds": 1.6413513610004884
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 10,
+              "validation_mse": 0.009917571267418627,
+              "train_mse": 0.009087856229839762,
+              "gradient_max_abs": 0.0756751792714043,
+              "objective_evaluations": 21,
+              "seconds": 3.198604310000519
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 15,
+              "validation_mse": 0.0004632343533501114,
+              "train_mse": 0.00043788415234945416,
+              "gradient_max_abs": 0.004729736345014545,
+              "objective_evaluations": 31,
+              "seconds": 4.847005341000113
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 20,
+              "validation_mse": 0.000210458999185518,
+              "train_mse": 0.00012709918336143398,
+              "gradient_max_abs": 0.00152555824710043,
+              "objective_evaluations": 41,
+              "seconds": 6.333052846999635
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 25,
+              "validation_mse": 3.409290248200722e-05,
+              "train_mse": 2.5857467070804718e-05,
+              "gradient_max_abs": 0.0029624701245746657,
+              "objective_evaluations": 51,
+              "seconds": 8.018920948999948
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 30,
+              "validation_mse": 1.2069856427083516e-05,
+              "train_mse": 1.0739908579431672e-05,
+              "gradient_max_abs": 0.00028661949216070764,
+              "objective_evaluations": 61,
+              "seconds": 9.638414311000815
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 35,
+              "validation_mse": 9.174903323542353e-06,
+              "train_mse": 7.373716896433747e-06,
+              "gradient_max_abs": 0.0006187323888258751,
+              "objective_evaluations": 71,
+              "seconds": 11.23513531199933
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 40,
+              "validation_mse": 5.407224520033307e-06,
+              "train_mse": 3.5649589280674927e-06,
+              "gradient_max_abs": 0.0006115004839766644,
+              "objective_evaluations": 81,
+              "seconds": 12.891708982000637
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 45,
+              "validation_mse": 4.363316050899096e-06,
+              "train_mse": 1.8960365661537147e-06,
+              "gradient_max_abs": 7.501837453753999e-05,
+              "objective_evaluations": 92,
+              "seconds": 14.526717831000497
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 50,
+              "validation_mse": 2.1140940682805825e-06,
+              "train_mse": 8.639576198854154e-07,
+              "gradient_max_abs": 0.00010374842498374584,
+              "objective_evaluations": 102,
+              "seconds": 15.983489072999873
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 55,
+              "validation_mse": 7.324465049048546e-07,
+              "train_mse": 4.3340992897706703e-07,
+              "gradient_max_abs": 3.142681984643589e-05,
+              "objective_evaluations": 112,
+              "seconds": 17.527555495000342
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 60,
+              "validation_mse": 3.0448649330260954e-07,
+              "train_mse": 3.0225281098853104e-07,
+              "gradient_max_abs": 5.8895266069097525e-05,
+              "objective_evaluations": 123,
+              "seconds": 19.157681048000086
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 65,
+              "validation_mse": 2.5822699580958065e-07,
+              "train_mse": 1.845665695750123e-07,
+              "gradient_max_abs": 1.261943510571748e-05,
+              "objective_evaluations": 134,
+              "seconds": 20.762574174999827
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 70,
+              "validation_mse": 2.628150431994914e-07,
+              "train_mse": 1.781507789044616e-07,
+              "gradient_max_abs": 4.267451546800333e-05,
+              "objective_evaluations": 145,
+              "seconds": 22.529383146000328
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 75,
+              "validation_mse": 2.534666832376875e-07,
+              "train_mse": 1.5755915303361703e-07,
+              "gradient_max_abs": 5.1454324650339034e-05,
+              "objective_evaluations": 155,
+              "seconds": 24.094658305999474
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 80,
+              "validation_mse": 1.6323493619099873e-07,
+              "train_mse": 1.2900675349146137e-07,
+              "gradient_max_abs": 2.5259688997569423e-05,
+              "objective_evaluations": 165,
+              "seconds": 25.612446204999287
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 85,
+              "validation_mse": 1.1490488594697774e-07,
+              "train_mse": 8.205448034285491e-08,
+              "gradient_max_abs": 4.377910401074463e-05,
+              "objective_evaluations": 176,
+              "seconds": 27.25185578700075
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 90,
+              "validation_mse": 8.06066647893599e-08,
+              "train_mse": 6.679060912881348e-08,
+              "gradient_max_abs": 8.86581569377745e-06,
+              "objective_evaluations": 186,
+              "seconds": 28.72057099000085
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 95,
+              "validation_mse": 4.86720502289272e-08,
+              "train_mse": 4.297934912580804e-08,
+              "gradient_max_abs": 2.8887924098641365e-05,
+              "objective_evaluations": 196,
+              "seconds": 30.186145157000283
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 100,
+              "validation_mse": 3.146402149669681e-08,
+              "train_mse": 3.059198336635739e-08,
+              "gradient_max_abs": 1.7102351257066612e-05,
+              "objective_evaluations": 206,
+              "seconds": 31.740530319000754
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 105,
+              "validation_mse": 1.9401159341359294e-08,
+              "train_mse": 2.0356465589310672e-08,
+              "gradient_max_abs": 2.067510769247459e-05,
+              "objective_evaluations": 218,
+              "seconds": 33.71951690400056
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 110,
+              "validation_mse": 2.1536917325886933e-08,
+              "train_mse": 1.8678165269413748e-08,
+              "gradient_max_abs": 2.106054843189065e-06,
+              "objective_evaluations": 229,
+              "seconds": 35.56074128799992
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 115,
+              "validation_mse": 2.040425712651792e-08,
+              "train_mse": 1.7927335362969953e-08,
+              "gradient_max_abs": 2.493156754363985e-06,
+              "objective_evaluations": 240,
+              "seconds": 37.23399675099972
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 120,
+              "validation_mse": 2.021628145258919e-08,
+              "train_mse": 1.5923077033934163e-08,
+              "gradient_max_abs": 8.138894539648697e-06,
+              "objective_evaluations": 251,
+              "seconds": 39.07322233999912
+            }
+          ],
+          "architecture": {
+            "name": "exchange_matched_qnn",
+            "trainable_parameters": 28,
+            "active_parameters": 28,
+            "input_qubits": 2,
+            "simultaneous_input_copies": 2,
+            "output_heads": "P(c) on first spin of each output register; same execution",
+            "conditioner": "same learned Euler-frame family as exchange model",
+            "inner_circuit": [
+              "learned_frame_Z_0",
+              "learned_frame_Y_0",
+              "learned_frame_Z_2",
+              "learned_frame_Y_2",
+              "RYIII",
+              "RZIII",
+              "RIYII",
+              "RIZII",
+              "RIIYI",
+              "RIIZI",
+              "RIIIY",
+              "RIIIZ",
+              "RXIXI",
+              "RIXIX",
+              "global_register_partial_swap",
+              "RYIII",
+              "RZIII",
+              "RIYII",
+              "RIZII",
+              "RIIYI",
+              "RIIZI",
+              "RIIIY",
+              "RIIIZ",
+              "RZZII",
+              "RIIZZ",
+              "learned_frame_Y_0",
+              "learned_frame_Z_0",
+              "learned_frame_Y_2",
+              "learned_frame_Z_2"
+            ],
+            "readout": "learned affine combination of two jointly measured heads",
+            "analytic_solution_contained": true,
+            "random_initialization": "analytic solution is verified but not used for training initialization",
+            "primitive_gates_per_pair": {
+              "one_qubit_parameterized_rotations_before_readout": 24,
+              "two_qubit_Pauli_rotations_before_readout": 4,
+              "global_two_register_partial_swap": 1,
+              "one_qubit_rotations_for_both_P_readouts": 4
+            },
+            "global_partial_swap_exact_ancilla_construction": {
+              "extra_clean_ancillas": 1,
+              "controlled_full_register_swaps": 2,
+              "controlled_pair_swaps_Fredkin": 4,
+              "ancilla_H": 4,
+              "ancilla_Rz": 1
+            },
+            "matched_to_exchange": "same 1 global exchange and 4 two-qubit Pauli rotations; 8 more single rotations",
+            "compiled_two_qubit_gate_budget_matched": false,
+            "resource_note": "Nonlocal primitive counts match; no hardware compilation or routing comparison.",
+            "training": "actual PennyLane QNodes, Torch backpropagation, torch.optim.LBFGS (optional Adam warmup)",
+            "fitted_summary": {
+              "head_weights": [
+                -1.0054029318923756,
+                1.0054214598524474
+              ],
+              "head_bias": 6.578561128010665e-05,
+              "frame_parameters": [
+                0.9994472620325227,
+                0.005876013575501086,
+                1.0000696976038872,
+                0.0012689896741675637
+              ],
+              "eta": 0.7776636060885723
+            },
+            "backend": {
+              "device": "default.qubit",
+              "interface": "torch",
+              "differentiation": "backpropagation through actual parameterized PennyLane gates",
+              "physical_data_wires": 4,
+              "raw_state_copies_per_quantum_execution": 2,
+              "simulator_environment_wires": 4,
+              "environment_accessible_to_learner": false,
+              "simulator_exchange_control_wires": 0,
+              "simulator_total_wires": 8,
+              "mixed_state_representation": "Exact positive-square-root purification; eigenvectors are input preparation only and never used as learned features",
+              "batching": "Native PennyLane StatePrep and gate-parameter broadcasting",
+              "signed_mixture": "Not used",
+              "exchange_implementation": "matrix",
+              "physical_resource_note": "Purification environments are simulator bookkeeping and do not change raw-copy or physical data-gate counts. On hardware the sign mixture randomly selects one exchange sign for each prepared pair.",
+              "compatibility_note": "Public-API purification avoids the batched QubitDensityMatrix initialization bug observed in default.mixed in PennyLane 0.45.1"
+            }
+          },
+          "metrics": {
+            "train": {
+              "mse": 2.035646558931067e-08,
+              "rmse": 0.00014267608625593382,
+              "mae": 0.00011004997743767125,
+              "max_abs_error": 0.000483651521317352,
+              "r2": 0.9999996261801862,
+              "prediction_min": 0.012465836835472767,
+              "prediction_max": 0.9700314001157818,
+              "n": 320
+            },
+            "validation": {
+              "mse": 1.9401159341359294e-08,
+              "rmse": 0.00013928804450260364,
+              "mae": 0.00011101202669652559,
+              "max_abs_error": 0.00032839836307729797,
+              "r2": 0.9999996839667844,
+              "prediction_min": 0.025673692936167485,
+              "prediction_max": 0.9970263523150514,
+              "n": 96
+            },
+            "test_state": {
+              "mse": 2.4516476296728323e-08,
+              "rmse": 0.00015657738117853524,
+              "mae": 0.00011250547107496341,
+              "max_abs_error": 0.0005012731460549702,
+              "r2": 0.9999995702819341,
+              "prediction_min": 0.006326309262279657,
+              "prediction_max": 0.9796493563072056,
+              "n": 192
+            },
+            "test_context": {
+              "mse": 2.2998764155928512e-08,
+              "rmse": 0.0001516534343690525,
+              "mae": 0.00010865459780085512,
+              "max_abs_error": 0.0005545579203110051,
+              "r2": 0.9999995988978848,
+              "prediction_min": 0.05197199960817795,
+              "prediction_max": 0.9802816872538855,
+              "n": 128
+            },
+            "test_joint": {
+              "mse": 1.8891281177960557e-08,
+              "rmse": 0.00013744555714158445,
+              "mae": 0.00010237468035480565,
+              "max_abs_error": 0.0004319125061445078,
+              "r2": 0.9999996676776484,
+              "prediction_min": 0.005475983110044031,
+              "prediction_max": 0.9515095628186955,
+              "n": 128
+            },
+            "bell": {
+              "mse": 3.115210905668181e-08,
+              "rmse": 0.0001764996007266923,
+              "mae": 0.00014872035587076555,
+              "max_abs_error": 0.0004481118430517128,
+              "r2": 0.9999996756045929,
+              "prediction_min": -0.00018465906717566918,
+              "prediction_max": 1.0004481118430517,
+              "n": 51
+            }
+          }
+        },
+        {
+          "seed": 31,
+          "optimizer": "torch.optim.LBFGS",
+          "random_initialization": true,
+          "NumPy_fitted_weights_loaded": false,
+          "initial_parameters": [
+            0.9525638453696116,
+            0.047504679302831324,
+            1.0728553922554682,
+            -0.17498876395089644,
+            0.34544891391295146,
+            0.11477615479845281,
+            0.3523409417835406,
+            0.12258820533256544,
+            0.5229036564887555,
+            -0.42199037044509236,
+            0.7992448802179845,
+            0.5410754298608793,
+            -0.2699810318056507,
+            0.2970748408771603,
+            1.145527198389532,
+            -0.7855936045277627,
+            0.26784731053154853,
+            -0.26342960440737984,
+            -0.11250609011331046,
+            -0.27107389759996636,
+            -0.1926378030438352,
+            0.03228061579311999,
+            0.04352360582528955,
+            -0.7016183286265258,
+            -0.12091771514222704,
+            -0.6270777859059105,
+            0.4653046399269161,
+            0.3765421755884276
+          ],
+          "Adam_steps": 0,
+          "LBFGS_max_iterations": 120,
+          "LBFGS_completed_iterations": 120,
+          "stop_reason": "maximum LBFGS iterations reached",
+          "batch_size": 320,
+          "batching": "full-dataset exact objective; chunk gradients accumulated before each optimizer update",
+          "validation_every_iterations": 5,
+          "best_validation_mse": 6.228984580496832e-08,
+          "best_validation_iteration": 120,
+          "best_validation_phase": "lbfgs",
+          "selection_rule": "minimum validation MSE among checkpoints; no test-based selection",
+          "parameter_domain": "real angles and affine-head parameters; physical eta/chi coefficients use trigonometric parametrization",
+          "elapsed_seconds": 38.34718650799914,
+          "counters": {
+            "objective_evaluations": 249,
+            "gradient_evaluations": 249,
+            "training_forward_batches": 249,
+            "validation_forward_batches": 25
+          },
+          "trajectory": [
+            {
+              "phase": "initial",
+              "iteration": 0,
+              "validation_mse": 0.11935044194222129,
+              "train_mse": null,
+              "gradient_max_abs": null,
+              "objective_evaluations": 0,
+              "seconds": 0.016476267999678385
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 5,
+              "validation_mse": 0.061563463558747235,
+              "train_mse": 0.051645954012260444,
+              "gradient_max_abs": 0.016940452445432387,
+              "objective_evaluations": 10,
+              "seconds": 1.725944867999715
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 10,
+              "validation_mse": 0.036555385772144865,
+              "train_mse": 0.030021713289263924,
+              "gradient_max_abs": 0.09470144301294485,
+              "objective_evaluations": 20,
+              "seconds": 3.304869449999387
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 15,
+              "validation_mse": 0.004236125676572649,
+              "train_mse": 0.002719378160935252,
+              "gradient_max_abs": 0.019534248051872677,
+              "objective_evaluations": 30,
+              "seconds": 5.023361846999251
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 20,
+              "validation_mse": 0.000766736297157447,
+              "train_mse": 0.0006238219062551578,
+              "gradient_max_abs": 0.014157495332491487,
+              "objective_evaluations": 40,
+              "seconds": 6.781972323000446
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 25,
+              "validation_mse": 0.000669413332210567,
+              "train_mse": 0.0004608130789592005,
+              "gradient_max_abs": 0.002277161932028736,
+              "objective_evaluations": 50,
+              "seconds": 8.285003798000616
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 30,
+              "validation_mse": 6.27045545764455e-05,
+              "train_mse": 7.402992031712964e-05,
+              "gradient_max_abs": 0.0008857733321101832,
+              "objective_evaluations": 60,
+              "seconds": 10.33739452500049
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 35,
+              "validation_mse": 2.8599990181518947e-05,
+              "train_mse": 4.540561792445517e-05,
+              "gradient_max_abs": 0.0005061178350494284,
+              "objective_evaluations": 70,
+              "seconds": 11.840794903999267
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 40,
+              "validation_mse": 2.1088670827781245e-05,
+              "train_mse": 3.039789150127149e-05,
+              "gradient_max_abs": 0.00040989059047105865,
+              "objective_evaluations": 80,
+              "seconds": 13.356280272999356
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 45,
+              "validation_mse": 1.247118716012065e-05,
+              "train_mse": 1.4873044155449555e-05,
+              "gradient_max_abs": 0.00038509407295012825,
+              "objective_evaluations": 90,
+              "seconds": 14.832979365999563
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 50,
+              "validation_mse": 1.3690716659395803e-05,
+              "train_mse": 9.914099730601781e-06,
+              "gradient_max_abs": 0.00033274471994615076,
+              "objective_evaluations": 100,
+              "seconds": 16.34941890399932
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 55,
+              "validation_mse": 1.2171016269916942e-05,
+              "train_mse": 7.616130029737473e-06,
+              "gradient_max_abs": 0.00010486806637577476,
+              "objective_evaluations": 110,
+              "seconds": 17.943028789999516
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 60,
+              "validation_mse": 5.507672478244802e-06,
+              "train_mse": 5.0015765975066115e-06,
+              "gradient_max_abs": 0.0003077724886928467,
+              "objective_evaluations": 121,
+              "seconds": 19.67145504600012
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 65,
+              "validation_mse": 2.7139779240575306e-06,
+              "train_mse": 3.699141109100457e-06,
+              "gradient_max_abs": 0.0001021925460453221,
+              "objective_evaluations": 131,
+              "seconds": 21.250548320000235
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 70,
+              "validation_mse": 2.109095669443004e-06,
+              "train_mse": 3.244999586711461e-06,
+              "gradient_max_abs": 3.792467385423317e-05,
+              "objective_evaluations": 142,
+              "seconds": 22.886140410000735
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 75,
+              "validation_mse": 1.726344850925929e-06,
+              "train_mse": 2.639243748807842e-06,
+              "gradient_max_abs": 5.932083420789113e-05,
+              "objective_evaluations": 152,
+              "seconds": 24.36172418699971
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 80,
+              "validation_mse": 1.3823940106716615e-06,
+              "train_mse": 1.5151985231240096e-06,
+              "gradient_max_abs": 4.529193613475292e-05,
+              "objective_evaluations": 162,
+              "seconds": 25.72931650300052
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 85,
+              "validation_mse": 2.5169327390533503e-07,
+              "train_mse": 6.099918949185368e-07,
+              "gradient_max_abs": 0.00020487295952198128,
+              "objective_evaluations": 173,
+              "seconds": 27.255095645999972
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 90,
+              "validation_mse": 3.826919954638374e-07,
+              "train_mse": 3.7616516391715297e-07,
+              "gradient_max_abs": 0.00013905139227712686,
+              "objective_evaluations": 184,
+              "seconds": 28.81136488700031
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 95,
+              "validation_mse": 1.6788263549583053e-07,
+              "train_mse": 1.7566760046001066e-07,
+              "gradient_max_abs": 0.000101304760978017,
+              "objective_evaluations": 195,
+              "seconds": 30.537607075999404
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 100,
+              "validation_mse": 1.5803662133868713e-07,
+              "train_mse": 1.1358912356587673e-07,
+              "gradient_max_abs": 2.0897362550468898e-05,
+              "objective_evaluations": 206,
+              "seconds": 32.2017901929994
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 105,
+              "validation_mse": 1.8986738918986683e-07,
+              "train_mse": 9.067105668102102e-08,
+              "gradient_max_abs": 9.041938579589714e-06,
+              "objective_evaluations": 217,
+              "seconds": 33.80286767799953
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 110,
+              "validation_mse": 1.7096561370406913e-07,
+              "train_mse": 7.937200741191673e-08,
+              "gradient_max_abs": 4.031577347571698e-05,
+              "objective_evaluations": 228,
+              "seconds": 35.351522468999974
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 115,
+              "validation_mse": 1.3967582996317734e-07,
+              "train_mse": 5.86723369913822e-08,
+              "gradient_max_abs": 8.235415601954666e-06,
+              "objective_evaluations": 239,
+              "seconds": 36.93531443500069
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 120,
+              "validation_mse": 6.228984580496832e-08,
+              "train_mse": 4.265100456732179e-08,
+              "gradient_max_abs": 2.403071502249045e-05,
+              "objective_evaluations": 249,
+              "seconds": 38.347076755999296
+            }
+          ],
+          "architecture": {
+            "name": "exchange_matched_qnn",
+            "trainable_parameters": 28,
+            "active_parameters": 28,
+            "input_qubits": 2,
+            "simultaneous_input_copies": 2,
+            "output_heads": "P(c) on first spin of each output register; same execution",
+            "conditioner": "same learned Euler-frame family as exchange model",
+            "inner_circuit": [
+              "learned_frame_Z_0",
+              "learned_frame_Y_0",
+              "learned_frame_Z_2",
+              "learned_frame_Y_2",
+              "RYIII",
+              "RZIII",
+              "RIYII",
+              "RIZII",
+              "RIIYI",
+              "RIIZI",
+              "RIIIY",
+              "RIIIZ",
+              "RXIXI",
+              "RIXIX",
+              "global_register_partial_swap",
+              "RYIII",
+              "RZIII",
+              "RIYII",
+              "RIZII",
+              "RIIYI",
+              "RIIZI",
+              "RIIIY",
+              "RIIIZ",
+              "RZZII",
+              "RIIZZ",
+              "learned_frame_Y_0",
+              "learned_frame_Z_0",
+              "learned_frame_Y_2",
+              "learned_frame_Z_2"
+            ],
+            "readout": "learned affine combination of two jointly measured heads",
+            "analytic_solution_contained": true,
+            "random_initialization": "analytic solution is verified but not used for training initialization",
+            "primitive_gates_per_pair": {
+              "one_qubit_parameterized_rotations_before_readout": 24,
+              "two_qubit_Pauli_rotations_before_readout": 4,
+              "global_two_register_partial_swap": 1,
+              "one_qubit_rotations_for_both_P_readouts": 4
+            },
+            "global_partial_swap_exact_ancilla_construction": {
+              "extra_clean_ancillas": 1,
+              "controlled_full_register_swaps": 2,
+              "controlled_pair_swaps_Fredkin": 4,
+              "ancilla_H": 4,
+              "ancilla_Rz": 1
+            },
+            "matched_to_exchange": "same 1 global exchange and 4 two-qubit Pauli rotations; 8 more single rotations",
+            "compiled_two_qubit_gate_budget_matched": false,
+            "resource_note": "Nonlocal primitive counts match; no hardware compilation or routing comparison.",
+            "training": "actual PennyLane QNodes, Torch backpropagation, torch.optim.LBFGS (optional Adam warmup)",
+            "fitted_summary": {
+              "head_weights": [
+                -1.0238620242160321,
+                1.0239725063019884
+              ],
+              "head_bias": 0.00015375566225724673,
+              "frame_parameters": [
+                0.9997106439311001,
+                0.34310370869696805,
+                0.9996075867837382,
+                0.0014054138498303802
+              ],
+              "eta": 0.836025481448691
+            },
+            "backend": {
+              "device": "default.qubit",
+              "interface": "torch",
+              "differentiation": "backpropagation through actual parameterized PennyLane gates",
+              "physical_data_wires": 4,
+              "raw_state_copies_per_quantum_execution": 2,
+              "simulator_environment_wires": 4,
+              "environment_accessible_to_learner": false,
+              "simulator_exchange_control_wires": 0,
+              "simulator_total_wires": 8,
+              "mixed_state_representation": "Exact positive-square-root purification; eigenvectors are input preparation only and never used as learned features",
+              "batching": "Native PennyLane StatePrep and gate-parameter broadcasting",
+              "signed_mixture": "Not used",
+              "exchange_implementation": "matrix",
+              "physical_resource_note": "Purification environments are simulator bookkeeping and do not change raw-copy or physical data-gate counts. On hardware the sign mixture randomly selects one exchange sign for each prepared pair.",
+              "compatibility_note": "Public-API purification avoids the batched QubitDensityMatrix initialization bug observed in default.mixed in PennyLane 0.45.1"
+            }
+          },
+          "metrics": {
+            "train": {
+              "mse": 4.265100456732179e-08,
+              "rmse": 0.0002065211964117044,
+              "mae": 0.00015264243283792347,
+              "max_abs_error": 0.0008984643224432542,
+              "r2": 0.9999992167701944,
+              "prediction_min": 0.01248339376609791,
+              "prediction_max": 0.9703042537952411,
+              "n": 320
+            },
+            "validation": {
+              "mse": 6.228984580496832e-08,
+              "rmse": 0.0002495793376963893,
+              "mae": 0.00019212676055829824,
+              "max_abs_error": 0.0008352509115034934,
+              "r2": 0.9999989853358802,
+              "prediction_min": 0.025741822445723476,
+              "prediction_max": 0.9978548366488006,
+              "n": 96
+            },
+            "test_state": {
+              "mse": 5.9426571370645927e-08,
+              "rmse": 0.00024377565787142474,
+              "mae": 0.00018621920109135654,
+              "max_abs_error": 0.0009344722513792703,
+              "r2": 0.9999989583873715,
+              "prediction_min": 0.0064742299579831,
+              "prediction_max": 0.9799628744026168,
+              "n": 192
+            },
+            "test_context": {
+              "mse": 5.275703823972226e-08,
+              "rmse": 0.00022968900330604046,
+              "mae": 0.0001765593675980719,
+              "max_abs_error": 0.000649290523678514,
+              "r2": 0.9999990799088384,
+              "prediction_min": 0.05206346763387951,
+              "prediction_max": 0.9811073446198575,
+              "n": 128
+            },
+            "test_joint": {
+              "mse": 4.2278420969693494e-08,
+              "rmse": 0.00020561717090188139,
+              "mae": 0.00016455244100274018,
+              "max_abs_error": 0.000593905897500191,
+              "r2": 0.9999992562672617,
+              "prediction_min": 0.005540329863084079,
+              "prediction_max": 0.95166124592996,
+              "n": 128
+            },
+            "bell": {
+              "mse": 2.553385950623882e-07,
+              "rmse": 0.0005053103947697773,
+              "mae": 0.00048346556718701896,
+              "max_abs_error": 0.0008727039787450597,
+              "r2": 0.9999973410895759,
+              "prediction_min": -0.0003368279599995482,
+              "prediction_max": 0.9993530618634341,
+              "n": 51
+            }
+          }
+        },
+        {
+          "seed": 73,
+          "optimizer": "torch.optim.LBFGS",
+          "random_initialization": true,
+          "NumPy_fitted_weights_loaded": false,
+          "initial_parameters": [
+            0.8688032913372842,
+            0.14005580978873244,
+            0.9542067633374165,
+            0.053256797332806895,
+            0.15139900647960222,
+            -0.8760539939255841,
+            0.22561901322645483,
+            -0.4347828831766776,
+            -0.5598765804245948,
+            0.5022581332180622,
+            -0.7257712001720349,
+            -0.7149825294721138,
+            -0.37862253140993507,
+            0.6327030495051825,
+            0.41519001074508644,
+            -0.07497926683338355,
+            0.8131630948336863,
+            -0.3419895382646976,
+            -0.8078887466262927,
+            0.30135278614985567,
+            0.09742801661849633,
+            0.155470679346528,
+            -0.4929108847537961,
+            0.2538434995487812,
+            0.13819656593762178,
+            -0.4463103785738597,
+            0.5278787733028754,
+            0.3765421755884276
+          ],
+          "Adam_steps": 0,
+          "LBFGS_max_iterations": 120,
+          "LBFGS_completed_iterations": 120,
+          "stop_reason": "maximum LBFGS iterations reached",
+          "batch_size": 320,
+          "batching": "full-dataset exact objective; chunk gradients accumulated before each optimizer update",
+          "validation_every_iterations": 5,
+          "best_validation_mse": 1.7917176751875681e-10,
+          "best_validation_iteration": 120,
+          "best_validation_phase": "lbfgs",
+          "selection_rule": "minimum validation MSE among checkpoints; no test-based selection",
+          "parameter_domain": "real angles and affine-head parameters; physical eta/chi coefficients use trigonometric parametrization",
+          "elapsed_seconds": 42.63591196000016,
+          "counters": {
+            "objective_evaluations": 256,
+            "gradient_evaluations": 256,
+            "training_forward_batches": 256,
+            "validation_forward_batches": 25
+          },
+          "trajectory": [
+            {
+              "phase": "initial",
+              "iteration": 0,
+              "validation_mse": 0.043791965191686294,
+              "train_mse": null,
+              "gradient_max_abs": null,
+              "objective_evaluations": 0,
+              "seconds": 0.01757571500093036
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 5,
+              "validation_mse": 0.015377658091346792,
+              "train_mse": 0.014181827485515988,
+              "gradient_max_abs": 0.03588782317194273,
+              "objective_evaluations": 10,
+              "seconds": 1.469375275000857
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 10,
+              "validation_mse": 0.0007942495466761977,
+              "train_mse": 0.0006109086545819398,
+              "gradient_max_abs": 0.028121867163104493,
+              "objective_evaluations": 21,
+              "seconds": 3.1219971219998115
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 15,
+              "validation_mse": 0.0001110746315466893,
+              "train_mse": 7.575407309802716e-05,
+              "gradient_max_abs": 0.0008352488880329857,
+              "objective_evaluations": 31,
+              "seconds": 4.874765042000945
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 20,
+              "validation_mse": 3.5583176250325025e-05,
+              "train_mse": 2.9170867974584137e-05,
+              "gradient_max_abs": 0.0011163645728479816,
+              "objective_evaluations": 41,
+              "seconds": 6.6314139170008275
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 25,
+              "validation_mse": 1.4025954089119823e-05,
+              "train_mse": 1.752176576942687e-05,
+              "gradient_max_abs": 0.0004746601455106342,
+              "objective_evaluations": 51,
+              "seconds": 8.46572722000019
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 30,
+              "validation_mse": 1.1931353510306111e-05,
+              "train_mse": 9.900444055129984e-06,
+              "gradient_max_abs": 0.00014503562310904378,
+              "objective_evaluations": 62,
+              "seconds": 10.420951770000102
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 35,
+              "validation_mse": 8.886754889143678e-06,
+              "train_mse": 7.649990775517133e-06,
+              "gradient_max_abs": 0.0003556141832002221,
+              "objective_evaluations": 72,
+              "seconds": 12.161490828999376
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 40,
+              "validation_mse": 7.418615981936285e-06,
+              "train_mse": 4.581892094846227e-06,
+              "gradient_max_abs": 0.0005156768505449323,
+              "objective_evaluations": 82,
+              "seconds": 14.050041357999362
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 45,
+              "validation_mse": 2.205307007860063e-06,
+              "train_mse": 1.817780732162185e-06,
+              "gradient_max_abs": 0.00010596644850782933,
+              "objective_evaluations": 93,
+              "seconds": 16.24469315299939
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 50,
+              "validation_mse": 1.017733378288549e-06,
+              "train_mse": 6.664064390723044e-07,
+              "gradient_max_abs": 5.956512106687115e-05,
+              "objective_evaluations": 103,
+              "seconds": 18.250309200999254
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 55,
+              "validation_mse": 3.636618411220778e-07,
+              "train_mse": 3.3826042730510373e-07,
+              "gradient_max_abs": 0.00012150732775000677,
+              "objective_evaluations": 113,
+              "seconds": 20.626270122000278
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 60,
+              "validation_mse": 2.783330410014496e-07,
+              "train_mse": 2.7834857859408877e-07,
+              "gradient_max_abs": 2.6715583669320613e-05,
+              "objective_evaluations": 123,
+              "seconds": 22.351195478999216
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 65,
+              "validation_mse": 1.4669852608938404e-07,
+              "train_mse": 1.51439032405644e-07,
+              "gradient_max_abs": 0.00010985002712234212,
+              "objective_evaluations": 134,
+              "seconds": 24.14828439700068
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 70,
+              "validation_mse": 9.383864906027441e-08,
+              "train_mse": 7.454309573981894e-08,
+              "gradient_max_abs": 1.1755037016045994e-05,
+              "objective_evaluations": 145,
+              "seconds": 25.903234302000783
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 75,
+              "validation_mse": 6.760694913393062e-08,
+              "train_mse": 5.4212483010921426e-08,
+              "gradient_max_abs": 1.9176247446661408e-05,
+              "objective_evaluations": 156,
+              "seconds": 27.521178557000894
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 80,
+              "validation_mse": 4.088724341502253e-08,
+              "train_mse": 3.454877389739264e-08,
+              "gradient_max_abs": 1.6065230116701576e-05,
+              "objective_evaluations": 166,
+              "seconds": 28.991194669000834
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 85,
+              "validation_mse": 1.2901990551769554e-08,
+              "train_mse": 1.6425766551849416e-08,
+              "gradient_max_abs": 2.967928352258032e-05,
+              "objective_evaluations": 176,
+              "seconds": 30.672667172999354
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 90,
+              "validation_mse": 8.045553084605953e-09,
+              "train_mse": 4.856747925124862e-09,
+              "gradient_max_abs": 1.2335822512727193e-05,
+              "objective_evaluations": 186,
+              "seconds": 32.079834762000246
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 95,
+              "validation_mse": 3.4645405134522736e-09,
+              "train_mse": 2.4626502573827843e-09,
+              "gradient_max_abs": 6.078855388248827e-06,
+              "objective_evaluations": 196,
+              "seconds": 33.615847140999904
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 100,
+              "validation_mse": 1.7159588232287906e-09,
+              "train_mse": 1.4312852504104769e-09,
+              "gradient_max_abs": 3.193536556695635e-06,
+              "objective_evaluations": 207,
+              "seconds": 35.58713490599985
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 105,
+              "validation_mse": 3.6537867803876634e-10,
+              "train_mse": 4.657140912808941e-10,
+              "gradient_max_abs": 9.472272705516977e-07,
+              "objective_evaluations": 219,
+              "seconds": 37.449903028000335
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 110,
+              "validation_mse": 2.817601161789277e-10,
+              "train_mse": 3.356380203965434e-10,
+              "gradient_max_abs": 4.6679843296771826e-07,
+              "objective_evaluations": 231,
+              "seconds": 39.163619397999355
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 115,
+              "validation_mse": 2.1554073234007905e-10,
+              "train_mse": 2.531744263055274e-10,
+              "gradient_max_abs": 2.000038662031633e-06,
+              "objective_evaluations": 243,
+              "seconds": 40.84155238300082
+            },
+            {
+              "phase": "lbfgs",
+              "iteration": 120,
+              "validation_mse": 1.7917176751875681e-10,
+              "train_mse": 1.9674237592163158e-10,
+              "gradient_max_abs": 4.0710608275173065e-07,
+              "objective_evaluations": 256,
+              "seconds": 42.635756211000626
+            }
+          ],
+          "architecture": {
+            "name": "exchange_matched_qnn",
+            "trainable_parameters": 28,
+            "active_parameters": 28,
+            "input_qubits": 2,
+            "simultaneous_input_copies": 2,
+            "output_heads": "P(c) on first spin of each output register; same execution",
+            "conditioner": "same learned Euler-frame family as exchange model",
+            "inner_circuit": [
+              "learned_frame_Z_0",
+              "learned_frame_Y_0",
+              "learned_frame_Z_2",
+              "learned_frame_Y_2",
+              "RYIII",
+              "RZIII",
+              "RIYII",
+              "RIZII",
+              "RIIYI",
+              "RIIZI",
+              "RIIIY",
+              "RIIIZ",
+              "RXIXI",
+              "RIXIX",
+              "global_register_partial_swap",
+              "RYIII",
+              "RZIII",
+              "RIYII",
+              "RIZII",
+              "RIIYI",
+              "RIIZI",
+              "RIIIY",
+              "RIIIZ",
+              "RZZII",
+              "RIIZZ",
+              "learned_frame_Y_0",
+              "learned_frame_Z_0",
+              "learned_frame_Y_2",
+              "learned_frame_Z_2"
+            ],
+            "readout": "learned affine combination of two jointly measured heads",
+            "analytic_solution_contained": true,
+            "random_initialization": "analytic solution is verified but not used for training initialization",
+            "primitive_gates_per_pair": {
+              "one_qubit_parameterized_rotations_before_readout": 24,
+              "two_qubit_Pauli_rotations_before_readout": 4,
+              "global_two_register_partial_swap": 1,
+              "one_qubit_rotations_for_both_P_readouts": 4
+            },
+            "global_partial_swap_exact_ancilla_construction": {
+              "extra_clean_ancillas": 1,
+              "controlled_full_register_swaps": 2,
+              "controlled_pair_swaps_Fredkin": 4,
+              "ancilla_H": 4,
+              "ancilla_Rz": 1
+            },
+            "matched_to_exchange": "same 1 global exchange and 4 two-qubit Pauli rotations; 8 more single rotations",
+            "compiled_two_qubit_gate_budget_matched": false,
+            "resource_note": "Nonlocal primitive counts match; no hardware compilation or routing comparison.",
+            "training": "actual PennyLane QNodes, Torch backpropagation, torch.optim.LBFGS (optional Adam warmup)",
+            "fitted_summary": {
+              "head_weights": [
+                -1.0155985771984195,
+                1.0155930827929431
+              ],
+              "head_bias": 4.878627465028474e-06,
+              "frame_parameters": [
+                0.9999633749669301,
+                0.00021892652278683402,
+                1.0000087733524343,
+                -0.00034926266281062407
+              ],
+              "eta": 0.7851934981320463
+            },
+            "backend": {
+              "device": "default.qubit",
+              "interface": "torch",
+              "differentiation": "backpropagation through actual parameterized PennyLane gates",
+              "physical_data_wires": 4,
+              "raw_state_copies_per_quantum_execution": 2,
+              "simulator_environment_wires": 4,
+              "environment_accessible_to_learner": false,
+              "simulator_exchange_control_wires": 0,
+              "simulator_total_wires": 8,
+              "mixed_state_representation": "Exact positive-square-root purification; eigenvectors are input preparation only and never used as learned features",
+              "batching": "Native PennyLane StatePrep and gate-parameter broadcasting",
+              "signed_mixture": "Not used",
+              "exchange_implementation": "matrix",
+              "physical_resource_note": "Purification environments are simulator bookkeeping and do not change raw-copy or physical data-gate counts. On hardware the sign mixture randomly selects one exchange sign for each prepared pair.",
+              "compatibility_note": "Public-API purification avoids the batched QubitDensityMatrix initialization bug observed in default.mixed in PennyLane 0.45.1"
+            }
+          },
+          "metrics": {
+            "train": {
+              "mse": 1.9674237592163155e-10,
+              "rmse": 1.4026488367429375e-05,
+              "mae": 1.0002436234709948e-05,
+              "max_abs_error": 6.708386296205848e-05,
+              "r2": 0.9999999963870841,
+              "prediction_min": 0.012393207377904548,
+              "prediction_max": 0.9700881373515627,
+              "n": 320
+            },
+            "validation": {
+              "mse": 1.7917176751875681e-10,
+              "rmse": 1.3385505874592743e-05,
+              "mae": 1.0268578572481392e-05,
+              "max_abs_error": 4.6117917425592125e-05,
+              "r2": 0.9999999970813996,
+              "prediction_min": 0.025615255527597042,
+              "prediction_max": 0.9971771511964007,
+              "n": 96
+            },
+            "test_state": {
+              "mse": 1.5476559949838226e-10,
+              "rmse": 1.2440482285602205e-05,
+              "mae": 9.3894821788111e-06,
+              "max_abs_error": 3.93177199828898e-05,
+              "r2": 0.999999997287311,
+              "prediction_min": 0.006318145762733225,
+              "prediction_max": 0.9800201785732469,
+              "n": 192
+            },
+            "test_context": {
+              "mse": 1.382193972753951e-10,
+              "rmse": 1.1756674584056288e-05,
+              "mae": 9.076245722465493e-06,
+              "max_abs_error": 3.38504155661945e-05,
+              "r2": 0.9999999975894317,
+              "prediction_min": 0.05192160002814544,
+              "prediction_max": 0.9808095243287699,
+              "n": 128
+            },
+            "test_joint": {
+              "mse": 1.845967994873332e-10,
+              "rmse": 1.3586640478327717e-05,
+              "mae": 1.0446124563063241e-05,
+              "max_abs_error": 5.1002349906070776e-05,
+              "r2": 0.9999999967527008,
+              "prediction_min": 0.0054421346023586685,
+              "prediction_max": 0.9516242878906193,
+              "n": 128
+            },
+            "bell": {
+              "mse": 3.1695664475178383e-11,
+              "rmse": 5.629890272037137e-06,
+              "mae": 5.505006926335698e-06,
+              "max_abs_error": 8.487632741971396e-06,
+              "r2": 0.9999999996699444,
+              "prediction_min": 4.840361263485517e-06,
+              "prediction_max": 1.000008487632742,
+              "n": 51
+            }
+          }
+        }
+      ],
+      "selected_seed": 73,
+      "seed_summary": {
+        "train": {
+          "mse_mean_over_seeds": 2.1068070844184696e-08,
+          "mse_std_over_seeds": 2.1236074992406445e-08,
+          "selected_seed_mse": 1.9674237592163155e-10
+        },
+        "validation": {
+          "mse_mean_over_seeds": 2.729005897128212e-08,
+          "mse_std_over_seeds": 3.179795607228278e-08,
+          "selected_seed_mse": 1.7917176751875681e-10
+        },
+        "test_state": {
+          "mse_mean_over_seeds": 2.8032604422290876e-08,
+          "mse_std_over_seeds": 2.9791930242763538e-08,
+          "selected_seed_mse": 1.5476559949838226e-10
+        },
+        "test_context": {
+          "mse_mean_over_seeds": 2.529800726430872e-08,
+          "mse_std_over_seeds": 2.638465298705169e-08,
+          "selected_seed_mse": 1.382193972753951e-10
+        },
+        "test_joint": {
+          "mse_mean_over_seeds": 2.0451432982380465e-08,
+          "mse_std_over_seeds": 2.1090236213890164e-08,
+          "selected_seed_mse": 1.845967994873332e-10
+        },
+        "bell": {
+          "mse_mean_over_seeds": 9.550746659451505e-08,
+          "mse_std_over_seeds": 1.392896703022546e-07,
+          "selected_seed_mse": 3.1695664475178383e-11
+        }
+      },
+      "architecture": {
+        "name": "exchange_matched_qnn",
+        "trainable_parameters": 28,
+        "active_parameters": 28,
+        "input_qubits": 2,
+        "simultaneous_input_copies": 2,
+        "output_heads": "P(c) on first spin of each output register; same execution",
+        "conditioner": "same learned Euler-frame family as exchange model",
+        "inner_circuit": [
+          "learned_frame_Z_0",
+          "learned_frame_Y_0",
+          "learned_frame_Z_2",
+          "learned_frame_Y_2",
+          "RYIII",
+          "RZIII",
+          "RIYII",
+          "RIZII",
+          "RIIYI",
+          "RIIZI",
+          "RIIIY",
+          "RIIIZ",
+          "RXIXI",
+          "RIXIX",
+          "global_register_partial_swap",
+          "RYIII",
+          "RZIII",
+          "RIYII",
+          "RIZII",
+          "RIIYI",
+          "RIIZI",
+          "RIIIY",
+          "RIIIZ",
+          "RZZII",
+          "RIIZZ",
+          "learned_frame_Y_0",
+          "learned_frame_Z_0",
+          "learned_frame_Y_2",
+          "learned_frame_Z_2"
+        ],
+        "readout": "learned affine combination of two jointly measured heads",
+        "analytic_solution_contained": true,
+        "random_initialization": "analytic solution is verified but not used for training initialization",
+        "primitive_gates_per_pair": {
+          "one_qubit_parameterized_rotations_before_readout": 24,
+          "two_qubit_Pauli_rotations_before_readout": 4,
+          "global_two_register_partial_swap": 1,
+          "one_qubit_rotations_for_both_P_readouts": 4
+        },
+        "global_partial_swap_exact_ancilla_construction": {
+          "extra_clean_ancillas": 1,
+          "controlled_full_register_swaps": 2,
+          "controlled_pair_swaps_Fredkin": 4,
+          "ancilla_H": 4,
+          "ancilla_Rz": 1
+        },
+        "matched_to_exchange": "same 1 global exchange and 4 two-qubit Pauli rotations; 8 more single rotations",
+        "compiled_two_qubit_gate_budget_matched": false,
+        "resource_note": "Nonlocal primitive counts match; no hardware compilation or routing comparison.",
+        "training": "actual PennyLane QNodes, Torch backpropagation, torch.optim.LBFGS (optional Adam warmup)",
+        "fitted_summary": {
+          "head_weights": [
+            -1.0155985771984195,
+            1.0155930827929431
+          ],
+          "head_bias": 4.878627465028474e-06,
+          "frame_parameters": [
+            0.9999633749669301,
+            0.00021892652278683402,
+            1.0000087733524343,
+            -0.00034926266281062407
+          ],
+          "eta": 0.7851934981320463
+        },
+        "backend": {
+          "device": "default.qubit",
+          "interface": "torch",
+          "differentiation": "backpropagation through actual parameterized PennyLane gates",
+          "physical_data_wires": 4,
+          "raw_state_copies_per_quantum_execution": 2,
+          "simulator_environment_wires": 4,
+          "environment_accessible_to_learner": false,
+          "simulator_exchange_control_wires": 0,
+          "simulator_total_wires": 8,
+          "mixed_state_representation": "Exact positive-square-root purification; eigenvectors are input preparation only and never used as learned features",
+          "batching": "Native PennyLane StatePrep and gate-parameter broadcasting",
+          "signed_mixture": "Not used",
+          "exchange_implementation": "matrix",
+          "physical_resource_note": "Purification environments are simulator bookkeeping and do not change raw-copy or physical data-gate counts. On hardware the sign mixture randomly selects one exchange sign for each prepared pair.",
+          "compatibility_note": "Public-API purification avoids the batched QubitDensityMatrix initialization bug observed in default.mixed in PennyLane 0.45.1"
+        }
+      }
+    }
+  },
+  "elapsed_seconds": 455.2467900770007
+}
