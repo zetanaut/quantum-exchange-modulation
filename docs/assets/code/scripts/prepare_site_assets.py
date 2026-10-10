@@ -12,7 +12,7 @@ ROOT=Path(__file__).resolve().parents[1]
 ASSETS=ROOT/"docs/assets"
 PUBLISHED_RESULT_DIRS=("figures", "torch_quantum", "torch_classical", "quantum", "classical",
     "finite_shot", "verification", "learning_curve", "physics_examples", "layer_forward",
-    "pretrained_inference", "streaming_demo", "resources")
+    "pretrained_inference", "streaming_demo", "resources", "physics_applications")
 
 
 def recorded_results():

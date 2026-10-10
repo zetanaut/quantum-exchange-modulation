@@ -2,6 +2,20 @@
 
 The recorded two-qubit experiment shows that the compact exchange model can fit directional dephasing response with very small held-out error. It also shows why that success needs strong controls: a QNN supplied with the same exchange operation learns the target, and a six-feature classical model with the exact physical contraction reaches floating-point precision.
 
+## Application and resource evidence matrix
+
+| Claim or use | Observed evidence | Strongest relevant comparison | Resource or scope |
+|---|---|---|---|
+| Physical quadratic feature $D_P$ | Exact two-copy port identity, independent matrices and actual QNodes; [checks](assets/verification/theory_results.json) | Direct collective $K_P$ has the same ideal grouped statistics; known Gram formula is exact when its Pauli features are supplied | Two independent source preparations per joint shot; representation result, not a hardware speedup |
+| Held-out dephasing prediction | [Primary summary](assets/results/summary.json) and [state-budget curve](assets/results/learning_curve/summary.csv) | Matched same-exchange QNN also fits and is better at eight states; full FiLM width/regularization sweep | 8/16/32/64 training states, 3 optimizer seeds, plus 96 validation pairs at every budget; one fixed nested dataset |
+| Inference copies | [Finite-shot metrics](assets/results/finite_shot/metrics.json) for frozen weights | Direct $K_P$, target-informed Pauli allocation, measured FiLM features; grouping and shadow records can change costs | Specific settings/allocations and raw-copy budgets, separate from training labels |
+| Bell/GHZ correlation response | [82 circuit cases](assets/results/physics_examples/correlation.csv) | Global $X^{\otimes m}$ parity product has **lower variance** than exchange on this family | Exact prescribed circuit; no trained correlation model or entanglement certification |
+| Finite-time dephasing and sub-QFI | [Transfer record](assets/results/physics_examples/dephasing_transfer.csv), [QFI record](assets/results/physics_examples/qfi.csv) | Known analytic decay and established sub-QFI/QFI formulae | Frozen predictor reuse and exact diagnostic, not learned unknown dynamics or sensing hardware |
+| Three-spin Gibbs response | [Field/temperature scan](assets/results/physics_examples/spin_gibbs.csv) | Independent matrices and a distinct local-pair-swap circuit | Three-spin exact identity, not a trained many-body scaling result |
+| Logical implementation | [Resource certificate](assets/verification/resource_certificate.json) | Alternative direct observable and local-basis estimators | Specified full-register construction; preparation, routing, noise, and wall time excluded |
+
+The new [direction map](applications/decoherence.md#a-directional-map-for-one-held-out-state) and [spectator-purity check](applications/metrology.md#an-uncorrelated-spectator-changes-the-hilbertschmidt-response) are explanatory diagnostics. They add no training fits. Reusing a measured Pauli or classical-shadow record over many contexts can amortize preparation cost; a fresh collective query consumes new copies. The current comparisons do not establish a general quantum computational, shot, or hardware advantage.
+
 The useful conclusion is a working physical construction with an effective task prior. The current experiments do not establish a significant general quantum advantage.
 
 ## The held-out experiment

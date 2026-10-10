@@ -16,6 +16,10 @@ Defines a partial-SWAP state-addition operation with the mixture-plus-commutator
 
 ### Quantum data used repeatedly
 
+**Ekert, Alves, Oi, Horodecki, Horodecki, and Kwek, “Direct estimations of linear and non-linear functionals of a quantum state,” Physical Review Letters 88, 217901 (2002).** [Paper](https://arxiv.org/abs/quant-ph/0203016) · [DOI](https://doi.org/10.1103/PhysRevLett.88.217901)
+
+An early controlled-SWAP network for direct estimation of purity and other nonlinear density-operator functionals. It is a target-informed alternative to fitting a conditional network when the desired functional is known.
+
 **Cha, Park, and Lee, “Re-uploading quantum data: a universal function approximator for quantum inputs,” arXiv:2509.18530, version 6 (2026).** [Version examined](https://arxiv.org/abs/2509.18530v6)
 
 A close precedent for nonlinear functions obtained from repeated native quantum inputs, with an approximation framework. The streaming architecture should be compared against this work rather than presented as the first nonlinear quantum-input model.

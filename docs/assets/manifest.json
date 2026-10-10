@@ -63,8 +63,8 @@
     },
     {
       "path": "code/scripts/check_site.py",
-      "bytes": 3385,
-      "sha256": "3cfd590aa35e5106f3aa60a919a2a3bcd91eaa9b6089e8855012e1578b454089"
+      "bytes": 3684,
+      "sha256": "80a7788a3737875f3eb65cfcb71383288576388ed6f0da1f7ec4b25eac829e6e"
     },
     {
       "path": "code/scripts/configure_pages.py",
@@ -82,9 +82,14 @@
       "sha256": "f1ae5459923082dcd0054e094758d200710e82c5e8978d0e1eccb4ee7cc52839"
     },
     {
+      "path": "code/scripts/physics_application_diagnostics.py",
+      "bytes": 10992,
+      "sha256": "dadd47c8520c39b48ab7965021284d0642510d4ec85cb9c97625f2982fb0ee18"
+    },
+    {
       "path": "code/scripts/prepare_site_assets.py",
-      "bytes": 2788,
-      "sha256": "55f04a21e6e16ecfecf4bca677aacbe4e7f5fa3077bf56269e860e3f4c267a68"
+      "bytes": 2812,
+      "sha256": "03f814a4f9e9e5d7c6ddb14bfe73bc28a13d99cbc910969b12e74d9971620561"
     },
     {
       "path": "code/scripts/quickstart.py",
@@ -197,6 +202,21 @@
       "sha256": "f2fb794e652f919980936a173ddc383a6fdbcee5e66db99490f6ad60d0cbe918"
     },
     {
+      "path": "figures/directional_response_map.pdf",
+      "bytes": 30071,
+      "sha256": "4f995445483fa6a4f65784ba2c889438e3a7bb74c1a1b7c0d67dfaaf57a5621e"
+    },
+    {
+      "path": "figures/directional_response_map.png",
+      "bytes": 78723,
+      "sha256": "0c9240a57926f45b1575410bc41240fc73aa7ac16ca1cac2037cc54e68d1796f"
+    },
+    {
+      "path": "figures/directional_response_map.svg",
+      "bytes": 75647,
+      "sha256": "dc0f5def95d320d891f144d8ec485e0e8b80ea96c92396d50cd364509647c752"
+    },
+    {
       "path": "figures/exchange_block.svg",
       "bytes": 187465,
       "sha256": "aaa8f4a4501520885d972fbb4d0c716b8754e2d2a8c26ebab4c13fc1bb0afd7b"
@@ -295,6 +315,21 @@
       "path": "figures/resource_scaling.svg",
       "bytes": 85497,
       "sha256": "9ca36ef44d134f4ec4106f2dc91913e4b5027a5953fd47e111af2b633ddd1a40"
+    },
+    {
+      "path": "figures/spectator_purity.pdf",
+      "bytes": 23198,
+      "sha256": "ceaecc6babadbcb5edf2ebd1196a68aacec45d9063a0257817ea6638459a5d66"
+    },
+    {
+      "path": "figures/spectator_purity.png",
+      "bytes": 72771,
+      "sha256": "fbafef9e120998177a1d537464dff3bf3f6e55f7c0f89c9e2bae9a692281e0e7"
+    },
+    {
+      "path": "figures/spectator_purity.svg",
+      "bytes": 48253,
+      "sha256": "570f6092ae62cbeeb6a12ae41834f6ee0ea3a175261b36c8b96ae4357b864de4"
     },
     {
       "path": "figures/spin_gibbs.pdf",
@@ -440,6 +475,21 @@
       "path": "results/learning_curve/weights.npz",
       "bytes": 259467,
       "sha256": "1a9aa561579ebb59ad59c007f373a26452db238c8e68f3a222a26118bd9e2f88"
+    },
+    {
+      "path": "results/physics_applications/directional_response_map.csv",
+      "bytes": 46184,
+      "sha256": "fc5a19dcb9670f745b1251aac97a1f727025a875fdcc4c0f27ec254f9bb5ae1d"
+    },
+    {
+      "path": "results/physics_applications/manifest.json",
+      "bytes": 3259,
+      "sha256": "7443248685f0b6b5d5ebe3847cbf5b74f44360897db0f61d0f25a5305b9529c5"
+    },
+    {
+      "path": "results/physics_applications/spectator_purity.csv",
+      "bytes": 2513,
+      "sha256": "4af48ac4c4ee401e4053f05dd0ec14609a41d8f1f7f18a0b2193742d507d6be9"
     },
     {
       "path": "results/physics_examples/checks.json",

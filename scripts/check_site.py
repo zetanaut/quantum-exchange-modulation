@@ -55,8 +55,12 @@ def main():
             problems.append(f"Asset hash mismatch: {record['path']}")
     for name in ["network_architecture","exchange_block","learning_results","generalization",
                  "measurement_cost","learning_curve","correlation_sensitivity","correlation_copy_cost",
-                 "dephasing_transfer","qfi_sensitivity","spin_gibbs","streaming_training","resource_scaling"]:
+                 "dephasing_transfer","qfi_sensitivity","spin_gibbs","streaming_training","resource_scaling",
+                 "directional_response_map","spectator_purity"]:
         if not (assets/"figures"/(name+".svg")).is_file():problems.append(f"Missing required figure: {name}")
+    for name in ("directional_response_map.csv", "spectator_purity.csv", "manifest.json"):
+        if not (assets/"results"/"physics_applications"/name).is_file():
+            problems.append(f"Missing application diagnostic: {name}")
     report=dict(pages=len(pages),local_links_checked=checked,assets_hashed=len(manifest["files"]),
                 passed=not problems,problems=problems)
     print(json.dumps(report,indent=2))

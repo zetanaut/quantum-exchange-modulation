@@ -12,6 +12,8 @@ The repository provides a general streaming implementation and a task-specialize
 
 The distinction matters when interpreting results. The [evidence page](evidence.md) reports trained benchmark models. The generic stack has separate physical-state, gradient, and small training-path checks. See the [state-valued source](assets/code/qem/layers.py) and [regressor wrapper](assets/code/qem/predictors.py) for their interfaces.
 
+For a worked physical use, follow a [two-spin dephasing query](applications/decoherence.md#from-preparation-to-prediction). The applications hub connects this same operation to [correlations](applications/correlations.md), [sensing](applications/metrology.md), and [thermal spins](applications/thermal-spins.md).
+
 ![A classical context conditioner controls a sequence of quantum memory and fresh-source exchange blocks, followed by a measured readout.](assets/figures/network_architecture.svg)
 
 ## 1. A hidden state carries the features
@@ -152,7 +154,17 @@ $$
 
 so its degree in \(\rho\) is at most \(k\). Streaming depth can raise the degree to at most \(L+1\). Recursively preparing two copies of every hidden state would instead cost \(2^L\) raw preparations in the direct construction. [Quantum-data re-uploading](https://arxiv.org/abs/2509.18530v6) is a close precedent for repeated native-state access.
 
-An optional trainable memory unitary could replace \(\omega_{\ell-1}\) by \(B_\ell\omega_{\ell-1}B_\ell^\dagger\) before a collision. The supplied generic module uses \(B_\ell=I\).
+An optional trainable memory unitary could replace \(\omega_{\ell-1}\) by \(B_\ell\omega_{\ell-1}B_\ell^\dagger\) before a collision. The supplied generic module uses \(B_\ell=I\). In its exact convention, each step is therefore
+
+$$
+\tau_\ell=V_\ell(c)\rho^{(\ell)}V_\ell(c)^\dagger,\qquad
+\omega_\ell=a_\ell\omega_{\ell-1}+(1-a_\ell)\tau_\ell
++i b_\ell[\omega_{\ell-1},\tau_\ell].
+$$
+
+The memory register is retained; the used source register is discarded after the collision. The simulator returns a density-matrix tensor, whereas a physical run retains the register without reconstructing that matrix between layers. `ContextExchangeLayer.forward` expects complex128 `memory` and `source` arrays of shape `[batch, 2**m, 2**m]` and a float64 context of shape `[batch, context_dim]`; its returned state has the same matrix shape. Set Torch's default real dtype to float64 before execution. The code's `qml.QubitChannel` represents the randomized exchange-sign mixture, with $U_{\eta}=e^{-i\eta S}$ and the **positive** $i b[\omega,\tau]$ sign verified by the matrix and QNode checks.
+
+`StreamingObservableRegressor` measures chosen Pauli words on the final memory and passes those real expectations to an affine Torch head. The benchmark's compact one-collision model instead measures two terminal ports and fits its own small head. A tensor reused in Python does not duplicate an unknown physical state; the $L+1$ input instances are separate preparations, with at most two data registers present at a collision. The full-register exchange is distinct from parallel local partial swaps. [Training inputs and checkpoints](training.md) and [resource arithmetic](control_explorer.md#preparation-and-gate-budget) show the remaining interfaces and costs.
 
 ## 6. Use the state-valued API
 

@@ -24,11 +24,14 @@ The verification workflow in `.github/workflows/verify.yml` also runs the user-f
 | Finite-time purity loss | `results/physics_examples/dephasing_transfer*` | Same physics command |
 | QFI/sub-QFI sensitivity | `results/physics_examples/qfi*` | Same physics command |
 | Three-spin Gibbs response | `results/physics_examples/spin_gibbs*` | Same physics command |
+| One-state directional response map and spectator-purity check | `results/physics_applications/` | `python scripts/physics_application_diagnostics.py --output results/physics_applications_reproduction` |
 | Streaming training | `results/streaming_demo/` | `python examples/train_streaming.py --output results/streaming_reproduction` |
 | Resource scaling | `results/resources/` | `python scripts/resource_estimate.py --plot --output results/resources_reproduction` |
 | Network and exchange schematics | `docs/assets/figures/network_architecture.svg`, `exchange_block.svg` | Editable vector diagrams supplied directly |
 
 Numerical plot scripts write PNG, PDF, and SVG. The two architecture diagrams are static vector sources; they do not represent sampled experimental data. The asset-preparation script uses the explicitly recorded result locations, so a reproduction directory does not silently replace the published figures.
+
+The application diagnostics make no new fits. `directional_response_map.csv` evaluates one fixed `test_joint` state and the frozen saved checkpoint on an exploratory 11-by-21 angular grid, with five actual exchange-QNode spot checks. `spectator_purity.csv` verifies the product-state factorization and spectator-invariant QFI for 21 deterministic states, with three actual exchange-QNode checks. Their manifest records input hashes, versions, exact tolerances, and scope. The published `results/physics_applications/` is the reviewed record; use a separate output directory for a rerun.
 
 ## Learning-curve study
 
