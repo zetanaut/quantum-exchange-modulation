@@ -1,10 +1,12 @@
 # Context-controlled exchange modulation
 
-**A quantum-state analogue of feature modulation, implemented in Torch and PennyLane.** A classical context vector controls gates that mix a quantum memory with a newly prepared source state. The output remains a physical quantum state and can enter the next layer. After the final layer, selected observables feed a Torch prediction head.
+**Which perturbation direction makes a repeatedly prepared quantum state lose purity, and can a conditional circuit learn that response from limited labeled states?** This project answers that question for a two-spin dephasing benchmark. A classical direction context controls gates acting on fresh quantum-state preparations; measured output ports feed a Torch prediction head. The architecture also supplies a state-valued streaming layer for other targets.
+
+Start with [directional decoherence](applications/decoherence.md) for the trained application, or use the [problem-selection guide](applications/choosing-a-problem.md) to decide whether your state source and measurement access fit. The [application hub](physics.md) covers correlated registers, sensing, and interacting thermal spins. Each guide identifies a prepared input, context, measured or computed output, runnable command, data, strongest comparator, and evidence status.
 
 ![Network architecture and the streaming exchange module](assets/figures/network_architecture.svg)
 
-## The central idea
+## The physical input and conditional network
 
 Classical FiLM uses context-dependent feature scales and offsets. Here, the context chooses an operator rotation and the strengths of a physical exchange interaction. For memory $\omega$, input state $\rho$, and context $c$,
 
@@ -16,6 +18,8 @@ $$
 The commutator couples noncommuting operator features. A bounded gate parameterization enforces $b^2\leq a(1-a)$, so the construction stays physical. A multilayer Torch network can choose the gate parameters nonlinearly in several context variables. Reusing the numerical description of $\rho$ in a simulator represents fresh physical preparations of the state. For a depth-$L$ streaming network, each execution consumes $L+1$ such preparations.
 
 The [architecture guide](architecture.md) derives the map, explains global versus pairwise exchange, and distinguishes nonlinear dependence on a context from nonlinear dependence on an unknown quantum input. The [control explorer](control_explorer.md) makes the coefficient region and resource arithmetic interactive.
+
+**Run now:** after [installation](install.md), execute `python examples/pretrained_inference.py --output /tmp/qem-frozen-review` to reload the validation-selected two-spin checkpoint and score its recorded held-out pairs. For a custom target, provide valid density matrices, context vectors, independent labels, and disjoint state splits to the [streaming trainer](training.md#train-and-checkpoint-a-custom-streaming-predictor). The reusable network retains quantum memory between collisions; its two-layer training example is a synthetic software integration fixture.
 
 ## What has been demonstrated
 
@@ -52,6 +56,8 @@ The demonstrated benefit is a useful physical structure for this target relative
 | A streaming DNN | End-to-end training and checkpoint reload through two quantum layers | Explicitly synthetic software integration |
 
 The [physics guide](physics.md) gives equations, assumptions, figures, data, and extension directions for each problem. Some examples are direct physics computations, while the two-layer teacher fixture demonstrates the API. The scope label accompanies every plot.
+
+New explanatory views include a [frozen directional response map](applications/decoherence.md#a-directional-map-for-one-held-out-state) for one correlated held-out state and a [spectator-purity diagnostic](applications/metrology.md#an-uncorrelated-spectator-changes-the-hilbertschmidt-response). Their scripts and CSV files accompany the figures; neither adds a new training result.
 
 ## Choose a starting point
 

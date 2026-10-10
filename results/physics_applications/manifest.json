@@ -1,0 +1,113 @@
+{
+  "command": "python scripts/physics_application_diagnostics.py --output results/physics_applications",
+  "purpose": "Explanatory diagnostics; frozen prediction and prescribed exact circuits, not new training",
+  "seed": null,
+  "randomness": "none; fixed state index and deterministic grids",
+  "shots": null,
+  "units": "angles in radians in CSV; response and QFI dimensionless; spectator Bloch coordinate dimensionless",
+  "versions": {
+    "python": "3.12.15",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "matplotlib": "3.10.8",
+    "torch": "2.14.1",
+    "pennylane": "0.45.1"
+  },
+  "directional_map": {
+    "status": "frozen trained predictor on an exploratory direction grid, plus exact matrix and selected circuit checks",
+    "state_split": "test_joint",
+    "state_index": 0,
+    "state_id": 80,
+    "family": "low_rank_noisy_preparation",
+    "connected_Z1Z2": -0.20070753896739962,
+    "state_purity": 0.7643196817725875,
+    "theta_points": 11,
+    "phi_points": 21,
+    "grid_cases": 231,
+    "predictor_checkpoint_key": "joint_exchange__selected",
+    "checkpoint_sha256": "f886138047c47d26d4f39a26d048ed0e5e78a65989f8b9137633190c1a1283f1",
+    "dataset_sha256": "75237b0540b49a2c4a4f179aad2eb64cfdd7ccb1de22e6310cdb1f7aaa2407b1",
+    "mean_squared_prediction_error_on_this_grid": 6.275057065152381e-12,
+    "max_abs_prediction_error_on_this_grid": 4.028135001388211e-06,
+    "D_range": [
+      0.2131683270309428,
+      0.6857437140950644
+    ],
+    "F_Q_range": [
+      0.23321221529512248,
+      0.7502231354735981
+    ],
+    "checks": [
+      {
+        "name": "directional_sub_qfi_bound",
+        "max_abs_error": 0.0,
+        "tolerance": 2e-10,
+        "passed": true
+      },
+      {
+        "name": "directional_actual_exchange_qnodes",
+        "max_abs_error": 3.3306690738754696e-16,
+        "tolerance": 2e-10,
+        "passed": true
+      }
+    ]
+  },
+  "spectator_purity": {
+    "status": "exact matrix and selected prescribed PennyLane circuit diagnostic; no training",
+    "rho_A": "(I+0.8 X)/2",
+    "P_A": "Z",
+    "spectator": "(I+s Z)/2",
+    "spectator_bloch_z_grid": [
+      0.0,
+      0.05,
+      0.1,
+      0.15000000000000002,
+      0.2,
+      0.25,
+      0.30000000000000004,
+      0.35000000000000003,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6000000000000001,
+      0.65,
+      0.7000000000000001,
+      0.75,
+      0.8,
+      0.8500000000000001,
+      0.9,
+      0.9500000000000001,
+      1.0
+    ],
+    "D_A": 0.6400000000000001,
+    "F_Q_A": 0.6399999999999998,
+    "checks": [
+      {
+        "name": "spectator_response_factorization",
+        "max_abs_error": 1.6653345369377348e-16,
+        "tolerance": 2e-10,
+        "passed": true
+      },
+      {
+        "name": "qfi_invariant_under_uncorrelated_spectator",
+        "max_abs_error": 9.992007221626409e-16,
+        "tolerance": 2e-10,
+        "passed": true
+      },
+      {
+        "name": "spectator_closed_forms",
+        "max_abs_error": 1.1102230246251565e-16,
+        "tolerance": 2e-10,
+        "passed": true
+      },
+      {
+        "name": "spectator_actual_exchange_qnodes",
+        "max_abs_error": 1.1102230246251565e-16,
+        "tolerance": 2e-10,
+        "passed": true
+      }
+    ]
+  },
+  "runtime_seconds": 0.918
+}

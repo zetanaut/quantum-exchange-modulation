@@ -31,4 +31,6 @@ jobs:
           python examples/pretrained_inference.py
           python examples/train_streaming.py --steps 2 --output /tmp/qem-ci-streaming
       - name: Independent physics examples
-        run: python examples/physics_examples.py --output /tmp/qem-ci-physics
+        run: |
+          python examples/physics_examples.py --output /tmp/qem-ci-physics
+          python scripts/physics_application_diagnostics.py --output /tmp/qem-ci-physics-applications

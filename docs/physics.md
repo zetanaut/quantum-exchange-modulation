@@ -1,5 +1,18 @@
 # Physical problems and worked examples
 
+The central use case is learning a context-dependent nonlinear property of **repeatedly preparable quantum states**. Start with the question that matches your experiment, then use the derivations and original records below.
+
+| Physical question | Focused guide | Evidence status |
+|---|---|---|
+| Which local noise direction erodes purity? | [Directional decoherence](applications/decoherence.md) | Trained held-out benchmark; known-law finite-time transfer |
+| What do local marginals miss? | [Correlations and parity](applications/correlations.md) | Verified circuit identity; stronger known parity comparator |
+| How does this response relate to phase sensitivity? | [Sensing and sub-QFI](applications/metrology.md) | Verified identity and independent QFI calculations |
+| How do field and temperature alter a small spin register? | [Thermal spins](applications/thermal-spins.md) | Illustrative three-spin diagnostic |
+| Could conditional response estimates guide a new experiment? | [Open-system characterization](applications/open-system-control.md) | Proposed research extension |
+| Does my problem fit this access model? | [Problem selection](applications/choosing-a-problem.md) | Implementation decision guide |
+
+The [evidence matrix](evidence.md#application-and-resource-evidence-matrix) separates feature representation, predictive error, copy cost, gates, and hardware evidence. The following original sections retain their URLs and equation details for existing links.
+
 The main target is the sensitivity of a quantum state to a chosen dephasing direction. It connects the exchange feature map to decoherence, correlations, finite-time purity decay, and parameter sensitivity. These connections provide concrete tests with known answers and clear resource comparisons.
 
 The examples distinguish three uses of the code: a trained predictor, an analytic exchange circuit, and a mathematical identity evaluated independently. A verified identity on a larger state is useful evidence about implementation and physical scope; it does not establish that a network has learned that larger problem.

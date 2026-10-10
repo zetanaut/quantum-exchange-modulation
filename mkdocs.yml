@@ -25,6 +25,12 @@ nav:
   - Control explorer: control_explorer.md
 - Physics and learning:
   - Physics examples: physics.md
+  - Directional decoherence: applications/decoherence.md
+  - Correlations and parity: applications/correlations.md
+  - Sensing and sub-QFI: applications/metrology.md
+  - Thermal spin registers: applications/thermal-spins.md
+  - Open-system characterization: applications/open-system-control.md
+  - Choose a problem: applications/choosing-a-problem.md
   - Training: training.md
   - Results and comparisons: evidence.md
 - Reproduce and deploy:

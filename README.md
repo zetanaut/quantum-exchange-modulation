@@ -1,6 +1,8 @@
 # Context-controlled exchange modulation
 
-A reproducible **PyTorch + PennyLane** research prototype for conditioning quantum-state features on several classical context variables. A quantum memory collides with a freshly prepared, context-rotated source state. A nonlinear Torch conditioner chooses the rotation and the physically allowed exchange coefficients.
+**A physics-first PyTorch + PennyLane project for repeatedly preparable quantum states.** Its primary question is how strongly a two-spin state responds to a chosen dephasing direction. A classical context selects source rotations and physical exchange coefficients; two independent quantum preparations produce measured port expectations and a prediction. The reusable implementation can also retain a quantum memory through multiple collisions.
+
+The [website](https://zetanaut.github.io/quantum-exchange-modulation/) starts with the [trained decoherence application](https://zetanaut.github.io/quantum-exchange-modulation/applications/decoherence.html), a [physics applications hub](docs/physics.md), and a [guide to choosing a problem](docs/applications/choosing-a-problem.md). The source repository includes the model, checkpoints, exact examples, comparison records, and reproducible figures.
 
 ![Streaming quantum-network architecture](docs/assets/figures/network_architecture.svg)
 
@@ -11,11 +13,11 @@ $$
 \tau=V(c)\rho V(c)^\dagger,\qquad b^2\leq a(1-a).
 $$
 
-The repository contains a reusable state-valued network, a measured-observable regression head, a compact two-copy dephasing specialization, trained checkpoints, comparisons, and five physics-example plots. The website explains the mathematics, code, learning protocol, hardware accounting, and deployment in detail.
+The repository contains a reusable state-valued network, a measured-observable regression head, a compact two-copy dephasing specialization, trained checkpoints, comparisons, and physics/application figures. The website explains the mathematics, code, learning protocol, hardware accounting, and deployment in detail.
 
 ## Start here
 
-Use Python 3.12. The recorded environment uses CPU Torch 2.14.1 and PennyLane 0.45.1.
+Use Python 3.12. The recorded environment uses CPU Torch 2.14.1 and PennyLane 0.45.1. The next command is for Linux CPU; on macOS, use the [standard PyPI installation in `docs/install.md`](docs/install.md#scientific-environment).
 
 ```bash
 python3.12 -m venv .venv
@@ -30,6 +32,8 @@ python examples/pretrained_inference.py
 python examples/train_streaming.py
 ```
 
+To use the already trained model without another fit, run `python examples/pretrained_inference.py --output /tmp/qem-frozen-review`. For your own task, specify a repeatable state source, contexts genuinely available at inference, independent target labels, and state-disjoint tests. See [training](docs/training.md) and [problem selection](docs/applications/choosing-a-problem.md).
+
 [Installation](docs/install.md), [quickstart](docs/quickstart.md), [custom-data training](docs/training.md), and [reproduction commands](docs/reproduction.md) explain the inputs, outputs, and alternatives.
 
 ## What the evidence supports
@@ -42,6 +46,8 @@ These results support the value of the chosen physical structure for this benchm
 
 The examples cover Bell/GHZ correlations hidden from single-qubit marginals, finite-time dephasing purity loss, the established sub-QFI sensitivity bound, and a three-spin Gibbs model. These examples have explicit scope labels: trained prediction, analytic transfer, exact diagnostic, or software integration. See [physics examples](docs/physics.md) and [references](docs/references.md).
 
+Two additional diagnostics are in `results/physics_applications/`: a frozen-model response map for one correlated held-out state, and a matrix/QNode check showing how an uncorrelated spectator's purity changes sub-QFI while QFI remains fixed. Regenerate them with `python scripts/physics_application_diagnostics.py --output results/physics_applications_reproduction`. These are explanatory calculations, not new fits.
+
 ## Build the website
 
 ```bash
@@ -52,7 +58,7 @@ python scripts/check_site.py
 python -m mkdocs serve
 ```
 
-Open the address printed by MkDocs. The static site contains 11 documentation pages, equations, 13 figure families, downloadable code and numerical evidence, and an interactive exchange-control and resource explorer. Python runs locally or in CI; the browser serves documentation and analytic controls. [Deployment](docs/deploy.md) explains the supplied GitHub Actions workflow.
+Open the address printed by MkDocs. The static site contains 17 documentation pages, equations, 15 figure families, downloadable code and numerical evidence, and an interactive exchange-control and resource explorer. Python runs locally or in CI; the browser serves documentation and analytic controls. [Deployment](docs/deploy.md) explains the supplied GitHub Actions workflow.
 
 ## Repository map
 
