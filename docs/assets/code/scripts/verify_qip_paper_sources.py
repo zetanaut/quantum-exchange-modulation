@@ -38,7 +38,7 @@ transfer = json.loads((RESULT / "transfer_checks/finite_time.json").read_text())
 grid = json.loads((RESULT / "transfer_checks/directional_response_map.json").read_text())
 assert transfer["queries"] == 8064 and grid["grid_rows"] == 231
 assert r"6.27\times10^{-13}" in source and r"6.05\times10^{-12}" in source
-assert r"qip-revision-v1" in source
+assert r"qip-revision-v1.1" in source
 print(json.dumps({"status": "PASS", "citation_entries": len(entries),
                   "cross_references": len(references), "figures": figures,
                   "table_2_cells_checked": 16,

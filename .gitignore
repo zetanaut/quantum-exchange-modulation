@@ -12,3 +12,4 @@ __pycache__/
 *.pem
 *.key
 deployment-local.json
+paper/qip/quantum_exchange_modulation_paper.pdf
