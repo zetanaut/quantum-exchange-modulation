@@ -41,7 +41,7 @@ The maximally mixed state is a simple shape/trace check: it commutes with every 
 python examples/pretrained_inference.py --split test_joint
 ```
 
-The script loads the **validation-selected seed-31 checkpoint** from `results/torch_quantum/weights.npz`, evaluates 128 new-state/held-out-context pairs, and writes predictions and metrics to `results/pretrained_inference/`. The recorded MSE is $3.86735\times10^{-12}$ in exact simulation. This is one selected checkpoint; [the results page](evidence.md) also reports all-seed summaries and strong comparators.
+The script loads the **historical validation-selected seed-31 checkpoint** from `results/torch_quantum/weights.npz`, evaluates 128 new-state/oriented-cap context pairs, and writes predictions and metrics to `results/pretrained_inference/`. The recorded MSE is $3.86735\times10^{-12}$ in exact simulation. Its physical axes overlap training support through antipodes. The [current five-dataset QIP study](qip_revision.md) uses a corrected physical-axis split and retains all starts and new-state outcomes.
 
 For your own two-qubit states, create an NPZ containing:
 

@@ -1,0 +1,213 @@
+{
+  "validation_success_threshold_mse": 0.0001,
+  "initialization": {
+    "joint_exchange": {
+      "rows": [
+        {
+          "dataset": 1,
+          "seed": 17,
+          "validation_mse": 2.9798422879313206e-12,
+          "joint_test_mse": 2.9657776899868876e-12
+        },
+        {
+          "dataset": 1,
+          "seed": 31,
+          "validation_mse": 1.6183813772779898e-10,
+          "joint_test_mse": 4.5337219132906174e-10
+        },
+        {
+          "dataset": 1,
+          "seed": 73,
+          "validation_mse": 5.353776012419683e-10,
+          "joint_test_mse": 1.0601775581107741e-09
+        },
+        {
+          "dataset": 2,
+          "seed": 17,
+          "validation_mse": 9.974505017023233e-11,
+          "joint_test_mse": 1.428323710935069e-10
+        },
+        {
+          "dataset": 2,
+          "seed": 31,
+          "validation_mse": 3.4850962999261697e-12,
+          "joint_test_mse": 4.409503423949013e-12
+        },
+        {
+          "dataset": 2,
+          "seed": 73,
+          "validation_mse": 1.1058582553832883e-09,
+          "joint_test_mse": 1.0325414792476857e-09
+        },
+        {
+          "dataset": 3,
+          "seed": 17,
+          "validation_mse": 6.289686574437968e-12,
+          "joint_test_mse": 1.0170225796529392e-11
+        },
+        {
+          "dataset": 3,
+          "seed": 31,
+          "validation_mse": 5.752502807263453e-12,
+          "joint_test_mse": 8.7286418662533e-12
+        },
+        {
+          "dataset": 3,
+          "seed": 73,
+          "validation_mse": 2.2621182628741538e-09,
+          "joint_test_mse": 5.009863627385762e-09
+        },
+        {
+          "dataset": 4,
+          "seed": 17,
+          "validation_mse": 9.962030739715737e-09,
+          "joint_test_mse": 1.0802860311154042e-08
+        },
+        {
+          "dataset": 4,
+          "seed": 31,
+          "validation_mse": 7.042824801156304e-12,
+          "joint_test_mse": 7.141685339202593e-12
+        },
+        {
+          "dataset": 4,
+          "seed": 73,
+          "validation_mse": 1.88161767320976e-09,
+          "joint_test_mse": 4.71817731153633e-09
+        },
+        {
+          "dataset": 5,
+          "seed": 17,
+          "validation_mse": 1.988518992695267e-10,
+          "joint_test_mse": 1.7469923962020163e-10
+        },
+        {
+          "dataset": 5,
+          "seed": 31,
+          "validation_mse": 2.9023148792291087e-12,
+          "joint_test_mse": 1.7958001585798156e-12
+        },
+        {
+          "dataset": 5,
+          "seed": 73,
+          "validation_mse": 3.809995929335242e-11,
+          "joint_test_mse": 2.152844788662491e-11
+        }
+      ],
+      "validation_success_count": 15,
+      "starts": 15,
+      "joint_test_median_mse": 1.428323710935069e-10,
+      "joint_test_mean_mse": 1.5634176114425658e-09
+    },
+    "joint_exchange_neutral": {
+      "rows": [
+        {
+          "dataset": 1,
+          "seed": 17,
+          "validation_mse": 1.2835216377188156e-09,
+          "joint_test_mse": 3.583803822666215e-09
+        },
+        {
+          "dataset": 1,
+          "seed": 31,
+          "validation_mse": 0.006872521223781761,
+          "joint_test_mse": 0.17236512469499687
+        },
+        {
+          "dataset": 1,
+          "seed": 73,
+          "validation_mse": 1.0893112681270125e-07,
+          "joint_test_mse": 2.547279031569902e-07
+        },
+        {
+          "dataset": 2,
+          "seed": 17,
+          "validation_mse": 2.717392534336739e-08,
+          "joint_test_mse": 3.2223601344068145e-08
+        },
+        {
+          "dataset": 2,
+          "seed": 31,
+          "validation_mse": 0.01900272764499432,
+          "joint_test_mse": 0.35733086197206976
+        },
+        {
+          "dataset": 2,
+          "seed": 73,
+          "validation_mse": 0.049042330805828475,
+          "joint_test_mse": 0.06696725041383582
+        },
+        {
+          "dataset": 3,
+          "seed": 17,
+          "validation_mse": 1.0762652889909543e-07,
+          "joint_test_mse": 2.2895952884193586e-07
+        },
+        {
+          "dataset": 3,
+          "seed": 31,
+          "validation_mse": 2.5419756090921465e-06,
+          "joint_test_mse": 3.184398082081343e-06
+        },
+        {
+          "dataset": 3,
+          "seed": 73,
+          "validation_mse": 9.323499451301856e-07,
+          "joint_test_mse": 1.66959932936847e-06
+        },
+        {
+          "dataset": 4,
+          "seed": 17,
+          "validation_mse": 2.2858716168732256e-07,
+          "joint_test_mse": 2.2661361166154368e-07
+        },
+        {
+          "dataset": 4,
+          "seed": 31,
+          "validation_mse": 2.0698870145703632e-07,
+          "joint_test_mse": 2.0215247209104457e-07
+        },
+        {
+          "dataset": 4,
+          "seed": 73,
+          "validation_mse": 0.00022671741875765627,
+          "joint_test_mse": 0.00010137443609749431
+        },
+        {
+          "dataset": 5,
+          "seed": 17,
+          "validation_mse": 4.864691137238452e-07,
+          "joint_test_mse": 3.4661713887549877e-07
+        },
+        {
+          "dataset": 5,
+          "seed": 31,
+          "validation_mse": 0.01477533640327901,
+          "joint_test_mse": 0.2088526756165323
+        },
+        {
+          "dataset": 5,
+          "seed": 73,
+          "validation_mse": 4.329785199878851e-06,
+          "joint_test_mse": 2.9240371582229422e-06
+        }
+      ],
+      "validation_success_count": 10,
+      "starts": 15,
+      "joint_test_median_mse": 1.66959932936847e-06,
+      "joint_test_mean_mse": 0.05370842400307744
+    }
+  },
+  "copy_risk_at_3840": {
+    "analytic_exchange_direct_K": {
+      "expected_mse": 0.0008190883222950236,
+      "squared_bias": 1.2774896446544358e-33,
+      "measurement_variance": 0.0008190883222950236
+    },
+    "joint_exchange": {
+      "expected_mse": 0.0008633153318423313,
+      "squared_bias": 1.5634176114425658e-09,
+      "measurement_variance": 0.0008633137684247199
+    }
+  }
+}

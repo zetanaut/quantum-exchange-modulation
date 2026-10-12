@@ -61,6 +61,15 @@ def main():
     for name in ("directional_response_map.csv", "spectator_purity.csv", "manifest.json"):
         if not (assets/"results"/"physics_applications"/name).is_file():
             problems.append(f"Missing application diagnostic: {name}")
+    for name in ("qip_Fig2", "qip_Fig3", "qip_Fig4"):
+        for extension in ("png", "pdf"):
+            if not (assets/"figures"/(name+"."+extension)).is_file():
+                problems.append(f"Missing QIP figure: {name}.{extension}")
+    for name in ("protocol.json", "summary.json", "reviewer_diagnostics.json",
+                 "amortization_break_even.json", "release_gate.json",
+                 "transfer_checks/finite_time.json", "transfer_checks/directional_response_map.csv"):
+        if not (assets/"results/submission_revision"/name).is_file():
+            problems.append(f"Missing QIP evidence: {name}")
     report=dict(pages=len(pages),local_links_checked=checked,assets_hashed=len(manifest["files"]),
                 passed=not problems,problems=problems)
     print(json.dumps(report,indent=2))

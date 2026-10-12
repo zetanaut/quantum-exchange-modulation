@@ -1,6 +1,24 @@
 # Reproduce the results
 
-The repository separates the saved scientific record from new experiments. Recorded data, model parameters, histories, and predictions are already included. Most scripts accept `--output`; choose a new directory for a rerun so the published evidence remains easy to compare. Use the pinned [installation](install.md) and execute commands from the repository root.
+The repository separates the saved scientific record from new experiments. The [current QIP revision](qip_revision.md) lives in `results/submission_revision/`; the older fixed-dataset experiment remains in the paths described below. Recorded data, model parameters, histories, and predictions are included. Use the pinned [installation](install.md) and execute commands from the repository root. Most scripts accept `--output`; choose a new directory for a rerun so the published evidence remains easy to compare.
+
+For the current revision, run the fast mathematical and dataset audits, then the recorded-result gate:
+
+```bash
+python scripts/run_all.py
+python scripts/submission_validate_datasets.py
+python scripts/submission_validate_checkpoints.py
+python scripts/submission_generic_checks.py
+python scripts/submission_reviewer_diagnostics.py
+python scripts/submission_transfer_refresh.py
+python scripts/submission_break_even.py
+python scripts/submission_release_gate.py
+python scripts/verify_qip_paper_sources.py
+```
+
+The first three QIP checks independently recompute split/label identities, reload 480 classical checkpoints, and compare a generic conditioner against an actual QNode. The release gate checks expected confirmation records and checkpoint-reload tolerances. The source audit checks citations, cross-references, figures, and learning-curve values against the saved record. These checks do not retrain the full 240-quantum/480-classical confirmation suite. [Revision summary](assets/results/submission_revision/summary.json) · [diagnostics](assets/results/submission_revision/reviewer_diagnostics.json) · [frozen protocol](assets/results/submission_revision/protocol.json).
+
+## Historical fixed-dataset reproduction
 
 ## Verification without retraining
 

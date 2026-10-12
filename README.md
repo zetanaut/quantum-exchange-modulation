@@ -2,7 +2,7 @@
 
 **A physics-first PyTorch + PennyLane project for repeatedly preparable quantum states.** Its primary question is how strongly a two-spin state responds to a chosen dephasing direction. A classical context selects source rotations and physical exchange coefficients; two independent quantum preparations produce measured port expectations and a prediction. The reusable implementation can also retain a quantum memory through multiple collisions.
 
-The [website](https://zetanaut.github.io/quantum-exchange-modulation/) starts with the [trained decoherence application](https://zetanaut.github.io/quantum-exchange-modulation/applications/decoherence.html), a [physics applications hub](docs/physics.md), and a [guide to choosing a problem](docs/applications/choosing-a-problem.md). The source repository includes the model, checkpoints, exact examples, comparison records, and reproducible figures.
+The [website](https://zetanaut.github.io/quantum-exchange-modulation/) presents the [five-dataset QIP revision](docs/qip_revision.md), [trained decoherence application](docs/applications/decoherence.md), [physics applications](docs/physics.md), and a [guide to choosing a problem](docs/applications/choosing-a-problem.md). The source repository includes the model, checkpoints, exact examples, comparison records, and reproducible figures.
 
 ![Streaming quantum-network architecture](docs/assets/figures/network_architecture.svg)
 
@@ -28,25 +28,25 @@ python -m pip install -r requirements.txt
 python -m pip install -e . --no-deps
 python scripts/run_all.py
 python examples/layer_forward.py
-python examples/pretrained_inference.py
+python examples/qip_revision_inference.py
 python examples/train_streaming.py
 ```
 
-To use the already trained model without another fit, run `python examples/pretrained_inference.py --output /tmp/qem-frozen-review`. For your own task, specify a repeatable state source, contexts genuinely available at inference, independent target labels, and state-disjoint tests. See [training](docs/training.md) and [problem selection](docs/applications/choosing-a-problem.md).
+To use the current validation-selected QIP model without another fit, run `python examples/qip_revision_inference.py --output /tmp/qem-qip-review`. It scores 512 new-state/held-out-axis pairs and also accepts a custom NPZ of two-qubit states and direction angles. The older `examples/pretrained_inference.py` remains as a historical API fixture. For your own task, specify a repeatable state source, contexts genuinely available at inference, independent target labels, and state-disjoint tests. See [training](docs/training.md) and [problem selection](docs/applications/choosing-a-problem.md).
 
 [Installation](docs/install.md), [quickstart](docs/quickstart.md), [custom-data training](docs/training.md), and [reproduction commands](docs/reproduction.md) explain the inputs, outputs, and alternatives.
 
 ## What the evidence supports
 
-The directional-dephasing study tests new quantum states and held-out context directions. With 8 training states / 40 training pairs, the structured exchange model reaches a mean test MSE of **9.31e-6**, the matched two-copy QNN **1.16e-6**, and the validation-selected FiLM baseline **0.0839** across three optimizer seeds. Every size also uses 96 validation pairs. At larger recorded sizes both quantum architectures reach very small errors. The known Gram formula solves the same target exactly when its Pauli features are available.
+The current directional-dephasing study uses **five independent datasets** and reserves both physical-axis caps `|n_x|>0.55` for testing. With 8 training states / 40 training pairs per dataset, the task-aligned compact exchange model reaches mean joint-test MSE **1.87e-6**, the matched two-copy QNN **1.53e-6**, the product-feature FiLM **0.0818**, and a fitted 36-feature Gram regression **1.82e-27**. Each budget also uses 96 validation labels. The exact Gram result and analytic collective estimator limit any learning or measurement advantage claim on this known target.
 
-These results support the value of the chosen physical structure for this benchmark. The [results page](docs/evidence.md) keeps the matched quantum model, analytic comparator, commutator ablation, seed variability, measurement costs, and experimental limits visible. The [learning-curve record](results/learning_curve/metrics.json) contains every run.
+These results support a physical representation that can be trained from a task-aligned initialization. The [QIP revision page](docs/qip_revision.md) reports five-dataset variation, neutral-initialization failures, matched controls, and copy costs; the [full revision record](results/submission_revision/) retains every confirmation start and dataset. The older [results page](docs/evidence.md#historical-single-dataset-study) preserves the original single-dataset study with its axis-overlap limitation clearly marked.
 
-![Recorded data-efficiency study](results/learning_curve/learning_curve.svg)
+![Five-dataset physical-axis learning curves](paper/qip/Fig2.png)
 
 The examples cover Bell/GHZ correlations hidden from single-qubit marginals, finite-time dephasing purity loss, the established sub-QFI sensitivity bound, and a three-spin Gibbs model. These examples have explicit scope labels: trained prediction, analytic transfer, exact diagnostic, or software integration. See [physics examples](docs/physics.md) and [references](docs/references.md).
 
-Two additional diagnostics are in `results/physics_applications/`: a frozen-model response map for one correlated held-out state, and a matrix/QNode check showing how an uncorrelated spectator's purity changes sub-QFI while QFI remains fixed. Regenerate them with `python scripts/physics_application_diagnostics.py --output results/physics_applications_reproduction`. These are explanatory calculations, not new fits.
+The current manuscript's finite-time and one-state direction-map illustrations use a validation-selected new-protocol checkpoint; their data and scripts are in [`results/submission_revision/transfer_checks/`](results/submission_revision/transfer_checks/) and [`scripts/submission_transfer_refresh.py`](scripts/submission_transfer_refresh.py). The historical `results/physics_applications/` diagnostics remain for comparison, including the spectator-purity/QFI check. These are explanatory calculations, not new fits.
 
 ## Build the website
 

@@ -13,6 +13,10 @@ ASSETS=ROOT/"docs/assets"
 PUBLISHED_RESULT_DIRS=("figures", "torch_quantum", "torch_classical", "quantum", "classical",
     "finite_shot", "verification", "learning_curve", "physics_examples", "layer_forward",
     "pretrained_inference", "streaming_demo", "resources", "physics_applications")
+QIP_ASSETS=("protocol.json", "summary.json", "reviewer_diagnostics.json",
+    "amortization_break_even.json", "release_gate.json", "transfer_checks/finite_time.json",
+    "transfer_checks/directional_response_map.json",
+    "transfer_checks/directional_response_map.csv")
 
 
 def recorded_results():
@@ -36,6 +40,13 @@ def main():
         for source in sorted((ROOT/folder).rglob("*")):
             if source.is_file() and source.suffix in {".json",".csv",".npz",".pt"}:
                 copy(source,ASSETS/folder/source.relative_to(ROOT/folder))
+    for name in QIP_ASSETS:
+        source=ROOT/"results/submission_revision"/name
+        copy(source,ASSETS/"results/submission_revision"/name)
+    for number in (2,3,4):
+        for extension in ("png","pdf"):
+            source=ROOT/"paper/qip"/f"Fig{number}.{extension}"
+            copy(source,ASSETS/"figures"/f"qip_Fig{number}.{extension}")
     seen={}
     for source in recorded_results():
         if source.is_file() and source.suffix in {".svg",".png",".pdf"}:

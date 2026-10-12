@@ -6,5 +6,7 @@
   "generic_and_blind_fits": 30,
   "copy_risk_datasets": 5,
   "amortization_datasets": 5,
-  "score_rows": 870
+  "score_rows": 870,
+  "new_protocol_transfer_queries": 8064,
+  "neutral_validation_successes_of_15": 10
 }

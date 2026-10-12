@@ -10,6 +10,7 @@ ROOT = Path(os.environ.get("QFILM_REPO", HERE.parents[1])) / "results/submission
 DATASETS = [f"confirmation_{i}" for i in range(1, 6)]
 COPIES = [240, 960, 3840, 15360]
 QUERIES = [1, 8, 32]
+BREAK_EVEN_QUERIES = [2, 3]
 COLORS = {"analytic_exchange_direct_K": "#202d3b", "joint_exchange": "#1565c0",
           "exchange_matched_qnn": "#d35400", "specified_eight_setting_Pauli": "#248f72",
           "reusable_12_Pauli_U_statistics": "#248f72"}
@@ -29,6 +30,12 @@ def one_query(dataset, method, copies):
 
 
 def multi_query(dataset, method, count):
+    if count in BREAK_EVEN_QUERIES:
+        records = json.loads((ROOT / "amortization_break_even.json").read_text())["rows"]
+        field = {"analytic_exchange_direct_K": "direct_K_expected_mse",
+                 "reusable_12_Pauli_U_statistics": "reusable_Pauli_monte_carlo_mse"}[method]
+        return next(row[field] for row in records
+                    if row["dataset"] == dataset and row["queries"] == count)
     rows = json.loads((ROOT / "amortization" / f"{dataset}.json").read_text())["rows"]
     return next(row["expected_mse"] for row in rows if row["method"] == method and row["contexts"] == count)
 
@@ -54,12 +61,14 @@ axes[0].legend(fontsize=7.1, frameon=False, loc="upper right")
 right_methods = ["analytic_exchange_direct_K", "joint_exchange", "exchange_matched_qnn",
                  "reusable_12_Pauli_U_statistics"]
 for method in right_methods:
-    matrix = np.asarray([[multi_query(dataset, method, count) for count in QUERIES] for dataset in DATASETS])
-    for x, outcomes in zip(QUERIES, matrix.T):
+    counts = sorted(QUERIES + BREAK_EVEN_QUERIES) if method in (
+        "analytic_exchange_direct_K", "reusable_12_Pauli_U_statistics") else QUERIES
+    matrix = np.asarray([[multi_query(dataset, method, count) for count in counts] for dataset in DATASETS])
+    for x, outcomes in zip(counts, matrix.T):
         axes[1].scatter(np.full_like(outcomes, x), outcomes, color=COLORS[method], alpha=.28, s=14)
-    axes[1].plot(QUERIES, matrix.mean(axis=0), marker="o", linewidth=1.6, markersize=4.5,
+    axes[1].plot(counts, matrix.mean(axis=0), marker="o", linewidth=1.6, markersize=4.5,
                  color=COLORS[method], label=LABELS[method])
-axes[1].set(xscale="log", yscale="log", xlim=(.8, 40), xticks=QUERIES,
+axes[1].set(xscale="log", yscale="log", xlim=(.8, 40), xticks=sorted(QUERIES + BREAK_EVEN_QUERIES),
             xlabel="Queries on the same source state", ylabel="Mean expected MSE per query",
             title="3,840 total copies per state")
 axes[1].get_xaxis().set_major_formatter(plt.ScalarFormatter())

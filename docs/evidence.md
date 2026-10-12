@@ -1,6 +1,16 @@
 # Evidence, comparisons, and the meaning of advantage
 
-The recorded two-qubit experiment shows that the compact exchange model can fit directional dephasing response with very small held-out error. It also shows why that success needs strong controls: a QNN supplied with the same exchange operation learns the target, and a six-feature classical model with the exact physical contraction reaches floating-point precision.
+## Current five-dataset QIP revision
+
+The [current validation study](qip_revision.md) reserves **physical axes**, including antipodes, for testing and repeats the protocol on five independently generated datasets. At 64 training states, mean joint-test MSE is $1.56\times10^{-9}$ for the task-aligned compact exchange model, $1.75\times10^{-8}$ for a matched exchange QNN, and approximately machine precision for a fitted 36-feature Gram regression. The [full result summary](assets/results/submission_revision/summary.json), [frozen protocol](assets/results/submission_revision/protocol.json), and [manuscript source](https://github.com/zetanaut/quantum-exchange-modulation/blob/main/paper/qip/quantum_exchange_modulation_paper.tex) support these values.
+
+At 3,840 source copies for one query, direct $K_P$ has mean expected MSE $8.19\times10^{-4}$ and the learned compact circuit $8.63\times10^{-4}$. A reusable Pauli record overtakes context-specific collective queries between two and three queries under the specified total-copy allocation. The [QIP revision page](qip_revision.md#copies-and-repeated-queries) explains the access rules and limitations.
+
+## Historical single-dataset study
+
+The sections below preserve the original fixed-dataset study for provenance. Its oriented $n_x>0.55$ holdout cap contained physical axes whose antipodes appeared in training, so its context generalization figures should not be treated as evidence for unseen physical axes. Its checkpoint, illustrations, and numerical records remain useful for software regression and for comparing the revised protocol. The current manuscript uses the five-dataset records above for its primary claims.
+
+The historical two-qubit experiment shows that the compact exchange model can fit the analytic response with very small error under its split. It also shows why that success needs strong controls: a QNN supplied with the same exchange operation learns the target, and a six-feature classical model with the exact physical contraction reaches floating-point precision.
 
 ## Application and resource evidence matrix
 

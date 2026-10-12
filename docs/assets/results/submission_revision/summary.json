@@ -1,0 +1,1142 @@
+{
+  "scope": "Five fresh datasets; all optimizer starts retained; no test-based selection",
+  "rows": 870,
+  "methods": {
+    "8": {
+      "analytic_port_head_3": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 4.6816247647946344e-30,
+          "confirmation_2": 1.1476897951951125e-32,
+          "confirmation_3": 3.8906229904871875e-32,
+          "confirmation_4": 9.735562130287252e-33,
+          "confirmation_5": 3.728900828689759e-32
+        },
+        "mean_of_dataset_means": 9.558064926137284e-31,
+        "median_dataset_mean": 3.728900828689759e-32,
+        "minimum_dataset_mean": 9.735562130287252e-33,
+        "maximum_dataset_mean": 4.6816247647946344e-30
+      },
+      "constant": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.06014271474567092,
+          "confirmation_2": 0.06206852477528656,
+          "confirmation_3": 0.05340861869274682,
+          "confirmation_4": 0.06766313016798561,
+          "confirmation_5": 0.05998846143924334
+        },
+        "mean_of_dataset_means": 0.060654289964186654,
+        "median_dataset_mean": 0.06014271474567092,
+        "minimum_dataset_mean": 0.05340861869274682,
+        "maximum_dataset_mean": 0.06766313016798561
+      },
+      "exchange_matched_qnn": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 5.41713344392546e-07,
+          "confirmation_2": 6.090780109863264e-06,
+          "confirmation_3": 3.8767089495389424e-07,
+          "confirmation_4": 4.863350833519251e-08,
+          "confirmation_5": 5.986409557042302e-07
+        },
+        "mean_of_dataset_means": 1.5334877626498253e-06,
+        "median_dataset_mean": 5.41713344392546e-07,
+        "minimum_dataset_mean": 4.863350833519251e-08,
+        "maximum_dataset_mean": 6.090780109863264e-06
+      },
+      "full_product_816": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.13307288239177129,
+          "confirmation_2": 0.13758333004689277,
+          "confirmation_3": 0.10596921551808228,
+          "confirmation_4": 0.10111494865842718,
+          "confirmation_5": 0.07853024015130777
+        },
+        "mean_of_dataset_means": 0.11125412335329626,
+        "median_dataset_mean": 0.10596921551808228,
+        "minimum_dataset_mean": 0.07853024015130777,
+        "maximum_dataset_mean": 0.13758333004689277
+      },
+      "gram_oracle": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 8.439344142293531e-33,
+          "confirmation_2": 1.1237044207137592e-32,
+          "confirmation_3": 1.0099001106332502e-32,
+          "confirmation_4": 8.298995994277104e-33,
+          "confirmation_5": 8.355695964289017e-33
+        },
+        "mean_of_dataset_means": 9.28601628286595e-33,
+        "median_dataset_mean": 8.439344142293531e-33,
+        "minimum_dataset_mean": 8.298995994277104e-33,
+        "maximum_dataset_mean": 1.1237044207137592e-32
+      },
+      "gram_product_36": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 8.874411489795546e-27,
+          "confirmation_2": 5.069324349095023e-29,
+          "confirmation_3": 7.559724841686209e-29,
+          "confirmation_4": 6.280268442703524e-29,
+          "confirmation_5": 2.565881518635559e-29
+        },
+        "mean_of_dataset_means": 1.8178326962633497e-27,
+        "median_dataset_mean": 6.280268442703524e-29,
+        "minimum_dataset_mean": 2.565881518635559e-29,
+        "maximum_dataset_mean": 8.874411489795546e-27
+      },
+      "joint_exchange": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 1.0710241383342808e-06,
+          "confirmation_2": 1.0434481975187258e-07,
+          "confirmation_3": 1.0238637481289996e-06,
+          "confirmation_4": 1.3509275809349975e-06,
+          "confirmation_5": 5.82042480315193e-06
+        },
+        "mean_of_dataset_means": 1.8741170180604162e-06,
+        "median_dataset_mean": 1.0710241383342808e-06,
+        "minimum_dataset_mean": 1.0434481975187258e-07,
+        "maximum_dataset_mean": 5.82042480315193e-06
+      },
+      "joint_exchange_neutral": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.06589447185939795,
+          "confirmation_2": 0.06320555000875455,
+          "confirmation_3": 0.03865759915439846,
+          "confirmation_4": 0.06903742559905299,
+          "confirmation_5": 0.06982851876354723
+        },
+        "mean_of_dataset_means": 0.06132471307703024,
+        "median_dataset_mean": 0.06589447185939795,
+        "minimum_dataset_mean": 0.03865759915439846,
+        "maximum_dataset_mean": 0.06982851876354723
+      },
+      "joint_signed__film": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.08581499890832367,
+          "confirmation_2": 0.201690135352714,
+          "confirmation_3": 0.12017495363581068,
+          "confirmation_4": 0.14129302374446043,
+          "confirmation_5": 0.09387531491380216
+        },
+        "mean_of_dataset_means": 0.1285696853110222,
+        "median_dataset_mean": 0.12017495363581068,
+        "minimum_dataset_mean": 0.08581499890832367,
+        "maximum_dataset_mean": 0.201690135352714
+      },
+      "joint_signed__mlp": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.07782128110311685,
+          "confirmation_2": 0.08196427030105398,
+          "confirmation_3": 0.08838644529729914,
+          "confirmation_4": 0.07837902591470243,
+          "confirmation_5": 0.07189556797472083
+        },
+        "mean_of_dataset_means": 0.07968931811817864,
+        "median_dataset_mean": 0.07837902591470243,
+        "minimum_dataset_mean": 0.07189556797472083,
+        "maximum_dataset_mean": 0.08838644529729914
+      },
+      "no_commutator": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.06209923541610693,
+          "confirmation_2": 0.07044136484351012,
+          "confirmation_3": 0.05635807611770717,
+          "confirmation_4": 0.06587273223268655,
+          "confirmation_5": 0.06320739544537135
+        },
+        "mean_of_dataset_means": 0.06359576081107643,
+        "median_dataset_mean": 0.06320739544537135,
+        "minimum_dataset_mean": 0.05635807611770717,
+        "maximum_dataset_mean": 0.07044136484351012
+      },
+      "raw_even__film": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.14377216347584776,
+          "confirmation_2": 0.3674519966150858,
+          "confirmation_3": 0.5782890495027627,
+          "confirmation_4": 0.32467266244447834,
+          "confirmation_5": 0.25170020482755107
+        },
+        "mean_of_dataset_means": 0.33317721537314515,
+        "median_dataset_mean": 0.32467266244447834,
+        "minimum_dataset_mean": 0.14377216347584776,
+        "maximum_dataset_mean": 0.5782890495027627
+      },
+      "raw_even__mlp": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.09830458376460481,
+          "confirmation_2": 0.1567552429427918,
+          "confirmation_3": 0.10668556601066334,
+          "confirmation_4": 0.15230030072372835,
+          "confirmation_5": 0.14604752203455834
+        },
+        "mean_of_dataset_means": 0.13201864309526934,
+        "median_dataset_mean": 0.14604752203455834,
+        "minimum_dataset_mean": 0.09830458376460481,
+        "maximum_dataset_mean": 0.1567552429427918
+      },
+      "raw_signed__film": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.10047670152139392,
+          "confirmation_2": 0.12700134252739936,
+          "confirmation_3": 0.09755607532673144,
+          "confirmation_4": 0.14033160741582593,
+          "confirmation_5": 0.08931015380889178
+        },
+        "mean_of_dataset_means": 0.11093517612004848,
+        "median_dataset_mean": 0.10047670152139392,
+        "minimum_dataset_mean": 0.08931015380889178,
+        "maximum_dataset_mean": 0.14033160741582593
+      },
+      "raw_signed__mlp": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.12371758969210293,
+          "confirmation_2": 0.1398170359790727,
+          "confirmation_3": 0.13479571764732368,
+          "confirmation_4": 0.09358009804830528,
+          "confirmation_5": 0.08828800055436108
+        },
+        "mean_of_dataset_means": 0.11603968838423313,
+        "median_dataset_mean": 0.12371758969210293,
+        "minimum_dataset_mean": 0.08828800055436108,
+        "maximum_dataset_mean": 0.1398170359790727
+      },
+      "same_spectator_144": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.04947008548417323,
+          "confirmation_2": 0.023100918326901136,
+          "confirmation_3": 0.046637773326760015,
+          "confirmation_4": 0.06124152740321072,
+          "confirmation_5": 0.01716745249693748
+        },
+        "mean_of_dataset_means": 0.039523551407596516,
+        "median_dataset_mean": 0.046637773326760015,
+        "minimum_dataset_mean": 0.01716745249693748,
+        "maximum_dataset_mean": 0.06124152740321072
+      },
+      "within_even__film": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.07882589545345324,
+          "confirmation_2": 0.1104223551293097,
+          "confirmation_3": 0.060537107418636174,
+          "confirmation_4": 0.06616547870989765,
+          "confirmation_5": 0.09289572334805621
+        },
+        "mean_of_dataset_means": 0.0817693120118706,
+        "median_dataset_mean": 0.07882589545345324,
+        "minimum_dataset_mean": 0.060537107418636174,
+        "maximum_dataset_mean": 0.1104223551293097
+      },
+      "within_even__mlp": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.29112258731654955,
+          "confirmation_2": 0.22984913187375097,
+          "confirmation_3": 0.16228885336830723,
+          "confirmation_4": 0.08768882193507692,
+          "confirmation_5": 0.10607369942298071
+        },
+        "mean_of_dataset_means": 0.17540461878333308,
+        "median_dataset_mean": 0.16228885336830723,
+        "minimum_dataset_mean": 0.08768882193507692,
+        "maximum_dataset_mean": 0.29112258731654955
+      }
+    },
+    "16": {
+      "analytic_port_head_3": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 9.02476854086745e-32,
+          "confirmation_2": 1.349504660365472e-31,
+          "confirmation_3": 5.607545337320817e-32,
+          "confirmation_4": 1.787014046697677e-32,
+          "confirmation_5": 1.9358393617646677e-32
+        },
+        "mean_of_dataset_means": 6.370042778061067e-32,
+        "median_dataset_mean": 5.607545337320817e-32,
+        "minimum_dataset_mean": 1.787014046697677e-32,
+        "maximum_dataset_mean": 1.349504660365472e-31
+      },
+      "constant": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.05932174450783371,
+          "confirmation_2": 0.05896980329473072,
+          "confirmation_3": 0.05352485383007401,
+          "confirmation_4": 0.06381963359268214,
+          "confirmation_5": 0.058229099968041174
+        },
+        "mean_of_dataset_means": 0.05877302703867235,
+        "median_dataset_mean": 0.05896980329473072,
+        "minimum_dataset_mean": 0.05352485383007401,
+        "maximum_dataset_mean": 0.06381963359268214
+      },
+      "exchange_matched_qnn": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 2.2768675273670832e-08,
+          "confirmation_2": 2.4847675686723942e-08,
+          "confirmation_3": 7.368854285681467e-09,
+          "confirmation_4": 1.3901259547567729e-08,
+          "confirmation_5": 6.709588869447383e-09
+        },
+        "mean_of_dataset_means": 1.511921073261827e-08,
+        "median_dataset_mean": 1.3901259547567729e-08,
+        "minimum_dataset_mean": 6.709588869447383e-09,
+        "maximum_dataset_mean": 2.4847675686723942e-08
+      },
+      "full_product_816": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.0837169424462156,
+          "confirmation_2": 0.11852480845976374,
+          "confirmation_3": 0.07987531990258373,
+          "confirmation_4": 0.07749371729177686,
+          "confirmation_5": 0.08417534688749795
+        },
+        "mean_of_dataset_means": 0.08875722699756758,
+        "median_dataset_mean": 0.0837169424462156,
+        "minimum_dataset_mean": 0.07749371729177686,
+        "maximum_dataset_mean": 0.11852480845976374
+      },
+      "gram_oracle": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 8.439344142293531e-33,
+          "confirmation_2": 1.1237044207137592e-32,
+          "confirmation_3": 1.0099001106332502e-32,
+          "confirmation_4": 8.298995994277104e-33,
+          "confirmation_5": 8.355695964289017e-33
+        },
+        "mean_of_dataset_means": 9.28601628286595e-33,
+        "median_dataset_mean": 8.439344142293531e-33,
+        "minimum_dataset_mean": 8.298995994277104e-33,
+        "maximum_dataset_mean": 1.1237044207137592e-32
+      },
+      "gram_product_36": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 4.727489215959764e-30,
+          "confirmation_2": 1.3739092220098004e-30,
+          "confirmation_3": 1.717077041890198e-30,
+          "confirmation_4": 4.713327771947534e-31,
+          "confirmation_5": 1.437157976844636e-30
+        },
+        "mean_of_dataset_means": 1.9453932467798304e-30,
+        "median_dataset_mean": 1.437157976844636e-30,
+        "minimum_dataset_mean": 4.713327771947534e-31,
+        "maximum_dataset_mean": 4.727489215959764e-30
+      },
+      "joint_exchange": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 2.696447558472807e-08,
+          "confirmation_2": 9.233238684005334e-09,
+          "confirmation_3": 1.036851677437953e-08,
+          "confirmation_4": 1.9228701250491343e-08,
+          "confirmation_5": 3.573637956997629e-09
+        },
+        "mean_of_dataset_means": 1.3873714050120381e-08,
+        "median_dataset_mean": 1.036851677437953e-08,
+        "minimum_dataset_mean": 3.573637956997629e-09,
+        "maximum_dataset_mean": 2.696447558472807e-08
+      },
+      "joint_exchange_neutral": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.04512160383458992,
+          "confirmation_2": 0.0400522205710053,
+          "confirmation_3": 0.10169508951853688,
+          "confirmation_4": 0.03495026727418512,
+          "confirmation_5": 0.025668958052625698
+        },
+        "mean_of_dataset_means": 0.04949762785018858,
+        "median_dataset_mean": 0.0400522205710053,
+        "minimum_dataset_mean": 0.025668958052625698,
+        "maximum_dataset_mean": 0.10169508951853688
+      },
+      "joint_signed__film": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.07407992966274683,
+          "confirmation_2": 0.16281862345275358,
+          "confirmation_3": 0.09161338621369719,
+          "confirmation_4": 0.11095281720082374,
+          "confirmation_5": 0.08921933627165585
+        },
+        "mean_of_dataset_means": 0.10573681856033544,
+        "median_dataset_mean": 0.09161338621369719,
+        "minimum_dataset_mean": 0.07407992966274683,
+        "maximum_dataset_mean": 0.16281862345275358
+      },
+      "joint_signed__mlp": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.08289649656439019,
+          "confirmation_2": 0.06458982863464047,
+          "confirmation_3": 0.06272879422691972,
+          "confirmation_4": 0.08332846215562846,
+          "confirmation_5": 0.06161660408311098
+        },
+        "mean_of_dataset_means": 0.07103203713293796,
+        "median_dataset_mean": 0.06458982863464047,
+        "minimum_dataset_mean": 0.06161660408311098,
+        "maximum_dataset_mean": 0.08332846215562846
+      },
+      "no_commutator": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.060903002790882656,
+          "confirmation_2": 0.06262056809555266,
+          "confirmation_3": 0.05571224844229876,
+          "confirmation_4": 0.06715469655207444,
+          "confirmation_5": 0.05955782234272172
+        },
+        "mean_of_dataset_means": 0.06118966764470605,
+        "median_dataset_mean": 0.060903002790882656,
+        "minimum_dataset_mean": 0.05571224844229876,
+        "maximum_dataset_mean": 0.06715469655207444
+      },
+      "raw_even__film": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.11008829631432428,
+          "confirmation_2": 0.3035846279922902,
+          "confirmation_3": 0.2866169092555442,
+          "confirmation_4": 0.4028614091558973,
+          "confirmation_5": 0.30096801398292644
+        },
+        "mean_of_dataset_means": 0.2808238513401965,
+        "median_dataset_mean": 0.30096801398292644,
+        "minimum_dataset_mean": 0.11008829631432428,
+        "maximum_dataset_mean": 0.4028614091558973
+      },
+      "raw_even__mlp": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.09658331105856803,
+          "confirmation_2": 0.33794541357709945,
+          "confirmation_3": 0.18342723669924446,
+          "confirmation_4": 0.17655823677059915,
+          "confirmation_5": 0.15386897974940372
+        },
+        "mean_of_dataset_means": 0.18967663557098297,
+        "median_dataset_mean": 0.17655823677059915,
+        "minimum_dataset_mean": 0.09658331105856803,
+        "maximum_dataset_mean": 0.33794541357709945
+      },
+      "raw_signed__film": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.08413520966056111,
+          "confirmation_2": 0.09507012094915013,
+          "confirmation_3": 0.10500050401509516,
+          "confirmation_4": 0.1403380274290168,
+          "confirmation_5": 0.0934494520974345
+        },
+        "mean_of_dataset_means": 0.10359866283025154,
+        "median_dataset_mean": 0.09507012094915013,
+        "minimum_dataset_mean": 0.08413520966056111,
+        "maximum_dataset_mean": 0.1403380274290168
+      },
+      "raw_signed__mlp": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.08629195167472638,
+          "confirmation_2": 0.1023310576357956,
+          "confirmation_3": 0.08476875675185067,
+          "confirmation_4": 0.1118248382057019,
+          "confirmation_5": 0.07642563718746231
+        },
+        "mean_of_dataset_means": 0.09232844829110737,
+        "median_dataset_mean": 0.08629195167472638,
+        "minimum_dataset_mean": 0.07642563718746231,
+        "maximum_dataset_mean": 0.1118248382057019
+      },
+      "same_spectator_144": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.005768210099701766,
+          "confirmation_2": 0.007978615025334444,
+          "confirmation_3": 0.0088818258929931,
+          "confirmation_4": 0.019064822515014346,
+          "confirmation_5": 0.0033097916843623106
+        },
+        "mean_of_dataset_means": 0.009000653043481193,
+        "median_dataset_mean": 0.007978615025334444,
+        "minimum_dataset_mean": 0.0033097916843623106,
+        "maximum_dataset_mean": 0.019064822515014346
+      },
+      "within_even__film": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.0402589946469879,
+          "confirmation_2": 0.056263184350648476,
+          "confirmation_3": 0.05147206287773719,
+          "confirmation_4": 0.042555292986551856,
+          "confirmation_5": 0.04315910491514248
+        },
+        "mean_of_dataset_means": 0.04674172795541358,
+        "median_dataset_mean": 0.04315910491514248,
+        "minimum_dataset_mean": 0.0402589946469879,
+        "maximum_dataset_mean": 0.056263184350648476
+      },
+      "within_even__mlp": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.03905110193419592,
+          "confirmation_2": 0.09449551000420298,
+          "confirmation_3": 0.13703744715691413,
+          "confirmation_4": 0.09279773043110655,
+          "confirmation_5": 0.05367703202769941
+        },
+        "mean_of_dataset_means": 0.0834117643108238,
+        "median_dataset_mean": 0.09279773043110655,
+        "minimum_dataset_mean": 0.03905110193419592,
+        "maximum_dataset_mean": 0.13703744715691413
+      }
+    },
+    "32": {
+      "analytic_port_head_3": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 4.075391894526838e-32,
+          "confirmation_2": 3.6838400159925126e-32,
+          "confirmation_3": 5.770022166491474e-32,
+          "confirmation_4": 1.303298139701405e-32,
+          "confirmation_5": 1.3230877758194428e-31
+        },
+        "mean_of_dataset_means": 5.612685994981331e-32,
+        "median_dataset_mean": 4.075391894526838e-32,
+        "minimum_dataset_mean": 1.303298139701405e-32,
+        "maximum_dataset_mean": 1.3230877758194428e-31
+      },
+      "constant": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.058510636825294476,
+          "confirmation_2": 0.05862548719003667,
+          "confirmation_3": 0.05350807025517276,
+          "confirmation_4": 0.06016424907123384,
+          "confirmation_5": 0.0576710143685822
+        },
+        "mean_of_dataset_means": 0.05769589154206399,
+        "median_dataset_mean": 0.058510636825294476,
+        "minimum_dataset_mean": 0.05350807025517276,
+        "maximum_dataset_mean": 0.06016424907123384
+      },
+      "exchange_matched_qnn": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 1.6318964606999395e-08,
+          "confirmation_2": 6.790680385067071e-09,
+          "confirmation_3": 3.825179955212756e-09,
+          "confirmation_4": 8.936065029168318e-09,
+          "confirmation_5": 1.6341195969052454e-08
+        },
+        "mean_of_dataset_means": 1.0442417189099999e-08,
+        "median_dataset_mean": 8.936065029168318e-09,
+        "minimum_dataset_mean": 3.825179955212756e-09,
+        "maximum_dataset_mean": 1.6341195969052454e-08
+      },
+      "full_product_816": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.060324445884237805,
+          "confirmation_2": 0.0692503086041132,
+          "confirmation_3": 0.059445871667241135,
+          "confirmation_4": 0.06826538561187401,
+          "confirmation_5": 0.05870307868174443
+        },
+        "mean_of_dataset_means": 0.06319781808984212,
+        "median_dataset_mean": 0.060324445884237805,
+        "minimum_dataset_mean": 0.05870307868174443,
+        "maximum_dataset_mean": 0.0692503086041132
+      },
+      "gram_oracle": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 8.439344142293531e-33,
+          "confirmation_2": 1.1237044207137592e-32,
+          "confirmation_3": 1.0099001106332502e-32,
+          "confirmation_4": 8.298995994277104e-33,
+          "confirmation_5": 8.355695964289017e-33
+        },
+        "mean_of_dataset_means": 9.28601628286595e-33,
+        "median_dataset_mean": 8.439344142293531e-33,
+        "minimum_dataset_mean": 8.298995994277104e-33,
+        "maximum_dataset_mean": 1.1237044207137592e-32
+      },
+      "gram_product_36": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 2.69644462715632e-31,
+          "confirmation_2": 1.0524338514525704e-30,
+          "confirmation_3": 3.184443066518833e-30,
+          "confirmation_4": 5.1749860957516346e-30,
+          "confirmation_5": 2.3808370657896377e-30
+        },
+        "mean_of_dataset_means": 2.4124689084456615e-30,
+        "median_dataset_mean": 2.3808370657896377e-30,
+        "minimum_dataset_mean": 2.69644462715632e-31,
+        "maximum_dataset_mean": 5.1749860957516346e-30
+      },
+      "joint_exchange": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 1.411465721187969e-08,
+          "confirmation_2": 4.080142668948398e-09,
+          "confirmation_3": 2.4222446824029418e-09,
+          "confirmation_4": 4.4208136555820574e-10,
+          "confirmation_5": 9.305860752192517e-09
+        },
+        "mean_of_dataset_means": 6.072997336196351e-09,
+        "median_dataset_mean": 4.080142668948398e-09,
+        "minimum_dataset_mean": 4.4208136555820574e-10,
+        "maximum_dataset_mean": 1.411465721187969e-08
+      },
+      "joint_exchange_neutral": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.17598422079855688,
+          "confirmation_2": 0.019626830838691843,
+          "confirmation_3": 2.0819170138062113e-07,
+          "confirmation_4": 0.04035072686926473,
+          "confirmation_5": 0.06661276246575279
+        },
+        "mean_of_dataset_means": 0.06051494983279353,
+        "median_dataset_mean": 0.04035072686926473,
+        "minimum_dataset_mean": 2.0819170138062113e-07,
+        "maximum_dataset_mean": 0.17598422079855688
+      },
+      "joint_signed__film": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.07112674015591873,
+          "confirmation_2": 0.1268011723519949,
+          "confirmation_3": 0.13624749101001027,
+          "confirmation_4": 0.12042206484402365,
+          "confirmation_5": 0.08963207858215809
+        },
+        "mean_of_dataset_means": 0.10884590938882113,
+        "median_dataset_mean": 0.12042206484402365,
+        "minimum_dataset_mean": 0.07112674015591873,
+        "maximum_dataset_mean": 0.13624749101001027
+      },
+      "joint_signed__mlp": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.05806871070288576,
+          "confirmation_2": 0.0599278902269248,
+          "confirmation_3": 0.05380939570460159,
+          "confirmation_4": 0.066902811596176,
+          "confirmation_5": 0.05003827845393582
+        },
+        "mean_of_dataset_means": 0.05774941733690479,
+        "median_dataset_mean": 0.05806871070288576,
+        "minimum_dataset_mean": 0.05003827845393582,
+        "maximum_dataset_mean": 0.066902811596176
+      },
+      "no_commutator": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.07517306190429944,
+          "confirmation_2": 0.06690944567770833,
+          "confirmation_3": 0.06327801990405046,
+          "confirmation_4": 0.06287747375266725,
+          "confirmation_5": 0.059309571241577604
+        },
+        "mean_of_dataset_means": 0.06550951449606061,
+        "median_dataset_mean": 0.06327801990405046,
+        "minimum_dataset_mean": 0.059309571241577604,
+        "maximum_dataset_mean": 0.07517306190429944
+      },
+      "raw_even__film": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.10483263965377852,
+          "confirmation_2": 0.9828641969659965,
+          "confirmation_3": 0.24714103042138813,
+          "confirmation_4": 0.3499182299904397,
+          "confirmation_5": 0.32876316029184566
+        },
+        "mean_of_dataset_means": 0.4027038514646897,
+        "median_dataset_mean": 0.32876316029184566,
+        "minimum_dataset_mean": 0.10483263965377852,
+        "maximum_dataset_mean": 0.9828641969659965
+      },
+      "raw_even__mlp": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.106039221765509,
+          "confirmation_2": 0.29373470503837845,
+          "confirmation_3": 0.29288573536741885,
+          "confirmation_4": 0.2605311016964251,
+          "confirmation_5": 0.20827262120780615
+        },
+        "mean_of_dataset_means": 0.23229267701510753,
+        "median_dataset_mean": 0.2605311016964251,
+        "minimum_dataset_mean": 0.106039221765509,
+        "maximum_dataset_mean": 0.29373470503837845
+      },
+      "raw_signed__film": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.057474158866695414,
+          "confirmation_2": 0.08497898462028242,
+          "confirmation_3": 0.08705984030220698,
+          "confirmation_4": 0.10063435281827814,
+          "confirmation_5": 0.07585794366754595
+        },
+        "mean_of_dataset_means": 0.08120105605500177,
+        "median_dataset_mean": 0.08497898462028242,
+        "minimum_dataset_mean": 0.057474158866695414,
+        "maximum_dataset_mean": 0.10063435281827814
+      },
+      "raw_signed__mlp": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.05708897487393378,
+          "confirmation_2": 0.04636991814540944,
+          "confirmation_3": 0.043119562740983663,
+          "confirmation_4": 0.14873384344889506,
+          "confirmation_5": 0.0768857789000315
+        },
+        "mean_of_dataset_means": 0.07443961562185068,
+        "median_dataset_mean": 0.05708897487393378,
+        "minimum_dataset_mean": 0.043119562740983663,
+        "maximum_dataset_mean": 0.14873384344889506
+      },
+      "same_spectator_144": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 3.853645569312368e-29,
+          "confirmation_2": 8.74032957426508e-29,
+          "confirmation_3": 5.70589792556344e-28,
+          "confirmation_4": 1.511333761380261e-28,
+          "confirmation_5": 9.082431494659466e-29
+        },
+        "mean_of_dataset_means": 1.8769744701534785e-28,
+        "median_dataset_mean": 9.082431494659466e-29,
+        "minimum_dataset_mean": 3.853645569312368e-29,
+        "maximum_dataset_mean": 5.70589792556344e-28
+      },
+      "within_even__film": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.031792301851821594,
+          "confirmation_2": 0.032069382430716414,
+          "confirmation_3": 0.017472501724176272,
+          "confirmation_4": 0.047365628913651744,
+          "confirmation_5": 0.030624038699037046
+        },
+        "mean_of_dataset_means": 0.031864770723880616,
+        "median_dataset_mean": 0.031792301851821594,
+        "minimum_dataset_mean": 0.017472501724176272,
+        "maximum_dataset_mean": 0.047365628913651744
+      },
+      "within_even__mlp": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.03766456166644488,
+          "confirmation_2": 0.03989028543761075,
+          "confirmation_3": 0.02744492072155977,
+          "confirmation_4": 0.05448564632770225,
+          "confirmation_5": 0.07006637187497569
+        },
+        "mean_of_dataset_means": 0.04591035720565867,
+        "median_dataset_mean": 0.03989028543761075,
+        "minimum_dataset_mean": 0.02744492072155977,
+        "maximum_dataset_mean": 0.07006637187497569
+      }
+    },
+    "64": {
+      "analytic_port_head_3": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 2.568417540727472e-31,
+          "confirmation_2": 6.931941908550466e-32,
+          "confirmation_3": 3.6033321711462204e-32,
+          "confirmation_4": 1.247198290320478e-31,
+          "confirmation_5": 2.9937584166290084e-32
+        },
+        "mean_of_dataset_means": 1.0337038161361038e-31,
+        "median_dataset_mean": 6.931941908550466e-32,
+        "minimum_dataset_mean": 2.9937584166290084e-32,
+        "maximum_dataset_mean": 2.568417540727472e-31
+      },
+      "constant": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.05692763240157629,
+          "confirmation_2": 0.058809248530325126,
+          "confirmation_3": 0.053468974960260436,
+          "confirmation_4": 0.05890686828593019,
+          "confirmation_5": 0.05716948649359296
+        },
+        "mean_of_dataset_means": 0.057056442134337,
+        "median_dataset_mean": 0.05716948649359296,
+        "minimum_dataset_mean": 0.053468974960260436,
+        "maximum_dataset_mean": 0.05890686828593019
+      },
+      "context_blind_source_fixed_P_readout": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.06548102743099278,
+          "confirmation_2": 0.0882134578761385,
+          "confirmation_3": 0.07586796943631396,
+          "confirmation_4": 0.06198134163726754,
+          "confirmation_5": 0.059409659737856196
+        },
+        "mean_of_dataset_means": 0.0701906912237138,
+        "median_dataset_mean": 0.06548102743099278,
+        "minimum_dataset_mean": 0.059409659737856196,
+        "maximum_dataset_mean": 0.0882134578761385
+      },
+      "exchange_matched_qnn": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 2.347159899998607e-09,
+          "confirmation_2": 5.547358310435676e-09,
+          "confirmation_3": 6.532903833739377e-08,
+          "confirmation_4": 3.0855388316172465e-09,
+          "confirmation_5": 1.1096554493007669e-08
+        },
+        "mean_of_dataset_means": 1.7481129974490595e-08,
+        "median_dataset_mean": 5.547358310435676e-09,
+        "minimum_dataset_mean": 2.347159899998607e-09,
+        "maximum_dataset_mean": 6.532903833739377e-08
+      },
+      "full_product_816": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.03266281546667582,
+          "confirmation_2": 0.03754002239313686,
+          "confirmation_3": 0.03261358735983941,
+          "confirmation_4": 0.04401840284280843,
+          "confirmation_5": 0.031735650298578784
+        },
+        "mean_of_dataset_means": 0.03571409567220786,
+        "median_dataset_mean": 0.03266281546667582,
+        "minimum_dataset_mean": 0.031735650298578784,
+        "maximum_dataset_mean": 0.04401840284280843
+      },
+      "generic_source_conditioner_fixed_P_readout": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.04618873613471738,
+          "confirmation_2": 0.06942016924518864,
+          "confirmation_3": 0.038826443797968305,
+          "confirmation_4": 0.06941267288588106,
+          "confirmation_5": 0.04972827219235857
+        },
+        "mean_of_dataset_means": 0.05471525885122279,
+        "median_dataset_mean": 0.04972827219235857,
+        "minimum_dataset_mean": 0.038826443797968305,
+        "maximum_dataset_mean": 0.06942016924518864
+      },
+      "gram_oracle": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 8.439344142293531e-33,
+          "confirmation_2": 1.1237044207137592e-32,
+          "confirmation_3": 1.0099001106332502e-32,
+          "confirmation_4": 8.298995994277104e-33,
+          "confirmation_5": 8.355695964289017e-33
+        },
+        "mean_of_dataset_means": 9.28601628286595e-33,
+        "median_dataset_mean": 8.439344142293531e-33,
+        "minimum_dataset_mean": 8.298995994277104e-33,
+        "maximum_dataset_mean": 1.1237044207137592e-32
+      },
+      "gram_product_36": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 7.637808222380964e-31,
+          "confirmation_2": 1.5152424989444058e-30,
+          "confirmation_3": 3.4913705660100605e-31,
+          "confirmation_4": 8.057410338535206e-31,
+          "confirmation_5": 2.502796162217465e-30
+        },
+        "mean_of_dataset_means": 1.1873395147708988e-30,
+        "median_dataset_mean": 8.057410338535206e-31,
+        "minimum_dataset_mean": 3.4913705660100605e-31,
+        "maximum_dataset_mean": 2.502796162217465e-30
+      },
+      "joint_exchange": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 5.05505175709941e-10,
+          "confirmation_2": 3.9326111792171385e-10,
+          "confirmation_3": 1.6762541650161816e-09,
+          "confirmation_4": 5.176059769343191e-09,
+          "confirmation_5": 6.600782922180212e-11
+        },
+        "mean_of_dataset_means": 1.563417611442566e-09,
+        "median_dataset_mean": 5.05505175709941e-10,
+        "minimum_dataset_mean": 6.600782922180212e-11,
+        "maximum_dataset_mean": 5.176059769343191e-09
+      },
+      "joint_exchange_neutral": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.05745512766890128,
+          "confirmation_2": 0.14143271486983564,
+          "confirmation_3": 1.6943189800972496e-06,
+          "confirmation_4": 3.39344007270823e-05,
+          "confirmation_5": 0.06961864875694314
+        },
+        "mean_of_dataset_means": 0.053708424003077446,
+        "median_dataset_mean": 0.05745512766890128,
+        "minimum_dataset_mean": 1.6943189800972496e-06,
+        "maximum_dataset_mean": 0.14143271486983564
+      },
+      "joint_signed__film": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.0500040160437753,
+          "confirmation_2": 0.07858170962695281,
+          "confirmation_3": 0.07971432419878013,
+          "confirmation_4": 0.07012265001118854,
+          "confirmation_5": 0.05566185710139838
+        },
+        "mean_of_dataset_means": 0.06681691139641903,
+        "median_dataset_mean": 0.07012265001118854,
+        "minimum_dataset_mean": 0.0500040160437753,
+        "maximum_dataset_mean": 0.07971432419878013
+      },
+      "joint_signed__mlp": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.03813198886254284,
+          "confirmation_2": 0.059763839273161486,
+          "confirmation_3": 0.03524719018324562,
+          "confirmation_4": 0.046282672544911925,
+          "confirmation_5": 0.03521748399759355
+        },
+        "mean_of_dataset_means": 0.04292863497229108,
+        "median_dataset_mean": 0.03813198886254284,
+        "minimum_dataset_mean": 0.03521748399759355,
+        "maximum_dataset_mean": 0.059763839273161486
+      },
+      "no_commutator": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.06046056931963942,
+          "confirmation_2": 0.061575061490820676,
+          "confirmation_3": 0.05413442021829036,
+          "confirmation_4": 0.06071490533724281,
+          "confirmation_5": 0.05758034159572754
+        },
+        "mean_of_dataset_means": 0.05889305959234416,
+        "median_dataset_mean": 0.06046056931963942,
+        "minimum_dataset_mean": 0.05413442021829036,
+        "maximum_dataset_mean": 0.061575061490820676
+      },
+      "raw_even__film": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.17748038668179403,
+          "confirmation_2": 0.4995429545458157,
+          "confirmation_3": 0.2437975563595905,
+          "confirmation_4": 0.3538399169656614,
+          "confirmation_5": 0.41193763052030485
+        },
+        "mean_of_dataset_means": 0.3373196890146333,
+        "median_dataset_mean": 0.3538399169656614,
+        "minimum_dataset_mean": 0.17748038668179403,
+        "maximum_dataset_mean": 0.4995429545458157
+      },
+      "raw_even__mlp": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.07735561863626288,
+          "confirmation_2": 0.29722821492437934,
+          "confirmation_3": 0.38390546396576486,
+          "confirmation_4": 0.13624738503663447,
+          "confirmation_5": 0.1962081329330161
+        },
+        "mean_of_dataset_means": 0.21818896309921154,
+        "median_dataset_mean": 0.1962081329330161,
+        "minimum_dataset_mean": 0.07735561863626288,
+        "maximum_dataset_mean": 0.38390546396576486
+      },
+      "raw_signed__film": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.05593992928335644,
+          "confirmation_2": 0.07279579290868388,
+          "confirmation_3": 0.09442621699795936,
+          "confirmation_4": 0.10141821864106303,
+          "confirmation_5": 0.057120261012407185
+        },
+        "mean_of_dataset_means": 0.07634008376869397,
+        "median_dataset_mean": 0.07279579290868388,
+        "minimum_dataset_mean": 0.05593992928335644,
+        "maximum_dataset_mean": 0.10141821864106303
+      },
+      "raw_signed__mlp": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.038688421918359056,
+          "confirmation_2": 0.03350695680977838,
+          "confirmation_3": 0.038100977082733696,
+          "confirmation_4": 0.05898263663150474,
+          "confirmation_5": 0.03553950660377113
+        },
+        "mean_of_dataset_means": 0.0409636998092294,
+        "median_dataset_mean": 0.038100977082733696,
+        "minimum_dataset_mean": 0.03350695680977838,
+        "maximum_dataset_mean": 0.05898263663150474
+      },
+      "same_spectator_144": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 4.367495898914154e-30,
+          "confirmation_2": 1.855148530651519e-29,
+          "confirmation_3": 5.939154550636938e-30,
+          "confirmation_4": 6.238605556439202e-30,
+          "confirmation_5": 7.54652329838954e-30
+        },
+        "mean_of_dataset_means": 8.528652922179004e-30,
+        "median_dataset_mean": 6.238605556439202e-30,
+        "minimum_dataset_mean": 4.367495898914154e-30,
+        "maximum_dataset_mean": 1.855148530651519e-29
+      },
+      "within_even__film": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.01445713523746619,
+          "confirmation_2": 0.015077687360447052,
+          "confirmation_3": 0.006360780779790434,
+          "confirmation_4": 0.01908448052565453,
+          "confirmation_5": 0.010346033229241576
+        },
+        "mean_of_dataset_means": 0.013065223426519957,
+        "median_dataset_mean": 0.01445713523746619,
+        "minimum_dataset_mean": 0.006360780779790434,
+        "maximum_dataset_mean": 0.01908448052565453
+      },
+      "within_even__mlp": {
+        "dataset_mean_joint_mse": {
+          "confirmation_1": 0.02591131496057353,
+          "confirmation_2": 0.018098834706791245,
+          "confirmation_3": 0.018336843139053528,
+          "confirmation_4": 0.017774573544539946,
+          "confirmation_5": 0.013228267238252898
+        },
+        "mean_of_dataset_means": 0.01866996671784223,
+        "median_dataset_mean": 0.018098834706791245,
+        "minimum_dataset_mean": 0.013228267238252898,
+        "maximum_dataset_mean": 0.02591131496057353
+      }
+    }
+  },
+  "paired_exchange_minus_matched": {
+    "8": {
+      "by_dataset": {
+        "confirmation_1": 5.293107939417348e-07,
+        "confirmation_2": -5.9864352901113915e-06,
+        "confirmation_3": 6.361928531751054e-07,
+        "confirmation_4": 1.3022940725998049e-06,
+        "confirmation_5": 5.2217838474477e-06
+      },
+      "mean": 3.4062925541059075e-07
+    },
+    "16": {
+      "by_dataset": {
+        "confirmation_1": 4.1958003110572384e-09,
+        "confirmation_2": -1.561443700271861e-08,
+        "confirmation_3": 2.999662488698063e-09,
+        "confirmation_4": 5.327441702923614e-09,
+        "confirmation_5": -3.1359509124497544e-09
+      },
+      "mean": -1.2454966824978896e-09
+    },
+    "32": {
+      "by_dataset": {
+        "confirmation_1": -2.2043073951197053e-09,
+        "confirmation_2": -2.7105377161186723e-09,
+        "confirmation_3": -1.4029352728098146e-09,
+        "confirmation_4": -8.493983663610113e-09,
+        "confirmation_5": -7.035335216859937e-09
+      },
+      "mean": -4.369419852903649e-09
+    },
+    "64": {
+      "by_dataset": {
+        "confirmation_1": -1.841654724288666e-09,
+        "confirmation_2": -5.154097192513962e-09,
+        "confirmation_3": -6.365278417237759e-08,
+        "confirmation_4": 2.090520937725945e-09,
+        "confirmation_5": -1.1030546663785866e-08
+      },
+      "mean": -1.5917712363048027e-08
+    }
+  },
+  "copy_risk_3840": {
+    "confirmation_1": {
+      "analytic_exchange_direct_K": 0.000841238519653649,
+      "specified_eight_setting_Pauli": 0.0011051972891463905,
+      "joint_exchange__seed17": 0.0009358760168778778,
+      "joint_exchange__seed31": 0.0008575556199795511,
+      "joint_exchange__seed73": 0.0008518461064816192,
+      "exchange_matched_qnn__seed17": 0.0008457203475545905,
+      "exchange_matched_qnn__seed31": 0.0008434681241985481,
+      "exchange_matched_qnn__seed73": 0.0009562625189262827
+    },
+    "confirmation_2": {
+      "analytic_exchange_direct_K": 0.0008010159953807281,
+      "specified_eight_setting_Pauli": 0.0011221227801581956,
+      "joint_exchange__seed17": 0.0008538628942140078,
+      "joint_exchange__seed31": 0.0008275894619329362,
+      "joint_exchange__seed73": 0.0008042572403437671,
+      "exchange_matched_qnn__seed17": 0.0009798781749477516,
+      "exchange_matched_qnn__seed31": 0.0008025248511529873,
+      "exchange_matched_qnn__seed73": 0.0008609420958735031
+    },
+    "confirmation_3": {
+      "analytic_exchange_direct_K": 0.0008035063424974512,
+      "specified_eight_setting_Pauli": 0.001195415138260332,
+      "joint_exchange__seed17": 0.0008538433683897664,
+      "joint_exchange__seed31": 0.0008405380130191366,
+      "joint_exchange__seed73": 0.0008159549062803162,
+      "exchange_matched_qnn__seed17": 0.001017672113269066,
+      "exchange_matched_qnn__seed31": 0.0008380021466348889,
+      "exchange_matched_qnn__seed73": 0.0008256632630807265
+    },
+    "confirmation_4": {
+      "analytic_exchange_direct_K": 0.0008319065599559855,
+      "specified_eight_setting_Pauli": 0.0010830001495670768,
+      "joint_exchange__seed17": 0.0008636541378771218,
+      "joint_exchange__seed31": 0.0009757466904029371,
+      "joint_exchange__seed73": 0.0008335222710091875,
+      "exchange_matched_qnn__seed17": 0.0008715992067560395,
+      "exchange_matched_qnn__seed31": 0.0008536850488607345,
+      "exchange_matched_qnn__seed73": 0.000848350148252824
+    },
+    "confirmation_5": {
+      "analytic_exchange_direct_K": 0.0008177741939873037,
+      "specified_eight_setting_Pauli": 0.0010591164911021857,
+      "joint_exchange__seed17": 0.0008676779003797625,
+      "joint_exchange__seed31": 0.0008925305358944377,
+      "joint_exchange__seed73": 0.0008752748145525442,
+      "exchange_matched_qnn__seed17": 0.0009524028352804812,
+      "exchange_matched_qnn__seed31": 0.0008219875299719669,
+      "exchange_matched_qnn__seed73": 0.0008495060375979108
+    }
+  },
+  "multi_query_3840": {
+    "confirmation_1": {
+      "1__analytic_exchange_direct_K": 0.0008448011076807875,
+      "1__reusable_12_Pauli_U_statistics": 0.001813115726457669,
+      "1__joint_exchange": 0.0009398710535438145,
+      "1__exchange_matched_qnn": 0.0009603512740529029,
+      "8__analytic_exchange_direct_K": 0.006693662083894928,
+      "8__reusable_12_Pauli_U_statistics": 0.0017734799416695359,
+      "8__joint_exchange": 0.007445078701231058,
+      "8__exchange_matched_qnn": 0.007606947543935469,
+      "32__analytic_exchange_direct_K": 0.026799572590772872,
+      "32__reusable_12_Pauli_U_statistics": 0.0017411309615393967,
+      "32__joint_exchange": 0.029802146760685856,
+      "32__exchange_matched_qnn": 0.030448964868121306
+    },
+    "confirmation_2": {
+      "1__analytic_exchange_direct_K": 0.000801908930844278,
+      "1__reusable_12_Pauli_U_statistics": 0.0016845079903961995,
+      "1__joint_exchange": 0.000828493666707438,
+      "1__exchange_matched_qnn": 0.000980891395643807,
+      "8__analytic_exchange_direct_K": 0.006443961061858593,
+      "8__reusable_12_Pauli_U_statistics": 0.001828649520479988,
+      "8__joint_exchange": 0.006659130188507969,
+      "8__exchange_matched_qnn": 0.007892175891110359,
+      "32__analytic_exchange_direct_K": 0.025917294194655854,
+      "32__reusable_12_Pauli_U_statistics": 0.0018569259158151827,
+      "32__joint_exchange": 0.026784912736290297,
+      "32__exchange_matched_qnn": 0.03175653116463253
+    },
+    "confirmation_3": {
+      "1__analytic_exchange_direct_K": 0.0008072610069417367,
+      "1__reusable_12_Pauli_U_statistics": 0.0019512181315946616,
+      "1__joint_exchange": 0.0008447623872345532,
+      "1__exchange_matched_qnn": 0.001024003557895978,
+      "8__analytic_exchange_direct_K": 0.006415761185796471,
+      "8__reusable_12_Pauli_U_statistics": 0.001892099019420971,
+      "8__joint_exchange": 0.006711049074133668,
+      "8__exchange_matched_qnn": 0.00812298524914886,
+      "32__analytic_exchange_direct_K": 0.025653751545119886,
+      "32__reusable_12_Pauli_U_statistics": 0.0018918019373776517,
+      "32__joint_exchange": 0.026836465979025732,
+      "32__exchange_matched_qnn": 0.03249257712050074
+    },
+    "confirmation_4": {
+      "1__analytic_exchange_direct_K": 0.0008261691668936618,
+      "1__reusable_12_Pauli_U_statistics": 0.0016835614777834084,
+      "1__joint_exchange": 0.0009685189904646632,
+      "1__exchange_matched_qnn": 0.0008424408859281183,
+      "8__analytic_exchange_direct_K": 0.006651549941948866,
+      "8__reusable_12_Pauli_U_statistics": 0.0017110159993634264,
+      "8__joint_exchange": 0.007800154330590578,
+      "8__exchange_matched_qnn": 0.00678285306533433,
+      "32__analytic_exchange_direct_K": 0.026638820566566995,
+      "32__reusable_12_Pauli_U_statistics": 0.0017053615571938536,
+      "32__joint_exchange": 0.031243439867653836,
+      "32__exchange_matched_qnn": 0.02716522368406574
+    },
+    "confirmation_5": {
+      "1__analytic_exchange_direct_K": 0.0008173602869035573,
+      "1__reusable_12_Pauli_U_statistics": 0.0016057645022198124,
+      "1__joint_exchange": 0.0008917509577172474,
+      "1__exchange_matched_qnn": 0.0008489351120186108,
+      "8__analytic_exchange_direct_K": 0.006551483218241614,
+      "8__reusable_12_Pauli_U_statistics": 0.001627564101045522,
+      "8__joint_exchange": 0.007148970462727551,
+      "8__exchange_matched_qnn": 0.006805094326783383,
+      "32__analytic_exchange_direct_K": 0.026313962784445706,
+      "32__reusable_12_Pauli_U_statistics": 0.0016822215638009868,
+      "32__joint_exchange": 0.02872018051807305,
+      "32__exchange_matched_qnn": 0.02733531376678231
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "scope": "exploratory integer break-even check after fixed 1/8/32 study",
+  "copies_per_state": 3840,
+  "query_pool": "first 2 or 3 axes from the frozen 32-query pool in each dataset",
+  "replicates_per_dataset": 512,
+  "rows": [
+    {
+      "dataset": "confirmation_1",
+      "queries": 2,
+      "direct_K_expected_mse": 0.00167126095154814,
+      "reusable_Pauli_monte_carlo_mse": 0.001772363677554809,
+      "reusable_monte_carlo_standard_error": 8.555834172436247e-06
+    },
+    {
+      "dataset": "confirmation_2",
+      "queries": 2,
+      "direct_K_expected_mse": 0.0016017143569135761,
+      "reusable_Pauli_monte_carlo_mse": 0.0017158555265699429,
+      "reusable_monte_carlo_standard_error": 9.383461417797882e-06
+    },
+    {
+      "dataset": "confirmation_3",
+      "queries": 2,
+      "direct_K_expected_mse": 0.0016078059120540463,
+      "reusable_Pauli_monte_carlo_mse": 0.0019460287059212978,
+      "reusable_monte_carlo_standard_error": 1.0304261199204743e-05
+    },
+    {
+      "dataset": "confirmation_4",
+      "queries": 2,
+      "direct_K_expected_mse": 0.001665027051199225,
+      "reusable_Pauli_monte_carlo_mse": 0.0017092054062451754,
+      "reusable_monte_carlo_standard_error": 8.56355625818238e-06
+    },
+    {
+      "dataset": "confirmation_5",
+      "queries": 2,
+      "direct_K_expected_mse": 0.001629962581266481,
+      "reusable_Pauli_monte_carlo_mse": 0.0015810585813341154,
+      "reusable_monte_carlo_standard_error": 9.510147158331045e-06
+    },
+    {
+      "dataset": "confirmation_1",
+      "queries": 3,
+      "direct_K_expected_mse": 0.002514772290452005,
+      "reusable_Pauli_monte_carlo_mse": 0.0017737204645030718,
+      "reusable_monte_carlo_standard_error": 8.612986058133378e-06
+    },
+    {
+      "dataset": "confirmation_2",
+      "queries": 3,
+      "direct_K_expected_mse": 0.0024060236470426887,
+      "reusable_Pauli_monte_carlo_mse": 0.001766378481499353,
+      "reusable_monte_carlo_standard_error": 8.594596031746966e-06
+    },
+    {
+      "dataset": "confirmation_3",
+      "queries": 3,
+      "direct_K_expected_mse": 0.0024046919415464147,
+      "reusable_Pauli_monte_carlo_mse": 0.0019328810996590618,
+      "reusable_monte_carlo_standard_error": 9.60137106074874e-06
+    },
+    {
+      "dataset": "confirmation_4",
+      "queries": 3,
+      "direct_K_expected_mse": 0.0024929647614118223,
+      "reusable_Pauli_monte_carlo_mse": 0.0017036429478505945,
+      "reusable_monte_carlo_standard_error": 8.838754937252747e-06
+    },
+    {
+      "dataset": "confirmation_5",
+      "queries": 3,
+      "direct_K_expected_mse": 0.002456558602173323,
+      "reusable_Pauli_monte_carlo_mse": 0.0016272940051975417,
+      "reusable_monte_carlo_standard_error": 9.287717025682153e-06
+    }
+  ],
+  "five_dataset_means": {
+    "2": {
+      "direct_K_expected_mse": 0.0016351541705962938,
+      "reusable_Pauli_monte_carlo_mse": 0.0017449023795250683
+    },
+    "3": {
+      "direct_K_expected_mse": 0.0024550022485252507,
+      "reusable_Pauli_monte_carlo_mse": 0.0017607833997419248
+    }
+  }
+}

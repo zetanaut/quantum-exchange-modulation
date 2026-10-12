@@ -48,10 +48,11 @@ def predict_raw(model, batch, batch_size):
 
 
 def fit_one(name, train, validation, seed, maxiter, batch_size, val_every,
-            adam_steps=0, learning_rate=.02):
+            adam_steps=0, learning_rate=.02, initialization_override=None):
     torch.manual_seed(seed)
     reference_class = make_model(name)
-    initialization = reference_class.initial_parameters(seed, float(train["y"].mean()))
+    initialization = (reference_class.initial_parameters(seed, float(train["y"].mean()))
+                      if initialization_override is None else np.asarray(initialization_override, dtype=float))
     model = TorchQuantumModel(name, initial_parameters=initialization)
     start = time.perf_counter()
     counters = {"objective_evaluations": 0, "gradient_evaluations": 0,
@@ -132,6 +133,7 @@ def fit_one(name, train, validation, seed, maxiter, batch_size, val_every,
         model.parameters_vector.copy_(torch.as_tensor(best["parameters"], dtype=torch.float64))
     fit = {"seed": seed, "optimizer": "torch.optim.Adam then LBFGS" if adam_steps else "torch.optim.LBFGS",
            "random_initialization": True, "NumPy_fitted_weights_loaded": False,
+           "initialization_policy": "task-aligned original" if initialization_override is None else "caller-supplied predeclared",
            "initial_parameters": initialization.tolist(),
            "Adam_steps": adam_steps, "LBFGS_max_iterations": maxiter,
            "LBFGS_completed_iterations": completed_iterations,

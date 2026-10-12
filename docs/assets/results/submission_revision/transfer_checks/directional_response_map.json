@@ -1,0 +1,11 @@
+{
+  "dataset": "confirmation_1",
+  "checkpoint_seed": 17,
+  "state_id": 80,
+  "family": "low_rank_noisy_preparation",
+  "grid_rows": 231,
+  "grid_mse": 6.050268482477905e-12,
+  "grid_max_abs_error": 6.021101504050108e-06,
+  "heldout_axis_grid_rows": 81,
+  "selection": "smallest new test state ID; full-sphere exploratory grid; no model selection"
+}

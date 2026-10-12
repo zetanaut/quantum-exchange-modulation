@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "Frozen generation and evaluation design before fresh datasets or model fits",
+  "historical_data_role": "Development evidence only; no historical test split is confirmatory",
+  "target": "D_P(rho)=Tr(rho^2)-Tr(rho P rho P), P=(n dot sigma) tensor I",
+  "axis_threshold": 0.55,
+  "axis_rule": "Training and validation use |n_x| <= 0.55; axis-only and joint tests use |n_x| > 0.55",
+  "state_budgets": [8, 16, 32, 64],
+  "optimizer_starts": [17, 31, 73],
+  "datasets": [
+    {"name": "development", "seed": 2026101201, "role": "hyperparameter and feature selection"},
+    {"name": "confirmation_1", "seed": 2026101211, "role": "locked confirmation"},
+    {"name": "confirmation_2", "seed": 2026101223, "role": "locked confirmation"},
+    {"name": "confirmation_3", "seed": 2026101237, "role": "locked confirmation"},
+    {"name": "confirmation_4", "seed": 2026101253, "role": "locked confirmation"},
+    {"name": "confirmation_5", "seed": 2026101271, "role": "locked confirmation"}
+  ],
+  "counts": {
+    "train_states": 64,
+    "validation_states": 16,
+    "test_states": 128,
+    "train_axes": 18,
+    "validation_axes": 16,
+    "heldout_axes": 12,
+    "train_contexts_per_state": 5,
+    "validation_contexts_per_state": 6,
+    "test_contexts_per_state": 4
+  },
+  "selection": "Choose model and hyperparameters on development training and validation only; do not use confirmation test labels for selection",
+  "paired_evaluation": "All methods share states, contexts and labels within each dataset; report each dataset and optimizer start",
+  "uncertainty": "Aggregate squared errors by state; use state clusters conditional on sampled contexts, or crossed state/context resampling for both populations",
+  "copy_scope": "Exact-expectation training; copy-matched inference is a separate study"
+}

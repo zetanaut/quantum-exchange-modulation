@@ -142,7 +142,7 @@ $$
 
 The example applies this formula to the saved two-qubit predictor without retraining. It demonstrates reuse of a learned response under a known physical law. The temporal dependence comes from the analytic generator solution, so this is not evidence that the model learned unknown open-system dynamics.
 
-The executed transfer uses 128 held-out state–context pairs, three rates \(\gamma=0.15,0.5,1.25\), and 21 times in \([0,3]\). Across 8,064 cases, purity-loss MSE is \(6.33\times10^{-13}\), with maximum absolute error \(3.35\times10^{-6}\). The [manifest](assets/results/physics_examples/manifest.json) identifies the frozen seed-31 checkpoint and independent channel/exponential checks.
+This figure is from the **historical fixed-dataset checkpoint**. Its executed transfer uses 128 state–context pairs, three rates \(\gamma=0.15,0.5,1.25\), and 21 times in \([0,3]\). Across 8,064 cases, purity-loss MSE is \(6.33\times10^{-13}\), with maximum absolute error \(3.35\times10^{-6}\). The [manifest](assets/results/physics_examples/manifest.json) identifies the frozen seed-31 checkpoint and independent channel/exponential checks. The [current manuscript transfer](qip_revision.md#transfer-checks-and-source) uses a validation-selected checkpoint from the corrected physical-axis protocol and has a separate saved record.
 
 The complete two-sector dephasing map is \((\rho+P\rho P)/2\). Its purity loss is \(D_P/2\), consistent with the \(T\to\infty\) limit for fixed \(\gamma>0\). Keeping this factor explicit prevents confusing the instantaneous response with the fully dephased purity difference.
 

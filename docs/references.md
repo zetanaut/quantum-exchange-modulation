@@ -42,6 +42,10 @@ The classical analogy: context-dependent affine modulation of numerical features
 
 Includes a Quantum FiLM construction. The name and broad idea of quantum conditioning therefore precede this repository.
 
+**Lee, Chen, and Tseng, “Learning to Program Adaptive Non-Local Observables for Machine Learning,” arXiv:2609.18655v1 (2026).** [Paper](https://arxiv.org/abs/2609.18655v1)
+
+Programs circuit parameters and nonlocal observables from classical inputs. Its classical-input forecasting and reinforcement-learning setting differs from the repeated native quantum-state input and retained memory used here.
+
 **Pérez-Salinas et al., “Data re-uploading for a universal quantum classifier,” Quantum 4, 226 (2020).** [Paper](https://arxiv.org/abs/1907.02085) · [DOI](https://doi.org/10.22331/q-2020-02-06-226)
 
 Repeated classical data encodings into a circuit. Its access model differs from preparing independent copies of an unknown quantum state.

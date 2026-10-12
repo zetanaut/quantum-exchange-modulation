@@ -1,0 +1,42 @@
+{
+  "dataset": "confirmation_1",
+  "checkpoint_seed": 17,
+  "checkpoint_selection": "minimum validation MSE among seeds 17, 31, 73",
+  "checkpoint_validation_mse": 2.9798422879313206e-12,
+  "state_count": 128,
+  "pairs": 128,
+  "rates": [
+    0.2,
+    0.7,
+    1.3
+  ],
+  "times": [
+    0.0,
+    0.15,
+    0.3,
+    0.44999999999999996,
+    0.6,
+    0.75,
+    0.8999999999999999,
+    1.05,
+    1.2,
+    1.3499999999999999,
+    1.5,
+    1.65,
+    1.7999999999999998,
+    1.95,
+    2.1,
+    2.25,
+    2.4,
+    2.55,
+    2.6999999999999997,
+    2.85,
+    3.0
+  ],
+  "queries": 8064,
+  "heldout_axis_min_abs_nx": 0.5514819037407752,
+  "response_mse": 3.5168765973444093e-12,
+  "purity_loss_mse": 6.265451534095686e-13,
+  "purity_loss_max_abs_error": 4.206824803802352e-06,
+  "dataset_sha256": "5ddf555a9e86f57b9662cc9d5dd1cc7224ea28fac8eae77c6a999c265ebd31d4"
+}

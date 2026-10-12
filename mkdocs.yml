@@ -24,6 +24,7 @@ nav:
   - Architecture: architecture.md
   - Control explorer: control_explorer.md
 - Physics and learning:
+  - QIP revision: qip_revision.md
   - Physics examples: physics.md
   - Directional decoherence: applications/decoherence.md
   - Correlations and parity: applications/correlations.md

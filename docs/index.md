@@ -2,7 +2,7 @@
 
 **Which perturbation direction makes a repeatedly prepared quantum state lose purity, and can a conditional circuit learn that response from limited labeled states?** This project answers that question for a two-spin dephasing benchmark. A classical direction context controls gates acting on fresh quantum-state preparations; measured output ports feed a Torch prediction head. The architecture also supplies a state-valued streaming layer for other targets.
 
-Start with [directional decoherence](applications/decoherence.md) for the trained application, or use the [problem-selection guide](applications/choosing-a-problem.md) to decide whether your state source and measurement access fit. The [application hub](physics.md) covers correlated registers, sensing, and interacting thermal spins. Each guide identifies a prepared input, context, measured or computed output, runnable command, data, strongest comparator, and evidence status.
+Start with the [current five-dataset QIP revision](qip_revision.md) and [directional decoherence](applications/decoherence.md), or use the [problem-selection guide](applications/choosing-a-problem.md) to decide whether your state source and measurement access fit. The [application hub](physics.md) covers correlated registers, sensing, and interacting thermal spins. Each guide identifies a prepared input, context, measured or computed output, runnable command, data, strongest comparator, and evidence status.
 
 ![Network architecture and the streaming exchange module](assets/figures/network_architecture.svg)
 
@@ -19,7 +19,7 @@ The commutator couples noncommuting operator features. A bounded gate parameteri
 
 The [architecture guide](architecture.md) derives the map, explains global versus pairwise exchange, and distinguishes nonlinear dependence on a context from nonlinear dependence on an unknown quantum input. The [control explorer](control_explorer.md) makes the coefficient region and resource arithmetic interactive.
 
-**Run now:** after [installation](install.md), execute `python examples/pretrained_inference.py --output /tmp/qem-frozen-review` to reload the validation-selected two-spin checkpoint and score its recorded held-out pairs. For a custom target, provide valid density matrices, context vectors, independent labels, and disjoint state splits to the [streaming trainer](training.md#train-and-checkpoint-a-custom-streaming-predictor). The reusable network retains quantum memory between collisions; its two-layer training example is a synthetic software integration fixture.
+**Run now:** after [installation](install.md), execute `python examples/pretrained_inference.py --output /tmp/qem-frozen-review` to reload the historical two-spin checkpoint as an API example. Its older axis split is documented in the [historical evidence](evidence.md#historical-single-dataset-study); the current paper uses the [five-dataset revision](qip_revision.md). For a custom target, provide valid density matrices, context vectors, independent labels, and disjoint state splits to the [streaming trainer](training.md#train-and-checkpoint-a-custom-streaming-predictor). The reusable network retains quantum memory between collisions; its two-layer training example is a synthetic software integration fixture.
 
 ## What has been demonstrated
 
@@ -29,20 +29,20 @@ $$
 D_P(\rho)=\operatorname{Tr}(\rho^2)-\operatorname{Tr}(\rho P\rho P),\qquad P^2=I.
 $$
 
-For two-qubit states, the benchmark conditions on a direction for $P=(\mathbf n\cdot\boldsymbol\sigma)\otimes I$. It tests generalization to new states and a held-out cap of context directions. The learned exchange model, a matched two-copy QNN, a commutator-removal ablation, classical FiLM, generic kernels, and a physics-informed Gram model are all included.
+For two-qubit states, the benchmark conditions on a direction for $P=(\mathbf n\cdot\boldsymbol\sigma)\otimes I$. The current study trains and validates outside both caps $|n_x|>0.55$, then tests on those held-out physical axes and new states across five independent datasets. The learned exchange model, a matched two-copy QNN, a commutator-removal ablation, classical FiLM, product-feature regressions, and a physics-informed Gram model are all included.
 
-| Training budget | Structured exchange: mean joint-test MSE | Matched two-copy QNN | Selected FiLM |
-|---|---:|---:|---:|
-| 8 states / 40 pairs | $9.31\times10^{-6}$ | $1.16\times10^{-6}$ | $8.39\times10^{-2}$ |
-| 16 states / 80 pairs | $1.49\times10^{-8}$ | $8.54\times10^{-8}$ | $1.11\times10^{-1}$ |
-| 32 states / 160 pairs | $3.46\times10^{-9}$ | $1.24\times10^{-7}$ | $8.82\times10^{-2}$ |
-| 64 states / 320 pairs | $6.05\times10^{-9}$ | $2.05\times10^{-8}$ | $5.37\times10^{-2}$ |
+| Training budget | Compact exchange MSE | Matched exchange QNN | Product FiLM | Fitted Gram-36 |
+|---|---:|---:|---:|---:|
+| 8 states / 40 pairs | $1.87\times10^{-6}$ | $1.53\times10^{-6}$ | $8.18\times10^{-2}$ | $1.82\times10^{-27}$ |
+| 16 states / 80 pairs | $1.39\times10^{-8}$ | $1.51\times10^{-8}$ | $4.67\times10^{-2}$ | $1.95\times10^{-30}$ |
+| 32 states / 160 pairs | $6.07\times10^{-9}$ | $1.04\times10^{-8}$ | $3.19\times10^{-2}$ | $2.41\times10^{-30}$ |
+| 64 states / 320 pairs | $1.56\times10^{-9}$ | $1.75\times10^{-8}$ | $1.31\times10^{-2}$ | $1.19\times10^{-30}$ |
 
-Each entry averages seeds 17, 31, and 73. The state subsets are nested, all models share them, and every size additionally uses 96 validation pairs. These optimizer seeds do not measure uncertainty from resampling the dataset. The matched QNN is better at the smallest budget; both quantum models perform well. The untrained exact Gram formula reaches numerical precision when its required Pauli features are given. [Full protocol, comparisons, and data](evidence.md).
+Each entry averages five dataset outcomes; learned models also average starts 17, 31, and 73. The state subsets are nested within each dataset, and every size additionally uses 96 validation pairs. The matched QNN is slightly better at the smallest budget; both quantum models fit the task from their prescribed initializations. The fitted Gram-36 control already reaches numerical precision with eight states. [Full protocol, comparisons, and data](qip_revision.md).
 
-![Learning curve with all seeds and strong comparators](assets/figures/learning_curve.svg)
+![Five-dataset physical-axis learning curves](assets/figures/qip_Fig2.png)
 
-The demonstrated benefit is a useful physical structure for this target relative to the tested generic feature models and ablations. The study does not establish a universal learning advantage, an asymptotic speedup, or superior performance on noisy hardware.
+The demonstrated result is a physical layer with verified coefficient constraints, differentiable composition, and transparent source-copy accounting. Learning the analytic target is sensitive to initialization. The study does not establish a universal learning advantage, an asymptotic speedup, or superior performance on noisy hardware.
 
 ## Physics examples you can run
 
@@ -57,7 +57,7 @@ The demonstrated benefit is a useful physical structure for this target relative
 
 The [physics guide](physics.md) gives equations, assumptions, figures, data, and extension directions for each problem. Some examples are direct physics computations, while the two-layer teacher fixture demonstrates the API. The scope label accompanies every plot.
 
-New explanatory views include a [frozen directional response map](applications/decoherence.md#a-directional-map-for-one-held-out-state) for one correlated held-out state and a [spectator-purity diagnostic](applications/metrology.md#an-uncorrelated-spectator-changes-the-hilbertschmidt-response). Their scripts and CSV files accompany the figures; neither adds a new training result.
+The revised paper includes a [fresh-protocol directional response map](qip_revision.md#transfer-checks-and-source) for one new test state. The historical [spectator-purity diagnostic](applications/metrology.md#an-uncorrelated-spectator-changes-the-hilbertschmidt-response) illustrates a limit of interpreting sub-QFI as QFI. Their scripts and CSV files accompany the figures; neither adds a new training result.
 
 ## Choose a starting point
 
