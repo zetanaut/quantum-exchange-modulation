@@ -213,8 +213,8 @@
     },
     {
       "path": "code/scripts/submission_transfer_refresh.py",
-      "bytes": 4917,
-      "sha256": "87b950ba2e1bc47f9f5890fedbe45e543f8ec9e3676a545f85e96c3463cfb245"
+      "bytes": 4938,
+      "sha256": "6b3ba6c144691135c5a530651197efcac16631a3796df6441736f62c1039d25e"
     },
     {
       "path": "code/scripts/submission_validate_checkpoints.py",
@@ -793,8 +793,8 @@
     },
     {
       "path": "results/submission_revision/transfer_checks/directional_response_map.csv",
-      "bytes": 41947,
-      "sha256": "ac1005d521a16dd237ed2f7d81dc1ab01b1e1827aec1fc8034b6d81605f196be"
+      "bytes": 41715,
+      "sha256": "260aaa07ae2e9eea2585a67077ac26aada1531ddf1ae1ceb22e13c823868d3c0"
     },
     {
       "path": "results/submission_revision/transfer_checks/directional_response_map.json",

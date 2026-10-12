@@ -73,7 +73,7 @@ def main() -> None:
                   "y": torch.as_tensor(exact, dtype=torch.float64)}
     estimated = predict_raw(model, grid_batch, 231)["prediction"]
     with (output / "directional_response_map.csv").open("w", newline="") as handle:
-        writer = csv.writer(handle)
+        writer = csv.writer(handle, lineterminator="\n")
         writer.writerow(["state_id", "family", "theta_rad", "phi_rad", "nx", "ny", "nz",
                          "D_exact", "D_frozen_prediction", "prediction_minus_exact"])
         for a, n, y, yhat in zip(angle_rows, directions, exact, estimated):
