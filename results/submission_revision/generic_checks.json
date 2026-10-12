@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "state_max_abs_error": 3.335096108916601e-16,
+  "gradient_max_abs_error": 4.336808689942018e-18,
+  "trace_max_abs_error": 1.1117617463199596e-16,
+  "minimum_eigenvalue": 0.027238094007789707,
+  "trainable_parameters": 220,
+  "fixed_readout": "P(c) on both exchange output ports",
+  "copies_per_execution": 2,
+  "conditioner": "Linear(3,16) -> tanh -> Linear(16,9); 7 gate angles plus eta/chi"
+}

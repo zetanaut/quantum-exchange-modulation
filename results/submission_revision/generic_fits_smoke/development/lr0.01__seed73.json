@@ -1,0 +1,30 @@
+{
+  "dataset": "development",
+  "dataset_sha256": "13852cfb246d0e9e88b532cda7bb9c797d6bc5cba2d106af7be72084b8d7fc54",
+  "model": "generic_source_conditioner_fixed_P_readout",
+  "seed": 73,
+  "learning_rate": 0.01,
+  "training_pairs": 320,
+  "validation_pairs": 96,
+  "parameters": 220,
+  "fit": {
+    "best_validation_mse": 0.6690614458879559,
+    "best_validation_step": 10,
+    "updates_executed": 10,
+    "elapsed_seconds": 0.039417249999814885,
+    "history": [
+      {
+        "step": 0,
+        "train_mse": 0.8042222019361951,
+        "validation_mse": 0.8688603918783624
+      },
+      {
+        "step": 10,
+        "train_mse": 0.5629814745095489,
+        "validation_mse": 0.6690614458879559
+      }
+    ]
+  },
+  "test_evaluated": false,
+  "metrics": {}
+}

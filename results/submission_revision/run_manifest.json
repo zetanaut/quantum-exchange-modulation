@@ -1,0 +1,20 @@
+{
+  "source_checkout": "/Users/dustin/work/Q-FiLM/repo",
+  "source_commit": "de6cfa787a13b9df208d0d6f8252b7c3fc21a4b4",
+  "working_branch": "codex/submission-revision",
+  "original_benchmark_sha256": "75237b0540b49a2c4a4f179aad2eb64cfdd7ccb1de22e6310cdb1f7aaa2407b1",
+  "original_source_hashes": {
+    "qem/layers.py": "47ed6ad6b990ecda7b15fac38b71e98149fedc12c198fa29dde5af7aa9b8e4c5",
+    "qem/quantum_models.py": "6d58d5fd40ec1d80af801f519f7b525fac3a4340426e52700201d7dff5185306",
+    "scripts/run_classical_benchmark.py": "b4c3d7e76de5ed5d6faa9c9ad8f39360fc3fab7437d2a55da9954c28d514ab53"
+  },
+  "environment": {
+    "python": "3.12.15",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "torch": "2.14.1",
+    "pennylane": "0.45.1",
+    "numpy": "2.3.5"
+  },
+  "archived_baseline_audit": "PASS; see audit/baseline_audit.json",
+  "published_results_policy": "Never overwrite results outside results/submission_revision"
+}

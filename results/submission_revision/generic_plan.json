@@ -1,0 +1,21 @@
+{
+  "status": "Fixed before generic conditioner fits",
+  "model": "GenericConditionedExchange",
+  "trainable_parameters": 220,
+  "context": "raw physical direction n",
+  "source_control": "Linear(3,16) -> tanh -> Linear(16,9), controlling two local Euler rotations, ZZ angle, eta, chi",
+  "measurement": "Known P(c) on both output ports remains fixed to isolate source conditioning",
+  "training_budget": 64,
+  "training_pairs": 320,
+  "validation_pairs": 96,
+  "development_learning_rates": [0.001, 0.01],
+  "selection": "Lowest mean development validation MSE across starts 17,31,73; no test evaluation during selection",
+  "optimizer": "Adam, full-batch exact-expectation objective",
+  "max_updates": 2000,
+  "validation_every": 50,
+  "patience_checkpoints": 20,
+  "seeds": [17, 31, 73],
+  "confirmation_datasets": ["confirmation_1", "confirmation_2", "confirmation_3", "confirmation_4", "confirmation_5"],
+  "interpretation": "Control for fixed Euler-frame relation; not an independent claim of quantum advantage"
+  ,"context_blind_ablation": "Same 220-parameter model and frozen selected learning rate; source conditioner receives zero vector for every query, while the physical readout retains the true P(c). Report separately; no hyperparameter selection from confirmation tests."
+}

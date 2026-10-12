@@ -1,0 +1,23 @@
+{
+  "status": "Fixed before broad Torch classical search",
+  "development_dataset": "development.npz",
+  "candidate_rng_seed": 2026101299,
+  "feature_families": ["raw_signed", "raw_even", "within_even", "joint_signed"],
+  "candidate_count_per_family": 24,
+  "architectures": ["mlp", "film"],
+  "widths": [16, 32, 64],
+  "depths": [1, 2, 3],
+  "activations": ["tanh", "silu"],
+  "adam_learning_rates": [0.0001, 0.001, 0.01],
+  "weight_decay": [0, 0.000001, 0.0001, 0.01],
+  "stage_updates": [500, 2000, 5000],
+  "stage_survivors_per_family": [24, 6, 2],
+  "candidate_start_seed": 17,
+  "final_starts": [17, 31, 73],
+  "validation_every": 50,
+  "patience_checkpoints": 10,
+  "precision": "float64",
+  "standardization": "Mean and scale fitted on training inputs only; context and state features standardized separately",
+  "selection": "Validation MSE only; retain every attempted candidate, including failures; no test evaluation until settings are frozen",
+  "criterion": "Select lowest development validation MSE per feature family and architecture, then compare frozen methods on five confirmation datasets"
+}

@@ -1,0 +1,71 @@
+{
+  "dataset": "confirmation_1",
+  "description": "Fixed analytic V=exp(-i pi P/4), eta=pi/4, chi=0; only 2 head weights plus bias fitted",
+  "resource_scope": "Exact simulator port expectations, not zero-copy measured features",
+  "budgets": {
+    "8": {
+      "parameters": [
+        -1.0000000000000033,
+        0.9999999999999966,
+        -3.100309757559442e-16
+      ],
+      "train_rank": 3,
+      "smallest_singular_value": 1.0156737702433836,
+      "mse": {
+        "train": 3.525434323426833e-30,
+        "validation": 5.138868216484126e-30,
+        "test_state": 5.3364888950355486e-30,
+        "test_context": 5.281161713611616e-30,
+        "test_joint": 4.6816247647946344e-30
+      }
+    },
+    "16": {
+      "parameters": [
+        -1.0000000000000007,
+        0.9999999999999999,
+        -2.1142042476630988e-16
+      ],
+      "train_rank": 3,
+      "smallest_singular_value": 1.4563310121197381,
+      "mse": {
+        "train": 8.998862526166288e-32,
+        "validation": 9.955766336021907e-32,
+        "test_state": 1.0003676458251232e-31,
+        "test_context": 8.105757653439779e-32,
+        "test_joint": 9.02476854086745e-32
+      }
+    },
+    "32": {
+      "parameters": [
+        -1.0000000000000002,
+        1.0000000000000002,
+        1.1102230246251565e-16
+      ],
+      "train_rank": 3,
+      "smallest_singular_value": 1.972811896173749,
+      "mse": {
+        "train": 3.3475370772434455e-32,
+        "validation": 3.0859015004754646e-32,
+        "test_state": 3.989261072453387e-32,
+        "test_context": 3.7208063745899965e-32,
+        "test_joint": 4.075391894526838e-32
+      }
+    },
+    "64": {
+      "parameters": [
+        -1.0000000000000007,
+        0.9999999999999991,
+        -5.929791714969917e-17
+      ],
+      "train_rank": 3,
+      "smallest_singular_value": 2.955634847686238,
+      "mse": {
+        "train": 2.5970687579157703e-31,
+        "validation": 2.847142611100287e-31,
+        "test_state": 2.903820731304836e-31,
+        "test_context": 2.4631181673740324e-31,
+        "test_joint": 2.568417540727472e-31
+      }
+    }
+  }
+}

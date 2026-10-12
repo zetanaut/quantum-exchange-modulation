@@ -1,0 +1,71 @@
+{
+  "dataset": "development",
+  "description": "Fixed analytic V=exp(-i pi P/4), eta=pi/4, chi=0; only 2 head weights plus bias fitted",
+  "resource_scope": "Exact simulator port expectations, not zero-copy measured features",
+  "budgets": {
+    "8": {
+      "parameters": [
+        -0.9999999999999999,
+        1.0000000000000004,
+        -7.362570583274298e-17
+      ],
+      "train_rank": 3,
+      "smallest_singular_value": 0.733444256073846,
+      "mse": {
+        "train": 3.9385267362718973e-32,
+        "validation": 2.879390652923005e-32,
+        "test_state": 4.255315410852399e-32,
+        "test_context": 2.754380747027558e-32,
+        "test_joint": 3.934250287823606e-32
+      }
+    },
+    "16": {
+      "parameters": [
+        -0.9999999999999991,
+        0.9999999999999994,
+        2.1224771887473053e-16
+      ],
+      "train_rank": 3,
+      "smallest_singular_value": 1.0456800183352304,
+      "mse": {
+        "train": 3.255062347257477e-32,
+        "validation": 3.9771707212237296e-32,
+        "test_state": 4.676132984491971e-32,
+        "test_context": 3.6944941090411904e-32,
+        "test_joint": 4.794328941467152e-32
+      }
+    },
+    "32": {
+      "parameters": [
+        -1.0000000000000002,
+        0.9999999999999993,
+        1.8881660319859293e-16
+      ],
+      "train_rank": 3,
+      "smallest_singular_value": 1.8312403152515477,
+      "mse": {
+        "train": 8.852604697850537e-32,
+        "validation": 8.139160500912745e-32,
+        "test_state": 9.485415977343109e-32,
+        "test_context": 8.127499596952588e-32,
+        "test_joint": 9.832581189190385e-32
+      }
+    },
+    "64": {
+      "parameters": [
+        -0.9999999999999999,
+        0.9999999999999997,
+        -7.734437666332894e-17
+      ],
+      "train_rank": 3,
+      "smallest_singular_value": 2.6572643499381075,
+      "mse": {
+        "train": 3.7486242133033356e-32,
+        "validation": 4.0629097118469065e-32,
+        "test_state": 4.2953404057507223e-32,
+        "test_context": 3.958022310080285e-32,
+        "test_joint": 4.332652359687348e-32
+      }
+    }
+  }
+}

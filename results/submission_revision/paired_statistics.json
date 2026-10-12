@@ -1,0 +1,240 @@
+{
+  "analysis": "Equal-weight mean over three optimizer starts within each dataset; paired by physical source state",
+  "conditioning": "State-cluster uncertainty conditional on each dataset's sampled context pool",
+  "dataset_count": 5,
+  "bootstrap_replicates": 2000,
+  "budgets": {
+    "8": {
+      "datasets": [
+        {
+          "dataset": "confirmation_1",
+          "exchange_mean_mse": 1.0710241383342808e-06,
+          "matched_qnn_mean_mse": 5.417133443925459e-07,
+          "paired_difference_exchange_minus_qnn": 5.293107939417349e-07,
+          "conditional_state_bootstrap_95_percentile_interval": [
+            3.6359419344915167e-07,
+            7.257942203582513e-07
+          ]
+        },
+        {
+          "dataset": "confirmation_2",
+          "exchange_mean_mse": 1.0434481975187258e-07,
+          "matched_qnn_mean_mse": 6.090780109863263e-06,
+          "paired_difference_exchange_minus_qnn": -5.98643529011139e-06,
+          "conditional_state_bootstrap_95_percentile_interval": [
+            -7.711641651559298e-06,
+            -4.404545673506136e-06
+          ]
+        },
+        {
+          "dataset": "confirmation_3",
+          "exchange_mean_mse": 1.0238637481289996e-06,
+          "matched_qnn_mean_mse": 3.876708949538942e-07,
+          "paired_difference_exchange_minus_qnn": 6.361928531751054e-07,
+          "conditional_state_bootstrap_95_percentile_interval": [
+            4.115144581215062e-07,
+            8.911642237073512e-07
+          ]
+        },
+        {
+          "dataset": "confirmation_4",
+          "exchange_mean_mse": 1.3509275809349975e-06,
+          "matched_qnn_mean_mse": 4.86335083351925e-08,
+          "paired_difference_exchange_minus_qnn": 1.302294072599805e-06,
+          "conditional_state_bootstrap_95_percentile_interval": [
+            9.565379022573353e-07,
+            1.6984889397024081e-06
+          ]
+        },
+        {
+          "dataset": "confirmation_5",
+          "exchange_mean_mse": 5.820424803151929e-06,
+          "matched_qnn_mean_mse": 5.986409557042302e-07,
+          "paired_difference_exchange_minus_qnn": 5.221783847447699e-06,
+          "conditional_state_bootstrap_95_percentile_interval": [
+            4.009339550197115e-06,
+            6.525251567635217e-06
+          ]
+        }
+      ],
+      "mean_paired_dataset_difference": 3.4062925541059096e-07,
+      "median_paired_dataset_difference": 6.361928531751054e-07,
+      "exchange_lower_mse_datasets": 1,
+      "interpretation": "Five datasets support descriptive paired comparison; state bootstrap does not estimate a new context population"
+    },
+    "16": {
+      "datasets": [
+        {
+          "dataset": "confirmation_1",
+          "exchange_mean_mse": 2.696447558472807e-08,
+          "matched_qnn_mean_mse": 2.2768675273670832e-08,
+          "paired_difference_exchange_minus_qnn": 4.1958003110572384e-09,
+          "conditional_state_bootstrap_95_percentile_interval": [
+            -8.198608441847384e-10,
+            1.0045070318862667e-08
+          ]
+        },
+        {
+          "dataset": "confirmation_2",
+          "exchange_mean_mse": 9.233238684005334e-09,
+          "matched_qnn_mean_mse": 2.484767568672394e-08,
+          "paired_difference_exchange_minus_qnn": -1.5614437002718606e-08,
+          "conditional_state_bootstrap_95_percentile_interval": [
+            -1.9727769926582674e-08,
+            -1.1720752752780041e-08
+          ]
+        },
+        {
+          "dataset": "confirmation_3",
+          "exchange_mean_mse": 1.036851677437953e-08,
+          "matched_qnn_mean_mse": 7.3688542856814676e-09,
+          "paired_difference_exchange_minus_qnn": 2.999662488698063e-09,
+          "conditional_state_bootstrap_95_percentile_interval": [
+            1.3242220086655046e-09,
+            4.7660172510307845e-09
+          ]
+        },
+        {
+          "dataset": "confirmation_4",
+          "exchange_mean_mse": 1.922870125049134e-08,
+          "matched_qnn_mean_mse": 1.3901259547567727e-08,
+          "paired_difference_exchange_minus_qnn": 5.3274417029236125e-09,
+          "conditional_state_bootstrap_95_percentile_interval": [
+            2.231912504303659e-09,
+            8.629989572801496e-09
+          ]
+        },
+        {
+          "dataset": "confirmation_5",
+          "exchange_mean_mse": 3.5736379569976285e-09,
+          "matched_qnn_mean_mse": 6.7095888694473825e-09,
+          "paired_difference_exchange_minus_qnn": -3.135950912449754e-09,
+          "conditional_state_bootstrap_95_percentile_interval": [
+            -4.192352770361026e-09,
+            -2.095032720125788e-09
+          ]
+        }
+      ],
+      "mean_paired_dataset_difference": -1.2454966824978892e-09,
+      "median_paired_dataset_difference": 2.999662488698063e-09,
+      "exchange_lower_mse_datasets": 2,
+      "interpretation": "Five datasets support descriptive paired comparison; state bootstrap does not estimate a new context population"
+    },
+    "32": {
+      "datasets": [
+        {
+          "dataset": "confirmation_1",
+          "exchange_mean_mse": 1.4114657211879688e-08,
+          "matched_qnn_mean_mse": 1.6318964606999395e-08,
+          "paired_difference_exchange_minus_qnn": -2.204307395119706e-09,
+          "conditional_state_bootstrap_95_percentile_interval": [
+            -6.11865489738646e-09,
+            2.0874302971708816e-09
+          ]
+        },
+        {
+          "dataset": "confirmation_2",
+          "exchange_mean_mse": 4.080142668948399e-09,
+          "matched_qnn_mean_mse": 6.790680385067071e-09,
+          "paired_difference_exchange_minus_qnn": -2.710537716118672e-09,
+          "conditional_state_bootstrap_95_percentile_interval": [
+            -4.594335305190459e-09,
+            -9.974006222852603e-10
+          ]
+        },
+        {
+          "dataset": "confirmation_3",
+          "exchange_mean_mse": 2.422244682402942e-09,
+          "matched_qnn_mean_mse": 3.825179955212756e-09,
+          "paired_difference_exchange_minus_qnn": -1.4029352728098146e-09,
+          "conditional_state_bootstrap_95_percentile_interval": [
+            -2.0647057796038713e-09,
+            -7.846039315271155e-10
+          ]
+        },
+        {
+          "dataset": "confirmation_4",
+          "exchange_mean_mse": 4.4208136555820574e-10,
+          "matched_qnn_mean_mse": 8.936065029168318e-09,
+          "paired_difference_exchange_minus_qnn": -8.493983663610113e-09,
+          "conditional_state_bootstrap_95_percentile_interval": [
+            -1.0656066571036614e-08,
+            -6.690420805275949e-09
+          ]
+        },
+        {
+          "dataset": "confirmation_5",
+          "exchange_mean_mse": 9.305860752192515e-09,
+          "matched_qnn_mean_mse": 1.634119596905245e-08,
+          "paired_difference_exchange_minus_qnn": -7.035335216859937e-09,
+          "conditional_state_bootstrap_95_percentile_interval": [
+            -1.1415587803115929e-08,
+            -3.198196416926806e-09
+          ]
+        }
+      ],
+      "mean_paired_dataset_difference": -4.369419852903649e-09,
+      "median_paired_dataset_difference": -2.710537716118672e-09,
+      "exchange_lower_mse_datasets": 5,
+      "interpretation": "Five datasets support descriptive paired comparison; state bootstrap does not estimate a new context population"
+    },
+    "64": {
+      "datasets": [
+        {
+          "dataset": "confirmation_1",
+          "exchange_mean_mse": 5.055051757099408e-10,
+          "matched_qnn_mean_mse": 2.347159899998607e-09,
+          "paired_difference_exchange_minus_qnn": -1.8416547242886658e-09,
+          "conditional_state_bootstrap_95_percentile_interval": [
+            -2.28516012120609e-09,
+            -1.4111186405177025e-09
+          ]
+        },
+        {
+          "dataset": "confirmation_2",
+          "exchange_mean_mse": 3.9326111792171385e-10,
+          "matched_qnn_mean_mse": 5.547358310435676e-09,
+          "paired_difference_exchange_minus_qnn": -5.154097192513962e-09,
+          "conditional_state_bootstrap_95_percentile_interval": [
+            -6.486240506888383e-09,
+            -4.041487949917089e-09
+          ]
+        },
+        {
+          "dataset": "confirmation_3",
+          "exchange_mean_mse": 1.6762541650161818e-09,
+          "matched_qnn_mean_mse": 6.532903833739376e-08,
+          "paired_difference_exchange_minus_qnn": -6.365278417237758e-08,
+          "conditional_state_bootstrap_95_percentile_interval": [
+            -8.13990089603102e-08,
+            -4.870219858430171e-08
+          ]
+        },
+        {
+          "dataset": "confirmation_4",
+          "exchange_mean_mse": 5.176059769343191e-09,
+          "matched_qnn_mean_mse": 3.0855388316172465e-09,
+          "paired_difference_exchange_minus_qnn": 2.090520937725945e-09,
+          "conditional_state_bootstrap_95_percentile_interval": [
+            9.676633347016273e-10,
+            3.3319980917424204e-09
+          ]
+        },
+        {
+          "dataset": "confirmation_5",
+          "exchange_mean_mse": 6.600782922180212e-11,
+          "matched_qnn_mean_mse": 1.1096554493007669e-08,
+          "paired_difference_exchange_minus_qnn": -1.1030546663785868e-08,
+          "conditional_state_bootstrap_95_percentile_interval": [
+            -1.4547504370930133e-08,
+            -8.116494045065925e-09
+          ]
+        }
+      ],
+      "mean_paired_dataset_difference": -1.5917712363048024e-08,
+      "median_paired_dataset_difference": -5.154097192513962e-09,
+      "exchange_lower_mse_datasets": 4,
+      "interpretation": "Five datasets support descriptive paired comparison; state bootstrap does not estimate a new context population"
+    }
+  }
+}

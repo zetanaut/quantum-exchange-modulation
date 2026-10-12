@@ -1,0 +1,71 @@
+{
+  "dataset": "confirmation_5",
+  "description": "Fixed analytic V=exp(-i pi P/4), eta=pi/4, chi=0; only 2 head weights plus bias fitted",
+  "resource_scope": "Exact simulator port expectations, not zero-copy measured features",
+  "budgets": {
+    "8": {
+      "parameters": [
+        -1.0000000000000004,
+        1.0000000000000004,
+        1.8692399562214714e-17
+      ],
+      "train_rank": 3,
+      "smallest_singular_value": 0.7743727567262597,
+      "mse": {
+        "train": 4.0487862255880665e-32,
+        "validation": 4.1231953314602774e-32,
+        "test_state": 3.7791291145532197e-32,
+        "test_context": 4.150379030154493e-32,
+        "test_joint": 3.728900828689759e-32
+      }
+    },
+    "16": {
+      "parameters": [
+        -1.0000000000000004,
+        1.0000000000000007,
+        -1.7522429830991142e-16
+      ],
+      "train_rank": 3,
+      "smallest_singular_value": 1.3951173126563405,
+      "mse": {
+        "train": 2.037272769297123e-32,
+        "validation": 2.1874351196485652e-32,
+        "test_state": 2.2028429118519684e-32,
+        "test_context": 2.065033243886142e-32,
+        "test_joint": 1.9358393617646677e-32
+      }
+    },
+    "32": {
+      "parameters": [
+        -0.9999999999999997,
+        1.0000000000000007,
+        -9.773383821454983e-17
+      ],
+      "train_rank": 3,
+      "smallest_singular_value": 1.9680007475192431,
+      "mse": {
+        "train": 1.2173080954742573e-31,
+        "validation": 1.1060655794156404e-31,
+        "test_state": 1.2907953003102634e-31,
+        "test_context": 1.1840858039335774e-31,
+        "test_joint": 1.3230877758194428e-31
+      }
+    },
+    "64": {
+      "parameters": [
+        -0.9999999999999996,
+        1.0,
+        1.1102230246251565e-16
+      ],
+      "train_rank": 3,
+      "smallest_singular_value": 2.7137717406001576,
+      "mse": {
+        "train": 2.7584131628486184e-32,
+        "validation": 2.583956008719541e-32,
+        "test_state": 3.094752189274256e-32,
+        "test_context": 2.7878588261389765e-32,
+        "test_joint": 2.9937584166290084e-32
+      }
+    }
+  }
+}

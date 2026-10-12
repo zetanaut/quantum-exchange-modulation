@@ -1,0 +1,56 @@
+{
+  "family": "within_even",
+  "smoke": true,
+  "candidate_seed": 2026101299,
+  "runs": [
+    {
+      "stage": 0,
+      "candidate": {
+        "kind": "mlp",
+        "width": 32,
+        "depth": 2,
+        "activation": "silu",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01
+      },
+      "result": {
+        "best": {
+          "validation_mse": 0.07632060581707047,
+          "step": 20,
+          "train_mse": 0.07443393234259582
+        },
+        "history": [
+          {
+            "step": 0,
+            "train_mse": 0.20358050135797007,
+            "validation_mse": 0.20604162800937245
+          },
+          {
+            "step": 5,
+            "train_mse": 0.1614738927520111,
+            "validation_mse": 0.15146942870857003
+          },
+          {
+            "step": 10,
+            "train_mse": 0.12708602369361005,
+            "validation_mse": 0.11318075086304467
+          },
+          {
+            "step": 15,
+            "train_mse": 0.09843439329772755,
+            "validation_mse": 0.08856516325442403
+          },
+          {
+            "step": 20,
+            "train_mse": 0.07443393234259582,
+            "validation_mse": 0.07632060581707047
+          }
+        ],
+        "updates_executed": 20,
+        "parameter_count": 2081,
+        "elapsed_seconds": 0.00945720800007166
+      },
+      "error": null
+    }
+  ]
+}

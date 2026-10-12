@@ -1,0 +1,5 @@
+{
+  "status": "PASS",
+  "checkpoints": 480,
+  "maximum_validation_mse_reload_difference": 0.0
+}

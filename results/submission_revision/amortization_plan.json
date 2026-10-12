@@ -1,0 +1,13 @@
+{
+  "status": "Fixed before multi-query inference study",
+  "total_source_copies_per_state": 3840,
+  "contexts_per_state": [1, 8, 32],
+  "context_seed": 2026101288,
+  "context_distribution": "Uniform random directions conditioned on |n_x| > 0.55; nested first M from 32 directions",
+  "classical_measurements": "Twelve nonidentity first-spin Pauli strings, independent settings with equal allocation; unbiased U-statistics for squares, independent setting products for cross terms; all outcomes reused across queries",
+  "quantum_measurements": "One two-copy exchange execution per query shot; total copies divided equally among M contexts",
+  "model_selection": "For each dataset, compact and matched QNN optimizer start selected by validation MSE at 64 training states",
+  "monte_carlo_replicates": 512,
+  "uncertainty": "Monte Carlo standard error across replicate full-state experiments; source-state uncertainty remains separate",
+  "scope": "Inference only after exact-expectation training; fixed test states and new held-out-axis query pool"
+}

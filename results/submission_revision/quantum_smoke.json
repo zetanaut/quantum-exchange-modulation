@@ -1,0 +1,20 @@
+{
+  "status": "development smoke only; not a reported learning result",
+  "training_states": 8,
+  "training_pairs": 40,
+  "validation_pairs": 96,
+  "models": {
+    "joint_exchange": {
+      "elapsed_seconds": 1.0130925000000843,
+      "best_validation_mse": 0.06999835146445126,
+      "gradient_evaluations": 6,
+      "stop_reason": "maximum LBFGS iterations reached"
+    },
+    "exchange_matched_qnn": {
+      "elapsed_seconds": 0.12677087499992012,
+      "best_validation_mse": 0.058694115934152226,
+      "gradient_evaluations": 7,
+      "stop_reason": "maximum LBFGS iterations reached"
+    }
+  }
+}

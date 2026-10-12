@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "confirmation_datasets": 5,
+  "quantum_fits": 240,
+  "classical_confirmation_fits": 480,
+  "generic_and_blind_fits": 30,
+  "copy_risk_datasets": 5,
+  "amortization_datasets": 5,
+  "score_rows": 870
+}

@@ -1,0 +1,71 @@
+{
+  "dataset": "confirmation_3",
+  "description": "Fixed analytic V=exp(-i pi P/4), eta=pi/4, chi=0; only 2 head weights plus bias fitted",
+  "resource_scope": "Exact simulator port expectations, not zero-copy measured features",
+  "budgets": {
+    "8": {
+      "parameters": [
+        -1.0000000000000007,
+        1.0000000000000002,
+        -1.110086772617793e-16
+      ],
+      "train_rank": 3,
+      "smallest_singular_value": 0.7854799117791703,
+      "mse": {
+        "train": 2.1305600009783797e-32,
+        "validation": 2.5857615680424043e-32,
+        "test_state": 4.3870671686812625e-32,
+        "test_context": 3.0838953234500614e-32,
+        "test_joint": 3.8906229904871875e-32
+      }
+    },
+    "16": {
+      "parameters": [
+        -1.0000000000000002,
+        1.0000000000000004,
+        -3.2397375186373426e-16
+      ],
+      "train_rank": 3,
+      "smallest_singular_value": 1.261442093516586,
+      "mse": {
+        "train": 5.084455053182303e-32,
+        "validation": 6.138901697734314e-32,
+        "test_state": 5.492413306371055e-32,
+        "test_context": 4.969576341265142e-32,
+        "test_joint": 5.607545337320817e-32
+      }
+    },
+    "32": {
+      "parameters": [
+        -0.9999999999999996,
+        1.0000000000000002,
+        0.0
+      ],
+      "train_rank": 3,
+      "smallest_singular_value": 1.9531087437364731,
+      "mse": {
+        "train": 5.283818895081763e-32,
+        "validation": 3.9963046346035144e-32,
+        "test_state": 6.333610582004518e-32,
+        "test_context": 5.124929674669816e-32,
+        "test_joint": 5.770022166491474e-32
+      }
+    },
+    "64": {
+      "parameters": [
+        -1.0,
+        1.0000000000000004,
+        2.25338642655588e-17
+      ],
+      "train_rank": 3,
+      "smallest_singular_value": 2.8213489012028927,
+      "mse": {
+        "train": 3.4792422854960164e-32,
+        "validation": 2.675838916483016e-32,
+        "test_state": 3.89765303445228e-32,
+        "test_context": 3.3084664662085545e-32,
+        "test_joint": 3.6033321711462204e-32
+      }
+    }
+  }
+}

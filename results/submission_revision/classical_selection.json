@@ -1,0 +1,69 @@
+{
+  "basis": "development validation MSE; final stage 5000 updates",
+  "selected": {
+    "raw_signed__mlp": {
+      "kind": "mlp",
+      "width": 64,
+      "depth": 1,
+      "activation": "silu",
+      "learning_rate": 0.01,
+      "weight_decay": 0.0001
+    },
+    "raw_signed__film": {
+      "kind": "film",
+      "width": 64,
+      "depth": 2,
+      "activation": "silu",
+      "learning_rate": 0.001,
+      "weight_decay": 0.0001
+    },
+    "raw_even__mlp": {
+      "kind": "mlp",
+      "width": 64,
+      "depth": 2,
+      "activation": "silu",
+      "learning_rate": 0.001,
+      "weight_decay": 0.0001
+    },
+    "raw_even__film": {
+      "kind": "film",
+      "width": 32,
+      "depth": 2,
+      "activation": "silu",
+      "learning_rate": 0.01,
+      "weight_decay": 0
+    },
+    "within_even__mlp": {
+      "kind": "mlp",
+      "width": 64,
+      "depth": 3,
+      "activation": "silu",
+      "learning_rate": 0.001,
+      "weight_decay": 1e-06
+    },
+    "within_even__film": {
+      "kind": "film",
+      "width": 32,
+      "depth": 3,
+      "activation": "tanh",
+      "learning_rate": 0.01,
+      "weight_decay": 0.0001
+    },
+    "joint_signed__mlp": {
+      "kind": "mlp",
+      "width": 16,
+      "depth": 3,
+      "activation": "silu",
+      "learning_rate": 0.01,
+      "weight_decay": 0.0001
+    },
+    "joint_signed__film": {
+      "kind": "film",
+      "width": 64,
+      "depth": 3,
+      "activation": "silu",
+      "learning_rate": 0.001,
+      "weight_decay": 0.0001
+    }
+  }
+}

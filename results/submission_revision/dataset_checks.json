@@ -1,0 +1,77 @@
+{
+  "status": "PASS",
+  "datasets": [
+    {
+      "dataset": "confirmation_1",
+      "status": "PASS",
+      "label_max_abs_error": 0.0,
+      "gram_max_abs_error": 3.608224830031759e-16,
+      "antipodal_max_abs_error": 0.0,
+      "nearest_heldout_axis_angle_radians_min": 0.1766214406970715,
+      "minimum_distinct_state_frobenius_distance": 0.2009505109373745,
+      "train_states": 64,
+      "validation_states": 16,
+      "new_test_states": 128
+    },
+    {
+      "dataset": "confirmation_2",
+      "status": "PASS",
+      "label_max_abs_error": 0.0,
+      "gram_max_abs_error": 3.3306690738754696e-16,
+      "antipodal_max_abs_error": 0.0,
+      "nearest_heldout_axis_angle_radians_min": 0.22890263195163527,
+      "minimum_distinct_state_frobenius_distance": 0.16030471572296198,
+      "train_states": 64,
+      "validation_states": 16,
+      "new_test_states": 128
+    },
+    {
+      "dataset": "confirmation_3",
+      "status": "PASS",
+      "label_max_abs_error": 0.0,
+      "gram_max_abs_error": 4.440892098500626e-16,
+      "antipodal_max_abs_error": 0.0,
+      "nearest_heldout_axis_angle_radians_min": 0.22184608986132764,
+      "minimum_distinct_state_frobenius_distance": 0.20184560451788344,
+      "train_states": 64,
+      "validation_states": 16,
+      "new_test_states": 128
+    },
+    {
+      "dataset": "confirmation_4",
+      "status": "PASS",
+      "label_max_abs_error": 0.0,
+      "gram_max_abs_error": 3.3306690738754696e-16,
+      "antipodal_max_abs_error": 0.0,
+      "nearest_heldout_axis_angle_radians_min": 0.3121950116772886,
+      "minimum_distinct_state_frobenius_distance": 0.149516532186421,
+      "train_states": 64,
+      "validation_states": 16,
+      "new_test_states": 128
+    },
+    {
+      "dataset": "confirmation_5",
+      "status": "PASS",
+      "label_max_abs_error": 0.0,
+      "gram_max_abs_error": 4.440892098500626e-16,
+      "antipodal_max_abs_error": 0.0,
+      "nearest_heldout_axis_angle_radians_min": 0.11080960382147831,
+      "minimum_distinct_state_frobenius_distance": 0.18429998553287644,
+      "train_states": 64,
+      "validation_states": 16,
+      "new_test_states": 128
+    },
+    {
+      "dataset": "development",
+      "status": "PASS",
+      "label_max_abs_error": 0.0,
+      "gram_max_abs_error": 4.440892098500626e-16,
+      "antipodal_max_abs_error": 0.0,
+      "nearest_heldout_axis_angle_radians_min": 0.33894164418628503,
+      "minimum_distinct_state_frobenius_distance": 0.14964379657434818,
+      "train_states": 64,
+      "validation_states": 16,
+      "new_test_states": 128
+    }
+  ]
+}

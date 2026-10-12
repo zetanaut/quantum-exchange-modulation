@@ -1,0 +1,101 @@
+{
+  "dataset": "confirmation_3",
+  "source_states": 128,
+  "total_copies_per_state": 3840,
+  "query_seed": 2026101290,
+  "rows": [
+    {
+      "contexts": 1,
+      "method": "analytic_exchange_direct_K",
+      "expected_mse": 0.0008072610069417367,
+      "quantum_copies_per_query": 3840
+    },
+    {
+      "contexts": 1,
+      "method": "reusable_12_Pauli_U_statistics",
+      "expected_mse": 0.0019512181315946616,
+      "monte_carlo_standard_error": 1.2067570944888794e-05,
+      "shots_per_setting_once_per_state": 320
+    },
+    {
+      "contexts": 1,
+      "method": "joint_exchange",
+      "selected_validation_seed": 31,
+      "expected_mse": 0.0008447623872345532,
+      "squared_bias": 8.847965635535998e-12,
+      "measurement_variance": 0.0008447623783865877,
+      "quantum_copies_per_query": 3840
+    },
+    {
+      "contexts": 1,
+      "method": "exchange_matched_qnn",
+      "selected_validation_seed": 17,
+      "expected_mse": 0.001024003557895978,
+      "squared_bias": 4.353074379800845e-10,
+      "measurement_variance": 0.00102400312258854,
+      "quantum_copies_per_query": 3840
+    },
+    {
+      "contexts": 8,
+      "method": "analytic_exchange_direct_K",
+      "expected_mse": 0.006415761185796471,
+      "quantum_copies_per_query": 480
+    },
+    {
+      "contexts": 8,
+      "method": "reusable_12_Pauli_U_statistics",
+      "expected_mse": 0.001892099019420971,
+      "monte_carlo_standard_error": 9.261764159334556e-06,
+      "shots_per_setting_once_per_state": 320
+    },
+    {
+      "contexts": 8,
+      "method": "joint_exchange",
+      "selected_validation_seed": 31,
+      "expected_mse": 0.006711049074133668,
+      "squared_bias": 8.398405383789394e-12,
+      "measurement_variance": 0.006711049065735263,
+      "quantum_copies_per_query": 480
+    },
+    {
+      "contexts": 8,
+      "method": "exchange_matched_qnn",
+      "selected_validation_seed": 17,
+      "expected_mse": 0.00812298524914886,
+      "squared_bias": 4.002190699658758e-10,
+      "measurement_variance": 0.00812298484892979,
+      "quantum_copies_per_query": 480
+    },
+    {
+      "contexts": 32,
+      "method": "analytic_exchange_direct_K",
+      "expected_mse": 0.025653751545119886,
+      "quantum_copies_per_query": 120
+    },
+    {
+      "contexts": 32,
+      "method": "reusable_12_Pauli_U_statistics",
+      "expected_mse": 0.0018918019373776517,
+      "monte_carlo_standard_error": 8.530266274943514e-06,
+      "shots_per_setting_once_per_state": 320
+    },
+    {
+      "contexts": 32,
+      "method": "joint_exchange",
+      "selected_validation_seed": 31,
+      "expected_mse": 0.026836465979025732,
+      "squared_bias": 8.107654700146757e-12,
+      "measurement_variance": 0.026836465970918075,
+      "quantum_copies_per_query": 120
+    },
+    {
+      "contexts": 32,
+      "method": "exchange_matched_qnn",
+      "selected_validation_seed": 17,
+      "expected_mse": 0.03249257712050074,
+      "squared_bias": 4.176756647123989e-10,
+      "measurement_variance": 0.032492576702825085,
+      "quantum_copies_per_query": 120
+    }
+  ]
+}

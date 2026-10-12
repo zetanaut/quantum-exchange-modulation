@@ -1,0 +1,16 @@
+{
+  "status": "Frozen before confirmation model fits",
+  "datasets": ["confirmation_1", "confirmation_2", "confirmation_3", "confirmation_4", "confirmation_5"],
+  "state_budgets": [8, 16, 32, 64],
+  "optimizer_starts": [17, 31, 73],
+  "models": ["joint_exchange", "exchange_matched_qnn", "no_commutator", "joint_exchange_neutral"],
+  "primary_models": ["joint_exchange", "exchange_matched_qnn"],
+  "LBFGS_max_iterations": 120,
+  "batch_size": 320,
+  "validation_every": 5,
+  "checkpoint_selection": "Minimum validation MSE, including initialization; no test selection",
+  "neutral_initialization": "Frame slopes zero-centered Gaussian sigma 0.2; offsets uniform [-pi,pi]; internal angles uniform [-pi,pi]; eta uniform [0.08,pi/2-0.08]; chi uniform [-pi/2,pi/2]; head weights zero-centered Gaussian sigma 0.2; bias training-label mean",
+  "split_rule": "Axis-only test rows are restricted to the states in each training budget",
+  "training": "Exact expectation, differentiable PennyLane/Torch; finite-shot training not claimed",
+  "test_reporting": "Every dataset, budget, start, and method; state-level errors retained"
+}

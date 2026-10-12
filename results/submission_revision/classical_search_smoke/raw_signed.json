@@ -1,0 +1,56 @@
+{
+  "family": "raw_signed",
+  "smoke": true,
+  "candidate_seed": 2026101299,
+  "runs": [
+    {
+      "stage": 0,
+      "candidate": {
+        "kind": "mlp",
+        "width": 32,
+        "depth": 3,
+        "activation": "tanh",
+        "learning_rate": 0.01,
+        "weight_decay": 0
+      },
+      "result": {
+        "best": {
+          "validation_mse": 0.09478936737867005,
+          "step": 15,
+          "train_mse": 0.038823063810124556
+        },
+        "history": [
+          {
+            "step": 0,
+            "train_mse": 0.3508169741702737,
+            "validation_mse": 0.38780740906889816
+          },
+          {
+            "step": 5,
+            "train_mse": 0.061321427538666,
+            "validation_mse": 0.1817620582315165
+          },
+          {
+            "step": 10,
+            "train_mse": 0.04475869610975447,
+            "validation_mse": 0.13382921447280763
+          },
+          {
+            "step": 15,
+            "train_mse": 0.038823063810124556,
+            "validation_mse": 0.09478936737867005
+          },
+          {
+            "step": 20,
+            "train_mse": 0.030720384507002475,
+            "validation_mse": 0.10773213717729761
+          }
+        ],
+        "updates_executed": 20,
+        "parameter_count": 2753,
+        "elapsed_seconds": 0.054599375000066175
+      },
+      "error": null
+    }
+  ]
+}
