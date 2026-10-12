@@ -1,10 +1,11 @@
 """Regenerate Fig. 3 from the authoritative saved direction-map CSV."""
 from pathlib import Path
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 
 ROOT = Path(__file__).resolve().parent
-SOURCE = Path("/Users/dustin/work/Q-FiLM/repo/results/physics_applications/directional_response_map.csv")
+SOURCE = Path(os.environ.get("QFILM_REPO", ROOT.parents[1])) / "results/physics_applications/directional_response_map.csv"
 rows = np.genfromtxt(SOURCE, delimiter=",", names=True, dtype=None, encoding="utf-8")
 theta = np.unique(rows["theta_rad"])
 phi = np.unique(rows["phi_rad"])

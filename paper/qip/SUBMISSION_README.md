@@ -2,6 +2,8 @@
 
 The compiled manuscript is `quantum_exchange_modulation_paper.pdf`; the editable Springer source is `quantum_exchange_modulation_paper.tex`. The source archive includes the class, bibliography style, references, four vector PDF figures, and the three figure-generation scripts. Figures 2 and 4 use the fresh QIP revision records. Figure 3 was regenerated from the original saved one-state direction-map CSV. The separate Git bundle contains the code, datasets, checkpoints, analyses, and frozen protocol.
 
+From the repository checkout, run `python paper/qip/redraw_learning.py`, `python paper/qip/redraw_copies.py`, and `python paper/qip/redraw_direction.py` to regenerate Figs. 2–4. If using the flat manuscript source archive outside the checkout, set `QFILM_REPO` to the checkout path first. The scripts need NumPy and Matplotlib.
+
 The numerical record was introduced at commit `6db56fd39ef10f117a53b05b801cdc72442176ee`; the branch also includes this manuscript source. For a standalone inspection, run `git clone qfilm-revision.bundle qfilm-review`, then `git -C qfilm-review switch codex/submission-revision` (the bundle has no default `HEAD`). To import it into the existing repository, run `git fetch /path/to/qfilm-revision.bundle codex/submission-revision` and review the fetched commit before merging.
 
 ## Scientific findings to verify

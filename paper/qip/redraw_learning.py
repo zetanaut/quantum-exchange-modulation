@@ -1,11 +1,12 @@
 """Regenerate Fig. 2 from five independent axis-holdout datasets."""
 from pathlib import Path
+import os
 import json
 import numpy as np
 import matplotlib.pyplot as plt
 
 HERE = Path(__file__).resolve().parent
-ROOT = Path("/Users/dustin/Documents/Codex/2026-10-12/l/work/qfilm/results/submission_revision")
+ROOT = Path(os.environ.get("QFILM_REPO", HERE.parents[1])) / "results/submission_revision"
 BUDGETS = [8, 16, 32, 64]
 DATASETS = [f"confirmation_{i}" for i in range(1, 6)]
 SEEDS = [17, 31, 73]

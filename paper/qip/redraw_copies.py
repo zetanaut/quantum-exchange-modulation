@@ -1,11 +1,12 @@
 """Regenerate Fig. 4 from fresh copy-risk and amortization records."""
 from pathlib import Path
+import os
 import json
 import numpy as np
 import matplotlib.pyplot as plt
 
 HERE = Path(__file__).resolve().parent
-ROOT = Path("/Users/dustin/Documents/Codex/2026-10-12/l/work/qfilm/results/submission_revision")
+ROOT = Path(os.environ.get("QFILM_REPO", HERE.parents[1])) / "results/submission_revision"
 DATASETS = [f"confirmation_{i}" for i in range(1, 6)]
 COPIES = [240, 960, 3840, 15360]
 QUERIES = [1, 8, 32]
