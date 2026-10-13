@@ -19,6 +19,17 @@ cited = {key.strip() for group in re.findall(r"\\cite\{([^}]+)\}", source)
          for key in group.split(",")}
 entries = set(re.findall(r"@\w+\s*\{\s*([^,\s]+)", bib))
 assert cited == entries, {"missing": sorted(cited - entries), "uncited": sorted(entries - cited)}
+arxiv_entries = {
+    "cha_reupload": "2509.18530v6",
+    "connerty_memory": "2605.12713v3",
+    "haboury_routing": "2307.15682",
+    "lee_observables": "2609.18655v1",
+}
+for key, identifier in arxiv_entries.items():
+    entry = re.search(rf"(?ms)^@article\{{{key},(.*?)(?=^@\w+\{{|\Z)", bib)
+    assert entry, f"Missing styled arXiv bibliography entry: {key}"
+    assert "journal={arXiv preprint}" in entry.group(1), key
+    assert f"eprint={{{identifier}}}" in entry.group(1), key
 labels = set(re.findall(r"\\label\{([^}]+)\}", source))
 references = set(re.findall(r"\\(?:eqref|ref)\{([^}]+)\}", source))
 assert references <= labels, sorted(references - labels)
@@ -38,7 +49,7 @@ transfer = json.loads((RESULT / "transfer_checks/finite_time.json").read_text())
 grid = json.loads((RESULT / "transfer_checks/directional_response_map.json").read_text())
 assert transfer["queries"] == 8064 and grid["grid_rows"] == 231
 assert r"6.27\times10^{-13}" in source and r"6.05\times10^{-12}" in source
-assert r"qip-revision-v1.1" in source
+assert r"qip-revision-v1.2" in source
 print(json.dumps({"status": "PASS", "citation_entries": len(entries),
                   "cross_references": len(references), "figures": figures,
                   "table_2_cells_checked": 16,

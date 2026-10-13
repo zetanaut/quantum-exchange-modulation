@@ -53,7 +53,7 @@ A validation-selected checkpoint from confirmation dataset 1 is evaluated on 128
 
 [Vector figure](assets/figures/qip_Fig3.pdf) · [Figure script](https://github.com/zetanaut/quantum-exchange-modulation/blob/main/paper/qip/redraw_direction.py)
 
-The manuscript source, Springer class, bibliography style, bibliography, and figures are under [`paper/qip/`](https://github.com/zetanaut/quantum-exchange-modulation/tree/qip-revision-v1.1/paper/qip). The full datasets, checkpoints, and per-start records are under [`results/submission_revision/`](https://github.com/zetanaut/quantum-exchange-modulation/tree/qip-revision-v1.1/results/submission_revision). The source uses pdfLaTeX and BibTeX. Tag `qip-revision-v1.1` identifies this frozen public version.
+The manuscript source, Springer class, bibliography style, bibliography, and figures are under [`paper/qip/`](https://github.com/zetanaut/quantum-exchange-modulation/tree/qip-revision-v1.2/paper/qip). The full datasets, checkpoints, and per-start records are under [`results/submission_revision/`](https://github.com/zetanaut/quantum-exchange-modulation/tree/qip-revision-v1.2/results/submission_revision). The source uses pdfLaTeX and BibTeX. Tag `qip-revision-v1.2` identifies this frozen public version.
 
 From a Python 3.12 environment installed per the [installation guide](install.md), the focused checks are:
 

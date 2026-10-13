@@ -248,8 +248,8 @@
     },
     {
       "path": "code/scripts/verify_qip_paper_sources.py",
-      "bytes": 2309,
-      "sha256": "c2e94d6e69e5b298e8565f773f7a5a37ddde4c89cc239b1883002cdc3673a45d"
+      "bytes": 2792,
+      "sha256": "294db622685afa841a0cbc7fcb2641695bf8102705613708d2dcfab048a5c84f"
     },
     {
       "path": "code/verification/verify.py",
